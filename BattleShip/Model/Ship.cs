@@ -19,10 +19,5 @@ namespace BattleShip.Model
             Color = color;
             Position = position;
         }
-
-        public void Draw(Graphics g)
-        {
-
-        }
     }
 }

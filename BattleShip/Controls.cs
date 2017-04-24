@@ -7,17 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BattleShip.Controller;
 
 namespace BattleShip
 {
-    public partial class Form1 : Form
+    public partial class Controls : Form
     {
-        ShipsController controller;
-        public Form1()
+        public Controls()
         {
             InitializeComponent();
-            controller = new ShipsController();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
