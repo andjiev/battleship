@@ -52,7 +52,7 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Transparent;
             this.dgvPlayer.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPlayer.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.dgvPlayer.Size = new System.Drawing.Size(303, 303);
+            this.dgvPlayer.Size = new System.Drawing.Size(363, 363);
             this.dgvPlayer.TabIndex = 0;
             this.dgvPlayer.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPlayer_CellMouseDoubleClick);
             this.dgvPlayer.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPlayer_CellMouseDown);
@@ -74,12 +74,12 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Transparent;
             this.dgvComputer.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvComputer.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.dgvComputer.Size = new System.Drawing.Size(303, 303);
+            this.dgvComputer.Size = new System.Drawing.Size(363, 363);
             this.dgvComputer.TabIndex = 1;
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(56, 375);
+            this.btnStart.Location = new System.Drawing.Point(60, 443);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(75, 23);
             this.btnStart.TabIndex = 2;
@@ -89,7 +89,7 @@
             // 
             // btnEnd
             // 
-            this.btnEnd.Location = new System.Drawing.Point(217, 375);
+            this.btnEnd.Location = new System.Drawing.Point(289, 443);
             this.btnEnd.Name = "btnEnd";
             this.btnEnd.Size = new System.Drawing.Size(75, 23);
             this.btnEnd.TabIndex = 3;
@@ -101,7 +101,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(880, 583);
+            this.ClientSize = new System.Drawing.Size(919, 583);
             this.Controls.Add(this.btnEnd);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.dgvComputer);

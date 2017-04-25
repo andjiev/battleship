@@ -65,10 +65,11 @@ namespace BattleShip
 
         private void dgvPlayer_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            controller.Select(new Point { X = e.RowIndex, Y = e.ColumnIndex });
+            Point position = new Point { X = e.RowIndex, Y = e.ColumnIndex };
+            controller.Select(position);
             if (controller.selected != null)
             {
-                controller.selected.ChangePosition(new Point { X = e.RowIndex, Y = e.ColumnIndex });
+                controller.selected.ChangePosition(position);
             }
             ShowShips(dgvPlayer);
             controller.UnSelect();
