@@ -12,8 +12,8 @@ namespace BattleShip.Controller
 {
     class PlayerController
     {
-        private List<Ship> ships;
-        public Ship selected;
+        private static List<Ship> ships;
+        public  Ship selected;
        
         public PlayerController()
         {

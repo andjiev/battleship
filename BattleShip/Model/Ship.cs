@@ -108,13 +108,21 @@ namespace BattleShip.Model
             Position = position;
 
         }
-        public bool checkPoint(Ship p) {
-            if (this.Position.X == p.Position.X  || this.Position.Y==p.Position.Y) {
-                return false;
-            }
-            else if(this.Position.Y==p.Position.X || this.Position.X == p.Position.Y)
+        public bool checkIfAlive(DataGridView grid) {
+            if (Type == View.HORIZONTAL)
             {
-                return false;
+                for (int i = Position.Y; i < Position.Y + Size ; i++) {
+                     if(grid.Rows[Position.X].Cells[i].Style.BackColor != Color.Red)
+                    {
+                        return false;
+                    }
+                    return true;
+                }
+            }
+            for(int i = Position.X; i < Position.X + Size; i++)
+            {
+                if (grid.Rows[i].Cells[Position.Y].Style.BackColor != Color.Red)
+                    return false;
             }
             return true;
         }

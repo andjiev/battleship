@@ -21,7 +21,7 @@ namespace BattleShip.Controller
             for (int i = 0; i < 10; i++)
             {
                 int size = random.Next(1, 5);
-                int width = random.Next(1, 12);
+                int width = random.Next(0, 11);
                 Ship ship = new Ship(size, Color.Blue, new Point { X = random.Next(0, 11), Y = random.Next(0,11) }, size % 4 == 0 ? Ship.View.VERTICAL : Ship.View.HORIZONTAL);
 
                 if (!ships.Contains(ship))
@@ -44,7 +44,7 @@ namespace BattleShip.Controller
         {
             Random random = new Random();
             Point point = new Point { X = random.Next(0, 11), Y = random.Next(0, 11) };
-
+           
         }
         public void Show(DataGridView grid)
         {
