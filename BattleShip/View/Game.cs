@@ -8,22 +8,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BattleShip.Controller;
-using BattleShip.Model.AI;
+using BattleShip.Model;
 
 namespace BattleShip
 {
     public partial class Game : Form
     {
         ShipsController controller;
-        AI
+        AI Bot;
         public Game()
         {
             InitializeComponent();
             controller = new ShipsController();
-            a
+            Bot = new AI();
             ShowShips(dgvPlayer);
+        
             SetGridView(dgvComputer);
-          
+            Bot.Show(dgvComputer);
+
         }
 
         private void SetGridView(DataGridView grid)
