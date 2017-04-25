@@ -12,9 +12,9 @@ namespace BattleShip.Controller
 {
     class PlayerController
     {
-        public static List<Ship> ships;
-        public  Ship selected;
-       
+        private List<Ship> ships;
+        public Ship selected;
+
         public PlayerController()
         {
             ships = new List<Ship>();
@@ -75,15 +75,6 @@ namespace BattleShip.Controller
         {
             grid.Enabled = true;            
             ships.ForEach(ship => ship.Color = Color.Blue);
-        }
-
-        public void CheckAlive(DataGridView grid)
-        {
-            if (ships.Exists(ship => !ship.checkIfAlive(grid)))
-            {
-                MessageBox.Show("da");
-                ships.RemoveAll(ship => !ship.checkIfAlive(grid));
-            }
         }
     }
 }

@@ -11,8 +11,7 @@ namespace BattleShip.Controller
 {
     class ComputerController
     {
-        List<Ship> ships;
-       
+        List<Ship> ships;       
 
         public ComputerController()
         {
@@ -36,20 +35,21 @@ namespace BattleShip.Controller
                     i--;
                 }
             }
-
-
         }
 
-        public Point Shoot()
+        public void SetGridView(DataGridView grid)
         {
-            Random random = new Random();
-            Point point = new Point { X = random.Next(0, 11), Y = random.Next(0, 11) };
-           // Point point = new Point { X = 0, Y = 2 };
-            MessageBox.Show("Shot at coordinates X= " + point.X + " Y= " + point.Y);
-           foreach(Ship s in PlayerController.ships)
+            grid.Rows.Clear();
+            grid.RowCount = 12;
+            grid.ColumnCount = 12; ;
+            for (int i = 0; i < 12; i++)
             {
+
+                grid.Rows[i].Height = 30;
+                grid.Columns[i].Width = 30;
+
                 //TODO : Make it precise
-                if(s.Position == point)
+                /*if(s.Position == point)
                 {
                     return point;
                     s.Color = Color.Red;
@@ -58,12 +58,29 @@ namespace BattleShip.Controller
                 {
                     return point;
 
-                }
+                }*/
                 
+
             }
-            return new Point { X = -1, Y = -1 };
+            grid.ClearSelection();
         }
-        public void Show(DataGridView grid)
+
+        public void Shoot(DataGridView grid)
+        {
+            Random random = new Random();
+            int row = random.Next(0, 11);
+            int column = random.Next(0, 11);
+            if(grid.Rows[row].Cells[column].Style.BackColor == Color.Gray)
+            {
+                grid.Rows[row].Cells[column].Style.BackColor = Color.Red;
+            }                
+            else
+            {
+                grid.Rows[row].Cells[column].Style.BackColor = Color.Purple;
+            }
+            grid.Rows[row].Cells[column].ReadOnly = true;
+        }
+        public void ShowShips(DataGridView grid)
         {
             ships.ForEach(ship => ship.Show(grid));
         }

@@ -81,7 +81,6 @@ namespace BattleShip.Model
                 return Position.Y == position.Y && position.X >= Position.X && position.X < Position.X + Size;
             }
         }
-
         /*
         public bool Find(Point position, Ship selected)
         {
@@ -109,28 +108,16 @@ namespace BattleShip.Model
             Position = position;
 
         }
-        public bool checkIfAlive(DataGridView grid) {
-            if (Type == View.HORIZONTAL)
-            {
-                for (int i = Position.Y; i < Position.Y + Size ; i++) {
-                     if(grid.Rows[Position.X].Cells[i].Style.BackColor != Color.Red)
-                    {
-                        return true;
-                    }
-                }
+        public bool checkPoint(Ship p) {
+            if (this.Position.X == p.Position.X  || this.Position.Y==p.Position.Y) {
+                return false;
             }
-            else
+            else if(this.Position.Y==p.Position.X || this.Position.X == p.Position.Y)
             {
-                for (int i = Position.X; i < Position.X + Size; i++)
-                {
-                    if (grid.Rows[i].Cells[Position.Y].Style.BackColor != Color.Red)
-                        return true;
-                }
-                
+                return false;
             }
-            return false;
+            return true;
         }
-        
        
     }
 }

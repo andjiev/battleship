@@ -34,7 +34,6 @@
             this.dgvComputer = new System.Windows.Forms.DataGridView();
             this.btnStart = new System.Windows.Forms.Button();
             this.btnEnd = new System.Windows.Forms.Button();
-            this.btnShoot = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComputer)).BeginInit();
             this.SuspendLayout();
@@ -98,22 +97,11 @@
             this.btnEnd.UseVisualStyleBackColor = true;
             this.btnEnd.Click += new System.EventHandler(this.btnEnd_Click);
             // 
-            // btnShoot
-            // 
-            this.btnShoot.Location = new System.Drawing.Point(605, 458);
-            this.btnShoot.Name = "btnShoot";
-            this.btnShoot.Size = new System.Drawing.Size(75, 23);
-            this.btnShoot.TabIndex = 4;
-            this.btnShoot.Text = "Test";
-            this.btnShoot.UseVisualStyleBackColor = true;
-            this.btnShoot.Click += new System.EventHandler(this.btnShoot_Click);
-            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(919, 583);
-            this.Controls.Add(this.btnShoot);
             this.Controls.Add(this.btnEnd);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.dgvComputer);
@@ -133,6 +121,5 @@
         private System.Windows.Forms.DataGridView dgvComputer;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnEnd;
-        private System.Windows.Forms.Button btnShoot;
     }
 }

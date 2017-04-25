@@ -14,26 +14,24 @@ namespace BattleShip
     public partial class Game : Form
     {
         PlayerController player;
-        ComputerController computer;
         public Game()
         {
             InitializeComponent();
             player = new PlayerController();
-            computer = new ComputerController();
-            ShowPlayerView();
-            ShowComputerView();
+            ShowShips(dgvPlayer);
+            SetGridView(dgvComputer);
+          
         }
 
-        public void ShowPlayerView()
+        private void SetGridView(DataGridView grid)
         {
-            player.SetGridView(dgvPlayer);
-            player.ShowShips(dgvPlayer);
+            player.SetGridView(grid);
         }
 
-        public void ShowComputerView()
+        private void ShowShips(DataGridView grid)
         {
-            computer.SetGridView(dgvComputer);
-            computer.ShowShips(dgvComputer);
+            SetGridView(grid);
+            player.ShowShips(grid);
         }
 
         private void dgvPlayer_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
@@ -46,7 +44,7 @@ namespace BattleShip
             if(player.selected != null)
             {
                 player.selected.Position = new Point { X = e.RowIndex, Y = e.ColumnIndex };
-                ShowPlayerView();
+                ShowShips(dgvPlayer);
             }
         }
 
@@ -68,26 +66,20 @@ namespace BattleShip
             {
                 player.selected.ChangePosition(position);
             }
-            ShowPlayerView();
+            ShowShips(dgvPlayer);
             player.UnSelect();
         }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
             player.DisableCells(dgvPlayer);
-            player.ShowShips(dgvPlayer);
+            ShowShips(dgvPlayer);
         }
 
         private void btnEnd_Click(object sender, EventArgs e)
         {
             player.EnableCells(dgvPlayer);
-            player.ShowShips(dgvPlayer);
-        }
-
-        private void btnShoot_Click(object sender, EventArgs e)
-        {
-            computer.Shoot(dgvPlayer);
-            player.CheckAlive(dgvPlayer);
+            ShowShips(dgvPlayer);
         }
     }
 }
