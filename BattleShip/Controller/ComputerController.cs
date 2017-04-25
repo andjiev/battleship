@@ -44,7 +44,15 @@ namespace BattleShip.Controller
         {
             Random random = new Random();
             Point point = new Point { X = random.Next(0, 11), Y = random.Next(0, 11) };
-           
+            MessageBox.Show("Shot at coordinates X= " + point.X + " Y= " + point.Y);
+           foreach(Ship s in PlayerController.ships)
+            {
+                if(s.Position == point)
+                {
+                    MessageBox.Show("HIT!");
+                    s.Color = Color.Red;
+                }
+            }
         }
         public void Show(DataGridView grid)
         {

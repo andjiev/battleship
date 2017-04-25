@@ -78,6 +78,7 @@ namespace BattleShip
         {
             player.DisableCells(dgvPlayer);
             ShowShips(dgvPlayer);
+            bot.Shoot();
         }
 
         private void btnEnd_Click(object sender, EventArgs e)
@@ -89,6 +90,11 @@ namespace BattleShip
         private void Game_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnShoot_Click(object sender, EventArgs e)
+        {
+            bot.Shoot();
         }
     }
 }
