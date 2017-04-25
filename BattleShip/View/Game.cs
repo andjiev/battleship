@@ -20,9 +20,10 @@ namespace BattleShip
             InitializeComponent();
             player = new PlayerController();
             bot = new ComputerController();
-            
-            ShowShips(dgvPlayer);
             SetGridView(dgvComputer);
+            bot.Show(dgvComputer);
+            ShowShips(dgvPlayer);
+           
           
         }
 

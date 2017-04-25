@@ -14,7 +14,7 @@ namespace BattleShip.Controller
     {
         private List<Ship> ships;
         public Ship selected;
-
+       
         public PlayerController()
         {
             ships = new List<Ship>();
