@@ -40,19 +40,26 @@ namespace BattleShip.Controller
 
         }
 
-        public void Shoot()
+        public Point Shoot()
         {
             Random random = new Random();
             Point point = new Point { X = random.Next(0, 11), Y = random.Next(0, 11) };
+           // Point point = new Point { X = 0, Y = 2 };
             MessageBox.Show("Shot at coordinates X= " + point.X + " Y= " + point.Y);
            foreach(Ship s in PlayerController.ships)
             {
                 if(s.Position == point)
                 {
-                    MessageBox.Show("HIT!");
+                    return point;
                     s.Color = Color.Red;
                 }
+                else if(s.Type==Ship.View.HORIZONTAL && point.Y <= s.Position.Y && point.Y>=s.Position.X)
+                {
+                    return point;
+
+                }
             }
+            return new Point { X = -1, Y = -1 };
         }
         public void Show(DataGridView grid)
         {

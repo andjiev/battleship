@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BattleShip.Model;
 using BattleShip.Controller;
 
 namespace BattleShip
@@ -94,7 +95,12 @@ namespace BattleShip
 
         private void btnShoot_Click(object sender, EventArgs e)
         {
-            bot.Shoot();
+            Point p = bot.Shoot();
+            if (p.X !=-1) {
+               MessageBox.Show("HIT!");
+                dgvPlayer.Rows[p.X].Cells[p.Y].Style.BackColor = Color.Red;
+            }
+
         }
     }
 }
