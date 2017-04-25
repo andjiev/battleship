@@ -48,6 +48,7 @@ namespace BattleShip.Controller
             MessageBox.Show("Shot at coordinates X= " + point.X + " Y= " + point.Y);
            foreach(Ship s in PlayerController.ships)
             {
+                //TODO : Make it precise
                 if(s.Position == point)
                 {
                     return point;
@@ -58,6 +59,7 @@ namespace BattleShip.Controller
                     return point;
 
                 }
+                
             }
             return new Point { X = -1, Y = -1 };
         }
