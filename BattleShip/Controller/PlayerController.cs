@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace BattleShip.Controller
 {
-    class ShipsController
+    class PlayerController
     {
         private List<Ship> ships;
         public Ship selected;
 
-        public ShipsController()
+        public PlayerController()
         {
             ships = new List<Ship>();
             ships.Add(new Ship(1, Color.Blue, new Point { X = 0, Y = 2 }, Ship.View.HORIZONTAL));

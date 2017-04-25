@@ -45,7 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\ShipsController.cs" />
+    <Compile Include="Controller\PlayerController.cs" />
     <Compile Include="Model\AI.cs" />
     <Compile Include="View\Controls.cs">
       <SubType>Form</SubType>

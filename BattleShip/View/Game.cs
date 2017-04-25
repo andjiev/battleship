@@ -8,19 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BattleShip.Controller;
-using BattleShip.Model.AI;
 
 namespace BattleShip
 {
     public partial class Game : Form
     {
-        ShipsController controller;
-        AI
+        PlayerController player;
         public Game()
         {
             InitializeComponent();
-            controller = new ShipsController();
-            a
+            player = new PlayerController();
             ShowShips(dgvPlayer);
             SetGridView(dgvComputer);
           
@@ -28,66 +25,61 @@ namespace BattleShip
 
         private void SetGridView(DataGridView grid)
         {
-            controller.SetGridView(grid);
+            player.SetGridView(grid);
         }
 
         private void ShowShips(DataGridView grid)
         {
             SetGridView(grid);
-            controller.ShowShips(grid);
+            player.ShowShips(grid);
         }
 
         private void dgvPlayer_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
-            controller.Select(new Point { X = e.RowIndex, Y = e.ColumnIndex });
+            player.Select(new Point { X = e.RowIndex, Y = e.ColumnIndex });
         }
 
         private void dgvPlayer_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if(controller.selected != null)
+            if(player.selected != null)
             {
-                controller.selected.Position = new Point { X = e.RowIndex, Y = e.ColumnIndex };
+                player.selected.Position = new Point { X = e.RowIndex, Y = e.ColumnIndex };
                 ShowShips(dgvPlayer);
             }
         }
 
         private void dgvPlayer_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
-            controller.UnSelect();
+            player.UnSelect();
         }
 
         private void dgvPlayer_MouseUp(object sender, MouseEventArgs e)
         {
-            controller.UnSelect();
+            player.UnSelect();
         }
 
         private void dgvPlayer_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             Point position = new Point { X = e.RowIndex, Y = e.ColumnIndex };
-            controller.Select(position);
-            if (controller.selected != null)
+            player.Select(position);
+            if (player.selected != null)
             {
-                controller.selected.ChangePosition(position);
+                player.selected.ChangePosition(position);
             }
             ShowShips(dgvPlayer);
-            controller.UnSelect();
+            player.UnSelect();
         }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            controller.DisableCells(dgvPlayer);
+            player.DisableCells(dgvPlayer);
             ShowShips(dgvPlayer);
         }
 
         private void btnEnd_Click(object sender, EventArgs e)
         {
-            controller.EnableCells(dgvPlayer);
+            player.EnableCells(dgvPlayer);
             ShowShips(dgvPlayer);
-        }
-
-        private void Game_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
