@@ -30,9 +30,8 @@ namespace BattleShip.Controller
             selected = null;
         }          
 
-        public void SetGridView(Control g)
+        public void SetGridView(DataGridView grid)
         {
-            DataGridView grid = (DataGridView)g;
             grid.Rows.Clear();
             grid.RowCount = 12;
             grid.ColumnCount = 12;;
@@ -41,12 +40,11 @@ namespace BattleShip.Controller
                 grid.Rows[i].Height = 25;
                 grid.Columns[i].Width = 25;
             }
-            grid.RowsDefaultCellStyle.SelectionBackColor = Color.White;
         }
 
-        public void ShowShips(Control g)
+        public void ShowShips(DataGridView grid)
         {
-            ships.ForEach(ship => ship.Show(g));
+            ships.ForEach(ship => ship.Show(grid));
         }
 
         public void Select(Point Position)

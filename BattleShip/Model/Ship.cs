@@ -28,10 +28,8 @@ namespace BattleShip.Model
             Type = type;
         }
 
-        public void Show(Control g)
-        {
-            DataGridView grid = (DataGridView)g;
-            
+        public void Show(DataGridView grid)
+        {            
             if (Type == View.HORIZONTAL)
             {
                 for (int i = Position.Y; i < Size + Position.Y; i++)
@@ -46,19 +44,6 @@ namespace BattleShip.Model
                     grid.Rows[i].Cells[Position.Y].Style.BackColor = Color;
                 }
             }
-            
-        }
-
-        public void ChangePosition()
-        {
-            if (Type == View.HORIZONTAL)
-            {
-                Type = View.VERTICAL;
-            }
-            else
-            {
-                Type = View.HORIZONTAL;
-            }                
         }
 
         public bool Select(Point position)
@@ -70,6 +55,18 @@ namespace BattleShip.Model
             else
             {
                 return Position.Y == position.Y && position.X >= Position.X && position.X < Position.X + Size;
+            }
+        }
+
+        public void ChangePosition()
+        {
+            if (Type == View.HORIZONTAL)
+            {
+                Type = View.VERTICAL;
+            }
+            else
+            {
+                Type = View.HORIZONTAL;
             }
         }
     }

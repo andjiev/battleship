@@ -22,12 +22,12 @@ namespace BattleShip
             SetGridView(dgvComputer);
         }
 
-        private void SetGridView(Control grid)
+        private void SetGridView(DataGridView grid)
         {
             controller.SetGridView(grid);
         }
 
-        private void ShowShips(Control grid)
+        private void ShowShips(DataGridView grid)
         {
             SetGridView(grid);
             controller.ShowShips(grid);
@@ -51,7 +51,5 @@ namespace BattleShip
         {
             controller.UnSelect();
         }
-
-        
     }
 }

@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvPlayer = new System.Windows.Forms.DataGridView();
             this.dgvComputer = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlayer)).BeginInit();
@@ -45,6 +47,8 @@
             this.dgvPlayer.Name = "dgvPlayer";
             this.dgvPlayer.ReadOnly = true;
             this.dgvPlayer.RowHeadersVisible = false;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Transparent;
+            this.dgvPlayer.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvPlayer.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dgvPlayer.Size = new System.Drawing.Size(303, 303);
             this.dgvPlayer.TabIndex = 0;
@@ -63,6 +67,8 @@
             this.dgvComputer.Name = "dgvComputer";
             this.dgvComputer.ReadOnly = true;
             this.dgvComputer.RowHeadersVisible = false;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Transparent;
+            this.dgvComputer.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvComputer.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dgvComputer.Size = new System.Drawing.Size(303, 303);
             this.dgvComputer.TabIndex = 1;
@@ -74,6 +80,7 @@
             this.ClientSize = new System.Drawing.Size(880, 583);
             this.Controls.Add(this.dgvComputer);
             this.Controls.Add(this.dgvPlayer);
+            this.DoubleBuffered = true;
             this.Name = "Game";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Game";
