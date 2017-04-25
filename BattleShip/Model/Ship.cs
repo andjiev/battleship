@@ -31,6 +31,7 @@ namespace BattleShip.Model
         public void Show(Control g)
         {
             DataGridView grid = (DataGridView)g;
+            
             if (Type == View.HORIZONTAL)
             {
                 for (int i = Position.Y; i < Size + Position.Y; i++)
@@ -46,6 +47,30 @@ namespace BattleShip.Model
                 }
             }
             
+        }
+
+        public void ChangePosition()
+        {
+            if (Type == View.HORIZONTAL)
+            {
+                Type = View.VERTICAL;
+            }
+            else
+            {
+                Type = View.HORIZONTAL;
+            }                
+        }
+
+        public bool Select(Point position)
+        {
+            if (Type == View.HORIZONTAL)
+            {
+                return Position.X == position.X && position.Y >= Position.Y && position.Y < Position.Y + Size;
+            }
+            else
+            {
+                return Position.Y == position.Y && position.X >= Position.X && position.X < Position.X + Size;
+            }
         }
     }
 }

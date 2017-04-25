@@ -18,9 +18,8 @@ namespace BattleShip
         {
             InitializeComponent();
             controller = new ShipsController();
-            SetGridView(dgvPlayer);
-            SetGridView(dgvComputer);
             ShowShips(dgvPlayer);
+            SetGridView(dgvComputer);
         }
 
         private void SetGridView(Control grid)
@@ -30,17 +29,29 @@ namespace BattleShip
 
         private void ShowShips(Control grid)
         {
+            SetGridView(grid);
             controller.ShowShips(grid);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void dgvPlayer_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
-            Application.Exit();
+            controller.Select(new Point { X = e.RowIndex, Y = e.ColumnIndex });
         }
 
-        private void dgvPlayer_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvPlayer_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
-
+            if(controller.selected != null)
+            {
+                controller.selected.Position = new Point { X = e.RowIndex, Y = e.ColumnIndex };
+                ShowShips(dgvPlayer);
+            }
         }
+
+        private void dgvPlayer_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            controller.UnSelect();
+        }
+
+        
     }
 }
