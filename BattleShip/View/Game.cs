@@ -15,7 +15,7 @@ namespace BattleShip
     public partial class Game : Form
     {
         ShipsController controller;
-        AI Bot;
+       AI Bot;
         public Game()
         {
             InitializeComponent();
