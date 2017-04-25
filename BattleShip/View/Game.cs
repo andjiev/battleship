@@ -14,12 +14,12 @@ namespace BattleShip
     public partial class Game : Form
     {
         PlayerController player;
-        AIController bot;
+        ComputerController bot;
         public Game()
         {
             InitializeComponent();
             player = new PlayerController();
-            bot = new AIController();
+            bot = new ComputerController();
             
             ShowShips(dgvPlayer);
             SetGridView(dgvComputer);
