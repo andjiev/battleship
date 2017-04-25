@@ -14,10 +14,13 @@ namespace BattleShip
     public partial class Game : Form
     {
         PlayerController player;
+        AIController bot;
         public Game()
         {
             InitializeComponent();
             player = new PlayerController();
+            bot = new AIController();
+            
             ShowShips(dgvPlayer);
             SetGridView(dgvComputer);
           
@@ -80,6 +83,11 @@ namespace BattleShip
         {
             player.EnableCells(dgvPlayer);
             ShowShips(dgvPlayer);
+        }
+
+        private void Game_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

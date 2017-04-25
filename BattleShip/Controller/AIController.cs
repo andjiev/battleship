@@ -17,7 +17,8 @@ namespace BattleShip.Model
             ships = new List<Ship>();
             for (int i = 0; i < 10; i++) {
                 int size = random.Next(1, 5);
-                Ship ship = new Ship(size, Color.Blue, new Point { X = random.Next(0, size), Y = random.Next(size+1, 12) }, size % 4 == 0 ? Ship.View.VERTICAL: Ship.View.HORIZONTAL);
+                int width = random.Next(1, 12);
+                Ship ship = new Ship(size, Color.Blue, new Point { X = random.Next(0, width), Y = random.Next(width, width+size) }, size % 4 == 0 ? Ship.View.VERTICAL: Ship.View.HORIZONTAL);
 
                 if (!ships.Contains(ship)  ) {
                      
