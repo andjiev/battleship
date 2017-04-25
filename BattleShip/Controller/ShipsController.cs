@@ -37,8 +37,8 @@ namespace BattleShip.Controller
             grid.ColumnCount = 12;;
             for (int i = 0; i < 12; i++)
             {
-                grid.Rows[i].Height = 25;
-                grid.Columns[i].Width = 25;
+                grid.Rows[i].Height = 30;
+                grid.Columns[i].Width = 30;
             }
             grid.ClearSelection();
         }
@@ -53,6 +53,11 @@ namespace BattleShip.Controller
             selected = ships.FirstOrDefault(ship => ship.Select(Position));
         }
 
+        /*public bool Duplicate(Point Position)
+        {
+            return ships.Exists(ship => ship.Find(Position,selected));
+        }*/
+
         public void UnSelect()
         {
             selected = null;
@@ -61,12 +66,14 @@ namespace BattleShip.Controller
         public void DisableCells(DataGridView grid)
         {
             grid.Enabled = false;
-            ships.ForEach(ship => ship.Color = Color.Gray);            
+            ships.ForEach(ship => ship.Color = Color.Gray);
+            /*grid.DefaultCellStyle.BackColor = Color.LightGray;
+            grid.DefaultCellStyle.ForeColor = Color.DarkGray;*/
         }
 
         public void EnableCells(DataGridView grid)
         {
-            grid.Enabled = true;
+            grid.Enabled = true;            
             ships.ForEach(ship => ship.Color = Color.Blue);
         }
     }

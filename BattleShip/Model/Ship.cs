@@ -81,6 +81,19 @@ namespace BattleShip.Model
                 return Position.Y == position.Y && position.X >= Position.X && position.X < Position.X + Size;
             }
         }
+        /*
+        public bool Find(Point position, Ship selected)
+        {
+            if (Type == View.VERTICAL)
+            {
+                
+                bool found = Position.X == position.X && position.Y + selected.Size >= Position.Y;
+                if(found)
+                    MessageBox.Show("FOUND" + selected.Size.ToString());
+                return found;
+            }
+            return false;
+        }*/
 
         public void ChangePosition(Point position)
         {
