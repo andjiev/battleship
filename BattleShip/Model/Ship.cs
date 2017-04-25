@@ -94,5 +94,6 @@ namespace BattleShip.Model
             }
             Position = position;
         }
+       
     }
 }
