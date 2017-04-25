@@ -22,7 +22,7 @@ namespace BattleShip.Controller
             {
                 int size = random.Next(1, 5);
                 int width = random.Next(1, 12);
-                Ship ship = new Ship(size, Color.Blue, new Point { X = random.Next(0, width), Y = random.Next(width, width + size) }, size % 4 == 0 ? Ship.View.VERTICAL : Ship.View.HORIZONTAL);
+                Ship ship = new Ship(size, Color.Blue, new Point { X = random.Next(0, 11), Y = random.Next(0,11) }, size % 4 == 0 ? Ship.View.VERTICAL : Ship.View.HORIZONTAL);
 
                 if (!ships.Contains(ship))
                 {
