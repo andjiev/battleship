@@ -8,18 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BattleShip.Controller;
+using BattleShip.Model.AI;
 
 namespace BattleShip
 {
     public partial class Game : Form
     {
         ShipsController controller;
+        AI
         public Game()
         {
             InitializeComponent();
             controller = new ShipsController();
+            a
             ShowShips(dgvPlayer);
             SetGridView(dgvComputer);
+          
         }
 
         private void SetGridView(DataGridView grid)
@@ -79,6 +83,11 @@ namespace BattleShip
         {
             controller.EnableCells(dgvPlayer);
             ShowShips(dgvPlayer);
+        }
+
+        private void Game_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
