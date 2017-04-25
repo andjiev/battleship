@@ -40,6 +40,7 @@ namespace BattleShip.Controller
                 grid.Rows[i].Height = 25;
                 grid.Columns[i].Width = 25;
             }
+            grid.ClearSelection();
         }
 
         public void ShowShips(DataGridView grid)

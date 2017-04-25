@@ -29,20 +29,44 @@ namespace BattleShip.Model
         }
 
         public void Show(DataGridView grid)
-        {            
+        {
+            int i;
+            bool switched = false;
             if (Type == View.HORIZONTAL)
             {
-                for (int i = Position.Y; i < Size + Position.Y; i++)
+                for (i = Position.Y; i < Position.Y +  Size; i++)
                 {
-                    grid.Rows[Position.X].Cells[i].Style.BackColor = Color;
+                    if (i < 12)
+                    {
+                        grid.Rows[Position.X].Cells[i].Style.BackColor = Color;
+                    }
+                    else
+                    {
+                        grid.Rows[Position.X].Cells[i - Size].Style.BackColor = Color;
+                        switched = true;
+                       
+                    }                                               
                 }
+                if(switched)
+                    Position = new Point { X = Position.X, Y = 12 - Size};
             }
             else
             {
-                for (int i = Position.X; i < Size + Position.X; i++)
+                for (i = Position.X; i < Position.X + Size; i++)
                 {
-                    grid.Rows[i].Cells[Position.Y].Style.BackColor = Color;
+                    if(i < 12)
+                    {
+                        grid.Rows[i].Cells[Position.Y].Style.BackColor = Color;
+                    }
+                    else
+                    {
+                        grid.Rows[i - Size].Cells[Position.Y].Style.BackColor = Color;
+                        switched = true;
+                        
+                    }
                 }
+                if(switched)
+                    Position = new Point { X = 12 - Size, Y = Position.Y };
             }
         }
 
@@ -58,7 +82,7 @@ namespace BattleShip.Model
             }
         }
 
-        public void ChangePosition()
+        public void ChangePosition(Point position)
         {
             if (Type == View.HORIZONTAL)
             {
@@ -68,6 +92,7 @@ namespace BattleShip.Model
             {
                 Type = View.HORIZONTAL;
             }
+            Position = position;
         }
     }
 }

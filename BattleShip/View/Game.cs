@@ -51,5 +51,21 @@ namespace BattleShip
         {
             controller.UnSelect();
         }
+
+        private void dgvPlayer_MouseUp(object sender, MouseEventArgs e)
+        {
+            controller.UnSelect();
+        }
+
+        private void dgvPlayer_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            controller.Select(new Point { X = e.RowIndex, Y = e.ColumnIndex });
+            if (controller.selected != null)
+            {
+                controller.selected.ChangePosition(new Point { X = e.RowIndex, Y = e.ColumnIndex });
+            }
+            ShowShips(dgvPlayer);
+            controller.UnSelect();
+        }
     }
 }
