@@ -106,6 +106,17 @@ namespace BattleShip.Model
                 Type = View.HORIZONTAL;
             }
             Position = position;
+
+        }
+        public bool checkPoint(Ship p) {
+            if (this.Position.X == p.Position.X  || this.Position.Y==p.Position.Y) {
+                return false;
+            }
+            else if(this.Position.Y==p.Position.X || this.Position.X == p.Position.Y)
+            {
+                return false;
+            }
+            return true;
         }
        
     }
