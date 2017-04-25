@@ -8,11 +8,11 @@ using System.Windows.Forms;
 
 namespace BattleShip.Model
 {
-    class AI
+    class AIController
     {
         List<Ship> ships;
 
-        public AI() {
+        public AIController() {
             Random random = new Random();
             ships = new List<Ship>();
             for (int i = 0; i < 10; i++) {
