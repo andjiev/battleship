@@ -44,23 +44,8 @@ namespace BattleShip.Controller
             grid.ColumnCount = 12; ;
             for (int i = 0; i < 12; i++)
             {
-
                 grid.Rows[i].Height = 30;
-                grid.Columns[i].Width = 30;
-
-                //TODO : Make it precise
-                /*if(s.Position == point)
-                {
-                    return point;
-                    s.Color = Color.Red;
-                }
-                else if(s.Type==Ship.View.HORIZONTAL && point.Y <= s.Position.Y && point.Y>=s.Position.X)
-                {
-                    return point;
-
-                }*/
-                
-
+                grid.Columns[i].Width = 30;              
             }
             grid.ClearSelection();
         }
@@ -70,11 +55,12 @@ namespace BattleShip.Controller
             Random random = new Random();
             int row = random.Next(0, 11);
             int column = random.Next(0, 11);
-            if(grid.Rows[row].Cells[column].Style.BackColor == Color.Gray)
+            Color picked = grid.Rows[row].Cells[column].Style.BackColor;
+            if (picked == Color.Gray)
             {
                 grid.Rows[row].Cells[column].Style.BackColor = Color.Red;
             }                
-            else
+            else if(picked != Color.Gray && picked != Color.Red)
             {
                 grid.Rows[row].Cells[column].Style.BackColor = Color.Purple;
             }

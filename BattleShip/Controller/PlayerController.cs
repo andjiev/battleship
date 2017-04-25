@@ -53,11 +53,6 @@ namespace BattleShip.Controller
             selected = ships.FirstOrDefault(ship => ship.Select(Position));
         }
 
-        /*public bool Duplicate(Point Position)
-        {
-            return ships.Exists(ship => ship.Find(Position,selected));
-        }*/
-
         public void UnSelect()
         {
             selected = null;
@@ -79,10 +74,10 @@ namespace BattleShip.Controller
 
         public void CheckAlive(DataGridView grid)
         {
-            if (ships.Exists(ship => !ship.checkIfAlive(grid)))
+            if (ships.Exists(ship => !ship.CheckIfAlive(grid)))
             {
                 MessageBox.Show("da");
-                ships.RemoveAll(ship => !ship.checkIfAlive(grid));
+                ships.RemoveAll(ship => !ship.CheckIfAlive(grid));
             }
         }
     }

@@ -44,7 +44,6 @@ namespace BattleShip.Model
                     {
                         grid.Rows[Position.X].Cells[i - Size].Style.BackColor = Color;
                         switched = true;
-                       
                     }                                               
                 }
                 if(switched)
@@ -62,7 +61,6 @@ namespace BattleShip.Model
                     {
                         grid.Rows[i - Size].Cells[Position.Y].Style.BackColor = Color;
                         switched = true;
-                        
                     }
                 }
                 if(switched)
@@ -82,20 +80,6 @@ namespace BattleShip.Model
             }
         }
 
-        /*
-        public bool Find(Point position, Ship selected)
-        {
-            if (Type == View.VERTICAL)
-            {
-                
-                bool found = Position.X == position.X && position.Y + selected.Size >= Position.Y;
-                if(found)
-                    MessageBox.Show("FOUND" + selected.Size.ToString());
-                return found;
-            }
-            return false;
-        }*/
-
         public void ChangePosition(Point position)
         {
             if (Type == View.HORIZONTAL)
@@ -109,11 +93,12 @@ namespace BattleShip.Model
             Position = position;
 
         }
-        public bool checkIfAlive(DataGridView grid) {
+        public bool CheckIfAlive(DataGridView grid)
+        {
             if (Type == View.HORIZONTAL)
             {
                 for (int i = Position.Y; i < Position.Y + Size ; i++) {
-                     if(grid.Rows[Position.X].Cells[i].Style.BackColor != Color.Red)
+                    if(grid.Rows[Position.X].Cells[i].Style.BackColor != Color.Red)
                     {
                         return true;
                     }
@@ -124,13 +109,12 @@ namespace BattleShip.Model
                 for (int i = Position.X; i < Position.X + Size; i++)
                 {
                     if (grid.Rows[i].Cells[Position.Y].Style.BackColor != Color.Red)
+                    {
                         return true;
-                }
-                
+                    }                        
+                }                
             }
             return false;
-        }
-        
-       
+        }       
     }
 }
