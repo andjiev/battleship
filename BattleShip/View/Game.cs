@@ -67,5 +67,17 @@ namespace BattleShip
             ShowShips(dgvPlayer);
             controller.UnSelect();
         }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            controller.DisableCells(dgvPlayer);
+            ShowShips(dgvPlayer);
+        }
+
+        private void btnEnd_Click(object sender, EventArgs e)
+        {
+            controller.EnableCells(dgvPlayer);
+            ShowShips(dgvPlayer);
+        }
     }
 }

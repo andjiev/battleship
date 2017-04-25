@@ -32,6 +32,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvPlayer = new System.Windows.Forms.DataGridView();
             this.dgvComputer = new System.Windows.Forms.DataGridView();
+            this.btnStart = new System.Windows.Forms.Button();
+            this.btnEnd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComputer)).BeginInit();
             this.SuspendLayout();
@@ -75,11 +77,33 @@
             this.dgvComputer.Size = new System.Drawing.Size(303, 303);
             this.dgvComputer.TabIndex = 1;
             // 
+            // btnStart
+            // 
+            this.btnStart.Location = new System.Drawing.Point(56, 375);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(75, 23);
+            this.btnStart.TabIndex = 2;
+            this.btnStart.Text = "Start";
+            this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            // 
+            // btnEnd
+            // 
+            this.btnEnd.Location = new System.Drawing.Point(217, 375);
+            this.btnEnd.Name = "btnEnd";
+            this.btnEnd.Size = new System.Drawing.Size(75, 23);
+            this.btnEnd.TabIndex = 3;
+            this.btnEnd.Text = "End";
+            this.btnEnd.UseVisualStyleBackColor = true;
+            this.btnEnd.Click += new System.EventHandler(this.btnEnd_Click);
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(880, 583);
+            this.Controls.Add(this.btnEnd);
+            this.Controls.Add(this.btnStart);
             this.Controls.Add(this.dgvComputer);
             this.Controls.Add(this.dgvPlayer);
             this.DoubleBuffered = true;
@@ -95,5 +119,7 @@
         #endregion
         private System.Windows.Forms.DataGridView dgvPlayer;
         private System.Windows.Forms.DataGridView dgvComputer;
+        private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.Button btnEnd;
     }
 }

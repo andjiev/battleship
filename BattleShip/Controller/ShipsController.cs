@@ -57,5 +57,17 @@ namespace BattleShip.Controller
         {
             selected = null;
         }
+
+        public void DisableCells(DataGridView grid)
+        {
+            grid.Enabled = false;
+            ships.ForEach(ship => ship.Color = Color.Gray);            
+        }
+
+        public void EnableCells(DataGridView grid)
+        {
+            grid.Enabled = true;
+            ships.ForEach(ship => ship.Color = Color.Blue);
+        }
     }
 }
