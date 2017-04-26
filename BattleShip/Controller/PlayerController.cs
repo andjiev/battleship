@@ -86,7 +86,7 @@ namespace BattleShip.Controller
             int row = p.X;
             int column = p.Y;
             Color picked = grid.Rows[row].Cells[column].Style.BackColor;
-            if (picked == Color.Gray)
+            if (picked == Color.Blue)
             {
                 grid.Rows[row].Cells[column].Style.BackColor = Color.Red;
               

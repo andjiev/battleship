@@ -13,7 +13,7 @@ namespace BattleShip
 {
     public partial class Game : Form
     {
-      //  bool PlayerTurn;
+      bool GameStarted;
         PlayerController player;
         ComputerController computer;
         public Game()
@@ -21,7 +21,7 @@ namespace BattleShip
             InitializeComponent();
             player = new PlayerController();
             computer = new ComputerController();
-          //  PlayerTurn = true;
+          GameStarted = false;
             ShowPlayerView();
             ShowComputerView();
         }
@@ -78,12 +78,14 @@ namespace BattleShip
         {
             player.DisableCells(dgvPlayer);
             player.ShowShips(dgvPlayer);
+            GameStarted = true;
         }
 
         private void btnEnd_Click(object sender, EventArgs e)
         {
             player.EnableCells(dgvPlayer);
             player.ShowShips(dgvPlayer);
+            GameStarted=false;
         }
 
         private void btnShoot_Click(object sender, EventArgs e)
@@ -126,9 +128,12 @@ namespace BattleShip
 
         private void dgvComputer_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
-            player.Shoot(dgvComputer, new Point { X = e.RowIndex, Y = e.ColumnIndex });
-            ComputerTimer.Start();
-            dgvComputer.Enabled = false;
+            if (GameStarted) {
+                player.Shoot(dgvComputer, new Point { X = e.RowIndex, Y = e.ColumnIndex });
+                ComputerTimer.Start();
+                dgvComputer.Enabled = false;
+            }
+            
         }
     }
 }
