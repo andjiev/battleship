@@ -55,7 +55,7 @@
             this.btnControls.Name = "btnControls";
             this.btnControls.Size = new System.Drawing.Size(181, 42);
             this.btnControls.TabIndex = 1;
-            this.btnControls.Text = "Controls";
+            this.btnControls.Text = "How to Play";
             this.btnControls.UseVisualStyleBackColor = true;
             this.btnControls.Click += new System.EventHandler(this.btnControls_Click);
             // 
@@ -97,6 +97,7 @@
             this.Controls.Add(this.btnNewGame);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BattleShip";
