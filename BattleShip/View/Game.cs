@@ -13,7 +13,7 @@ namespace BattleShip
 {
     public partial class Game : Form
     {
-      bool GameStarted;
+        bool GameStarted;
         PlayerController player;
         ComputerController computer;
         public Game()
@@ -21,7 +21,7 @@ namespace BattleShip
             InitializeComponent();
             player = new PlayerController();
             computer = new ComputerController();
-          GameStarted = false;
+            GameStarted = false;
             ShowPlayerView();
             ShowComputerView();
         }
@@ -45,11 +45,7 @@ namespace BattleShip
 
         private void dgvPlayer_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if(player.selected != null)
-            {
-                player.selected.Position = new Point { X = e.RowIndex, Y = e.ColumnIndex };
-                ShowPlayerView();
-            }
+           
         }
 
         private void dgvPlayer_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)

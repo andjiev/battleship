@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Controller\ComputerController.cs" />
     <Compile Include="Controller\PlayerController.cs" />
+    <Compile Include="Model\Ship.cs" />
     <Compile Include="View\HowToPlay.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,7 +81,7 @@
     <Compile Include="View\Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Ship.cs" />
+    <Compile Include="Model\pero.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="View\HowToPlay.resx">

@@ -13,7 +13,7 @@ namespace BattleShip.Controller
     class PlayerController
     {
         public static List<Ship> ships;
-        public  Ship selected;
+        public Ship selected;
        
         public PlayerController()
         {
@@ -45,12 +45,12 @@ namespace BattleShip.Controller
 
         public void ShowShips(DataGridView grid)
         {
-            ships.ForEach(ship => ship.Show(grid));
+            ships.ForEach(ship => ship.ShowShip(grid));
         }
 
         public void Select(Point Position)
         {
-            selected = ships.FirstOrDefault(ship => ship.Select(Position));
+            selected = ships.FirstOrDefault(ship => ship.Exists(Position));
         }
 
         public void UnSelect()
@@ -60,7 +60,7 @@ namespace BattleShip.Controller
 
         public void DisableCells(DataGridView grid)
         {
-            grid.Enabled = false;
+            /*grid.Enabled = false;
             ships.ForEach(ship => ship.Color = Color.Gray);
             /*grid.DefaultCellStyle.BackColor = Color.LightGray;
             grid.DefaultCellStyle.ForeColor = Color.DarkGray;*/
@@ -68,17 +68,17 @@ namespace BattleShip.Controller
 
         public void EnableCells(DataGridView grid)
         {
-            grid.Enabled = true;            
-            ships.ForEach(ship => ship.Color = Color.Blue);
+            /*grid.Enabled = true;            
+            ships.ForEach(ship => ship.Color = Color.Blue);*/
         }
 
         public void CheckAlive(DataGridView grid)
         {
-            if (ships.Exists(ship => !ship.CheckIfAlive(grid)))
+           /* if (ships.Exists(ship => !ship.CheckIfAlive(grid)))
             {
                 MessageBox.Show("Ship Destroyed Sound!");
                 ships.RemoveAll(ship => !ship.CheckIfAlive(grid));
-            }
+            }*/
         }
         public void Shoot(DataGridView grid,Point p)
         {
