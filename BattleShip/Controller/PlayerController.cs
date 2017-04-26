@@ -48,9 +48,14 @@ namespace BattleShip.Controller
             ships.ForEach(ship => ship.ShowShip(grid));
         }
 
+        public bool SearchShip()
+        {
+            return ships.FindAll(ship => ship.ExistShip(selected)).Count > 1;
+        }
+
         public void Select(Point Position)
         {
-            selected = ships.FirstOrDefault(ship => ship.Exists(Position));
+            selected = ships.FirstOrDefault(ship => ship.ExistPosition(Position));
         }
 
         public void UnSelect()
@@ -60,7 +65,7 @@ namespace BattleShip.Controller
 
         public void DisableCells(DataGridView grid)
         {
-            /*grid.Enabled = false;
+            grid.Enabled = false;
             ships.ForEach(ship => ship.Color = Color.Gray);
             /*grid.DefaultCellStyle.BackColor = Color.LightGray;
             grid.DefaultCellStyle.ForeColor = Color.DarkGray;*/
@@ -68,8 +73,8 @@ namespace BattleShip.Controller
 
         public void EnableCells(DataGridView grid)
         {
-            /*grid.Enabled = true;            
-            ships.ForEach(ship => ship.Color = Color.Blue);*/
+            grid.Enabled = true;            
+            ships.ForEach(ship => ship.Color = Color.Blue);
         }
 
         public void CheckAlive(DataGridView grid)

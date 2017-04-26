@@ -66,7 +66,6 @@
             this.dgvPlayer.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dgvPlayer.Size = new System.Drawing.Size(363, 363);
             this.dgvPlayer.TabIndex = 0;
-            this.dgvPlayer.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPlayer_CellContentClick);
             this.dgvPlayer.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPlayer_CellMouseDoubleClick);
             this.dgvPlayer.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPlayer_CellMouseDown);
             this.dgvPlayer.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPlayer_CellMouseMove);
@@ -89,7 +88,6 @@
             this.dgvComputer.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dgvComputer.Size = new System.Drawing.Size(363, 363);
             this.dgvComputer.TabIndex = 1;
-            this.dgvComputer.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvComputer_CellContentClick);
             this.dgvComputer.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvComputer_CellMouseDown);
             // 
             // btnStart
@@ -140,7 +138,6 @@
             this.Name = "Game";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Game";
-            this.Load += new System.EventHandler(this.Game_Load);
             this.Leave += new System.EventHandler(this.Game_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComputer)).EndInit();

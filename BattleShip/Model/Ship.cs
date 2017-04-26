@@ -66,9 +66,19 @@ namespace BattleShip.Model
             Positions.ForEach(positon => grid.Rows[positon.X].Cells[positon.Y].Style.BackColor = Color);
         }
 
-        public bool Exists(Point position)
+        public bool ExistPosition(Point position)
         {
             return Positions.Exists(Position => Position.Equals(position));
+        }
+
+        public bool ExistShip(Ship selected)
+        {
+            foreach(Point position in Positions)
+            {
+                if (selected.ExistPosition(position))
+                    return true;
+            }
+            return false;
         }
 
         public void ChangePosition(Point position)

@@ -16,6 +16,7 @@ namespace BattleShip
         bool GameStarted;
         PlayerController player;
         ComputerController computer;
+        Point Position;
         public Game()
         {
             InitializeComponent();
@@ -40,16 +41,29 @@ namespace BattleShip
 
         private void dgvPlayer_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
-            player.Select(new Point { X = e.RowIndex, Y = e.ColumnIndex });
+            Position = new Point { X = e.RowIndex, Y = e.ColumnIndex };
+            player.Select(Position);
         }
 
         private void dgvPlayer_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
-           
+            if(player.selected != null)
+            {
+                player.selected.AddPositions(new Point { X = e.RowIndex, Y = e.ColumnIndex });
+                ShowPlayerView();
+            }
         }
 
         private void dgvPlayer_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
+            if(player.selected != null)
+            {
+                if (player.SearchShip())
+                {
+                    player.selected.AddPositions(Position);
+                    ShowPlayerView();
+                }
+            }
             player.UnSelect();
         }
 
@@ -90,21 +104,9 @@ namespace BattleShip
             player.CheckAlive(dgvPlayer);
         }
 
-        private void Game_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void Game_Leave(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
-        }
-
-        private void dgvComputer_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-
-
         }
 
         private void ComputerTimer_Tick(object sender, EventArgs e)
@@ -113,13 +115,7 @@ namespace BattleShip
             ComputerTimer.Interval = random.Next(1000, 6120);
             computer.Shoot(dgvPlayer);
             dgvComputer.Enabled = true;
-            ComputerTimer.Dispose();
-           
-        }
-
-        private void dgvPlayer_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            ComputerTimer.Dispose();           
         }
 
         private void dgvComputer_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
@@ -129,7 +125,6 @@ namespace BattleShip
                 ComputerTimer.Start();
                 dgvComputer.Enabled = false;
             }
-            
         }
     }
 }
