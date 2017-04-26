@@ -12,15 +12,11 @@ namespace BattleShip
 {
     public partial class form1 : Form
     {
-        private Panel panel1;
-        private PictureBox pictureBox1;
-        private Timer timer;
-        private double opacity_increment;
-        private bool mouse_over;
+        System.Media.SoundPlayer sound = new System.Media.SoundPlayer(Properties.Resources.war);
         public form1()
         {
             InitializeComponent();
-            
+          sound.PlayLooping();
         }
         private void btnNewGame_Click(object sender, EventArgs e)
         {
