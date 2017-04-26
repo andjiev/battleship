@@ -59,6 +59,7 @@ namespace BattleShip.Controller
             if (picked == Color.Gray)
             {
                 grid.Rows[row].Cells[column].Style.BackColor = Color.Red;
+                Shoot(grid);
             }                
             else if(picked != Color.Gray && picked != Color.Red)
             {

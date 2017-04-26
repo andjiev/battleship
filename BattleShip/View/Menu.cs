@@ -23,19 +23,23 @@ namespace BattleShip
         {
             Game game = new Game();
             this.Hide();
-            game.ShowDialog();
+            if (game.ShowDialog() == DialogResult.Cancel) {
+                this.Show();
+            }
         }
 
         private void btnControls_Click(object sender, EventArgs e)
         {
             Controls controls = new Controls();
             this.Hide();
-            controls.ShowDialog();
+            if (controls.ShowDialog() == DialogResult.Cancel) {
+                this.Show();
+            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void btnNewGame_MouseEnter(object sender, EventArgs e)

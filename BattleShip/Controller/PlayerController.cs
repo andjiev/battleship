@@ -76,7 +76,7 @@ namespace BattleShip.Controller
         {
             if (ships.Exists(ship => !ship.CheckIfAlive(grid)))
             {
-                MessageBox.Show("da");
+                MessageBox.Show("Ship Destroyed Sound!");
                 ships.RemoveAll(ship => !ship.CheckIfAlive(grid));
             }
         }

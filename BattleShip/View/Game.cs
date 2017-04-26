@@ -89,5 +89,15 @@ namespace BattleShip
             computer.Shoot(dgvPlayer);
             player.CheckAlive(dgvPlayer);
         }
+
+        private void Game_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Game_Leave(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+        }
     }
 }
