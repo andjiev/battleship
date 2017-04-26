@@ -80,5 +80,22 @@ namespace BattleShip.Controller
                 ships.RemoveAll(ship => !ship.CheckIfAlive(grid));
             }
         }
+        public void Shoot(DataGridView grid,Point p)
+        {
+            MessageBox.Show("Eksplozija");
+            int row = p.X;
+            int column = p.Y;
+            Color picked = grid.Rows[row].Cells[column].Style.BackColor;
+            if (picked == Color.Gray)
+            {
+                grid.Rows[row].Cells[column].Style.BackColor = Color.Red;
+              
+            }
+            else if (picked != Color.Gray && picked != Color.Red)
+            {
+                grid.Rows[row].Cells[column].Style.BackColor = Color.Purple;
+            }
+            grid.Rows[row].Cells[column].ReadOnly = true;
+        }
     }
 }

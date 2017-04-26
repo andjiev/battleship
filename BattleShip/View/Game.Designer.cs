@@ -28,14 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvPlayer = new System.Windows.Forms.DataGridView();
             this.dgvComputer = new System.Windows.Forms.DataGridView();
             this.btnStart = new System.Windows.Forms.Button();
             this.btnEnd = new System.Windows.Forms.Button();
             this.btnShoot = new System.Windows.Forms.Button();
+            this.ComputerTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComputer)).BeginInit();
             this.SuspendLayout();
@@ -46,24 +48,25 @@
             this.dgvPlayer.AllowUserToResizeRows = false;
             this.dgvPlayer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPlayer.ColumnHeadersVisible = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPlayer.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPlayer.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPlayer.Location = new System.Drawing.Point(28, 28);
             this.dgvPlayer.MultiSelect = false;
             this.dgvPlayer.Name = "dgvPlayer";
             this.dgvPlayer.ReadOnly = true;
             this.dgvPlayer.RowHeadersVisible = false;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Transparent;
-            this.dgvPlayer.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Transparent;
+            this.dgvPlayer.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvPlayer.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dgvPlayer.Size = new System.Drawing.Size(363, 363);
             this.dgvPlayer.TabIndex = 0;
+            this.dgvPlayer.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPlayer_CellContentClick);
             this.dgvPlayer.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPlayer_CellMouseDoubleClick);
             this.dgvPlayer.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPlayer_CellMouseDown);
             this.dgvPlayer.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPlayer_CellMouseMove);
@@ -81,11 +84,13 @@
             this.dgvComputer.Name = "dgvComputer";
             this.dgvComputer.ReadOnly = true;
             this.dgvComputer.RowHeadersVisible = false;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Transparent;
-            this.dgvComputer.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Transparent;
+            this.dgvComputer.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvComputer.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dgvComputer.Size = new System.Drawing.Size(363, 363);
             this.dgvComputer.TabIndex = 1;
+            this.dgvComputer.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvComputer_CellContentClick);
+            this.dgvComputer.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvComputer_CellMouseDown);
             // 
             // btnStart
             // 
@@ -117,6 +122,10 @@
             this.btnShoot.UseVisualStyleBackColor = true;
             this.btnShoot.Click += new System.EventHandler(this.btnShoot_Click);
             // 
+            // ComputerTimer
+            // 
+            this.ComputerTimer.Tick += new System.EventHandler(this.ComputerTimer_Tick);
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -145,5 +154,6 @@
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnEnd;
         private System.Windows.Forms.Button btnShoot;
+        private System.Windows.Forms.Timer ComputerTimer;
     }
 }
