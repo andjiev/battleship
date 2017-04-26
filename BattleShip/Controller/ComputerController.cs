@@ -21,13 +21,11 @@ namespace BattleShip.Controller
             {
                 int size = random.Next(1, 5);
                 int width = random.Next(0, 11);
-                Ship ship = new Ship(size, Color.Blue, new Point { X = random.Next(0, 11), Y = random.Next(0,11) }, size % 4 == 0 ? Ship.View.VERTICAL : Ship.View.HORIZONTAL);
+                Ship ship = new Ship(size, Color.Blue, new Point { X = random.Next(0, 12), Y = random.Next(0,12) }, size % 2 == 0 ? Ship.View.VERTICAL : Ship.View.HORIZONTAL);
 
                 if (!ships.Contains(ship))
                 {
-
                     ships.Add(ship);
-
                 }
                 else
                 {
@@ -53,8 +51,8 @@ namespace BattleShip.Controller
         public void Shoot(DataGridView grid)
         {
             Random random = new Random();
-            int row = random.Next(0, 11);
-            int column = random.Next(0, 11);
+            int row = random.Next(0, 12);
+            int column = random.Next(0, 12);
             Color picked = grid.Rows[row].Cells[column].Style.BackColor;
             if (picked == Color.Gray)
             {
