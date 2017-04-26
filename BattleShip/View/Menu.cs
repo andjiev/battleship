@@ -16,7 +16,8 @@ namespace BattleShip
         public form1()
         {
             InitializeComponent();
-          sound.PlayLooping();
+            sound.PlayLooping();
+            
         }
         private void btnNewGame_Click(object sender, EventArgs e)
         {

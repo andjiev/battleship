@@ -62,11 +62,11 @@
   <ItemGroup>
     <Compile Include="Controller\ComputerController.cs" />
     <Compile Include="Controller\PlayerController.cs" />
-    <Compile Include="View\Controls.cs">
+    <Compile Include="View\HowToPlay.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Controls.Designer.cs">
-      <DependentUpon>Controls.cs</DependentUpon>
+    <Compile Include="View\HowToPlay.Designer.cs">
+      <DependentUpon>HowToPlay.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Game.cs">
       <SubType>Form</SubType>
@@ -83,8 +83,8 @@
     <Compile Include="Model\Ship.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="View\Controls.resx">
-      <DependentUpon>Controls.cs</DependentUpon>
+    <EmbeddedResource Include="View\HowToPlay.resx">
+      <DependentUpon>HowToPlay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Game.resx">
       <DependentUpon>Game.cs</DependentUpon>
