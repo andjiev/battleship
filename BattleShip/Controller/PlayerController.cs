@@ -82,7 +82,7 @@ namespace BattleShip.Controller
         }
         public void Shoot(DataGridView grid,Point p)
         {
-            MessageBox.Show("Eksplozija");
+           // MessageBox.Show("Eksplozija");
             int row = p.X;
             int column = p.Y;
             Color picked = grid.Rows[row].Cells[column].Style.BackColor;
