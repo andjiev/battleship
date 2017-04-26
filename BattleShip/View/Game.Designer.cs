@@ -70,7 +70,7 @@
             this.dgvPlayer.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPlayer_CellMouseDown);
             this.dgvPlayer.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPlayer_CellMouseMove);
             this.dgvPlayer.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPlayer_CellMouseUp);
-            this.dgvPlayer.MouseUp += new System.Windows.Forms.MouseEventHandler(this.dgvPlayer_MouseUp);
+            this.dgvPlayer.MouseLeave += new System.EventHandler(this.dgvPlayer_MouseLeave);
             // 
             // dgvComputer
             // 

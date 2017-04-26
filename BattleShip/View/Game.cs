@@ -67,8 +67,13 @@ namespace BattleShip
             player.UnSelect();
         }
 
-        private void dgvPlayer_MouseUp(object sender, MouseEventArgs e)
+        private void dgvPlayer_MouseLeave(object sender, EventArgs e)
         {
+            if (player.selected != null)
+            {
+                player.selected.AddPositions(Position);
+                ShowPlayerView();
+            }
             player.UnSelect();
         }
 
@@ -79,6 +84,10 @@ namespace BattleShip
             if (player.selected != null)
             {
                 player.selected.ChangePosition(position);
+                if (player.SearchShip())
+                {
+                    player.selected.ChangePosition(position);
+                }
             }
             ShowPlayerView();
             player.UnSelect();
