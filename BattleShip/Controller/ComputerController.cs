@@ -65,6 +65,5 @@ namespace BattleShip.Controller
         {
             ships.ForEach(ship => ship.ShowShip(grid));
         }
-
     }
 }

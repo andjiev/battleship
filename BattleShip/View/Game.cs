@@ -134,7 +134,7 @@ namespace BattleShip
                 //dgvComputer.Enabled = false;
             }
 
-            computer.ShowShips(dgvComputer);
+            //In shoots only on right Click (need to be fixed)
         }
 
         private void dgvComputer_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
