@@ -77,7 +77,7 @@ namespace BattleShip.Controller
             ships.ForEach(ship => ship.Color = Color.Blue);
         }
 
-        public void Shoot()
+        public void Shoot(DataGridView grid)
         {
             Random random = new Random();
             int row = random.Next(0, 12);
@@ -88,10 +88,14 @@ namespace BattleShip.Controller
                 if (ship.ExistPosition(position))
                 {
                     ship.ShootPosition(position);
+                    if(ship.Destroyed())
+                    {
+                        MessageBox.Show("Destroyed");
+                    }
                 }
                 else
                 {
-                    //TO_DO: shoot elseWhere
+                    grid.Rows[row].Cells[column].Style.BackColor = Color.LightBlue;
                 }
             }
         }

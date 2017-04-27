@@ -108,5 +108,10 @@ namespace BattleShip.Model
         {
             Cells.Find(cell => cell.Positon.Equals(position)).Alive = false;
         }
+
+        public bool Destroyed()
+        {
+            return Cells.All(cell => !cell.Alive);
+        }
     }
 }

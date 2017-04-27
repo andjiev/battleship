@@ -104,7 +104,7 @@ namespace BattleShip
 
         private void btnShoot_Click(object sender, EventArgs e)
         {
-            player.Shoot();
+            player.Shoot(dgvPlayer);
             player.ShowShips(dgvPlayer);
         }
 
