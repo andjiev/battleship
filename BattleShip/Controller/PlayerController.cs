@@ -106,6 +106,7 @@ namespace BattleShip.Controller
                 if (selected.Destroyed())
                 {
                     selected = null;
+
                     GenerateRandom(grid);
                     return;
                 }
@@ -268,6 +269,11 @@ namespace BattleShip.Controller
         {
             grid.Rows[position.X].Cells[position.Y].Value = "X";
             grid.Rows[position.X].Cells[position.Y].Style.BackColor = Color.Green;
+        }
+
+        public bool Won()
+        {
+            return ships.All(ship => ship.Destroyed());
         }
     }
 }

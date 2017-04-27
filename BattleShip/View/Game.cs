@@ -107,6 +107,8 @@ namespace BattleShip
         {
             player.Shoot(dgvPlayer);
             player.ShowShips(dgvPlayer);
+            if (player.Won())
+                MessageBox.Show("WON");
         }
 
         private void Game_Leave(object sender, EventArgs e)
