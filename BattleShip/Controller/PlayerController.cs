@@ -17,7 +17,14 @@ namespace BattleShip.Controller
         public Ship selected;
         private Point shot;
         private Point first;
-        private bool useThis;
+        private enum Direction 
+        {
+            DOWN,
+            UP,
+            RIGHT,
+            LEFT
+        }
+        private Direction direction;
        
         public PlayerController()
         {
@@ -41,7 +48,7 @@ namespace BattleShip.Controller
             }
             selected = null;
             shot = new Point();
-            useThis = true;
+            direction = (Direction)new Random().Next(4);
         }          
 
         public void SetGridView(DataGridView grid)
@@ -95,52 +102,127 @@ namespace BattleShip.Controller
         {
             if(selected != null)
             {
+                Point position = new Point();
                 if (selected.Destroyed())
                 {
                     selected = null;
                     GenerateRandom(grid);
                     return;
                 }
-                if (shot.X + 1 < 12 && useThis && positions.Contains(new Point { X = shot.X + 1, Y = shot.X }))
+
+                if(direction == Direction.DOWN)
                 {
-                    Point pos = new Point { X = shot.X + 1, Y = shot.Y };
-                    positions.Remove(pos);
-                    if(selected.ExistPosition(pos))
+                    if(positions.Contains(new Point { X = shot.X + 1, Y = shot.Y }))
                     {
-                        selected.ShootPosition(pos);
-                        shot = pos;
-                        return;
+                        position = new Point { X = shot.X + 1, Y = shot.Y };
+                        positions.Remove(position);
+                        if (selected.ExistPosition(position))
+                        {
+                            selected.ShootPosition(position);
+                            shot = position;
+                            return;
+                        }
+                        else
+                        {
+                            direction = Direction.UP;
+                            shot = first;
+                            UpdateGrid(position, grid);
+                            return;
+                        }
                     }
                     else
                     {
-                        useThis = false;                        
+                        direction = Direction.UP;
                         shot = first;
-                        UpdateGrid(pos, grid);
+                        Shoot(grid);
                         return;
-                    }
+                    }                    
                 }
-                if(shot.X - 1 >= 0 && !useThis && positions.Contains(new Point { X = shot.X - 1, Y = shot.X }))
+
+                if(direction == Direction.UP)
                 {
-                    Point pos = new Point { X = shot.X - 1, Y = shot.Y };
-                    positions.Remove(pos);
-                    if (selected.ExistPosition(pos))
+                    if (positions.Contains(new Point { X = shot.X - 1, Y = shot.Y }))
                     {
-                        selected.ShootPosition(pos);
-                        shot = pos;
-                        return;
+                        position = new Point { X = shot.X - 1, Y = shot.Y };
+                        positions.Remove(position);
+                        if (selected.ExistPosition(position))
+                        {
+                            selected.ShootPosition(position);
+                            shot = position;
+                            return;
+                        }
+                        else
+                        {
+                            direction = Direction.LEFT;
+                            shot = first;
+                            UpdateGrid(position, grid);
+                            return;
+                        }
                     }
                     else
                     {
-                        useThis = true;                        
+                        direction = Direction.LEFT;
                         shot = first;
-                        UpdateGrid(pos, grid);
+                        Shoot(grid);
                         return;
                     }
                 }
-                else
+
+                if (direction == Direction.LEFT)
                 {
-                    useThis = true;
-                    Shoot(grid);
+                    if (positions.Contains(new Point { X = shot.X, Y = shot.Y - 1 }))
+                    {
+                        position = new Point { X = shot.X, Y = shot.Y - 1};
+                        positions.Remove(position);
+                        if (selected.ExistPosition(position))
+                        {
+                            selected.ShootPosition(position);
+                            shot = position;
+                            return;
+                        }
+                        else
+                        {
+                            direction = Direction.RIGHT;
+                            shot = first;
+                            UpdateGrid(position, grid);
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        direction = Direction.RIGHT;
+                        shot = first;
+                        Shoot(grid);
+                        return;
+                    }
+                }
+
+                if (direction == Direction.RIGHT)
+                {
+                    if (positions.Contains(new Point { X = shot.X, Y = shot.Y + 1 }))
+                    {
+                        position = new Point { X = shot.X, Y = shot.Y + 1 };
+                        positions.Remove(position);
+                        if (selected.ExistPosition(position))
+                        {
+                            selected.ShootPosition(position);
+                            shot = position;
+                            return;
+                        }
+                        else
+                        {
+                            direction = Direction.DOWN;
+                            shot = first;
+                            UpdateGrid(position, grid);
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        direction = Direction.DOWN;
+                        shot = first;
+                        Shoot(grid);
+                    }
                 }
             }
             GenerateRandom(grid);
@@ -167,7 +249,6 @@ namespace BattleShip.Controller
 
         private void UpdateGrid(Point position,DataGridView grid)
         {
-            //grid.Rows[position.X].Cells[position.Y].Style.BackColor = Color.LightBlue;
             grid.Rows[position.X].Cells[position.Y].Value = "X";
             grid.Rows[position.X].Cells[position.Y].Style.BackColor = Color.Green;
         }
