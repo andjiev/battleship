@@ -16,7 +16,7 @@ namespace BattleShip
         bool GameStarted;
         PlayerController player;
         ComputerController computer;
-        Point Position;
+        Point startedPosition;
         public Game()
         {
             InitializeComponent();
@@ -41,8 +41,8 @@ namespace BattleShip
 
         private void dgvPlayer_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
-            Position = new Point { X = e.RowIndex, Y = e.ColumnIndex };
-            player.Select(Position);
+            startedPosition = new Point { X = e.RowIndex, Y = e.ColumnIndex };
+            player.Select(startedPosition);
         }
 
         private void dgvPlayer_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
@@ -60,7 +60,7 @@ namespace BattleShip
             {
                 if (player.SearchShip())
                 {
-                    player.selected.AddPositions(Position);
+                    player.selected.AddPositions(startedPosition);
                     ShowPlayerView();
                 }
             }
@@ -104,8 +104,8 @@ namespace BattleShip
 
         private void btnShoot_Click(object sender, EventArgs e)
         {
-            computer.Shoot(dgvPlayer);
-            player.CheckAlive(dgvPlayer);
+            player.Shoot();
+            player.ShowShips(dgvPlayer);
         }
 
         private void Game_Leave(object sender, EventArgs e)
@@ -117,15 +117,16 @@ namespace BattleShip
         {
             Random random = new Random();
             ComputerTimer.Interval = random.Next(1000, 6120);
-            computer.Shoot(dgvPlayer);
+           // computer.Shoot(dgvPlayer);
             dgvComputer.Enabled = true;
-            ComputerTimer.Dispose();           
+            ComputerTimer.Dispose();  
         }
 
         private void dgvComputer_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (GameStarted) {
-                player.Shoot(dgvComputer, new Point { X = e.RowIndex, Y = e.ColumnIndex });
+            if (GameStarted)
+            {
+               // player.Shoot(dgvComputer, new Point { X = e.RowIndex, Y = e.ColumnIndex });
                 ComputerTimer.Start();
                 dgvComputer.Enabled = false;
             }

@@ -45,25 +45,25 @@ namespace BattleShip.Controller
                 grid.Rows[i].Height = 30;
                 grid.Columns[i].Width = 30;              
             }
-            grid.ClearSelection();
         }
 
-        public void Shoot(DataGridView grid)
+        public void Shoot()
         {
             Random random = new Random();
             int row = random.Next(0, 12);
             int column = random.Next(0, 12);
-            Color picked = grid.Rows[row].Cells[column].Style.BackColor;
-            if (picked == Color.Gray)
+            Point position = new Point { X = row, Y = column };
+            foreach (Ship ship in ships)
             {
-                grid.Rows[row].Cells[column].Style.BackColor = Color.Red;
-                Shoot(grid);
-            }                
-            else if(picked != Color.Gray && picked != Color.Red)
-            {
-                grid.Rows[row].Cells[column].Style.BackColor = Color.Purple;
+                if (ship.ExistPosition(position))
+                {
+                    ship.ShootPosition(position);
+                }
+                else
+                {
+                    //TO_DO: shoot elseWhere
+                }
             }
-            grid.Rows[row].Cells[column].ReadOnly = true;
         }
         public void ShowShips(DataGridView grid)
         {

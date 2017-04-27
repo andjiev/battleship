@@ -62,8 +62,18 @@ namespace BattleShip.Model
         }
 
         public void ShowShip(DataGridView grid)
-        {            
-            Cells.ForEach(cell => grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color);
+        {
+            foreach (Cell cell in Cells)
+            {
+                if(cell.Alive)
+                {
+                    grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color;
+                }
+                else
+                {
+                    grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.Red;
+                }
+            }            
         }
 
         public bool ExistPosition(Point position)
@@ -92,6 +102,11 @@ namespace BattleShip.Model
                 Type = View.HORIZONTAL;
             }
             AddPositions(position);
+        }
+
+        public void ShootPosition(Point position)
+        {
+            Cells.Find(cell => cell.Positon.Equals(position)).Alive = false;
         }
     }
 }

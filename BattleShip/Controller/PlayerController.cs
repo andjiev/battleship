@@ -77,30 +77,23 @@ namespace BattleShip.Controller
             ships.ForEach(ship => ship.Color = Color.Blue);
         }
 
-        public void CheckAlive(DataGridView grid)
+        public void Shoot()
         {
-           /* if (ships.Exists(ship => !ship.CheckIfAlive(grid)))
+            Random random = new Random();
+            int row = random.Next(0, 12);
+            int column = random.Next(0, 12);
+            Point position = new Point { X = row, Y = column };
+            foreach (Ship ship in ships)
             {
-                MessageBox.Show("Ship Destroyed Sound!");
-                ships.RemoveAll(ship => !ship.CheckIfAlive(grid));
-            }*/
-        }
-        public void Shoot(DataGridView grid,Point p)
-        {
-           // MessageBox.Show("Eksplozija");
-            int row = p.X;
-            int column = p.Y;
-            Color picked = grid.Rows[row].Cells[column].Style.BackColor;
-            if (picked == Color.Blue)
-            {
-                grid.Rows[row].Cells[column].Style.BackColor = Color.Red;
-              
+                if (ship.ExistPosition(position))
+                {
+                    ship.ShootPosition(position);
+                }
+                else
+                {
+                    //TO_DO: shoot elseWhere
+                }
             }
-            else if (picked != Color.Gray && picked != Color.Red)
-            {
-                grid.Rows[row].Cells[column].Style.BackColor = Color.Purple;
-            }
-            grid.Rows[row].Cells[column].ReadOnly = true;
         }
     }
 }
