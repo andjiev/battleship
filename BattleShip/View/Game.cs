@@ -17,6 +17,7 @@ namespace BattleShip
         PlayerController player;
         ComputerController computer;
         Point startedPosition;
+
         public Game()
         {
             InitializeComponent();
@@ -115,21 +116,30 @@ namespace BattleShip
 
         private void ComputerTimer_Tick(object sender, EventArgs e)
         {
-            Random random = new Random();
+           /* Random random = new Random();
             ComputerTimer.Interval = random.Next(1000, 6120);
-           // computer.Shoot(dgvPlayer);
+            computer.Shoot(dgvPlayer);
             dgvComputer.Enabled = true;
-            ComputerTimer.Dispose();  
+            ComputerTimer.Dispose();  */
         }
 
         private void dgvComputer_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
+            computer.Shoot(new Point { X = e.RowIndex, Y = e.ColumnIndex }, dgvComputer);
+
             if (GameStarted)
             {
-               // player.Shoot(dgvComputer, new Point { X = e.RowIndex, Y = e.ColumnIndex });
-                ComputerTimer.Start();
-                dgvComputer.Enabled = false;
+                // player.Shoot(dgvComputer, new Point { X = e.RowIndex, Y = e.ColumnIndex });
+                //ComputerTimer.Start();
+                //dgvComputer.Enabled = false;
             }
+
+            computer.ShowShips(dgvComputer);
+        }
+
+        private void dgvComputer_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            computer.ShowShips(dgvComputer);
         }
     }
 }

@@ -11,7 +11,7 @@ namespace BattleShip.Controller
 {
     class ComputerController
     {
-        List<Ship> ships;       
+        private List<Ship> ships;
 
         public ComputerController()
         {
@@ -47,12 +47,8 @@ namespace BattleShip.Controller
             }
         }
 
-        public void Shoot()
+        public void Shoot(Point position, DataGridView grid)
         {
-            Random random = new Random();
-            int row = random.Next(0, 12);
-            int column = random.Next(0, 12);
-            Point position = new Point { X = row, Y = column };
             foreach (Ship ship in ships)
             {
                 if (ship.ExistPosition(position))
@@ -61,7 +57,7 @@ namespace BattleShip.Controller
                 }
                 else
                 {
-                    //TO_DO: shoot elseWhere
+                    grid.Rows[position.X].Cells[position.Y].Style.BackColor = Color.LightBlue;
                 }
             }
         }
