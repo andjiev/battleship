@@ -63,17 +63,24 @@ namespace BattleShip.Model
 
         public void ShowShip(DataGridView grid)
         {
-            foreach (Cell cell in Cells)
+            if(this.Destroyed())
             {
-                if(cell.Alive)
+                Cells.ForEach(cell => grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.Black);
+            }
+            else
+            {
+                foreach (Cell cell in Cells)
                 {
-                    grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color;
+                    if (cell.Alive)
+                    {
+                        grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color;
+                    }
+                    else
+                    {
+                        grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.Red;
+                    }
                 }
-                else
-                {
-                    grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.Red;
-                }
-            }            
+            }                
         }
 
         public bool ExistPosition(Point position)

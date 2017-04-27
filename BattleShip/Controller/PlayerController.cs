@@ -12,12 +12,14 @@ namespace BattleShip.Controller
 {
     class PlayerController
     {
-        public static List<Ship> ships;
+        private List<Ship> ships;
+        private List<Point> positions;
         public Ship selected;
        
         public PlayerController()
         {
             ships = new List<Ship>();
+            positions = new List<Point>();
             ships.Add(new Ship(1, Color.Blue, new Point { X = 0, Y = 2 }, Ship.View.HORIZONTAL));
             ships.Add(new Ship(1, Color.Blue, new Point { X = 0, Y = 6 }, Ship.View.VERTICAL));
             ships.Add(new Ship(1, Color.Blue, new Point { X = 11, Y = 2 }, Ship.View.HORIZONTAL));
@@ -27,6 +29,13 @@ namespace BattleShip.Controller
             ships.Add(new Ship(3, Color.Blue, new Point { X = 8, Y = 1 }, Ship.View.HORIZONTAL));
             ships.Add(new Ship(4, Color.Blue, new Point { X = 8, Y = 9 }, Ship.View.VERTICAL));
             ships.Add(new Ship(5, Color.Blue, new Point { X = 6, Y = 5 }, Ship.View.VERTICAL));
+            for(int i = 0; i < 12; i++)
+            {
+                for (int j = 0; j < 12; j++)
+                {
+                    positions.Add(new Point { X = i, Y = j });
+                }
+            }
             selected = null;
         }          
 
@@ -79,23 +88,18 @@ namespace BattleShip.Controller
 
         public void Shoot(DataGridView grid)
         {
-            Random random = new Random();
-            int row = random.Next(0, 12);
-            int column = random.Next(0, 12);
-            Point position = new Point { X = row, Y = column };
+            int index = new Random().Next(positions.Count);
+            Point position = positions[index];
+            positions.RemoveAt(index);
             foreach (Ship ship in ships)
             {
                 if (ship.ExistPosition(position))
                 {
                     ship.ShootPosition(position);
-                    if(ship.Destroyed())
-                    {
-                        MessageBox.Show("Destroyed");
-                    }
                 }
                 else
                 {
-                    grid.Rows[row].Cells[column].Style.BackColor = Color.LightBlue;
+                    grid.Rows[position.X].Cells[position.Y].Style.BackColor = Color.LightBlue;
                 }
             }
         }
