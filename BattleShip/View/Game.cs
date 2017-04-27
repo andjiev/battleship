@@ -69,11 +69,6 @@ namespace BattleShip
 
         private void dgvPlayer_MouseLeave(object sender, EventArgs e)
         {
-            if (player.selected != null)
-            {
-                player.selected.AddPositions(Position);
-                ShowPlayerView();
-            }
             player.UnSelect();
         }
 

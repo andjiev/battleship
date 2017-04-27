@@ -17,7 +17,7 @@ namespace BattleShip.Model
         }
         public int Health { get; set; }
         public Color Color { get; set; }
-        public List<Point> Positions { get; set; }
+        public List<Cell> Cells { get; set; }
         public View Type { get; set; }
 
         public Ship(int health, Color color, Point position, View type)
@@ -30,18 +30,18 @@ namespace BattleShip.Model
 
         public void AddPositions(Point position)
         {
-            Positions = new List<Point>();
+            Cells = new List<Cell>();
             if (Type == View.HORIZONTAL)
             {
                 for(int i = position.Y; i < position.Y + Health; i++)
                 {
                     if(i < 12)
                     {
-                        Positions.Add(new Point { X = position.X, Y = i });
+                        Cells.Add(new Cell(new Point { X = position.X, Y = i }));
                     }
                     else
                     {
-                        Positions.Add(new Point { X = position.X, Y = i - Health });
+                        Cells.Add(new Cell(new Point { X = position.X, Y = i - Health }));
                     }                    
                 }
             }
@@ -51,11 +51,11 @@ namespace BattleShip.Model
                 {
                     if(i < 12)
                     {
-                        Positions.Add(new Point { X = i, Y = position.Y });
+                        Cells.Add(new Cell(new Point { X = i, Y = position.Y }));
                     }
                     else
                     {
-                        Positions.Add(new Point { X = i - Health, Y = position.Y });
+                        Cells.Add(new Cell(new Point { X = i - Health, Y = position.Y }));
                     }                    
                 }
             }
@@ -63,19 +63,19 @@ namespace BattleShip.Model
 
         public void ShowShip(DataGridView grid)
         {            
-            Positions.ForEach(positon => grid.Rows[positon.X].Cells[positon.Y].Style.BackColor = Color);
+            Cells.ForEach(cell => grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color);
         }
 
         public bool ExistPosition(Point position)
         {
-            return Positions.Exists(Position => Position.Equals(position));
+            return Cells.Exists(cell => cell.Positon.Equals(position));
         }
 
         public bool ExistShip(Ship selected)
         {
-            foreach(Point position in Positions)
+            foreach(Cell cell in Cells)
             {
-                if (selected.ExistPosition(position))
+                if (selected.ExistPosition(cell.Positon))
                     return true;
             }
             return false;
