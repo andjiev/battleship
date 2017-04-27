@@ -63,7 +63,7 @@ namespace BattleShip.Model
 
         public void ShowShip(DataGridView grid)
         {
-            if(this.Destroyed())
+            if (this.Destroyed())
             {
                 Cells.ForEach(cell => grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.Black);
             }

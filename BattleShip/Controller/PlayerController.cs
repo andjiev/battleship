@@ -130,6 +130,10 @@ namespace BattleShip.Controller
                             return;
                         }
                     }
+                    if(shot.X + 1 > 11)
+                    {
+                        direction = Direction.UP;
+                    }
                     else
                     {
                         direction = Direction.UP;
@@ -153,11 +157,15 @@ namespace BattleShip.Controller
                         }
                         else
                         {
-                            direction = Direction.LEFT;
+                            direction = Direction.DOWN;
                             shot = first;
                             UpdateGrid(position, grid);
                             return;
                         }
+                    }
+                    if (shot.X - 1 < 0)
+                    {
+                        direction = Direction.DOWN;
                     }
                     else
                     {
@@ -188,6 +196,10 @@ namespace BattleShip.Controller
                             return;
                         }
                     }
+                    if (shot.Y - 1 < 0)
+                    {
+                        direction = Direction.RIGHT;
+                    }
                     else
                     {
                         direction = Direction.RIGHT;
@@ -211,17 +223,22 @@ namespace BattleShip.Controller
                         }
                         else
                         {
-                            direction = Direction.DOWN;
+                            direction = Direction.LEFT;
                             shot = first;
                             UpdateGrid(position, grid);
                             return;
                         }
+                    }
+                    if (shot.Y + 1 > 11)
+                    {
+                        direction = Direction.LEFT;
                     }
                     else
                     {
                         direction = Direction.DOWN;
                         shot = first;
                         Shoot(grid);
+                        return;
                     }
                 }
             }
