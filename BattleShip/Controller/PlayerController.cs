@@ -15,6 +15,9 @@ namespace BattleShip.Controller
         private List<Ship> ships;
         private List<Point> positions;
         public Ship selected;
+        private Point shot;
+        private Point first;
+        private bool useThis;
        
         public PlayerController()
         {
@@ -37,6 +40,8 @@ namespace BattleShip.Controller
                 }
             }
             selected = null;
+            shot = new Point();
+            useThis = true;
         }          
 
         public void SetGridView(DataGridView grid)
@@ -88,6 +93,61 @@ namespace BattleShip.Controller
 
         public void Shoot(DataGridView grid)
         {
+            if(selected != null)
+            {
+                if (selected.Destroyed())
+                {
+                    selected = null;
+                    GenerateRandom(grid);
+                    return;
+                }
+                if (shot.X + 1 < 12 && useThis && positions.Contains(new Point { X = shot.X + 1, Y = shot.X }))
+                {
+                    Point pos = new Point { X = shot.X + 1, Y = shot.Y };
+                    positions.Remove(pos);
+                    if(selected.ExistPosition(pos))
+                    {
+                        selected.ShootPosition(pos);
+                        shot = pos;
+                        return;
+                    }
+                    else
+                    {
+                        useThis = false;                        
+                        shot = first;
+                        UpdateGrid(pos, grid);
+                        return;
+                    }
+                }
+                if(shot.X - 1 >= 0 && !useThis && positions.Contains(new Point { X = shot.X - 1, Y = shot.X }))
+                {
+                    Point pos = new Point { X = shot.X - 1, Y = shot.Y };
+                    positions.Remove(pos);
+                    if (selected.ExistPosition(pos))
+                    {
+                        selected.ShootPosition(pos);
+                        shot = pos;
+                        return;
+                    }
+                    else
+                    {
+                        useThis = true;                        
+                        shot = first;
+                        UpdateGrid(pos, grid);
+                        return;
+                    }
+                }
+                else
+                {
+                    useThis = true;
+                    Shoot(grid);
+                }
+            }
+            GenerateRandom(grid);
+        }
+
+        private void GenerateRandom(DataGridView grid)
+        {
             int index = new Random().Next(positions.Count);
             Point position = positions[index];
             positions.RemoveAt(index);
@@ -96,12 +156,20 @@ namespace BattleShip.Controller
                 if (ship.ExistPosition(position))
                 {
                     ship.ShootPosition(position);
-                }
-                else
-                {
-                    grid.Rows[position.X].Cells[position.Y].Style.BackColor = Color.LightBlue;
+                    shot = position;
+                    first = shot;
+                    Select(position);
+                    return;
                 }
             }
+            UpdateGrid(position, grid);
+        }
+
+        private void UpdateGrid(Point position,DataGridView grid)
+        {
+            //grid.Rows[position.X].Cells[position.Y].Style.BackColor = Color.LightBlue;
+            grid.Rows[position.X].Cells[position.Y].Value = "X";
+            grid.Rows[position.X].Cells[position.Y].Style.BackColor = Color.Green;
         }
     }
 }

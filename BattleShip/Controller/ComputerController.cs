@@ -54,12 +54,10 @@ namespace BattleShip.Controller
                 if (ship.ExistPosition(position))
                 {
                     ship.ShootPosition(position);
-                }
-                else
-                {
-                    grid.Rows[position.X].Cells[position.Y].Style.BackColor = Color.LightBlue;
+                    return;
                 }
             }
+            grid.Rows[position.X].Cells[position.Y].Style.BackColor = Color.LightBlue;
         }
         public void ShowShips(DataGridView grid)
         {
