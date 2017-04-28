@@ -134,6 +134,7 @@ namespace BattleShip.Controller
                     if(shot.X + 1 > 11)
                     {
                         direction = Direction.UP;
+                        shot = first;
                     }
                     else
                     {
@@ -167,6 +168,7 @@ namespace BattleShip.Controller
                     if (shot.X - 1 < 0)
                     {
                         direction = Direction.DOWN;
+                        shot = first;
                     }
                     else
                     {
@@ -200,6 +202,7 @@ namespace BattleShip.Controller
                     if (shot.Y - 1 < 0)
                     {
                         direction = Direction.RIGHT;
+                        shot = first;
                     }
                     else
                     {
@@ -233,6 +236,7 @@ namespace BattleShip.Controller
                     if (shot.Y + 1 > 11)
                     {
                         direction = Direction.LEFT;
+                        shot = first;
                     }
                     else
                     {

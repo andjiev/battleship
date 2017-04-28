@@ -143,7 +143,7 @@ namespace BattleShip
 
         private void dgvComputer_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
-         //   computer.ShowShips(dgvComputer);
+            computer.ShowShips(dgvComputer);
         }
 
         private void dgvComputer_CellContentClick(object sender, DataGridViewCellEventArgs e)
