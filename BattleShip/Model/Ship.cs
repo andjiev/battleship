@@ -73,9 +73,8 @@ namespace BattleShip.Model
             //imgCell.Value = Image.FromFile(path + @"..\..\Images\Remove-icon.png");
             //grid[0, 0] = imgCell;
             if (this.Destroyed())
-            {
-                Cells.ForEach(cell => grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.Black);
-                
+            {                
+                Cells.ForEach(cell => grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.Black);                
             }
             else
             {
