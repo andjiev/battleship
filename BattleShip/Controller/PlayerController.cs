@@ -100,7 +100,7 @@ namespace BattleShip.Controller
 
         public void Shoot(DataGridView grid)
         {
-            System.Media.SoundPlayer sound2 = new System.Media.SoundPlayer(Properties.Resources.explosion1);
+            System.Media.SoundPlayer sound2 = new System.Media.SoundPlayer(Properties.Resources.explosion);
             if (selected != null)
             {
                 Point position = new Point();
@@ -265,7 +265,7 @@ namespace BattleShip.Controller
             {
                 if (ship.ExistPosition(position))
                 {
-                    System.Media.SoundPlayer sound2 = new System.Media.SoundPlayer(Properties.Resources.explosion1);
+                    System.Media.SoundPlayer sound2 = new System.Media.SoundPlayer(Properties.Resources.explosion);
                     sound2.Play();
                     ship.ShootPosition(position);
                     shot = position;

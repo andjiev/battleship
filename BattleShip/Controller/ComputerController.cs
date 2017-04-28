@@ -55,7 +55,7 @@ namespace BattleShip.Controller
                 if (ship.ExistPosition(position))
                 {
                     ship.ShootPosition(position);
-                    System.Media.SoundPlayer sound2 = new System.Media.SoundPlayer(Properties.Resources.explosion1);
+                    System.Media.SoundPlayer sound2 = new System.Media.SoundPlayer(Properties.Resources.explosion);
                     sound2.Play();
                     grid.Rows[position.X].Cells[position.Y].Style.BackColor = Color.Red;
 

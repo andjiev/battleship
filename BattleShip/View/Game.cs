@@ -232,7 +232,7 @@ namespace BattleShip
         private void ShootTimer_Tick(object sender, EventArgs e)
         {
             Random random = new Random();
-            ShootTimer.Interval = random.Next(10000, 15000);
+            ShootTimer.Interval = random.Next(5000, 7000);
             player.Shoot(dgvPlayer);
             player.ShowShips(dgvPlayer);
             Turn = true;

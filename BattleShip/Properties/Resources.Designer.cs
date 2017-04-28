@@ -22,7 +22,7 @@ namespace BattleShip.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace BattleShip.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BattleShip.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace BattleShip.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -61,28 +61,18 @@ namespace BattleShip.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static byte[] explosion {
+        public static System.IO.UnmanagedMemoryStream explosion {
             get {
-                object obj = ResourceManager.GetObject("explosion", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetStream("explosion", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream explosion1 {
-            get {
-                return ResourceManager.GetStream("explosion1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream miss {
+        public static System.IO.UnmanagedMemoryStream miss {
             get {
                 return ResourceManager.GetStream("miss", resourceCulture);
             }
@@ -91,17 +81,7 @@ namespace BattleShip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap house_2 {
-            get {
-                object obj = ResourceManager.GetObject("house_2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Remove_icon {
+        public static System.Drawing.Bitmap Remove_icon {
             get {
                 object obj = ResourceManager.GetObject("Remove_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -111,7 +91,7 @@ namespace BattleShip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream war {
+        public static System.IO.UnmanagedMemoryStream war {
             get {
                 return ResourceManager.GetStream("war", resourceCulture);
             }
@@ -120,7 +100,7 @@ namespace BattleShip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream war1 {
+        public static System.IO.UnmanagedMemoryStream war1 {
             get {
                 return ResourceManager.GetStream("war1", resourceCulture);
             }
