@@ -32,8 +32,7 @@ namespace BattleShip.Model
         public void AddPositions(Point position)
         {
             Cells = new List<Cell>();
-            string path = System.AppDomain.CurrentDomain.BaseDirectory;
-            img = System.Drawing.Image.FromFile(path + @"..\..\Images\Remove-icon.png");
+            
             if (Type == View.HORIZONTAL)
             {
                 for(int i = position.Y; i < position.Y + Health; i++)
@@ -68,10 +67,11 @@ namespace BattleShip.Model
         public void ShowShip(DataGridView grid)
         {   
             //TODO : Cell images, needs implementing
-            //DataGridViewImageCell imgCell = new DataGridViewImageCell();
-            
-            //imgCell.Value = Image.FromFile(path + @"..\..\Images\Remove-icon.png");
-            //grid[0, 0] = imgCell;
+            DataGridViewImageCell imgCell = new DataGridViewImageCell();
+            string path = System.AppDomain.CurrentDomain.BaseDirectory;
+            img = System.Drawing.Image.FromFile(path + @"..\..\Images\Remove-icon.png");
+            imgCell.Value = Image.FromFile(path + @"..\..\Images\Remove-icon.png");
+            grid.Rows[0].Cells[0].Value = imgCell;
             if (this.Destroyed())
             {                
                 Cells.ForEach(cell => grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.Black);                
