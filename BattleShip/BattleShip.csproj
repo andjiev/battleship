@@ -119,7 +119,10 @@
   <ItemGroup>
     <None Include="Images\house_2.bmp" />
     <Content Include="Images\Remove-icon.png" />
+    <Content Include="Music\explosion.wav" />
+    <Content Include="Music\miss.wav" />
     <Content Include="Music\war.wav" />
+    <None Include="Resources\explosion.mp3" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">

@@ -80,18 +80,42 @@ namespace BattleShip.Model
             {
                 foreach (Cell cell in Cells)
                 {
-                    if (cell.Alive)
+                    if (!cell.Alive)
                     {
-                        grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color;
+                        grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.Red;
 
                     }
                     else
                     {
-                        grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.Red;
+                        grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color;
                     }
                 }
             }                
         }
+        public void enemyShipsDraw(DataGridView grid)
+        {
+            if (this.Destroyed())
+            {
+                Cells.ForEach(cell => grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.Black);
+            }
+            else {
+
+
+                foreach (Cell cell in Cells)
+                {
+                    if (!cell.Alive)
+                    {
+                        grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.Red;
+
+                    }
+                    else
+                    {
+                        grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.White;
+                    }
+                }
+            }
+        }
+    
 
         public bool ExistPosition(Point position)
         {
@@ -124,6 +148,7 @@ namespace BattleShip.Model
         public void ShootPosition(Point position)
         {
             Cells.Find(cell => cell.Positon.Equals(position)).Alive = false;
+            
         }
 
         public bool Destroyed()

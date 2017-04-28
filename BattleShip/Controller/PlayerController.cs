@@ -100,13 +100,14 @@ namespace BattleShip.Controller
 
         public void Shoot(DataGridView grid)
         {
-            if(selected != null)
+            System.Media.SoundPlayer sound2 = new System.Media.SoundPlayer(Properties.Resources.explosion1);
+            if (selected != null)
             {
                 Point position = new Point();
                 if (selected.Destroyed())
                 {
                     selected = null;
-
+                    sound2.Play();
                     GenerateRandom(grid);
                     return;
                 }
@@ -120,6 +121,8 @@ namespace BattleShip.Controller
                         if (selected.ExistPosition(position))
                         {
                             selected.ShootPosition(position);
+                           
+                            sound2.Play();
                             shot = position;
                             return;
                         }
@@ -134,6 +137,7 @@ namespace BattleShip.Controller
                     if(shot.X + 1 > 11)
                     {
                         direction = Direction.UP;
+                        shot = first;
                     }
                     else
                     {
@@ -152,6 +156,7 @@ namespace BattleShip.Controller
                         positions.Remove(position);
                         if (selected.ExistPosition(position))
                         {
+                            sound2.Play();
                             selected.ShootPosition(position);
                             shot = position;
                             return;
@@ -167,6 +172,7 @@ namespace BattleShip.Controller
                     if (shot.X - 1 < 0)
                     {
                         direction = Direction.DOWN;
+                        shot = first;
                     }
                     else
                     {
@@ -185,6 +191,7 @@ namespace BattleShip.Controller
                         positions.Remove(position);
                         if (selected.ExistPosition(position))
                         {
+                            sound2.Play();
                             selected.ShootPosition(position);
                             shot = position;
                             return;
@@ -200,6 +207,7 @@ namespace BattleShip.Controller
                     if (shot.Y - 1 < 0)
                     {
                         direction = Direction.RIGHT;
+                        shot = first;
                     }
                     else
                     {
@@ -218,6 +226,7 @@ namespace BattleShip.Controller
                         positions.Remove(position);
                         if (selected.ExistPosition(position))
                         {
+                            sound2.Play();
                             selected.ShootPosition(position);
                             shot = position;
                             return;
@@ -233,6 +242,7 @@ namespace BattleShip.Controller
                     if (shot.Y + 1 > 11)
                     {
                         direction = Direction.LEFT;
+                        shot = first;
                     }
                     else
                     {
@@ -255,6 +265,8 @@ namespace BattleShip.Controller
             {
                 if (ship.ExistPosition(position))
                 {
+                    System.Media.SoundPlayer sound2 = new System.Media.SoundPlayer(Properties.Resources.explosion1);
+                    sound2.Play();
                     ship.ShootPosition(position);
                     shot = position;
                     first = shot;
@@ -269,6 +281,8 @@ namespace BattleShip.Controller
         {
             grid.Rows[position.X].Cells[position.Y].Value = "X";
             grid.Rows[position.X].Cells[position.Y].Style.BackColor = Color.Green;
+            System.Media.SoundPlayer sound = new System.Media.SoundPlayer(Properties.Resources.miss);
+            sound.Play();
         }
 
         public bool Won()
