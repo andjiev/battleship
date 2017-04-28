@@ -68,10 +68,10 @@ namespace BattleShip.Model
         {   
             //TODO : Cell images, needs implementing
             DataGridViewImageCell imgCell = new DataGridViewImageCell();
-            string path = System.AppDomain.CurrentDomain.BaseDirectory;
-            img = System.Drawing.Image.FromFile(path + @"..\..\Images\Remove-icon.png");
-            imgCell.Value = Image.FromFile(path + @"..\..\Images\Remove-icon.png");
-            grid.Rows[0].Cells[0].Value = imgCell;
+            string path = Application.StartupPath;
+            img = System.Drawing.Image.FromFile(path + "\\Images\\Remove-icon.png");
+            imgCell.Value = Image.FromFile(path +  "\\Images\\Remove-icon.png");
+         //    grid.Rows[1].Cells[1].Value = imgCell;
             if (this.Destroyed())
             {                
                 Cells.ForEach(cell => grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.Black);                
@@ -110,7 +110,7 @@ namespace BattleShip.Model
                     }
                     else
                     {
-                        grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.White;
+                        grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.PeachPuff;
                     }
                 }
             }
@@ -154,6 +154,17 @@ namespace BattleShip.Model
         public bool Destroyed()
         {
             return Cells.All(cell => !cell.Alive);
+        }
+        public bool checkOverlapping(Ship s)
+        {
+            foreach (Cell c in s.Cells.ToList()) {
+                if (Cells.Contains(c) || c.checkEqual(new Point { X=c.Positon.Y, Y = c.Positon.X }))
+                {
+                    return false;
+                }
+
+            }
+            return true;
         }
     }
 }

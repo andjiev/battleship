@@ -18,5 +18,9 @@ namespace BattleShip.Model
             Positon = position;
             Alive = true;
         }
+        public bool checkEqual(Point p)
+        {
+            return Positon.Equals(p);
+        }
     }
 }

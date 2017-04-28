@@ -17,22 +17,35 @@ namespace BattleShip.Controller
         {
             Random random = new Random();
             ships = new List<Ship>();
-            for (int i = 0; i < 10; i++)
+            ships.Add(new Ship(2, Color.Blue, new Point { X = 0, Y = 1 }, Ship.View.VERTICAL));
+            for (int i = 0; i < 6; i++)
             {
                 int size = random.Next(1, 5);
-                int width = random.Next(0, 11);
-                Ship ship = new Ship(size, Color.Blue, new Point { X = random.Next(0, 12), Y = random.Next(0,12) }, size % 2 == 0 ? Ship.View.VERTICAL : Ship.View.HORIZONTAL);
+                int width = random.Next(0, 12);
+                Point p = new Point { X = random.Next(1, 12), Y = random.Next(1, 12) };
+                Ship ship = new Ship(size, Color.Blue, p, width % 2 == 0 ? Ship.View.VERTICAL : Ship.View.HORIZONTAL);
 
-                if (!ships.Contains(ship))
+                foreach (Ship shipe in ships.ToList())
                 {
-                    ships.Add(ship);
+
+                    if (shipe.checkOverlapping(ship))
+                    {
+                        
+                        ships.Add(ship);
+                    }
+                    else
+                    {
+                        //  MessageBox.Show("Duplicate");
+                     //   MessageBox.Show(ships.Count.ToString() + "From for");
+                        ships.RemoveRange(0,ships.Count);
+                        i=0;
+                        ships.Add(new Ship(random.Next(1,5), Color.Blue, new Point { X = random.Next(0,12), Y = random.Next(0,12) }, Ship.View.VERTICAL));
+
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Duplicate");
-                    i--;
-                }
+                
             }
+            //MessageBox.Show(ships.Count.ToString());
         }
 
         public void SetGridView(DataGridView grid)
@@ -82,7 +95,8 @@ namespace BattleShip.Controller
         }
         public void ShowShips(DataGridView grid)
         {
-            ships.ForEach(ship => ship.enemyShipsDraw(grid));
+            ships.ForEach(ship => ship.ShowShip(grid));
+           // ships.ForEach(ship => ship.enemyShipsDraw(grid));
         }
         public bool Won() {
 

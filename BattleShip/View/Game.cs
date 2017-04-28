@@ -14,7 +14,7 @@ namespace BattleShip
     public partial class Game : Form
     {
         bool GameStarted;
-        bool Turn;
+        public static bool Turn;
         public static bool Hit;
         public static bool computerHit;
 
@@ -44,7 +44,7 @@ namespace BattleShip
         public void ShowComputerView()
         {
             computer.SetGridView(dgvComputer);
-         //   computer.ShowShips(dgvComputer);
+            computer.ShowShips(dgvComputer);
         }
 
         private void dgvPlayer_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
@@ -143,17 +143,25 @@ namespace BattleShip
             if (computer.Won())
             {
                 MessageBox.Show("YOU WON!","VICTORY");
-                ComputerTimer.Dispose();
+               
                 ShowPlayerView();
                 ShowComputerView();
+                ComputerTimer.Enabled = false;
+
+                ComputerTimer.Dispose();
 
             }
             if (player.Won())
             {
+                ComputerTimer.Enabled = false;
                 MessageBox.Show("YOU LOST!", "LOSE");
-                ComputerTimer.Dispose();
+                ComputerTimer.Interval = 999999999;
+                
                 ShowPlayerView();
                 ShowComputerView();
+                
+                ComputerTimer.Dispose();
+
             }
         }
 
