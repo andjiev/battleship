@@ -126,5 +126,10 @@ namespace BattleShip
         {
             AddAnimation(btnExit);
         }
+
+        private void form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
