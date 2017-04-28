@@ -82,7 +82,7 @@ namespace BattleShip
 
         private void dgvPlayer_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-         /*   Point position = new Point { X = e.RowIndex, Y = e.ColumnIndex };
+           Point position = new Point { X = e.RowIndex, Y = e.ColumnIndex };
             player.Select(position);
             if (player.selected != null)
             {
@@ -94,7 +94,7 @@ namespace BattleShip
             }
             ShowPlayerView();
             player.UnSelect();
-            */
+            
         }
 
         private void btnStart_Click(object sender, EventArgs e)
