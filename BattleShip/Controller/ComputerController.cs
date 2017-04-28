@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using BattleShip.Model;
+
 using System.Windows.Forms;
 
 namespace BattleShip.Controller
@@ -12,7 +13,6 @@ namespace BattleShip.Controller
     class ComputerController
     {
         private List<Ship> ships;
-
         public ComputerController()
         {
             Random random = new Random();
@@ -49,19 +49,39 @@ namespace BattleShip.Controller
 
         public void Shoot(Point position, DataGridView grid)
         {
+            grid.Enabled = true;
             foreach (Ship ship in ships)
             {
                 if (ship.ExistPosition(position))
                 {
                     ship.ShootPosition(position);
-                    return;
+                    grid.Rows[position.X].Cells[position.Y].Style.BackColor = Color.Red;
+                    ShowShips(grid);
+                    grid.Enabled = false;
+                    return ;
                 }
             }
+         
+            //  MessageBox.Show(position.X + " " + position.Y);
+
             grid.Rows[position.X].Cells[position.Y].Style.BackColor = Color.LightBlue;
+            
+            grid.Enabled = false;
+            System.Media.SoundPlayer sound = new System.Media.SoundPlayer(Properties.Resources.miss);
+            sound.Play();
+            
+          //  MessageBox.Show("");
+           
+         
+
         }
         public void ShowShips(DataGridView grid)
         {
-            ships.ForEach(ship => ship.ShowShip(grid));
+            ships.ForEach(ship => ship.enemyShipsDraw(grid));
+        }
+        public bool Won() {
+
+            return ships.All(ship => ship.Destroyed());
         }
     }
 }

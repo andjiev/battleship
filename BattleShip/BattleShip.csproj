@@ -118,6 +118,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\Remove-icon.png" />
+    <Content Include="Music\miss.wav" />
     <Content Include="Music\war.wav" />
   </ItemGroup>
   <ItemGroup>

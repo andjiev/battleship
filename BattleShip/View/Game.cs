@@ -20,6 +20,7 @@ namespace BattleShip
 
         public Game()
         {
+            DoubleBuffered = true;
             InitializeComponent();
             player = new PlayerController();
             computer = new ComputerController();
@@ -37,7 +38,7 @@ namespace BattleShip
         public void ShowComputerView()
         {
             computer.SetGridView(dgvComputer);
-            computer.ShowShips(dgvComputer);
+         //   computer.ShowShips(dgvComputer);
         }
 
         private void dgvPlayer_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
@@ -75,7 +76,7 @@ namespace BattleShip
 
         private void dgvPlayer_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            Point position = new Point { X = e.RowIndex, Y = e.ColumnIndex };
+         /*   Point position = new Point { X = e.RowIndex, Y = e.ColumnIndex };
             player.Select(position);
             if (player.selected != null)
             {
@@ -87,6 +88,7 @@ namespace BattleShip
             }
             ShowPlayerView();
             player.UnSelect();
+            */
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -108,7 +110,7 @@ namespace BattleShip
             player.Shoot(dgvPlayer);
             player.ShowShips(dgvPlayer);
             if (player.Won())
-                MessageBox.Show("WON");
+                MessageBox.Show("LOST!");
         }
 
         private void Game_Leave(object sender, EventArgs e)
@@ -118,37 +120,82 @@ namespace BattleShip
 
         private void ComputerTimer_Tick(object sender, EventArgs e)
         {
-           /* Random random = new Random();
-            ComputerTimer.Interval = random.Next(1000, 6120);
-            computer.Shoot(dgvPlayer);
-            dgvComputer.Enabled = true;
-            ComputerTimer.Dispose();  */
+            if (computer.Won())
+            {
+                MessageBox.Show("YOU WON!","VICTORY");
+                ComputerTimer.Dispose();
+                ShowPlayerView();
+                ShowComputerView();
+
+            }
+            if (player.Won())
+            {
+                MessageBox.Show("YOU LOST!", "LOSE");
+                ComputerTimer.Dispose();
+                ShowPlayerView();
+                ShowComputerView();
+            }
         }
 
         private void dgvComputer_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
-           
 
-            if (GameStarted)
-            {
-                MessageBox.Show(e.RowIndex + " " + e.ColumnIndex);
-                computer.Shoot(new Point { X = e.RowIndex , Y = e.ColumnIndex }, dgvComputer);
-                // player.Shoot(dgvComputer, new Point { X = e.RowIndex, Y = e.ColumnIndex });
-                //ComputerTimer.Start();
-                //dgvComputer.Enabled = false;
-            }
+            //  if (GameStarted)
+            // {
+           //    MessageBox.Show(e.RowIndex + " " + e.ColumnIndex);
+            computer.Shoot(new Point { X = e.RowIndex, Y = e.ColumnIndex }, dgvComputer);
+            //   player.Shoot(dgvComputer, new Point { X = e.RowIndex, Y = e.ColumnIndex });
+            //ComputerTimer.Start();
+            //dgvComputer.Enabled = false;
+            //  }
+            dgvComputer.Enabled = true;
+           //computer.ShowShips(dgvComputer);
 
             //In shoots only on right Click (need to be fixed)
         }
 
         private void dgvComputer_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
-         //   computer.ShowShips(dgvComputer);
+
+         
         }
 
         private void dgvComputer_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void dgvPlayer_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void Game_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvComputer_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            
+        }
+
+        private void dgvComputer_MouseDown(object sender, MouseEventArgs e)
+        {
+           
+        }
+
+        private void dgvComputer_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            while (!computer.Won()) {
+                Random random = new Random();
+                computer.Shoot(new Point { X = random.Next(0, 12), Y = random.Next(0, 12) }, dgvComputer);
+            }
         }
     }
 }

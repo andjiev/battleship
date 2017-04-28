@@ -269,6 +269,8 @@ namespace BattleShip.Controller
         {
             grid.Rows[position.X].Cells[position.Y].Value = "X";
             grid.Rows[position.X].Cells[position.Y].Style.BackColor = Color.Green;
+            System.Media.SoundPlayer sound = new System.Media.SoundPlayer(Properties.Resources.miss);
+            sound.Play();
         }
 
         public bool Won()
