@@ -117,6 +117,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Images\house_2.bmp" />
     <Content Include="Images\Remove-icon.png" />
     <Content Include="Music\war.wav" />
   </ItemGroup>
