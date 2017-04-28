@@ -62,7 +62,13 @@ namespace BattleShip.Model
         }
 
         public void ShowShip(DataGridView grid)
-        {
+        {   
+            //TODO : Cell images, needs implementing
+            //DataGridViewImageCell imgCell = new DataGridViewImageCell();
+            //string path = System.AppDomain.CurrentDomain.BaseDirectory;
+            
+            //imgCell.Value = Image.FromFile(path + @"..\..\Images\Remove-icon.png");
+            //grid[0, 0] = imgCell;
             if (this.Destroyed())
             {
                 Cells.ForEach(cell => grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.Black);
@@ -73,7 +79,7 @@ namespace BattleShip.Model
                 {
                     if (cell.Alive)
                     {
-                        grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color;
+                        grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color ;
                     }
                     else
                     {
