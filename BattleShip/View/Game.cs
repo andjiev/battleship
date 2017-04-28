@@ -139,8 +139,9 @@ namespace BattleShip
 
             if (computer.Won())
             {
+                ComputerTimer.Interval = 999999999;
                 MessageBox.Show("YOU WON!","VICTORY");
-               
+                
                 ShowPlayerView();
                 ShowComputerView();
                 ComputerTimer.Enabled = false;
