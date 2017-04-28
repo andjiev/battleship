@@ -19,7 +19,8 @@ namespace BattleShip.Model
         public Color Color { get; set; }
         public List<Cell> Cells { get; set; }
         public View Type { get; set; }
-
+        public Image img { get; set; }
+        
         public Ship(int health, Color color, Point position, View type)
         {
             Health = health;
@@ -31,17 +32,20 @@ namespace BattleShip.Model
         public void AddPositions(Point position)
         {
             Cells = new List<Cell>();
+            string path = System.AppDomain.CurrentDomain.BaseDirectory;
+            img = System.Drawing.Image.FromFile(path + @"..\..\Images\Remove-icon.png");
             if (Type == View.HORIZONTAL)
             {
                 for(int i = position.Y; i < position.Y + Health; i++)
                 {
                     if(i < 12)
                     {
-                        Cells.Add(new Cell(new Point { X = position.X, Y = i }));
+                        Cells.Add(new Cell(new Point { X = position.X, Y = i },img));
+                        
                     }
                     else
                     {
-                        Cells.Add(new Cell(new Point { X = position.X, Y = i - Health }));
+                        Cells.Add(new Cell(new Point { X = position.X, Y = i - Health }, img));
                     }                    
                 }
             }
@@ -51,11 +55,11 @@ namespace BattleShip.Model
                 {
                     if(i < 12)
                     {
-                        Cells.Add(new Cell(new Point { X = i, Y = position.Y }));
+                        Cells.Add(new Cell(new Point { X = i, Y = position.Y },img));
                     }
                     else
                     {
-                        Cells.Add(new Cell(new Point { X = i - Health, Y = position.Y }));
+                        Cells.Add(new Cell(new Point { X = i - Health, Y = position.Y }, img));
                     }                    
                 }
             }
@@ -65,13 +69,13 @@ namespace BattleShip.Model
         {   
             //TODO : Cell images, needs implementing
             //DataGridViewImageCell imgCell = new DataGridViewImageCell();
-            //string path = System.AppDomain.CurrentDomain.BaseDirectory;
             
             //imgCell.Value = Image.FromFile(path + @"..\..\Images\Remove-icon.png");
             //grid[0, 0] = imgCell;
             if (this.Destroyed())
             {
                 Cells.ForEach(cell => grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.Black);
+                
             }
             else
             {
@@ -79,7 +83,8 @@ namespace BattleShip.Model
                 {
                     if (cell.Alive)
                     {
-                        grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color ;
+                        grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color;
+
                     }
                     else
                     {

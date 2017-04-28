@@ -11,9 +11,10 @@ namespace BattleShip.Model
     {
         public Point Positon { get; set; }
         public bool Alive { get; set; }
-
-        public Cell(Point position)
+        public Image img { get; set; }
+        public Cell(Point position, Image _img)
         {
+            img = _img;
             Positon = position;
             Alive = true;
         }
