@@ -11,7 +11,7 @@ namespace BattleShip.Controller
 {
     class ComputerController
     {
-        List<Ship> ships;       
+        private List<Ship> ships;
 
         public ComputerController()
         {
@@ -45,30 +45,23 @@ namespace BattleShip.Controller
                 grid.Rows[i].Height = 30;
                 grid.Columns[i].Width = 30;              
             }
-            grid.ClearSelection();
         }
 
-        public void Shoot(DataGridView grid)
+        public void Shoot(Point position, DataGridView grid)
         {
-            Random random = new Random();
-            int row = random.Next(0, 12);
-            int column = random.Next(0, 12);
-            Color picked = grid.Rows[row].Cells[column].Style.BackColor;
-            if (picked == Color.Gray)
+            foreach (Ship ship in ships)
             {
-                grid.Rows[row].Cells[column].Style.BackColor = Color.Red;
-                Shoot(grid);
-            }                
-            else if(picked != Color.Gray && picked != Color.Red)
-            {
-                grid.Rows[row].Cells[column].Style.BackColor = Color.Purple;
+                if (ship.ExistPosition(position))
+                {
+                    ship.ShootPosition(position);
+                    return;
+                }
             }
-            grid.Rows[row].Cells[column].ReadOnly = true;
+            grid.Rows[position.X].Cells[position.Y].Style.BackColor = Color.LightBlue;
         }
         public void ShowShips(DataGridView grid)
         {
-            ships.ForEach(ship => ship.Show(grid));
+            ships.ForEach(ship => ship.ShowShip(grid));
         }
-
     }
 }

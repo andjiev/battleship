@@ -13,15 +13,17 @@ namespace BattleShip
 {
     public partial class Game : Form
     {
-      bool GameStarted;
+        bool GameStarted;
         PlayerController player;
         ComputerController computer;
+        Point startedPosition;
+
         public Game()
         {
             InitializeComponent();
             player = new PlayerController();
             computer = new ComputerController();
-          GameStarted = false;
+            GameStarted = false;
             ShowPlayerView();
             ShowComputerView();
         }
@@ -40,24 +42,33 @@ namespace BattleShip
 
         private void dgvPlayer_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
-            player.Select(new Point { X = e.RowIndex, Y = e.ColumnIndex });
+            startedPosition = new Point { X = e.RowIndex, Y = e.ColumnIndex };
+            player.Select(startedPosition);
         }
 
         private void dgvPlayer_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
             if(player.selected != null)
             {
-                player.selected.Position = new Point { X = e.RowIndex, Y = e.ColumnIndex };
+                player.selected.AddPositions(new Point { X = e.RowIndex, Y = e.ColumnIndex });
                 ShowPlayerView();
             }
         }
 
         private void dgvPlayer_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
+            if(player.selected != null)
+            {
+                if (player.SearchShip())
+                {
+                    player.selected.AddPositions(startedPosition);
+                    ShowPlayerView();
+                }
+            }
             player.UnSelect();
         }
 
-        private void dgvPlayer_MouseUp(object sender, MouseEventArgs e)
+        private void dgvPlayer_MouseLeave(object sender, EventArgs e)
         {
             player.UnSelect();
         }
@@ -69,6 +80,10 @@ namespace BattleShip
             if (player.selected != null)
             {
                 player.selected.ChangePosition(position);
+                if (player.SearchShip())
+                {
+                    player.selected.ChangePosition(position);
+                }
             }
             ShowPlayerView();
             player.UnSelect();
@@ -90,13 +105,10 @@ namespace BattleShip
 
         private void btnShoot_Click(object sender, EventArgs e)
         {
-            computer.Shoot(dgvPlayer);
-            player.CheckAlive(dgvPlayer);
-        }
-
-        private void Game_Load(object sender, EventArgs e)
-        {
-
+            player.Shoot(dgvPlayer);
+            player.ShowShips(dgvPlayer);
+            if (player.Won())
+                MessageBox.Show("WON");
         }
 
         private void Game_Leave(object sender, EventArgs e)
@@ -104,36 +116,32 @@ namespace BattleShip
             DialogResult = DialogResult.Cancel;
         }
 
-        private void dgvComputer_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-
-
-        }
-
         private void ComputerTimer_Tick(object sender, EventArgs e)
         {
-            Random random = new Random();
+           /* Random random = new Random();
             ComputerTimer.Interval = random.Next(1000, 6120);
             computer.Shoot(dgvPlayer);
             dgvComputer.Enabled = true;
-            ComputerTimer.Dispose();
-           
-        }
-
-        private void dgvPlayer_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            ComputerTimer.Dispose();  */
         }
 
         private void dgvComputer_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (GameStarted) {
-                player.Shoot(dgvComputer, new Point { X = e.RowIndex, Y = e.ColumnIndex });
-                ComputerTimer.Start();
-                dgvComputer.Enabled = false;
+            computer.Shoot(new Point { X = e.RowIndex, Y = e.ColumnIndex }, dgvComputer);
+
+            if (GameStarted)
+            {
+                // player.Shoot(dgvComputer, new Point { X = e.RowIndex, Y = e.ColumnIndex });
+                //ComputerTimer.Start();
+                //dgvComputer.Enabled = false;
             }
-            
+
+            //In shoots only on right Click (need to be fixed)
+        }
+
+        private void dgvComputer_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            computer.ShowShips(dgvComputer);
         }
     }
 }

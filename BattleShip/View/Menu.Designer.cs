@@ -38,6 +38,7 @@
             // btnNewGame
             // 
             this.btnNewGame.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnNewGame.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnNewGame.BackgroundImage")));
             this.btnNewGame.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnNewGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewGame.Location = new System.Drawing.Point(469, 93);
@@ -52,6 +53,7 @@
             // btnControls
             // 
             this.btnControls.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnControls.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnControls.BackgroundImage")));
             this.btnControls.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnControls.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnControls.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -67,6 +69,7 @@
             // btnExit
             // 
             this.btnExit.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExit.BackgroundImage")));
             this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Location = new System.Drawing.Point(469, 225);

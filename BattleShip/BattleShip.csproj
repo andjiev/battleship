@@ -62,6 +62,8 @@
   <ItemGroup>
     <Compile Include="Controller\ComputerController.cs" />
     <Compile Include="Controller\PlayerController.cs" />
+    <Compile Include="Model\Cell.cs" />
+    <Compile Include="Model\Ship.cs" />
     <Compile Include="View\HowToPlay.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,7 +82,6 @@
     <Compile Include="View\Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Ship.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="View\HowToPlay.resx">
@@ -116,6 +117,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\Remove-icon.png" />
     <Content Include="Music\war.wav" />
   </ItemGroup>
   <ItemGroup>
@@ -130,5 +132,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -15,69 +15,93 @@ namespace BattleShip.Model
             HORIZONTAL,
             VERTICAL
         }
-        public int Size { get; set; }
+        public int Health { get; set; }
         public Color Color { get; set; }
-        public Point Position { get; set; }
+        public List<Cell> Cells { get; set; }
         public View Type { get; set; }
 
-        public Ship(int size, Color color, Point position, View type)
+        public Ship(int health, Color color, Point position, View type)
         {
-            Size = size;
-            Color = color;
-            Position = position;
+            Health = health;
+            Color = color;            
             Type = type;
+            AddPositions(position);
         }
 
-        public void Show(DataGridView grid)
+        public void AddPositions(Point position)
         {
-            int i;
-            bool switched = false;
+            Cells = new List<Cell>();
             if (Type == View.HORIZONTAL)
             {
-                for (i = Position.Y; i < Position.Y +  Size; i++)
-                {
-                    if (i < 12)
-                    {
-                        grid.Rows[Position.X].Cells[i].Style.BackColor = Color;
-                    }
-                    else
-                    {
-                        grid.Rows[Position.X].Cells[i - Size].Style.BackColor = Color;
-                        switched = true;
-                    }                                               
-                }
-                if(switched)
-                    Position = new Point { X = Position.X, Y = 12 - Size};
-            }
-            else
-            {
-                for (i = Position.X; i < Position.X + Size; i++)
+                for(int i = position.Y; i < position.Y + Health; i++)
                 {
                     if(i < 12)
                     {
-                        grid.Rows[i].Cells[Position.Y].Style.BackColor = Color;
+                        Cells.Add(new Cell(new Point { X = position.X, Y = i }));
                     }
                     else
                     {
-                        grid.Rows[i - Size].Cells[Position.Y].Style.BackColor = Color;
-                        switched = true;
-                    }
+                        Cells.Add(new Cell(new Point { X = position.X, Y = i - Health }));
+                    }                    
                 }
-                if(switched)
-                    Position = new Point { X = 12 - Size, Y = Position.Y };
-            }
-        }
-
-        public bool Select(Point position)
-        {
-            if (Type == View.HORIZONTAL)
-            {
-                return Position.X == position.X && position.Y >= Position.Y && position.Y < Position.Y + Size;
             }
             else
             {
-                return Position.Y == position.Y && position.X >= Position.X && position.X < Position.X + Size;
+                for (int i = position.X; i < position.X + Health; i++)
+                {
+                    if(i < 12)
+                    {
+                        Cells.Add(new Cell(new Point { X = i, Y = position.Y }));
+                    }
+                    else
+                    {
+                        Cells.Add(new Cell(new Point { X = i - Health, Y = position.Y }));
+                    }                    
+                }
             }
+        }
+
+        public void ShowShip(DataGridView grid)
+        {   
+            //TODO : Cell images, needs implementing
+            //DataGridViewImageCell imgCell = new DataGridViewImageCell();
+            //string path = System.AppDomain.CurrentDomain.BaseDirectory;
+            
+            //imgCell.Value = Image.FromFile(path + @"..\..\Images\Remove-icon.png");
+            //grid[0, 0] = imgCell;
+            if (this.Destroyed())
+            {
+                Cells.ForEach(cell => grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.Black);
+            }
+            else
+            {
+                foreach (Cell cell in Cells)
+                {
+                    if (cell.Alive)
+                    {
+                        grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color ;
+                    }
+                    else
+                    {
+                        grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.Red;
+                    }
+                }
+            }                
+        }
+
+        public bool ExistPosition(Point position)
+        {
+            return Cells.Exists(cell => cell.Positon.Equals(position));
+        }
+
+        public bool ExistShip(Ship selected)
+        {
+            foreach(Cell cell in Cells)
+            {
+                if (selected.ExistPosition(cell.Positon))
+                    return true;
+            }
+            return false;
         }
 
         public void ChangePosition(Point position)
@@ -90,31 +114,17 @@ namespace BattleShip.Model
             {
                 Type = View.HORIZONTAL;
             }
-            Position = position;
-
+            AddPositions(position);
         }
-        public bool CheckIfAlive(DataGridView grid)
+
+        public void ShootPosition(Point position)
         {
-            if (Type == View.HORIZONTAL)
-            {
-                for (int i = Position.Y; i < Position.Y + Size ; i++) {
-                    if(grid.Rows[Position.X].Cells[i].Style.BackColor != Color.Red)
-                    {
-                        return true;
-                    }
-                }
-            }
-            else
-            {
-                for (int i = Position.X; i < Position.X + Size; i++)
-                {
-                    if (grid.Rows[i].Cells[Position.Y].Style.BackColor != Color.Red)
-                    {
-                        return true;
-                    }                        
-                }                
-            }
-            return false;
-        }       
+            Cells.Find(cell => cell.Positon.Equals(position)).Alive = false;
+        }
+
+        public bool Destroyed()
+        {
+            return Cells.All(cell => !cell.Alive);
+        }
     }
 }
