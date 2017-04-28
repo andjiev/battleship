@@ -61,6 +61,8 @@ namespace BattleShip.Controller
 
                     ShowShips(grid);
                     grid.Enabled = false;
+                    BattleShip.Game.Hit = true;
+
                     return ;
                 }
             }

@@ -14,6 +14,10 @@ namespace BattleShip
     public partial class Game : Form
     {
         bool GameStarted;
+        bool Turn;
+        public static bool Hit;
+        public static bool computerHit;
+
         PlayerController player;
         ComputerController computer;
         Point startedPosition;
@@ -21,6 +25,8 @@ namespace BattleShip
         public Game()
         {
             DoubleBuffered = true;
+            Turn = true;
+            Hit = false;
             InitializeComponent();
             player = new PlayerController();
             computer = new ComputerController();
@@ -95,7 +101,9 @@ namespace BattleShip
         {
             player.DisableCells(dgvPlayer);
             player.ShowShips(dgvPlayer);
+            ComputerTimer.Start();
             GameStarted = true;
+            Turn = true;
         }
 
         private void btnEnd_Click(object sender, EventArgs e)
@@ -120,6 +128,20 @@ namespace BattleShip
 
         private void ComputerTimer_Tick(object sender, EventArgs e)
         {
+            label2.Text=Turn? "You":"Computer";
+            if (!Turn)
+            {
+                dgvComputer.Enabled = false;
+                ShootTimer.Start();
+               // MessageBox.Show("TURN!");
+
+            }
+            if (Turn)
+            {
+                dgvComputer.Enabled = true;
+                ShootTimer.Stop();
+            }
+
             if (computer.Won())
             {
                 MessageBox.Show("YOU WON!","VICTORY");
@@ -140,15 +162,24 @@ namespace BattleShip
         private void dgvComputer_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
 
-            //  if (GameStarted)
-            // {
-           //    MessageBox.Show(e.RowIndex + " " + e.ColumnIndex);
+             if (GameStarted)
+            {
+               
             computer.Shoot(new Point { X = e.RowIndex, Y = e.ColumnIndex }, dgvComputer);
-            //   player.Shoot(dgvComputer, new Point { X = e.RowIndex, Y = e.ColumnIndex });
-            //ComputerTimer.Start();
-            //dgvComputer.Enabled = false;
-            //  }
-            dgvComputer.Enabled = true;
+                //   player.Shoot(dgvComputer, new Point { X = e.RowIndex, Y = e.ColumnIndex });
+                //ComputerTimer.Start();
+                //dgvComputer.Enabled = false;
+               
+                computer.ShowShips(dgvComputer);
+                if (Hit == true) {
+                    Hit = false;
+                    return;
+                }
+                Turn = false;
+                dgvComputer.Enabled = false;
+
+            }
+            
            //computer.ShowShips(dgvComputer);
 
             //In shoots only on right Click (need to be fixed)
@@ -192,10 +223,25 @@ namespace BattleShip
 
         private void button1_Click(object sender, EventArgs e)
         {
-            while (!computer.Won()) {
+    
                 Random random = new Random();
                 computer.Shoot(new Point { X = random.Next(0, 12), Y = random.Next(0, 12) }, dgvComputer);
-            }
+           
+        }
+
+        private void ShootTimer_Tick(object sender, EventArgs e)
+        {
+            Random random = new Random();
+            ShootTimer.Interval = random.Next(10000, 15000);
+            player.Shoot(dgvPlayer);
+            player.ShowShips(dgvPlayer);
+            Turn = true;
+            
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
