@@ -267,6 +267,7 @@ namespace BattleShip.Controller
                 {
                     System.Media.SoundPlayer sound2 = new System.Media.SoundPlayer(Properties.Resources.explosion);
                     sound2.Play();
+                    BattleShip.Game.Turn = false;
                     ship.ShootPosition(position);
                     shot = position;
                     first = shot;
