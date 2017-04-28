@@ -17,12 +17,12 @@ namespace BattleShip.Controller
         {
             Random random = new Random();
             ships = new List<Ship>();
-            ships.Add(new Ship(2, Color.Blue, new Point { X = 0, Y = 1 }, Ship.View.VERTICAL));
-            for (int i = 0; i < 6; i++)
+            ships.Add(new Ship(random.Next(2, 5), Color.Blue, new Point { X = random.Next(0, 12), Y = random.Next(0, 12) }, random.Next(0,2)%2==0? Ship.View.VERTICAL: Ship.View.HORIZONTAL));
+            for (int i = 0; i < 5; i++)
             {
-                int size = random.Next(1, 5);
+                int size = random.Next(2, 5);
                 int width = random.Next(0, 12);
-                Point p = new Point { X = random.Next(1, 12), Y = random.Next(1, 12) };
+                Point p = new Point { X = random.Next(0, 12), Y = random.Next(0, 12) };
                 Ship ship = new Ship(size, Color.Blue, p, width % 2 == 0 ? Ship.View.VERTICAL : Ship.View.HORIZONTAL);
 
                 foreach (Ship shipe in ships.ToList())
@@ -39,7 +39,7 @@ namespace BattleShip.Controller
                      //   MessageBox.Show(ships.Count.ToString() + "From for");
                         ships.RemoveRange(0,ships.Count);
                         i=0;
-                        ships.Add(new Ship(random.Next(1,5), Color.Blue, new Point { X = random.Next(0,12), Y = random.Next(0,12) }, Ship.View.VERTICAL));
+                        ships.Add(new Ship(random.Next(2,5), Color.Blue, new Point { X = random.Next(0,12), Y = random.Next(0,12) }, Ship.View.VERTICAL));
 
                     }
                 }

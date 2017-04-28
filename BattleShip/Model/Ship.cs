@@ -157,14 +157,17 @@ namespace BattleShip.Model
         }
         public bool checkOverlapping(Ship s)
         {
+            int i = 0;
             foreach (Cell c in s.Cells.ToList()) {
                 if (Cells.Contains(c) || c.checkEqual(new Point { X=c.Positon.Y, Y = c.Positon.X }))
                 {
                     return false;
                 }
+                i++;
 
             }
             return true;
         }
+       
     }
 }
