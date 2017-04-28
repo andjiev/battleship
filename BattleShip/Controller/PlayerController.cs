@@ -17,6 +17,7 @@ namespace BattleShip.Controller
         public Ship selected;
         private Point shot;
         private Point first;
+        public bool found;
         private enum Direction 
         {
             DOWN,
@@ -120,10 +121,10 @@ namespace BattleShip.Controller
                         positions.Remove(position);
                         if (selected.ExistPosition(position))
                         {
-                            selected.ShootPosition(position);
-                           
+                            selected.ShootPosition(position);                           
                             sound2.Play();
                             shot = position;
+                            found = true;
                             return;
                         }
                         else
@@ -159,6 +160,7 @@ namespace BattleShip.Controller
                             sound2.Play();
                             selected.ShootPosition(position);
                             shot = position;
+                            found = true;
                             return;
                         }
                         else
@@ -194,6 +196,7 @@ namespace BattleShip.Controller
                             sound2.Play();
                             selected.ShootPosition(position);
                             shot = position;
+                            found = true;
                             return;
                         }
                         else
@@ -229,6 +232,7 @@ namespace BattleShip.Controller
                             sound2.Play();
                             selected.ShootPosition(position);
                             shot = position;
+                            found = true;
                             return;
                         }
                         else
@@ -270,6 +274,7 @@ namespace BattleShip.Controller
                     ship.ShootPosition(position);
                     shot = position;
                     first = shot;
+                    found = true;
                     Select(position);
                     return;
                 }
@@ -283,6 +288,7 @@ namespace BattleShip.Controller
             grid.Rows[position.X].Cells[position.Y].Style.BackColor = Color.Green;
             System.Media.SoundPlayer sound = new System.Media.SoundPlayer(Properties.Resources.miss);
             sound.Play();
+            found = false;
         }
 
         public bool Won()

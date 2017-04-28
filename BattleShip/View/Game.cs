@@ -117,8 +117,6 @@ namespace BattleShip
         {
             player.Shoot(dgvPlayer);
             player.ShowShips(dgvPlayer);
-            if (player.Won())
-                MessageBox.Show("LOST!");
         }
 
         private void Game_Leave(object sender, EventArgs e)
@@ -232,11 +230,10 @@ namespace BattleShip
         private void ShootTimer_Tick(object sender, EventArgs e)
         {
             Random random = new Random();
-            ShootTimer.Interval = random.Next(5000, 7000);
+            ShootTimer.Interval = random.Next(1500, 2000);
             player.Shoot(dgvPlayer);
             player.ShowShips(dgvPlayer);
-            Turn = true;
-            
+            Turn = !player.found;
         }
 
         private void label1_Click(object sender, EventArgs e)
