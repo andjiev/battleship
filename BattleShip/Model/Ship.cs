@@ -69,8 +69,8 @@ namespace BattleShip.Model
             //TODO : Cell images, needs implementing
             DataGridViewImageCell imgCell = new DataGridViewImageCell();
             string path = Application.StartupPath;
-            img = System.Drawing.Image.FromFile(path + "\\Images\\Remove-icon.png");
-            imgCell.Value = Image.FromFile(path +  "\\Images\\Remove-icon.png");
+            //img = System.Drawing.Image.FromFile(path + "\\Images\\Remove-icon.png");
+            //imgCell.Value = Image.FromFile(path +  "\\Images\\Remove-icon.png");
          //    grid.Rows[1].Cells[1].Value = imgCell;
             if (this.Destroyed())
             {                

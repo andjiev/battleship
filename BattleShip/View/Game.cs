@@ -14,9 +14,7 @@ namespace BattleShip
     public partial class Game : Form
     {
         bool GameStarted;
-        public static bool Turn;
-        public static bool Hit;
-        public static bool computerHit;
+        public bool Turn;
 
         PlayerController player;
         ComputerController computer;
@@ -26,7 +24,6 @@ namespace BattleShip
         {
             DoubleBuffered = true;
             Turn = true;
-            Hit = false;
             InitializeComponent();
             player = new PlayerController();
             computer = new ComputerController();
@@ -167,28 +164,15 @@ namespace BattleShip
 
         private void dgvComputer_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
-
              if (GameStarted)
-            {
-               
-            computer.Shoot(new Point { X = e.RowIndex, Y = e.ColumnIndex }, dgvComputer);
-                //   player.Shoot(dgvComputer, new Point { X = e.RowIndex, Y = e.ColumnIndex });
-                //ComputerTimer.Start();
-                //dgvComputer.Enabled = false;
-               
+             {               
+                if(computer.Shoot(new Point { X = e.RowIndex, Y = e.ColumnIndex }, dgvComputer))
+                {
+                    Turn = false;
+                    dgvComputer.Enabled = false;
+                }               
                 computer.ShowShips(dgvComputer);
-                if (Hit == true) {
-                    Hit = false;
-                    return;
-                }
-                Turn = false;
-                dgvComputer.Enabled = false;
-
-            }
-            
-           //computer.ShowShips(dgvComputer);
-
-            //In shoots only on right Click (need to be fixed)
+             }
         }
 
         private void dgvComputer_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)

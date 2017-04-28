@@ -13,10 +13,12 @@ namespace BattleShip.Controller
     class ComputerController
     {
         private List<Ship> ships;
+        private List<Point> positions;
         public ComputerController()
         {
             Random random = new Random();
             ships = new List<Ship>();
+            positions = new List<Point>();
             ships.Add(new Ship(random.Next(2, 5), Color.Blue, new Point { X = random.Next(0, 12), Y = random.Next(0, 12) }, random.Next(0,2)%2==0? Ship.View.VERTICAL: Ship.View.HORIZONTAL));
             for (int i = 0; i < 5; i++)
             {
@@ -45,6 +47,13 @@ namespace BattleShip.Controller
                 }
                 
             }
+            for (int i = 0; i < 12; i++)
+            {
+                for (int j = 0; j < 12; j++)
+                {
+                    positions.Add(new Point { X = i, Y = j });
+                }
+            }
             //MessageBox.Show(ships.Count.ToString());
         }
 
@@ -60,38 +69,38 @@ namespace BattleShip.Controller
             }
         }
 
-        public void Shoot(Point position, DataGridView grid)
+        public bool Shoot(Point position, DataGridView grid)
         {
             grid.Enabled = true;
-            foreach (Ship ship in ships)
+            if(positions.Contains(position))
             {
-                if (ship.ExistPosition(position))
+                positions.Remove(position);
+                foreach (Ship ship in ships)
                 {
-                    ship.ShootPosition(position);
-                    System.Media.SoundPlayer sound2 = new System.Media.SoundPlayer(Properties.Resources.explosion);
-                    sound2.Play();
-                    grid.Rows[position.X].Cells[position.Y].Style.BackColor = Color.Red;
-
-                    ShowShips(grid);
-                    grid.Enabled = false;
-                    BattleShip.Game.Hit = true;
-
-                    return ;
+                    if (ship.ExistPosition(position))
+                    {
+                        ship.ShootPosition(position);
+                        System.Media.SoundPlayer sound2 = new System.Media.SoundPlayer(Properties.Resources.explosion);
+                        sound2.Play();
+                        grid.Rows[position.X].Cells[position.Y].Style.BackColor = Color.Red;
+                        ShowShips(grid);
+                        grid.Enabled = false;
+                        return false;
+                    }
                 }
+
+                //  MessageBox.Show(position.X + " " + position.Y);
+
+                grid.Rows[position.X].Cells[position.Y].Style.BackColor = Color.LightBlue;
+
+                grid.Enabled = false;
+                System.Media.SoundPlayer sound = new System.Media.SoundPlayer(Properties.Resources.miss);
+                sound.Play();
+
+                //  MessageBox.Show("");
+                return true;
             }
-         
-            //  MessageBox.Show(position.X + " " + position.Y);
-
-            grid.Rows[position.X].Cells[position.Y].Style.BackColor = Color.LightBlue;
-            
-            grid.Enabled = false;
-            System.Media.SoundPlayer sound = new System.Media.SoundPlayer(Properties.Resources.miss);
-            sound.Play();
-            
-          //  MessageBox.Show("");
-           
-         
-
+            return false;
         }
         public void ShowShips(DataGridView grid)
         {
