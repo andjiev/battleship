@@ -74,6 +74,9 @@ namespace BattleShip.Model
             //grid[0, 0] = imgCell;
             if (this.Destroyed())
             {
+                DataGridViewImageCell imgCell = new DataGridViewImageCell();
+                imgCell.Value = Image.FromFile(@"c:\pic\1.gif");
+                grid[0,0] = imgCell;
                 Cells.ForEach(cell => grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.Black);
                 
             }
