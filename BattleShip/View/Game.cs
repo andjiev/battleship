@@ -127,10 +127,12 @@ namespace BattleShip
 
         private void dgvComputer_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
-            computer.Shoot(new Point { X = e.RowIndex, Y = e.ColumnIndex }, dgvComputer);
+           
 
             if (GameStarted)
             {
+                MessageBox.Show(e.RowIndex + " " + e.ColumnIndex);
+                computer.Shoot(new Point { X = e.RowIndex , Y = e.ColumnIndex }, dgvComputer);
                 // player.Shoot(dgvComputer, new Point { X = e.RowIndex, Y = e.ColumnIndex });
                 //ComputerTimer.Start();
                 //dgvComputer.Enabled = false;
@@ -141,7 +143,12 @@ namespace BattleShip
 
         private void dgvComputer_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
-            computer.ShowShips(dgvComputer);
+         //   computer.ShowShips(dgvComputer);
+        }
+
+        private void dgvComputer_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
