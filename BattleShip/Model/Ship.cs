@@ -75,11 +75,11 @@ namespace BattleShip.Model
             //img = System.Drawing.Image.FromFile(path + "\\Images\\Remove-icon.png");
             //imgCell.Value = Image.FromFile(path +  "\\Images\\Remove-icon.png");
          //    grid.Rows[1].Cells[1].Value = imgCell;
-         foreach(Point point in viewPoints)
+         /*foreach(Point point in viewPoints)
             {
                 if(point.X >= 0 && point.X < 12 && point.Y >=0 && point.Y < 12)
                 grid.Rows[point.X].Cells[point.Y].Style.BackColor = Color.Purple;
-            }
+            }*/
             if (this.Destroyed())
             {                
                 Cells.ForEach(cell => grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.Black);                
@@ -135,7 +135,7 @@ namespace BattleShip.Model
         {
             foreach (Point point in selected.viewPoints)
             {
-                if (viewPoints.Exists(position => position.Equals(point)))
+                if (Cells.Exists(cell => cell.Positon.Equals(point)))
                     return true;
             }
             return false;

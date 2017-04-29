@@ -47,6 +47,7 @@ namespace BattleShip.Controller
                 grid.Rows[i].Height = 30;
                 grid.Columns[i].Width = 30;              
             }
+            grid.ClearSelection();
         }
 
         public bool Shoot(Point position, DataGridView grid)
