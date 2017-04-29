@@ -14,6 +14,7 @@ namespace BattleShip.Controller
     {
         private List<Ship> ships;
         private List<Point> positions;
+        private List<int> amounts;
         public Ship selected;
         private Point shot;
         private Point first;
@@ -32,7 +33,7 @@ namespace BattleShip.Controller
             ships = new List<Ship>();
             positions = new List<Point>();
             ships.Add(new Ship(1, Color.Blue, new Point { X = 0, Y = 2 }, Ship.View.HORIZONTAL));
-            ships.Add(new Ship(2, Color.Blue, new Point { X = 4, Y = 8 }, Ship.View.HORIZONTAL));
+            ships.Add(new Ship(2, Color.Blue, new Point { X = 4, Y = 9 }, Ship.View.HORIZONTAL));
             ships.Add(new Ship(3, Color.Blue, new Point { X = 5, Y = 7 }, Ship.View.VERTICAL));
             ships.Add(new Ship(3, Color.Blue, new Point { X = 8, Y = 1 }, Ship.View.HORIZONTAL));
             ships.Add(new Ship(4, Color.Blue, new Point { X = 8, Y = 9 }, Ship.View.VERTICAL));
@@ -47,6 +48,12 @@ namespace BattleShip.Controller
             selected = null;
             shot = new Point();
             direction = (Direction)new Random().Next(4);
+            amounts = new List<int>();
+            amounts.Add(3);
+            amounts.Add(2);
+            amounts.Add(2);
+            amounts.Add(1);
+            amounts.Add(1);
         }          
 
         public void SetGridView(DataGridView grid)
@@ -291,6 +298,50 @@ namespace BattleShip.Controller
         public bool Won()
         {
             return ships.All(ship => ship.Destroyed());
+        }
+
+        public void Random()
+        {
+            ships = new List<Ship>();            
+            bool picked = false;            
+            for (int i = 0; i < 5; i++)
+            {
+                for(int j = 0; j < amounts[i]; j++)
+                {
+                    while(!picked)
+                    {
+                        int index = new Random().Next(positions.Count);
+                        Ship.View type = (Ship.View)new Random().Next(2);
+                        Point position = positions[index];
+                        Ship primary = new Ship(i + 1, Color.Blue, position, type);
+                        List <Point> points = primary.Find();
+
+                        if (!ships.Exists(ship => ship.ExistsBig(points)))
+                        {
+                            ships.Add(primary);
+                            picked = true;
+                            RemovePositions(points);                            
+                        }
+                    }
+                    picked = false;
+                }                
+            }
+            positions = new List<Point>();
+            for (int i = 0; i < 12; i++)
+            {
+                for (int j = 0; j < 12; j++)
+                {
+                    positions.Add(new Point { X = i, Y = j });
+                }
+            }
+        }
+
+        private void RemovePositions(HashSet<Point> points)
+        {
+            foreach(Point point in points)
+            {
+                positions.Remove(point);
+            }
         }
     }
 }

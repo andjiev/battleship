@@ -19,7 +19,9 @@ namespace BattleShip.Model
         public Color Color { get; set; }
         public List<Cell> Cells { get; set; }
         public View Type { get; set; }
+        public List<Point> viewPoints { get; set; }
         public Image img { get; set; }
+
         
         public Ship(int health, Color color, Point position, View type)
         {
@@ -27,6 +29,7 @@ namespace BattleShip.Model
             Color = color;            
             Type = type;
             AddPositions(position);
+            AddViewPoints();
         }
 
         public void AddPositions(Point position)
@@ -124,12 +127,7 @@ namespace BattleShip.Model
 
         public bool ExistShip(Ship selected)
         {
-            foreach(Cell cell in Cells)
-            {
-                if (selected.ExistPosition(cell.Positon))
-                    return true;
-            }
-            return false;
+            return Cells.Exists(cell => selected.ExistPosition(cell.Positon));
         }
 
         public void ChangePosition(Point position)
@@ -167,7 +165,34 @@ namespace BattleShip.Model
 
             }
             return true;
+        }        
+
+        public bool ExistsBig()
+        {
+            foreach (Point point in viewPoints)
+            {
+                if (ExistPosition(point))
+                    return true;
+            }
+            return false;
         }
-       
+
+        public void AddViewPoints()
+        {
+            List<Point> positions = new List<Point>();
+            HashSet<Point> searchPoints = new HashSet<Point>();
+            Cells.ForEach(cell => positions.Add(cell.Positon));
+            foreach (Point point in positions)
+            {
+                for (int i = point.X - 1; i <= point.X + 1; ++i)
+                {
+                    for (int j = point.Y - 1; j <= point.Y + 1; ++j)
+                    {
+                        searchPoints.Add(new Point { X = i, Y = j });
+                    }
+                }
+            }
+            viewPoints = searchPoints.ToList();
+        }
     }
 }

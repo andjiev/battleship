@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using BattleShip.Model;
-
 using System.Windows.Forms;
 
 namespace BattleShip.Controller
