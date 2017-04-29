@@ -32,12 +32,6 @@ namespace BattleShip.Controller
         {
             ships = new List<Ship>();
             positions = new List<Point>();
-            ships.Add(new Ship(1, Color.Blue, new Point { X = 0, Y = 2 }, Ship.View.HORIZONTAL));
-            ships.Add(new Ship(2, Color.Blue, new Point { X = 4, Y = 9 }, Ship.View.HORIZONTAL));
-            ships.Add(new Ship(3, Color.Blue, new Point { X = 5, Y = 7 }, Ship.View.VERTICAL));
-            ships.Add(new Ship(3, Color.Blue, new Point { X = 8, Y = 1 }, Ship.View.HORIZONTAL));
-            ships.Add(new Ship(4, Color.Blue, new Point { X = 8, Y = 9 }, Ship.View.VERTICAL));
-            ships.Add(new Ship(5, Color.Blue, new Point { X = 6, Y = 5 }, Ship.View.VERTICAL));
             for(int i = 0; i < 12; i++)
             {
                 for (int j = 0; j < 12; j++)
@@ -54,6 +48,7 @@ namespace BattleShip.Controller
             amounts.Add(2);
             amounts.Add(1);
             amounts.Add(1);
+            Random();
         }          
 
         public void SetGridView(DataGridView grid)

@@ -70,11 +70,16 @@ namespace BattleShip.Model
         public void ShowShip(DataGridView grid)
         {   
             //TODO : Cell images, needs implementing
-            DataGridViewImageCell imgCell = new DataGridViewImageCell();
-            string path = Application.StartupPath;
+           // DataGridViewImageCell imgCell = new DataGridViewImageCell();
+            //string path = Application.StartupPath;
             //img = System.Drawing.Image.FromFile(path + "\\Images\\Remove-icon.png");
             //imgCell.Value = Image.FromFile(path +  "\\Images\\Remove-icon.png");
          //    grid.Rows[1].Cells[1].Value = imgCell;
+         foreach(Point point in viewPoints)
+            {
+                if(point.X >= 0 && point.X < 12 && point.Y >=0 && point.Y < 12)
+                grid.Rows[point.X].Cells[point.Y].Style.BackColor = Color.Purple;
+            }
             if (this.Destroyed())
             {                
                 Cells.ForEach(cell => grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.Black);                
@@ -93,7 +98,8 @@ namespace BattleShip.Model
                         grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color;
                     }
                 }
-            }                
+            }
+            
         }
         public void enemyShipsDraw(DataGridView grid)
         {
@@ -193,7 +199,7 @@ namespace BattleShip.Model
             {
                 for (int i = X - 1; i <= X + 1; i++)
                 {
-                    for(int j = Y - 1; j < Y + Health; j++)
+                    for(int j = Y - 1; j <= Y + Health; j++)
                     {
                         viewPoints.Add(new Point { X = i, Y = j });
                     }
@@ -202,7 +208,7 @@ namespace BattleShip.Model
             }
             if (Type == View.VERTICAL)
             {
-                for(int i = X - 1; i < X + Health; i++)
+                for(int i = X - 1; i <= X + Health; i++)
                 {
                     for (int j = Y - 1; j <= Y + 1; j++)
                     {
