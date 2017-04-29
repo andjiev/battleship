@@ -28,8 +28,7 @@ namespace BattleShip.Model
             Health = health;
             Color = color;            
             Type = type;
-            AddPositions(position);
-            AddViewPoints();
+            AddPositions(position);            
         }
 
         public void AddPositions(Point position)
@@ -65,6 +64,7 @@ namespace BattleShip.Model
                     }                    
                 }
             }
+            AddViewPoints();
         }
 
         public void ShowShip(DataGridView grid)
@@ -127,7 +127,12 @@ namespace BattleShip.Model
 
         public bool ExistShip(Ship selected)
         {
-            return Cells.Exists(cell => selected.ExistPosition(cell.Positon));
+            foreach (Point point in selected.viewPoints)
+            {
+                if (viewPoints.Exists(position => position.Equals(point)))
+                    return true;
+            }
+            return false;
         }
 
         public void ChangePosition(Point position)
@@ -153,11 +158,11 @@ namespace BattleShip.Model
             return Cells.All(cell => !cell.Alive);
         }    
 
-        public bool ExistsBig()
+        public bool ExistsBig(Ship primary)
         {
-            foreach (Point point in viewPoints)
+            foreach (Point point in primary.viewPoints)
             {
-                if (ExistPosition(point))
+                if (viewPoints.Exists(position => position.Equals(point)))
                     return true;
             }
             return false;
@@ -165,7 +170,7 @@ namespace BattleShip.Model
 
         public void AddViewPoints()
         {
-            /* List<Point> positions = new List<Point>();
+            /*List<Point> positions = new List<Point>();
              HashSet<Point> searchPoints = new HashSet<Point>();
              Cells.ForEach(cell => positions.Add(cell.Positon));
 
@@ -182,14 +187,27 @@ namespace BattleShip.Model
              viewPoints = searchPoints.ToList();
              */
             viewPoints = new List<Point>();
-            int first = Cells.Min(cell => cell.Positon.X);
-            int second = Cells.Max(cell => cell.Positon.Y);
-
-            for (int i = first - 1; i <= first + 1; ++i)
+            int X = Cells.Min(cell => cell.Positon.X);
+            int Y = Cells.Min(cell => cell.Positon.Y);
+            if(Type == View.HORIZONTAL)
             {
-                for (int j = second - 1; j <= second + 1; ++j)
+                for (int i = X - 1; i <= X + 1; i++)
                 {
-                    viewPoints.Add(new Point { X = i, Y = j });
+                    for(int j = Y - 1; j < Y + Health; j++)
+                    {
+                        viewPoints.Add(new Point { X = i, Y = j });
+                    }
+                }
+                return;
+            }
+            if (Type == View.VERTICAL)
+            {
+                for(int i = X - 1; i < X + Health; i++)
+                {
+                    for (int j = Y - 1; j <= Y + 1; j++)
+                    {
+                        viewPoints.Add(new Point { X = i, Y = j });
+                    }
                 }
             }
         }

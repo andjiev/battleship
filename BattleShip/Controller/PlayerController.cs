@@ -304,7 +304,7 @@ namespace BattleShip.Controller
         {
             ships = new List<Ship>();            
             bool picked = false;            
-            for (int i = 0; i < 5; i++)
+            for (int i = 4; i >= 0; i--)
             {
                 for(int j = 0; j < amounts[i]; j++)
                 {
@@ -317,11 +317,11 @@ namespace BattleShip.Controller
                         if(!ships.Exists(ship => ship.ExistPosition(position)))
                         {
                             Ship primary = new Ship(i + 1, Color.Blue, position, type);
-                            if (!ships.Exists(ship => ship.ExistsBig()))
+                            if (!ships.Exists(ship => ship.ExistShip(primary)))
                             {
                                 ships.Add(primary);
                                 picked = true;
-                                RemovePositions(primary.viewPoints);
+                                RemovePositions(primary);
                             }
                         }                        
                     }
@@ -338,12 +338,12 @@ namespace BattleShip.Controller
             }
         }
 
-        private void RemovePositions(List<Point> points)
+        private void RemovePositions(Ship primary)
         {
-            foreach(Point point in points)
+            foreach (Point point in primary.viewPoints)
             {
                 positions.Remove(point);
-            }
+            }            
         }
     }
 }
