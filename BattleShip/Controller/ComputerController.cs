@@ -12,40 +12,12 @@ namespace BattleShip.Controller
     class ComputerController
     {
         private List<Ship> ships;
+        private List<int> amounts;
         private List<Point> positions;
         public ComputerController()
         {
-            Random random = new Random();
-            ships = new List<Ship>();
+            amounts = new List<int>();
             positions = new List<Point>();
-            ships.Add(new Ship(random.Next(2, 5), Color.Blue, new Point { X = random.Next(0, 12), Y = random.Next(0, 12) }, random.Next(0,2)%2==0? Ship.View.VERTICAL: Ship.View.HORIZONTAL));
-            for (int i = 0; i < 5; i++)
-            {
-                int size = random.Next(2, 5);
-                int width = random.Next(0, 12);
-                Point p = new Point { X = random.Next(0, 12), Y = random.Next(0, 12) };
-                Ship ship = new Ship(size, Color.Blue, p, width % 2 == 0 ? Ship.View.VERTICAL : Ship.View.HORIZONTAL);
-
-                foreach (Ship shipe in ships.ToList())
-                {
-
-                    /*if (shipe.checkOverlapping(ship))
-                    {
-                        
-                        ships.Add(ship);
-                    }
-                    else
-                    {
-                        //  MessageBox.Show("Duplicate");
-                     //   MessageBox.Show(ships.Count.ToString() + "From for");
-                        ships.RemoveRange(0,ships.Count);
-                        i=0;
-                        ships.Add(new Ship(random.Next(2,5), Color.Blue, new Point { X = random.Next(0,12), Y = random.Next(0,12) }, Ship.View.VERTICAL));
-
-                    }*/
-                }
-                
-            }
             for (int i = 0; i < 12; i++)
             {
                 for (int j = 0; j < 12; j++)
@@ -53,6 +25,15 @@ namespace BattleShip.Controller
                     positions.Add(new Point { X = i, Y = j });
                 }
             }
+            amounts.Add(3);
+            amounts.Add(2);
+            amounts.Add(2);
+            amounts.Add(1);
+            amounts.Add(1);
+            Random();
+
+                
+           
             //MessageBox.Show(ships.Count.ToString());
         }
 
@@ -103,12 +84,57 @@ namespace BattleShip.Controller
         }
         public void ShowShips(DataGridView grid)
         {
-            ships.ForEach(ship => ship.ShowShip(grid));
+            ships.ForEach(ship => ship.enemyShipsDraw(grid));
            // ships.ForEach(ship => ship.enemyShipsDraw(grid));
         }
         public bool Won() {
 
             return ships.All(ship => ship.Destroyed());
+        }
+        public void Random()
+        {
+            ships = new List<Ship>();
+            bool picked = false;
+            for (int i = 4; i >= 0; i--)
+            {
+                for (int j = 0; j < amounts[i]; j++)
+                {
+                    while (!picked)
+                    {
+                        int index = new Random().Next(positions.Count);
+                        Ship.View type = (Ship.View)new Random().Next(2);
+                        Point position = positions[index];
+
+                        if (!ships.Exists(ship => ship.ExistPosition(position)))
+                        {
+                            Ship primary = new Ship(i + 1, Color.Blue, position, type);
+                            if (!ships.Exists(ship => ship.ExistShip(primary)))
+                            {
+                                ships.Add(primary);
+                                picked = true;
+                                RemovePositions(primary);
+                            }
+                        }
+                    }
+                    picked = false;
+                }
+            }
+            positions = new List<Point>();
+            for (int i = 0; i < 12; i++)
+            {
+                for (int j = 0; j < 12; j++)
+                {
+                    positions.Add(new Point { X = i, Y = j });
+                }
+            }
+        }
+
+        private void RemovePositions(Ship primary)
+        {
+            foreach (Point point in primary.viewPoints)
+            {
+                positions.Remove(point);
+            }
         }
     }
 }

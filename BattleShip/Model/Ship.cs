@@ -113,7 +113,7 @@ namespace BattleShip.Model
                     }
                     else
                     {
-                        grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.PeachPuff;
+                        grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.Empty;
                     }
                 }
             }
