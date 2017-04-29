@@ -145,27 +145,13 @@ namespace BattleShip.Model
 
         public void ShootPosition(Point position)
         {
-            Cells.Find(cell => cell.Positon.Equals(position)).Alive = false;
-            
+            Cells.Find(cell => cell.Positon.Equals(position)).Alive = false;            
         }
 
         public bool Destroyed()
         {
             return Cells.All(cell => !cell.Alive);
-        }
-        public bool checkOverlapping(Ship s)
-        {
-            int i = 0;
-            foreach (Cell c in s.Cells.ToList()) {
-                if (Cells.Contains(c) || c.checkEqual(new Point { X=c.Positon.Y, Y = c.Positon.X }))
-                {
-                    return false;
-                }
-                i++;
-
-            }
-            return true;
-        }        
+        }    
 
         public bool ExistsBig()
         {
@@ -179,20 +165,33 @@ namespace BattleShip.Model
 
         public void AddViewPoints()
         {
-            List<Point> positions = new List<Point>();
-            HashSet<Point> searchPoints = new HashSet<Point>();
-            Cells.ForEach(cell => positions.Add(cell.Positon));
-            foreach (Point point in positions)
+            /* List<Point> positions = new List<Point>();
+             HashSet<Point> searchPoints = new HashSet<Point>();
+             Cells.ForEach(cell => positions.Add(cell.Positon));
+
+             foreach (Point point in positions)
+             {
+                 for (int i = point.X - 1; i <= point.X + 1; ++i)
+                 {
+                     for (int j = point.Y - 1; j <= point.Y + 1; ++j)
+                     {
+                         searchPoints.Add(new Point { X = i, Y = j });
+                     }
+                 }
+             }
+             viewPoints = searchPoints.ToList();
+             */
+            viewPoints = new List<Point>();
+            int first = Cells.Min(cell => cell.Positon.X);
+            int second = Cells.Max(cell => cell.Positon.Y);
+
+            for (int i = first - 1; i <= first + 1; ++i)
             {
-                for (int i = point.X - 1; i <= point.X + 1; ++i)
+                for (int j = second - 1; j <= second + 1; ++j)
                 {
-                    for (int j = point.Y - 1; j <= point.Y + 1; ++j)
-                    {
-                        searchPoints.Add(new Point { X = i, Y = j });
-                    }
+                    viewPoints.Add(new Point { X = i, Y = j });
                 }
             }
-            viewPoints = searchPoints.ToList();
         }
     }
 }

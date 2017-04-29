@@ -29,7 +29,7 @@ namespace BattleShip.Controller
                 foreach (Ship shipe in ships.ToList())
                 {
 
-                    if (shipe.checkOverlapping(ship))
+                    /*if (shipe.checkOverlapping(ship))
                     {
                         
                         ships.Add(ship);
@@ -42,7 +42,7 @@ namespace BattleShip.Controller
                         i=0;
                         ships.Add(new Ship(random.Next(2,5), Color.Blue, new Point { X = random.Next(0,12), Y = random.Next(0,12) }, Ship.View.VERTICAL));
 
-                    }
+                    }*/
                 }
                 
             }

@@ -313,15 +313,17 @@ namespace BattleShip.Controller
                         int index = new Random().Next(positions.Count);
                         Ship.View type = (Ship.View)new Random().Next(2);
                         Point position = positions[index];
-                        Ship primary = new Ship(i + 1, Color.Blue, position, type);
-                        List <Point> points = primary.Find();
-
-                        if (!ships.Exists(ship => ship.ExistsBig(points)))
+                        
+                        if(!ships.Exists(ship => ship.ExistPosition(position)))
                         {
-                            ships.Add(primary);
-                            picked = true;
-                            RemovePositions(points);                            
-                        }
+                            Ship primary = new Ship(i + 1, Color.Blue, position, type);
+                            if (!ships.Exists(ship => ship.ExistsBig()))
+                            {
+                                ships.Add(primary);
+                                picked = true;
+                                RemovePositions(primary.viewPoints);
+                            }
+                        }                        
                     }
                     picked = false;
                 }                
@@ -336,7 +338,7 @@ namespace BattleShip.Controller
             }
         }
 
-        private void RemovePositions(HashSet<Point> points)
+        private void RemovePositions(List<Point> points)
         {
             foreach(Point point in points)
             {
