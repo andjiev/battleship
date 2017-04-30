@@ -194,7 +194,7 @@ namespace BattleShip
 
         private void Game_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void dgvComputer_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)

@@ -117,6 +117,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\buttonRandom.png" />
+    <None Include="Resources\Messbook-Outdated-Ship-Wheel.ico" />
+    <None Include="Resources\shipWheel.ico" />
     <None Include="Images\house_2.bmp" />
     <Content Include="Images\Remove-icon.png" />
     <Content Include="Music\explosion.wav" />

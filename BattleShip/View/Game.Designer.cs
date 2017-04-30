@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game));
             this.dgvPlayer = new System.Windows.Forms.DataGridView();
             this.dgvComputer = new System.Windows.Forms.DataGridView();
             this.btnStart = new System.Windows.Forms.Button();
@@ -72,20 +73,20 @@
             this.dgvComputer.AllowUserToResizeRows = false;
             this.dgvComputer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvComputer.ColumnHeadersVisible = false;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvComputer.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvComputer.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvComputer.Location = new System.Drawing.Point(544, 12);
             this.dgvComputer.MultiSelect = false;
             this.dgvComputer.Name = "dgvComputer";
             this.dgvComputer.ReadOnly = true;
             this.dgvComputer.RowHeadersVisible = false;
-            this.dgvComputer.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            this.dgvComputer.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvComputer.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dgvComputer.Size = new System.Drawing.Size(363, 363);
             this.dgvComputer.TabIndex = 1;
@@ -98,9 +99,10 @@
             // 
             // btnStart
             // 
+            this.btnStart.BackgroundImage = global::BattleShip.Properties.Resources.buttonRandom;
             this.btnStart.Location = new System.Drawing.Point(376, 399);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(75, 23);
+            this.btnStart.Size = new System.Drawing.Size(162, 23);
             this.btnStart.TabIndex = 2;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = true;
@@ -108,9 +110,10 @@
             // 
             // btnEnd
             // 
-            this.btnEnd.Location = new System.Drawing.Point(472, 399);
+            this.btnEnd.BackgroundImage = global::BattleShip.Properties.Resources.buttonRandom;
+            this.btnEnd.Location = new System.Drawing.Point(376, 428);
             this.btnEnd.Name = "btnEnd";
-            this.btnEnd.Size = new System.Drawing.Size(75, 23);
+            this.btnEnd.Size = new System.Drawing.Size(162, 23);
             this.btnEnd.TabIndex = 3;
             this.btnEnd.Text = "End";
             this.btnEnd.UseVisualStyleBackColor = true;
@@ -166,9 +169,10 @@
             // 
             // button2
             // 
+            this.button2.BackgroundImage = global::BattleShip.Properties.Resources.buttonRandom;
             this.button2.Location = new System.Drawing.Point(12, 399);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(147, 23);
+            this.button2.Size = new System.Drawing.Size(169, 23);
             this.button2.TabIndex = 8;
             this.button2.Text = "Generate Ships";
             this.button2.UseVisualStyleBackColor = true;
@@ -178,7 +182,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(919, 583);
+            this.ClientSize = new System.Drawing.Size(919, 453);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -189,6 +193,7 @@
             this.Controls.Add(this.dgvComputer);
             this.Controls.Add(this.dgvPlayer);
             this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Game";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Game";

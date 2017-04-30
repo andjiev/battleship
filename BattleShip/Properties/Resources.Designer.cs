@@ -61,11 +61,31 @@ namespace BattleShip.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap buttonRandom {
+            get {
+                object obj = ResourceManager.GetObject("buttonRandom", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         public static System.IO.UnmanagedMemoryStream explosion {
             get {
                 return ResourceManager.GetStream("explosion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        public static System.Drawing.Icon Messbook_Outdated_Ship_Wheel {
+            get {
+                object obj = ResourceManager.GetObject("Messbook_Outdated_Ship_Wheel", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
