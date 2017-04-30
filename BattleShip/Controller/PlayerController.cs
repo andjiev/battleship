@@ -309,8 +309,7 @@ namespace BattleShip.Controller
                         Ship.View type = (Ship.View)new Random().Next(2);
                         Point position = positions[index];
                         
-                        if(!ships.Exists(ship => ship.ExistPosition(position)))
-                        {
+                      
                             Ship primary = new Ship(i + 1, Color.Blue, position, type);
                             //if(ships.Exists(ship => ship.ExistShip(primary)))
                            // {
@@ -322,8 +321,8 @@ namespace BattleShip.Controller
                                 picked = true;
                                 RemovePositions(primary);
                             }
-                        }                        
-                    }
+                    }                        
+                    
                     picked = false;
                 }                
             }
