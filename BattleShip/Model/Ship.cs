@@ -135,8 +135,8 @@ namespace BattleShip.Model
         {
             foreach (Point point in selected.viewPoints)
             {
-                //if (Cells.Exists(cell => cell.Positon.Equals(point)))
-                if(viewPoints.Exists(position => position.Equals(point)))
+                if (Cells.Exists(cell => cell.Positon.Equals(point)))
+                //if(viewPoints.Exists(position => position.Equals(point)))
                     return true;
             }
             return false;

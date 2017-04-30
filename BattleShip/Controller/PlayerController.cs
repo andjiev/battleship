@@ -312,6 +312,10 @@ namespace BattleShip.Controller
                         if(!ships.Exists(ship => ship.ExistPosition(position)))
                         {
                             Ship primary = new Ship(i + 1, Color.Blue, position, type);
+                            //if(ships.Exists(ship => ship.ExistShip(primary)))
+                           // {
+                            //    primary.ChangePosition(position);
+                          //  }
                             if (!ships.Exists(ship => ship.ExistShip(primary)))
                             {
                                 ships.Add(primary);
