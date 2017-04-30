@@ -97,6 +97,14 @@ namespace BattleShip.Controller
             ships.ForEach(ship => ship.Color = Color.Blue);
         }
 
+        public void RemoveDeadPoints(Point position)
+        {
+            positions.Remove(new Point { X = position.X - 1, Y = position.Y - 1 });
+            positions.Remove(new Point { X = position.X - 1, Y = position.Y + 1 });
+            positions.Remove(new Point { X = position.X + 1, Y = position.Y - 1 });
+            positions.Remove(new Point { X = position.X + 1, Y = position.Y + 1 });
+        }
+
         public void Shoot(DataGridView grid)
         {
             System.Media.SoundPlayer sound2 = new System.Media.SoundPlayer(Properties.Resources.explosion);
@@ -105,8 +113,9 @@ namespace BattleShip.Controller
                 Point position = new Point();
                 if (selected.Destroyed())
                 {
+                    RemovePositions(selected);
                     selected = null;
-                    sound2.Play();
+                    sound2.Play();                    
                     GenerateRandom(grid);
                     return;
                 }
@@ -119,7 +128,8 @@ namespace BattleShip.Controller
                         positions.Remove(position);
                         if (selected.ExistPosition(position))
                         {
-                            selected.ShootPosition(position);                           
+                            selected.ShootPosition(position);
+                            RemoveDeadPoints(position);
                             sound2.Play();
                             shot = position;
                             found = true;
@@ -152,6 +162,7 @@ namespace BattleShip.Controller
                         {
                             sound2.Play();
                             selected.ShootPosition(position);
+                            RemoveDeadPoints(position);
                             shot = position;
                             found = true;
                             return;
@@ -188,6 +199,7 @@ namespace BattleShip.Controller
                         {
                             sound2.Play();
                             selected.ShootPosition(position);
+                            RemoveDeadPoints(position);
                             shot = position;
                             found = true;
                             return;
@@ -220,6 +232,7 @@ namespace BattleShip.Controller
                         {
                             sound2.Play();
                             selected.ShootPosition(position);
+                            RemoveDeadPoints(position);
                             shot = position;
                             found = true;
                             return;
