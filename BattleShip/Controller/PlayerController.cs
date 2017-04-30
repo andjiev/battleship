@@ -41,7 +41,6 @@ namespace BattleShip.Controller
             }
             selected = null;
             shot = new Point();
-            direction = (Direction)new Random().Next(4);
             amounts = new List<int>();
             amounts.Add(3);
             amounts.Add(2);
@@ -134,11 +133,6 @@ namespace BattleShip.Controller
                             return;
                         }
                     }
-                    if(shot.X + 1 > 9)
-                    {
-                        direction = Direction.UP;
-                        shot = first;
-                    }
                     else
                     {
                         direction = Direction.UP;
@@ -170,18 +164,18 @@ namespace BattleShip.Controller
                             return;
                         }
                     }
-                    if (shot.X - 1 < 0)
+                    else if (selected.Cells.FindAll(cell => !cell.Alive).Count > 1)
                     {
                         direction = Direction.DOWN;
-                        shot = first;
                     }
+                   
                     else
                     {
                         direction = Direction.LEFT;
-                        shot = first;
-                        Shoot(grid);
-                        return;
                     }
+                    shot = first;
+                    Shoot(grid);
+                    return;
                 }
 
                 if (direction == Direction.LEFT)
@@ -206,11 +200,7 @@ namespace BattleShip.Controller
                             return;
                         }
                     }
-                    if (shot.Y - 1 < 0)
-                    {
-                        direction = Direction.RIGHT;
-                        shot = first;
-                    }
+                   
                     else
                     {
                         direction = Direction.RIGHT;
@@ -242,18 +232,18 @@ namespace BattleShip.Controller
                             return;
                         }
                     }
-                    if (shot.Y + 1 > 9)
+                    else if (selected.Cells.FindAll(cell => !cell.Alive).Count > 1)
                     {
                         direction = Direction.LEFT;
-                        shot = first;
                     }
+
                     else
                     {
                         direction = Direction.DOWN;
-                        shot = first;
-                        Shoot(grid);
-                        return;
                     }
+                    shot = first;
+                    Shoot(grid);
+                    return;
                 }
             }
             GenerateRandom(grid);
@@ -271,6 +261,7 @@ namespace BattleShip.Controller
                     System.Media.SoundPlayer sound2 = new System.Media.SoundPlayer(Properties.Resources.explosion);
                     sound2.Play();
                     ship.ShootPosition(position);
+                    direction = (Direction)new Random().Next(4);
                     shot = position;
                     first = shot;
                     found = true;
