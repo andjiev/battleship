@@ -123,7 +123,7 @@ namespace BattleShip
 
         private void ComputerTimer_Tick(object sender, EventArgs e)
         {
-            label2.Text=Turn? "You":"Computer";
+            label2.Text=Turn? "Your":"Bot's";
             if (!Turn)
             {
                 dgvComputer.Enabled = false;
@@ -227,11 +227,6 @@ namespace BattleShip
             player.Shoot(dgvPlayer);
             player.ShowShips(dgvPlayer);
             Turn = !player.found;
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button2_Click(object sender, EventArgs e)

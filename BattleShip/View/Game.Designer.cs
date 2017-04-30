@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvPlayer = new System.Windows.Forms.DataGridView();
             this.dgvComputer = new System.Windows.Forms.DataGridView();
             this.btnStart = new System.Windows.Forms.Button();
@@ -51,7 +51,7 @@
             this.dgvPlayer.AllowUserToResizeRows = false;
             this.dgvPlayer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPlayer.ColumnHeadersVisible = false;
-            this.dgvPlayer.Location = new System.Drawing.Point(28, 28);
+            this.dgvPlayer.Location = new System.Drawing.Point(12, 12);
             this.dgvPlayer.MultiSelect = false;
             this.dgvPlayer.Name = "dgvPlayer";
             this.dgvPlayer.ReadOnly = true;
@@ -72,20 +72,20 @@
             this.dgvComputer.AllowUserToResizeRows = false;
             this.dgvComputer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvComputer.ColumnHeadersVisible = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvComputer.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvComputer.Location = new System.Drawing.Point(496, 28);
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvComputer.DefaultCellStyle = dataGridViewCellStyle12;
+            this.dgvComputer.Location = new System.Drawing.Point(544, 12);
             this.dgvComputer.MultiSelect = false;
             this.dgvComputer.Name = "dgvComputer";
             this.dgvComputer.ReadOnly = true;
             this.dgvComputer.RowHeadersVisible = false;
-            this.dgvComputer.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvComputer.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvComputer.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dgvComputer.Size = new System.Drawing.Size(363, 363);
             this.dgvComputer.TabIndex = 1;
@@ -98,7 +98,7 @@
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(60, 443);
+            this.btnStart.Location = new System.Drawing.Point(376, 399);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(75, 23);
             this.btnStart.TabIndex = 2;
@@ -108,7 +108,7 @@
             // 
             // btnEnd
             // 
-            this.btnEnd.Location = new System.Drawing.Point(289, 443);
+            this.btnEnd.Location = new System.Drawing.Point(472, 399);
             this.btnEnd.Name = "btnEnd";
             this.btnEnd.Size = new System.Drawing.Size(75, 23);
             this.btnEnd.TabIndex = 3;
@@ -118,7 +118,7 @@
             // 
             // btnShoot
             // 
-            this.btnShoot.Location = new System.Drawing.Point(605, 458);
+            this.btnShoot.Location = new System.Drawing.Point(832, 399);
             this.btnShoot.Name = "btnShoot";
             this.btnShoot.Size = new System.Drawing.Size(75, 23);
             this.btnShoot.TabIndex = 4;
@@ -132,7 +132,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(457, 458);
+            this.button1.Location = new System.Drawing.Point(705, 399);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 5;
@@ -148,29 +148,29 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(57, 498);
+            this.label1.Location = new System.Drawing.Point(467, 158);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 25);
             this.label1.TabIndex = 6;
             this.label1.Text = "Turn\r\n";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(134, 498);
+            this.label2.Location = new System.Drawing.Point(409, 158);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 25);
+            this.label2.Size = new System.Drawing.Size(30, 25);
             this.label2.TabIndex = 7;
+            this.label2.Text = "...";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(789, 480);
+            this.button2.Location = new System.Drawing.Point(12, 399);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(147, 23);
             this.button2.TabIndex = 8;
-            this.button2.Text = "Random";
+            this.button2.Text = "Generate Ships";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
