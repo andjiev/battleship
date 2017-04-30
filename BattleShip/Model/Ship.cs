@@ -39,7 +39,7 @@ namespace BattleShip.Model
             {
                 for(int i = position.Y; i < position.Y + Health; i++)
                 {
-                    if(i < 12)
+                    if(i < 10)
                     {
                         Cells.Add(new Cell(new Point { X = position.X, Y = i },img));
                         
@@ -54,7 +54,7 @@ namespace BattleShip.Model
             {
                 for (int i = position.X; i < position.X + Health; i++)
                 {
-                    if(i < 12)
+                    if(i < 10)
                     {
                         Cells.Add(new Cell(new Point { X = i, Y = position.Y },img));
                     }
@@ -77,7 +77,7 @@ namespace BattleShip.Model
          //    grid.Rows[1].Cells[1].Value = imgCell;
          foreach(Point point in viewPoints)
             {
-                if(point.X >= 0 && point.X < 12 && point.Y >=0 && point.Y < 12)
+                if(point.X >= 0 && point.X < 10 && point.Y >=0 && point.Y < 10)
                 grid.Rows[point.X].Cells[point.Y].Style.BackColor = Color.Purple;
             }
             if (this.Destroyed())
