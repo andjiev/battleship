@@ -223,7 +223,7 @@ namespace BattleShip
         private void ShootTimer_Tick(object sender, EventArgs e)
         {
             Random random = new Random();
-            ShootTimer.Interval = random.Next(1500, 2000);
+            ShootTimer.Interval = random.Next(1000, 2000);
             player.Shoot(dgvPlayer);
             player.ShowShips(dgvPlayer);
             Turn = !player.found;
@@ -238,6 +238,11 @@ namespace BattleShip
         private void dgvPlayer_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
            // button2.Focus();
+        }
+
+        private void dgvComputer_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            Cursor.Current = Cursors.Hand;
         }
     }
 }
