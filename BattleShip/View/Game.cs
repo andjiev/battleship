@@ -234,5 +234,10 @@ namespace BattleShip
             player.Random();
             ShowPlayerView();
         }
+
+        private void dgvPlayer_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+           // button2.Focus();
+        }
     }
 }
