@@ -107,35 +107,17 @@ namespace BattleShip.Model
 
             if (this.Destroyed())
             {
-                int X = Cells.Min(cell => cell.Positon.X);
-                int Y = Cells.Min(cell => cell.Positon.Y);
-                if(Type == View.VERTICAL)
+                foreach(Point point in viewPoints)
                 {
-                    if(X - 1 >= 0)
+                    if(point.X >= 0 && point.X < 10 && point.Y >= 0 && point.Y < 10)
                     {
-                        grid.Rows[X - 1].Cells[Y].Value = "X";
-                        grid.Rows[X - 1].Cells[Y].Style.BackColor = Color.Green;
-                    }
-                    if(X + Health < 10)
-                    {
-                        grid.Rows[X + Health].Cells[Y].Value = "X";
-                        grid.Rows[X + Health].Cells[Y].Style.BackColor = Color.Green;
+                        if(!Cells.Exists(cell => cell.Positon.Equals(point)))
+                        {
+                            grid.Rows[point.X].Cells[point.Y].Value = "X";
+                            grid.Rows[point.X].Cells[point.Y].Style.BackColor = Color.Green;
+                        }
                     }
                 }
-                else if (Type == View.HORIZONTAL)
-                {
-                    if(Y - 1 >= 0)
-                    {
-                        grid.Rows[X].Cells[Y - 1].Value = "X";
-                        grid.Rows[X].Cells[Y - 1].Style.BackColor = Color.Green;
-                    }
-                    if(Y + Health < 10)
-                    {
-                        grid.Rows[X].Cells[Y + Health].Value = "X";
-                        grid.Rows[X].Cells[Y + Health].Style.BackColor = Color.Green;
-                    }
-                }
-                ShowDeadCells(grid, shotPosition);
                 Cells.ForEach(cell => grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.Black);
             }
             else
