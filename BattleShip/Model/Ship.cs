@@ -71,23 +71,22 @@ namespace BattleShip.Model
         {
             if (position.X - 1 >= 0 && position.Y - 1 >= 0)
             {
-                grid.Rows[position.X - 1].Cells[position.Y - 1].Value = "X";
-                grid.Rows[position.X - 1].Cells[position.Y - 1].Style.BackColor = Color.Green;
+               
+                grid.Rows[position.X - 1].Cells[position.Y - 1].Style.BackColor = Color.LightBlue;
             }
-            if (position.X - 1 >= 0 && position.Y + 1 < 10)
+            if (position.X - 1 >= 0 && position.Y + 1 < 10 && position.X!=0  && position.Y!=0)
             {
-                grid.Rows[position.X - 1].Cells[position.Y + 1].Value = "X";
-                grid.Rows[position.X - 1].Cells[position.Y + 1].Style.BackColor = Color.Green;
+                
+                grid.Rows[position.X - 1].Cells[position.Y - 1].Style.BackColor = Color.LightBlue;
             }
             if (position.X + 1 < 10 && position.Y - 1 >= 0)
             {
-                grid.Rows[position.X + 1].Cells[position.Y - 1].Value = "X";
-                grid.Rows[position.X + 1].Cells[position.Y - 1].Style.BackColor = Color.Green;
+
+                grid.Rows[position.X - 1].Cells[position.Y - 1].Style.BackColor = Color.LightBlue;
             }
-            if (position.X + 1 < 10 && position.Y + 1 < 10)
+            if (position.X + 1 < 10 && position.Y + 1 < 10 && position.X !=0 && position.Y !=0)
             {
-                grid.Rows[position.X + 1].Cells[position.Y + 1].Value = "X";
-                grid.Rows[position.X + 1].Cells[position.Y + 1].Style.BackColor = Color.Green;
+                grid.Rows[position.X - 1].Cells[position.Y - 1].Style.BackColor = Color.LightBlue;
             }
         }
 
