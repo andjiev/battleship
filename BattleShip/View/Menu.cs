@@ -131,5 +131,10 @@ namespace BattleShip
         {
 
         }
+
+        private void btnHighscores_MouseEnter(object sender, EventArgs e)
+        {
+            AddAnimation(btnHighscores);
+        }
     }
 }

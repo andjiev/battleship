@@ -113,8 +113,8 @@ namespace BattleShip.Model
                     {
                         if(!Cells.Exists(cell => cell.Positon.Equals(point)))
                         {
-                            grid.Rows[point.X].Cells[point.Y].Value = "X";
-                            grid.Rows[point.X].Cells[point.Y].Style.BackColor = Color.Green;
+                            
+                            grid.Rows[point.X].Cells[point.Y].Style.BackColor = Color.LightBlue;
                         }
                     }
                 }

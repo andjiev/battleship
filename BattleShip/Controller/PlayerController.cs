@@ -291,8 +291,8 @@ namespace BattleShip.Controller
 
         private void UpdateGrid(Point position,DataGridView grid)
         {
-            grid.Rows[position.X].Cells[position.Y].Value = "X";
-            grid.Rows[position.X].Cells[position.Y].Style.BackColor = Color.Green;
+           
+            grid.Rows[position.X].Cells[position.Y].Style.BackColor = Color.LightBlue;
             System.Media.SoundPlayer sound = new System.Media.SoundPlayer(Properties.Resources.miss);
             sound.Play();
             found = false;
