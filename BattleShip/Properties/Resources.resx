@@ -118,6 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="war" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Music\war.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Messbook_Outdated_Ship_Wheel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Messbook-Outdated-Ship-Wheel.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="explosion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Music\explosion.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -127,16 +133,13 @@
   <data name="Remove_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Remove-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="war" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Music\war.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="buttonRandom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\buttonRandom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="war1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Music\war.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Messbook_Outdated_Ship_Wheel" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Messbook-Outdated-Ship-Wheel.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="buttonRandom" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\buttonRandom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="22.-water-texture" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\22.-water-texture1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

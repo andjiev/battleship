@@ -117,6 +117,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\22.-water-texture1.jpg" />
     <None Include="Resources\buttonRandom.png" />
     <None Include="Resources\Messbook-Outdated-Ship-Wheel.ico" />
     <None Include="Resources\shipWheel.ico" />

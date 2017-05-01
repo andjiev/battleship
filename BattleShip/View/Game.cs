@@ -244,5 +244,6 @@ namespace BattleShip
         {
             Cursor.Current = Cursors.Hand;
         }
+
     }
 }

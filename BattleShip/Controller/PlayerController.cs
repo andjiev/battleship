@@ -61,7 +61,11 @@ namespace BattleShip.Controller
                 grid.Columns[i].Width = 36;
             }
             grid.ClearSelection();
+            /*grid.DataBindings.Add(nameof(DataGrid.BackgroundColor),
+                                grid,
+                                nameof(Control.BackgroundImage));*/
         }
+
 
         public void ShowShips(DataGridView grid)
         {
