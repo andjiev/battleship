@@ -94,11 +94,11 @@ namespace BattleShip.Model
         public void ShowShip(DataGridView grid, Ship selected)
         {
             //TODO : Cell images, needs implementing
-            // DataGridViewImageCell imgCell = new DataGridViewImageCell();
+           
             //string path = Application.StartupPath;
-            //img = System.Drawing.Image.FromFile(path + "\\Images\\Remove-icon.png");
+            
+            
             //imgCell.Value = Image.FromFile(path +  "\\Images\\Remove-icon.png");
-            //    grid.Rows[1].Cells[1].Value = imgCell;
             /*  foreach (Point point in selected.viewPoints)
                    {
                        if (point.X >= 0 && point.X < 10 && point.Y >= 0 && point.Y < 10)
@@ -131,7 +131,14 @@ namespace BattleShip.Model
                     }
                     else
                     {
-                        grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color;
+                        string name = "Remove_icon";
+                        DataGridViewImageCell imgCell = new DataGridViewImageCell();
+                        imgCell.Value = Properties.Resources.ResourceManager.GetObject(name);
+                        //grid.NotifyCurrentCellDirty(true);
+                        //grid.BeginEdit(false);
+                        grid.Rows[cell.Positon.X].Cells[cell.Positon.Y] = imgCell;
+                        // grid.EndEdit();
+
                     }
                 }
             }

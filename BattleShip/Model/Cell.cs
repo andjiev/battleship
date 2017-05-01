@@ -22,5 +22,10 @@ namespace BattleShip.Model
         {
             return Positon.Equals(p);
         }
+
+        public void SwapImage()
+        {
+            img.RotateFlip(RotateFlipType.Rotate180FlipXY);
+        }
     }
 }
