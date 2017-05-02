@@ -15,16 +15,16 @@ namespace BattleShip.Model
             HORIZONTAL,
             VERTICAL
         }
-        public int Health { get; set; }
+        public int Size { get; set; }
         public Color Color { get; set; }
         public List<Cell> Cells { get; set; }
         public View Type { get; set; }
         public List<Point> viewPoints { get; set; }
         private Point shotPosition;
 
-        public Ship(int health, Color color, Point position, View type)
+        public Ship(int size, Color color, Point position, View type)
         {
-            Health = health;
+            Size = size;
             Color = color;
             Type = type;
             AddPositions(position);
@@ -36,7 +36,7 @@ namespace BattleShip.Model
 
             if (Type == View.HORIZONTAL)
             {
-                for (int i = position.Y; i < position.Y + Health; i++)
+                for (int i = position.Y; i < position.Y + Size; i++)
                 {
                     if (i < 10)
                     {
@@ -45,25 +45,13 @@ namespace BattleShip.Model
                     }
                     else
                     {
-                        Cells.Add(new Cell(new Point { X = position.X, Y = i - Health }));
+                        Cells.Add(new Cell(new Point { X = position.X, Y = i - Size }));
                     }
-                }
-                if (Health == 3)
-                {
-                    int num = 31;
-                    Cells = Cells.OrderBy(cell => cell.Positon.X).ThenBy(cell => cell.Positon.Y).ToList();
-                    foreach (Cell cell in Cells)
-                    {
-
-                        cell.Img = (Image)Properties.Resources.ResourceManager.GetObject("_" + num);
-                        cell.SwapImage();
-                        num++;
-                    }
-                }
+                }               
             }
             else
             {
-                for (int i = position.X; i < position.X + Health; i++)
+                for (int i = position.X; i < position.X + Size; i++)
                 {
                     if (i < 10)
                     {
@@ -71,12 +59,12 @@ namespace BattleShip.Model
                     }
                     else
                     {
-                        Cells.Add(new Cell(new Point { X = i - Health, Y = position.Y }));
+                        Cells.Add(new Cell(new Point { X = i - Size, Y = position.Y }));
                     }
                 }
             }
 
-            if(Health == 3)
+            if(Size == 3)
             {
                 AddImages();
             }
@@ -86,9 +74,9 @@ namespace BattleShip.Model
         private void AddImages()
         {
             Cells = Cells.OrderBy(cell => cell.Positon.X).ThenBy(cell => cell.Positon.Y).ToList();
-            for (int i = 0; i < Health; i++)
+            for (int i = 0; i < Size; i++)
             {
-                string file = string.Format("_{0}{1}", Health, i + 1);
+                string file = string.Format("_{0}{1}", Size, i + 1);
                 Cell cell = Cells.ElementAt(i);
                 cell.Img = (Image)Properties.Resources.ResourceManager.GetObject(file);
                 if(Type == View.HORIZONTAL)
@@ -158,7 +146,7 @@ namespace BattleShip.Model
                     }
                     else
                     {
-                        if (Health == 3)
+                        if (Size == 3)
                         {
                             DataGridViewImageCell imgCell = new DataGridViewImageCell();
                             imgCell.Value = cell.Img;
@@ -289,7 +277,7 @@ namespace BattleShip.Model
             {
                 for (int i = X - 1; i <= X + 1; i++)
                 {
-                    for (int j = Y - 1; j <= Y + Health; j++)
+                    for (int j = Y - 1; j <= Y + Size; j++)
                     {
                         viewPoints.Add(new Point { X = i, Y = j });
                     }
@@ -298,7 +286,7 @@ namespace BattleShip.Model
             }
             if (Type == View.VERTICAL)
             {
-                for (int i = X - 1; i <= X + Health; i++)
+                for (int i = X - 1; i <= X + Size; i++)
                 {
                     for (int j = Y - 1; j <= Y + 1; j++)
                     {

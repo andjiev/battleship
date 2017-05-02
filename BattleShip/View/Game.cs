@@ -102,6 +102,9 @@ namespace BattleShip
             player.DisableCells(dgvPlayer);
             player.ShowShips(dgvPlayer);
             ComputerTimer.Start();
+            System.Media.SoundPlayer song = new System.Media.SoundPlayer(Properties.Resources.start);
+            song.Play();
+            song.Load();
             GameStarted = true;
             Turn = true;
         }
