@@ -123,6 +123,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\33.png" />
+    <None Include="Resources\32.png" />
+    <None Include="Resources\31.png" />
     <None Include="Resources\53.png" />
     <None Include="Resources\52.png" />
     <None Include="Resources\51.png" />

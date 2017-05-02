@@ -50,7 +50,7 @@ namespace BattleShip.Model
                 }
                 if (Health == 3)
                 {
-                    int num = 51;
+                    int num = 31;
                     Cells = Cells.OrderBy(cell => cell.Positon.X).ThenBy(cell => cell.Positon.Y).ToList();
                     foreach (Cell cell in Cells)
                     {
@@ -76,7 +76,7 @@ namespace BattleShip.Model
                 }
                 if (Health == 3)
                 {
-                    int num = 51;
+                    int num = 31;
                     Cells = Cells.OrderBy(cell => cell.Positon.X).ThenBy(cell => cell.Positon.Y).ToList();
                     foreach (Cell cell in Cells)
                     {
