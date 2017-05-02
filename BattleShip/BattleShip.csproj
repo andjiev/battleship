@@ -63,6 +63,9 @@
     <Compile Include="Controller\ComputerController.cs" />
     <Compile Include="Controller\PlayerController.cs" />
     <Compile Include="Model\Cell.cs" />
+    <Compile Include="Model\MyDataGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Model\Ship.cs" />
     <Compile Include="View\Highscores.cs">
       <SubType>Form</SubType>

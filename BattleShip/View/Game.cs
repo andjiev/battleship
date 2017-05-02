@@ -19,7 +19,7 @@ namespace BattleShip
         PlayerController player;
         ComputerController computer;
         Point startedPosition;
-
+        
         public Game()
         {
             DoubleBuffered = true;
