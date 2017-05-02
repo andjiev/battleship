@@ -20,7 +20,6 @@ namespace BattleShip.Model
         public List<Cell> Cells { get; set; }
         public View Type { get; set; }
         public List<Point> viewPoints { get; set; }
-        public Image img { get; set; }
         private Point shotPosition;
 
         public Ship(int health, Color color, Point position, View type)
@@ -41,12 +40,12 @@ namespace BattleShip.Model
                 {
                     if (i < 10)
                     {
-                        Cells.Add(new Cell(new Point { X = position.X, Y = i }, img));
+                        Cells.Add(new Cell(new Point { X = position.X, Y = i }));
 
                     }
                     else
                     {
-                        Cells.Add(new Cell(new Point { X = position.X, Y = i - Health }, img));
+                        Cells.Add(new Cell(new Point { X = position.X, Y = i - Health }));
                     }
                 }
             }
@@ -56,11 +55,22 @@ namespace BattleShip.Model
                 {
                     if (i < 10)
                     {
-                        Cells.Add(new Cell(new Point { X = i, Y = position.Y }, img));
+                        Cells.Add(new Cell(new Point { X = i, Y = position.Y }));
                     }
                     else
                     {
-                        Cells.Add(new Cell(new Point { X = i - Health, Y = position.Y }, img));
+                        Cells.Add(new Cell(new Point { X = i - Health, Y = position.Y }));
+                    }
+                }
+                if (Health == 3)
+                {
+                    int num = 51;
+                    Cells.OrderBy(cell => cell.Positon.X).ThenBy(cell => cell.Positon.Y);
+                    foreach (Cell cell in Cells)
+                    {
+
+                        cell.Img = (Image)Properties.Resources.ResourceManager.GetObject("_" + num);
+                        num++;
                     }
                 }
             }
@@ -127,13 +137,23 @@ namespace BattleShip.Model
                     }
                     else
                     {
-                        string name = "Remove_icon";
-                        DataGridViewImageCell imgCell = new DataGridViewImageCell();
-                        imgCell.Value = Properties.Resources.ResourceManager.GetObject(name);
-                        //grid.NotifyCurrentCellDirty(true);
-                        //grid.BeginEdit(false);
-                        grid.Rows[cell.Positon.X].Cells[cell.Positon.Y] = imgCell;
-                        // grid.EndEdit();
+                        if (Health == 3 && Type == View.VERTICAL)
+                        {
+                            DataGridViewImageCell imgCell = new DataGridViewImageCell();
+                            imgCell.Value = cell.Img;
+                            grid.Rows[cell.Positon.X].Cells[cell.Positon.Y] = imgCell;
+                        }
+                        else
+                        {
+                            string name = "Remove_icon";
+                            DataGridViewImageCell imgCell = new DataGridViewImageCell();
+                            imgCell.Value = Properties.Resources.ResourceManager.GetObject(name);
+                            //grid.NotifyCurrentCellDirty(true);
+                            //grid.BeginEdit(false);
+                            grid.Rows[cell.Positon.X].Cells[cell.Positon.Y] = imgCell;
+                            // grid.EndEdit();
+                        }
+
 
                     }
                 }

@@ -11,10 +11,9 @@ namespace BattleShip.Model
     {
         public Point Positon { get; set; }
         public bool Alive { get; set; }
-        public Image img { get; set; }
-        public Cell(Point position, Image _img)
+        public Image Img { get; set; }
+        public Cell(Point position)
         {
-            img = _img;
             Positon = position;
             Alive = true;
         }
@@ -25,7 +24,7 @@ namespace BattleShip.Model
 
         public void SwapImage()
         {
-            img.RotateFlip(RotateFlipType.Rotate180FlipXY);
+            //Img.RotateFlip(RotateFlipType.Rotate180FlipXY);
         }
     }
 }
