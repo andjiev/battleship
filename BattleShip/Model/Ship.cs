@@ -48,6 +48,18 @@ namespace BattleShip.Model
                         Cells.Add(new Cell(new Point { X = position.X, Y = i - Health }));
                     }
                 }
+                if (Health == 3)
+                {
+                    int num = 51;
+                    Cells = Cells.OrderBy(cell => cell.Positon.X).ThenBy(cell => cell.Positon.Y).ToList();
+                    foreach (Cell cell in Cells)
+                    {
+
+                        cell.Img = (Image)Properties.Resources.ResourceManager.GetObject("_" + num);
+                        cell.SwapImage();
+                        num++;
+                    }
+                }
             }
             else
             {
@@ -65,7 +77,7 @@ namespace BattleShip.Model
                 if (Health == 3)
                 {
                     int num = 51;
-                    Cells.OrderBy(cell => cell.Positon.X).ThenBy(cell => cell.Positon.Y);
+                    Cells = Cells.OrderBy(cell => cell.Positon.X).ThenBy(cell => cell.Positon.Y).ToList();
                     foreach (Cell cell in Cells)
                     {
 
@@ -137,7 +149,7 @@ namespace BattleShip.Model
                     }
                     else
                     {
-                        if (Health == 3 && Type == View.VERTICAL)
+                        if (Health == 3)
                         {
                             DataGridViewImageCell imgCell = new DataGridViewImageCell();
                             imgCell.Value = cell.Img;

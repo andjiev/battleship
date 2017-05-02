@@ -24,7 +24,7 @@ namespace BattleShip.Model
 
         public void SwapImage()
         {
-            //Img.RotateFlip(RotateFlipType.Rotate180FlipXY);
+            Img.RotateFlip(RotateFlipType.Rotate90FlipX);
         }
     }
 }
