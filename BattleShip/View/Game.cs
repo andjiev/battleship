@@ -54,8 +54,11 @@ namespace BattleShip
         {
             if(player.selected != null)
             {
+                //player.selected.RemoveShip(dgvPlayer);
                 player.selected.AddPositions(new Point { X = e.RowIndex, Y = e.ColumnIndex });
+                //player.selected.ShowShip(dgvPlayer);
                 ShowPlayerView();
+                //player.ShowShips(dgvPlayer);
             }
         }
 

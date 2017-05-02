@@ -91,7 +91,7 @@ namespace BattleShip.Model
             }
         }
 
-        public void ShowShip(DataGridView grid, Ship selected)
+        public void ShowShip(DataGridView grid)
         {
             //TODO : Cell images, needs implementing
            
@@ -141,6 +141,14 @@ namespace BattleShip.Model
 
                     }
                 }
+            }
+        }
+
+        public void RemoveShip(DataGridView grid)
+        {
+            foreach (Cell cell in Cells)
+            {
+               grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Value = new Bitmap(36, 36);
             }
         }
 

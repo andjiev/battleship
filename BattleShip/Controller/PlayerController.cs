@@ -69,7 +69,12 @@ namespace BattleShip.Controller
 
         public void ShowShips(DataGridView grid)
         {
-            ships.ForEach(ship => ship.ShowShip(grid,selected));
+            ships.ForEach(ship => ship.ShowShip(grid));
+        }
+
+        public void ShowSelectedShip(DataGridView grid)
+        {
+            selected.ShowShip(grid);
         }
 
         public bool SearchShip()
