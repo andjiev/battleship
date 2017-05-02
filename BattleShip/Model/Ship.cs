@@ -70,23 +70,20 @@ namespace BattleShip.Model
         private void ShowDeadCells(DataGridView grid, Point position)
         {
             if (position.X - 1 >= 0 && position.Y - 1 >= 0)
-            {
-               
+            {               
                 grid.Rows[position.X - 1].Cells[position.Y - 1].Style.BackColor = Color.LightBlue;
             }
-            if (position.X - 1 >= 0 && position.Y + 1 < 10 && position.X!=0  && position.Y!=0)
+            if (position.X - 1 >= 0 && position.Y + 1 < 10)
             {
-                
-                grid.Rows[position.X - 1].Cells[position.Y - 1].Style.BackColor = Color.LightBlue;
+                grid.Rows[position.X - 1].Cells[position.Y + 1].Style.BackColor = Color.LightBlue;
             }
             if (position.X + 1 < 10 && position.Y - 1 >= 0)
             {
-
-                grid.Rows[position.X - 1].Cells[position.Y - 1].Style.BackColor = Color.LightBlue;
+                grid.Rows[position.X + 1].Cells[position.Y - 1].Style.BackColor = Color.LightBlue;
             }
-            if (position.X + 1 < 10 && position.Y + 1 < 10 && position.X !=0 && position.Y !=0)
+            if (position.X + 1 < 10 && position.Y + 1 < 10)
             {
-                grid.Rows[position.X - 1].Cells[position.Y - 1].Style.BackColor = Color.LightBlue;
+                grid.Rows[position.X + 1].Cells[position.Y + 1].Style.BackColor = Color.LightBlue;
             }
         }
 
