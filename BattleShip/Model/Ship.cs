@@ -74,19 +74,28 @@ namespace BattleShip.Model
                         Cells.Add(new Cell(new Point { X = i - Health, Y = position.Y }));
                     }
                 }
-                if (Health == 3)
-                {
-                    int num = 31;
-                    Cells = Cells.OrderBy(cell => cell.Positon.X).ThenBy(cell => cell.Positon.Y).ToList();
-                    foreach (Cell cell in Cells)
-                    {
+            }
 
-                        cell.Img = (Image)Properties.Resources.ResourceManager.GetObject("_" + num);
-                        num++;
-                    }
-                }
+            if(Health == 3)
+            {
+                AddImages();
             }
             AddViewPoints();
+        }
+
+        private void AddImages()
+        {
+            Cells = Cells.OrderBy(cell => cell.Positon.X).ThenBy(cell => cell.Positon.Y).ToList();
+            for (int i = 0; i < Health; i++)
+            {
+                string file = string.Format("_{0}{1}", Health, i + 1);
+                Cell cell = Cells.ElementAt(i);
+                cell.Img = (Image)Properties.Resources.ResourceManager.GetObject(file);
+                if(Type == View.HORIZONTAL)
+                {
+                    cell.SwapImage();
+                }
+            }
         }
 
         private void ShowDeadCells(DataGridView grid, Point position)
