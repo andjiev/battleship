@@ -38,9 +38,7 @@
             this.dgvComputer = new System.Windows.Forms.DataGridView();
             this.btnStart = new System.Windows.Forms.Button();
             this.btnEnd = new System.Windows.Forms.Button();
-            this.btnShoot = new System.Windows.Forms.Button();
             this.ComputerTimer = new System.Windows.Forms.Timer(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             this.ShootTimer = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -53,6 +51,7 @@
             // 
             this.dgvPlayer.AllowUserToResizeColumns = false;
             this.dgvPlayer.AllowUserToResizeRows = false;
+            this.dgvPlayer.BackgroundColor = System.Drawing.SystemColors.WindowFrame;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -147,29 +146,9 @@
             this.btnEnd.UseVisualStyleBackColor = true;
             this.btnEnd.Click += new System.EventHandler(this.btnEnd_Click);
             // 
-            // btnShoot
-            // 
-            this.btnShoot.Location = new System.Drawing.Point(832, 399);
-            this.btnShoot.Name = "btnShoot";
-            this.btnShoot.Size = new System.Drawing.Size(75, 23);
-            this.btnShoot.TabIndex = 4;
-            this.btnShoot.Text = "Test";
-            this.btnShoot.UseVisualStyleBackColor = true;
-            this.btnShoot.Click += new System.EventHandler(this.btnShoot_Click);
-            // 
             // ComputerTimer
             // 
             this.ComputerTimer.Tick += new System.EventHandler(this.ComputerTimer_Tick);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(705, 399);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Test2";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // ShootTimer
             // 
@@ -203,7 +182,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(169, 23);
             this.button2.TabIndex = 8;
-            this.button2.Text = "Generate Ships";
+            this.button2.Text = "Randomize";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -216,8 +195,6 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.btnShoot);
             this.Controls.Add(this.btnEnd);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.dgvComputer);
@@ -241,9 +218,7 @@
         private System.Windows.Forms.DataGridView dgvComputer;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnEnd;
-        private System.Windows.Forms.Button btnShoot;
         private System.Windows.Forms.Timer ComputerTimer;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Timer ShootTimer;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

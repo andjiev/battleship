@@ -33,6 +33,7 @@
             this.btnControls = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnHighscores = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnNewGame
@@ -57,7 +58,7 @@
             this.btnControls.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnControls.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnControls.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnControls.Location = new System.Drawing.Point(469, 163);
+            this.btnControls.Location = new System.Drawing.Point(469, 141);
             this.btnControls.Name = "btnControls";
             this.btnControls.Size = new System.Drawing.Size(75, 42);
             this.btnControls.TabIndex = 1;
@@ -72,7 +73,7 @@
             this.btnExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExit.BackgroundImage")));
             this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Location = new System.Drawing.Point(469, 225);
+            this.btnExit.Location = new System.Drawing.Point(469, 237);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 42);
             this.btnExit.TabIndex = 2;
@@ -93,6 +94,21 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "© VIM 2017";
             // 
+            // btnHighscores
+            // 
+            this.btnHighscores.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnHighscores.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnHighscores.BackgroundImage")));
+            this.btnHighscores.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnHighscores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHighscores.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnHighscores.Location = new System.Drawing.Point(469, 189);
+            this.btnHighscores.Name = "btnHighscores";
+            this.btnHighscores.Size = new System.Drawing.Size(75, 42);
+            this.btnHighscores.TabIndex = 4;
+            this.btnHighscores.Text = "Highscores";
+            this.btnHighscores.UseVisualStyleBackColor = false;
+            this.btnHighscores.MouseEnter += new System.EventHandler(this.btnHighscores_MouseEnter);
+            // 
             // form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -100,6 +116,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(654, 486);
+            this.Controls.Add(this.btnHighscores);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnControls);
@@ -122,6 +139,7 @@
         private System.Windows.Forms.Button btnControls;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnHighscores;
     }
 }
 
