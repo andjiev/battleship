@@ -194,6 +194,11 @@
             this.grid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.grid1.Size = new System.Drawing.Size(240, 277);
             this.grid1.TabIndex = 11;
+            this.grid1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPlayer_CellContentClick);
+            this.grid1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPlayer_CellMouseDoubleClick);
+            this.grid1.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPlayer_CellMouseDown);
+            this.grid1.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPlayer_CellMouseMove);
+            this.grid1.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPlayer_CellMouseUp);
             // 
             // Game
             // 

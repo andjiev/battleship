@@ -88,15 +88,7 @@ namespace BattleShip
 
         private void dgvPlayer_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if(player.selected != null)
-            {
-                if (player.SearchShip())
-                {
-                    player.selected.AddPositions(startedPosition);
-                    ShowPlayerView();
-                }
-            }
-            player.UnSelect();
+
         }
 
         private void dgvPlayer_MouseLeave(object sender, EventArgs e)
