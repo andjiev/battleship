@@ -78,11 +78,6 @@ namespace BattleShip
             player.UnSelect();
         }
 
-        private void dgvPlayer_MouseLeave(object sender, EventArgs e)
-        {
-            player.UnSelect();
-        }
-
         private void dgvPlayer_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             Point newPosition = new Point { X = e.RowIndex, Y = e.ColumnIndex };
@@ -213,6 +208,19 @@ namespace BattleShip
         private void dgvComputer_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
             Cursor.Current = Cursors.Hand;
+        }
+
+        private void dgvPlayer_MouseLeave(object sender, EventArgs e)
+        {
+            if (player.selected != null)
+            {
+                if (player.SearchShip())
+                {
+                    player.selected.AddPositions(startedPosition);
+                    ShowPlayerView();
+                }
+            }
+            player.UnSelect();
         }
     }
 }

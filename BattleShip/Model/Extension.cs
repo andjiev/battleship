@@ -10,7 +10,6 @@ namespace BattleShip.Model
 {
     static class Extension
     {
-
         public static void DoubleBuffered(this DataGridView dgv, bool setting)
         {
             Type dgvType = dgv.GetType();

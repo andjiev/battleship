@@ -63,17 +63,17 @@ namespace BattleShip.Model
                     }
                 }
             }
-
-            if(Size > 2)
+            Cells = Cells.OrderBy(cell => cell.Positon.X).ThenBy(cell => cell.Positon.Y).ToList();
+            if (Size > 2)
             {
                 AddImages();
             }
+            
             AddViewPoints();
         }
 
         private void AddImages()
-        {
-            Cells = Cells.OrderBy(cell => cell.Positon.X).ThenBy(cell => cell.Positon.Y).ToList();
+        {            
             for (int i = 0; i < Size; i++)
             {
                 string file = string.Format("_{0}{1}", Size, i + 1);
