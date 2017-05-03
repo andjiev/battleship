@@ -31,7 +31,7 @@ namespace BattleShip
             ShowPlayerView();
             ShowComputerView();
         }
-
+        
         public void ShowPlayerView()
         {
             player.SetGridView(dgvPlayer);
@@ -107,6 +107,8 @@ namespace BattleShip
             song.Load();
             GameStarted = true;
             Turn = true;
+            button2.Enabled = false;
+            label1.Hide();
         }
 
         private void btnEnd_Click(object sender, EventArgs e)
@@ -114,6 +116,8 @@ namespace BattleShip
             player.EnableCells(dgvPlayer);
             player.ShowShips(dgvPlayer);
             GameStarted=false;
+            
+
         }
 
         private void btnShoot_Click(object sender, EventArgs e)
@@ -129,7 +133,7 @@ namespace BattleShip
 
         private void ComputerTimer_Tick(object sender, EventArgs e)
         {
-            label2.Text=Turn? "Your":"Bot's";
+            label2.Text=Turn? "Your turn":"Bot's turn";
             if (!Turn)
             {
                 dgvComputer.Enabled = false;
