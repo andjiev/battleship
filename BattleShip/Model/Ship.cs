@@ -72,6 +72,10 @@ namespace BattleShip.Model
             {
                 AddImages();
             }
+            if(Size == 4)
+            {
+                AddImages();
+            }
             AddViewPoints();
         }
 
@@ -160,8 +164,13 @@ namespace BattleShip.Model
                             DataGridViewImageCell imgCell = new DataGridViewImageCell();
                             imgCell.Value = cell.Img;
                             grid.Rows[cell.Positon.X].Cells[cell.Positon.Y] = imgCell;
+                        } else if(Size == 4)
+                        {
+                            DataGridViewImageCell imgCell = new DataGridViewImageCell();
+                            imgCell.Value = cell.Img;
+                            grid.Rows[cell.Positon.X].Cells[cell.Positon.Y] = imgCell;
                         }
-                        else
+                        else 
                         {
                             string name = "Remove_icon";
                             DataGridViewImageCell imgCell = new DataGridViewImageCell();
