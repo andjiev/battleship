@@ -14,7 +14,7 @@ namespace BattleShip
     public partial class Game : Form
     {
         bool GameStarted;
-        public bool Turn;
+        public bool Turn;      
 
         PlayerController player;
         ComputerController computer;
@@ -104,7 +104,6 @@ namespace BattleShip
             ComputerTimer.Start();
             System.Media.SoundPlayer song = new System.Media.SoundPlayer(Properties.Resources.start);
             song.Play();
-            song.Load();
             GameStarted = true;
             Turn = true;
             button2.Enabled = false;

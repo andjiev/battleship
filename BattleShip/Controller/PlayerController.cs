@@ -61,7 +61,6 @@ namespace BattleShip.Controller
                 grid.Columns[i].Width = 36;
             }
             grid.ClearSelection();
-            
         }
 
 

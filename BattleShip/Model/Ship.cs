@@ -64,15 +64,7 @@ namespace BattleShip.Model
                 }
             }
 
-            if(Size == 3)
-            {
-                AddImages();
-            }
-            if(Size == 5)
-            {
-                AddImages();
-            }
-            if(Size == 4)
+            if(Size > 2)
             {
                 AddImages();
             }
@@ -90,6 +82,8 @@ namespace BattleShip.Model
                 if(Type == View.HORIZONTAL)
                 {
                     cell.SwapImage();
+                    double opacity = 0.6;
+                    cell.Opacity((float)opacity);
                 }
             }
         }

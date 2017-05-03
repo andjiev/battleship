@@ -123,6 +123,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\start.wav" />
     <None Include="Resources\44.png" />
     <None Include="Resources\43.png" />
     <None Include="Resources\42.png" />
@@ -134,7 +135,6 @@
     <None Include="Resources\51.png" />
     <None Include="Resources\water.jpg" />
     <None Include="Resources\31.png" />
-    <None Include="Resources\start.wav" />
     <None Include="Resources\start.bmp" />
     <None Include="Resources\33.png" />
     <None Include="Resources\32.png" />

@@ -26,7 +26,7 @@ namespace BattleShip
             this.Hide();
             if (game.ShowDialog() == DialogResult.Cancel) {
                 this.Show();
-                sound.Play();
+                sound.PlayLooping();
             }
             
         }
