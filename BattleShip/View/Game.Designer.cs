@@ -214,7 +214,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::BattleShip.Properties.Resources._22__water_texture;
+            this.BackgroundImage = global::BattleShip.Properties.Resources.water;
             this.ClientSize = new System.Drawing.Size(919, 456);
             this.Controls.Add(this.btnShoot);
             this.Controls.Add(this.button2);

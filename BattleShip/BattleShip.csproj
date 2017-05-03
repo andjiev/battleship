@@ -123,14 +123,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\55.png" />
+    <None Include="Resources\54.png" />
+    <None Include="Resources\53.png" />
+    <None Include="Resources\52.png" />
+    <None Include="Resources\51.png" />
+    <None Include="Resources\water.jpg" />
+    <None Include="Resources\31.png" />
     <None Include="Resources\start.wav" />
     <None Include="Resources\start.bmp" />
     <None Include="Resources\33.png" />
     <None Include="Resources\32.png" />
-    <None Include="Resources\31.png" />
-    <None Include="Resources\53.png" />
-    <None Include="Resources\52.png" />
-    <None Include="Resources\51.png" />
     <None Include="Resources\22.-water-texture1.jpg" />
     <None Include="Resources\buttonRandom.png" />
     <None Include="Resources\Messbook-Outdated-Ship-Wheel.ico" />

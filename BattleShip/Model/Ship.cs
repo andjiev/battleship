@@ -68,6 +68,10 @@ namespace BattleShip.Model
             {
                 AddImages();
             }
+            if(Size == 5)
+            {
+                AddImages();
+            }
             AddViewPoints();
         }
 
@@ -147,6 +151,11 @@ namespace BattleShip.Model
                     else
                     {
                         if (Size == 3)
+                        {
+                            DataGridViewImageCell imgCell = new DataGridViewImageCell();
+                            imgCell.Value = cell.Img;
+                            grid.Rows[cell.Positon.X].Cells[cell.Positon.Y] = imgCell;
+                        } else if(Size == 5)
                         {
                             DataGridViewImageCell imgCell = new DataGridViewImageCell();
                             imgCell.Value = cell.Img;
