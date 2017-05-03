@@ -31,10 +31,6 @@ namespace BattleShip.Controller
             amounts.Add(1);
             amounts.Add(1);
             Random();
-
-                
-           
-            //MessageBox.Show(ships.Count.ToString());
         }
 
         public void SetGridView(DataGridView grid)
@@ -71,15 +67,11 @@ namespace BattleShip.Controller
                     }
                 }
 
-                //  MessageBox.Show(position.X + " " + position.Y);
-
                 grid.Rows[position.X].Cells[position.Y].Style.BackColor = Color.LightBlue;
 
                 grid.Enabled = false;
                 System.Media.SoundPlayer sound = new System.Media.SoundPlayer(Properties.Resources.miss);
                 sound.Play();
-
-                //  MessageBox.Show("");
                 return true;
             }
             return false;
@@ -87,7 +79,6 @@ namespace BattleShip.Controller
         public void ShowShips(DataGridView grid)
         {
             ships.ForEach(ship => ship.enemyShipsDraw(grid));
-           // ships.ForEach(ship => ship.enemyShipsDraw(grid));
         }
         public bool Won() {
 
@@ -107,16 +98,13 @@ namespace BattleShip.Controller
                         Ship.View type = (Ship.View)new Random().Next(2);
                         Point position = positions[index];
 
-                        if (!ships.Exists(ship => ship.ExistPosition(position)))
+                        Ship primary = new Ship(i + 1, Color.Blue, position, type);
+                        if (!ships.Exists(ship => ship.ExistShip(primary)))
                         {
-                            Ship primary = new Ship(i + 1, Color.Blue, position, type);
-                            if (!ships.Exists(ship => ship.ExistShip(primary)))
-                            {
                                 ships.Add(primary);
                                 picked = true;
                                 RemovePositions(primary);
-                            }
-                        }
+                        }                        
                     }
                     picked = false;
                 }

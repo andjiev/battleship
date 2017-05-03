@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BattleShip.Controller;
 using BattleShip.Model;
-using System.Reflection;
 
 namespace BattleShip
 {
@@ -29,34 +28,17 @@ namespace BattleShip
             InitializeComponent();
             player = new PlayerController();
             computer = new ComputerController();
-            grid1.DoubleBuffered(true);
-            //AddAtributes();
+            dgvPlayer.DoubleBuffered(true);
+            dgvComputer.DoubleBuffered(true);
             GameStarted = false;
             ShowPlayerView();
             ShowComputerView();
         }
-
-        /*private void AddAtributes()
-        {
-            // dgvPlayer.Visible = false;
-            grid1.Width = 363;
-            grid1.Height = 363;
-            
-            grid1.ColumnHeadersVisible = false;
-            grid1.RowHeadersVisible = false;
-            grid1.AllowUserToResizeColumns = false;
-            grid1.AllowUserToResizeRows = false;
-            grid1.Location = new Point { X = 12, Y = 12 };
-            grid1.MultiSelect = false;
-            grid1.ReadOnly = true;
-            grid1.ScrollBars = ScrollBars.None;
-            
-        }*/
         
         public void ShowPlayerView()
         {
-            player.SetGridView(grid1);
-            player.ShowShips(grid1);
+            player.SetGridView(dgvPlayer);
+            player.ShowShips(dgvPlayer);
         }
 
         public void ShowComputerView()
@@ -120,14 +102,13 @@ namespace BattleShip
                 }
             }
             ShowPlayerView();
-            player.UnSelect();
-            
+            player.UnSelect();            
         }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            player.DisableCells(grid1);
-            player.ShowShips(grid1);
+            player.DisableCells(dgvPlayer);
+            player.ShowShips(dgvPlayer);
             ComputerTimer.Start();
             System.Media.SoundPlayer song = new System.Media.SoundPlayer(Properties.Resources.start);
             song.Play();
@@ -139,17 +120,15 @@ namespace BattleShip
 
         private void btnEnd_Click(object sender, EventArgs e)
         {
-            player.EnableCells(grid1);
-            player.ShowShips(grid1);
-            GameStarted=false;
-            
-
+            player.EnableCells(dgvPlayer);
+            player.ShowShips(dgvPlayer);
+            GameStarted=false;          
         }
 
         private void btnShoot_Click(object sender, EventArgs e)
         {
-            player.Shoot(grid1);
-            player.ShowShips(grid1);
+            player.Shoot(dgvPlayer);
+            player.ShowShips(dgvPlayer);
         }
 
         private void Game_Leave(object sender, EventArgs e)
@@ -164,8 +143,6 @@ namespace BattleShip
             {
                 dgvComputer.Enabled = false;
                 ShootTimer.Start();
-               // MessageBox.Show("TURN!");
-
             }
             if (Turn)
             {
@@ -195,64 +172,26 @@ namespace BattleShip
                 ShowComputerView();
                 
                 ComputerTimer.Dispose();
-
             }
         }
 
         private void dgvComputer_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
-             if (GameStarted)
-             {               
-                if(computer.Shoot(new Point { X = e.RowIndex, Y = e.ColumnIndex }, dgvComputer))
+            if (GameStarted)
+            {
+                if (computer.Shoot(new Point { X = e.RowIndex, Y = e.ColumnIndex }, dgvComputer))
                 {
                     Turn = false;
                     dgvComputer.Enabled = false;
-                }               
+                }
                 computer.ShowShips(dgvComputer);
-             }
-        }
-
-        private void dgvComputer_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
-        {
-
-         
-        }
-
-        private void dgvComputer_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dgvPlayer_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void Game_Load(object sender, EventArgs e)
-        {
-         
-        }
-
-        private void dgvComputer_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            
-        }
-
-        private void dgvComputer_MouseDown(object sender, MouseEventArgs e)
-        {
-           
-        }
-
-        private void dgvComputer_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
-        }
+            }
+        }    
 
         private void button1_Click(object sender, EventArgs e)
-        {
-    
-                Random random = new Random();
-                computer.Shoot(new Point { X = random.Next(0, 12), Y = random.Next(0, 12) }, dgvComputer);
+        {    
+            Random random = new Random();
+            computer.Shoot(new Point { X = random.Next(0, 12), Y = random.Next(0, 12) }, dgvComputer);
            
         }
 
@@ -260,8 +199,8 @@ namespace BattleShip
         {
             Random random = new Random();
             ShootTimer.Interval = random.Next(1000, 2000);
-            player.Shoot(grid1);
-            player.ShowShips(grid1);
+            player.Shoot(dgvPlayer);
+            player.ShowShips(dgvPlayer);
             Turn = !player.found;
         }
 
@@ -271,19 +210,9 @@ namespace BattleShip
             ShowPlayerView();
         }
 
-        private void dgvPlayer_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-        {
-           // button2.Focus();
-        }
-
         private void dgvComputer_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
             Cursor.Current = Cursors.Hand;
-        }
-
-        private void grid1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }
