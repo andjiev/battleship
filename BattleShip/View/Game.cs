@@ -31,13 +31,13 @@ namespace BattleShip
             player = new PlayerController();
             computer = new ComputerController();
             grid1.DoubleBuffered(true);
-            AddAtributes();
+            //AddAtributes();
             GameStarted = false;
             ShowPlayerView();
             ShowComputerView();
         }
 
-        private void AddAtributes()
+        /*private void AddAtributes()
         {
             // dgvPlayer.Visible = false;
             grid1.Width = 363;
@@ -52,7 +52,7 @@ namespace BattleShip
             grid1.ReadOnly = true;
             grid1.ScrollBars = ScrollBars.None;
             
-        }
+        }*/
         
         public void ShowPlayerView()
         {

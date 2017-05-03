@@ -172,6 +172,8 @@
             // 
             // grid1
             // 
+            this.grid1.AllowUserToResizeColumns = false;
+            this.grid1.AllowUserToResizeRows = false;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.Transparent;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -181,9 +183,12 @@
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.grid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.grid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grid1.ColumnHeadersVisible = false;
             this.grid1.EnableHeadersVisualStyles = false;
-            this.grid1.Location = new System.Drawing.Point(54, 52);
+            this.grid1.Location = new System.Drawing.Point(12, 12);
+            this.grid1.MultiSelect = false;
             this.grid1.Name = "grid1";
+            this.grid1.ReadOnly = true;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.Transparent;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -192,7 +197,9 @@
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.grid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.grid1.Size = new System.Drawing.Size(240, 277);
+            this.grid1.RowHeadersVisible = false;
+            this.grid1.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.grid1.Size = new System.Drawing.Size(363, 363);
             this.grid1.TabIndex = 11;
             this.grid1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPlayer_CellContentClick);
             this.grid1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPlayer_CellMouseDoubleClick);
