@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BattleShip.Controller;
 using BattleShip.Model;
+using System.Reflection;
 
 namespace BattleShip
 {
@@ -29,7 +30,7 @@ namespace BattleShip
             InitializeComponent();
             player = new PlayerController();
             computer = new ComputerController();
-
+            grid1.DoubleBuffered(true);
             AddAtributes();
             GameStarted = false;
             ShowPlayerView();
@@ -75,20 +76,15 @@ namespace BattleShip
         {
             if(player.selected != null)
             {
-                //player.selected.RemoveShip(dgvPlayer);
+                player.selected.RemoveShip(grid1);
                 player.selected.AddPositions(new Point { X = e.RowIndex, Y = e.ColumnIndex });
-                //player.selected.ShowShip(dgvPlayer);
-                
-                
                 ShowPlayerView();
-                grid1.ResumeLayout();
-                //player.ShowShips(dgvPlayer);
             }
         }
 
         private void dgvPlayer_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
-
+            player.UnSelect();
         }
 
         private void dgvPlayer_MouseLeave(object sender, EventArgs e)

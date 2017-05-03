@@ -63,6 +63,7 @@
     <Compile Include="Controller\ComputerController.cs" />
     <Compile Include="Controller\PlayerController.cs" />
     <Compile Include="Model\Cell.cs" />
+    <Compile Include="Model\Extension.cs" />
     <Compile Include="Model\Grid.cs">
       <SubType>Component</SubType>
     </Compile>
