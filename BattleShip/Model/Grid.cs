@@ -12,7 +12,7 @@ namespace BattleShip.Model
     {
         protected override void PaintBackground(Graphics graphics, Rectangle clipBounds, Rectangle gridBounds)
         {
-            base.PaintBackground(graphics, clipBounds, gridBounds);
+           // base.PaintBackground(graphics, clipBounds, gridBounds);
             Rectangle rectSource = new Rectangle(this.Location.X, this.Location.Y, this.Width, this.Height);
             Rectangle rectDest = new Rectangle(0, 0, rectSource.Width, rectSource.Height);
 
@@ -36,6 +36,7 @@ namespace BattleShip.Model
             {
                 col.DefaultCellStyle.BackColor = Color.Transparent;
                 col.DefaultCellStyle.SelectionBackColor = Color.Transparent;
+               
             }
         }
     }
