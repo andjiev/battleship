@@ -18,7 +18,6 @@ namespace BattleShip
         bool GameStarted;
         public bool Turn;
 
-
         PlayerController player;
         ComputerController computer;
         Point startedPosition;
@@ -67,9 +66,13 @@ namespace BattleShip
         }
 
         private void dgvPlayer_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            startedPosition = new Point { X = e.RowIndex, Y = e.ColumnIndex };
-            player.Select(startedPosition);
+        {            
+            player.Select(new Point { X = e.RowIndex, Y = e.ColumnIndex });
+            if(player.selected != null)
+            {
+                startedPosition = player.selected.Cells[0].Positon;
+            }
+            
         }
 
         private void dgvPlayer_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
@@ -84,6 +87,14 @@ namespace BattleShip
 
         private void dgvPlayer_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
+            if (player.selected != null)
+            {
+                if (player.SearchShip())
+                {
+                    player.selected.AddPositions(startedPosition);
+                    ShowPlayerView();
+                }
+            }
             player.UnSelect();
         }
 
@@ -94,14 +105,20 @@ namespace BattleShip
 
         private void dgvPlayer_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-           Point position = new Point { X = e.RowIndex, Y = e.ColumnIndex };
-            player.Select(position);
+            Point newPosition = new Point { X = e.RowIndex, Y = e.ColumnIndex };
+            player.Select(newPosition);
+            Point oldPosition = new Point();
             if (player.selected != null)
             {
-                player.selected.ChangePosition(position);
+               oldPosition = player.selected.Cells[0].Positon;
+            }
+             
+            if (player.selected != null)
+            {
+                player.selected.ChangePosition(newPosition);
                 if (player.SearchShip())
                 {
-                    player.selected.ChangePosition(position);
+                    player.selected.ChangePosition(oldPosition);
                 }
             }
             ShowPlayerView();
