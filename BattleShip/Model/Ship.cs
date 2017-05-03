@@ -230,7 +230,7 @@ namespace BattleShip.Model
             return false;
         }
 
-        public void ChangePosition(Point position)
+        public void ChangePosition(Point point)
         {
             if (Type == View.HORIZONTAL)
             {
@@ -240,7 +240,7 @@ namespace BattleShip.Model
             {
                 Type = View.HORIZONTAL;
             }
-            AddPositions(position);
+            AddPositions(point);
         }
 
         public void ShootPosition(Point position)
