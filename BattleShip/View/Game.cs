@@ -71,15 +71,13 @@ namespace BattleShip
             if(player.selected != null)
             {
                 startedPosition = player.selected.Cells[0].Positon;
-            }
-            
+            }            
         }
 
         private void dgvPlayer_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
             if(player.selected != null)
             {
-                player.selected.RemoveShip(grid1);
                 player.selected.AddPositions(new Point { X = e.RowIndex, Y = e.ColumnIndex });
                 ShowPlayerView();
             }
