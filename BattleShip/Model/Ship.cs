@@ -82,8 +82,6 @@ namespace BattleShip.Model
                 if(Type == View.HORIZONTAL)
                 {
                     cell.SwapImage();
-                    double opacity = 0.6;
-                    cell.Opacity((float)opacity);
                 }
             }
         }
