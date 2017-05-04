@@ -79,6 +79,11 @@ namespace BattleShip.Controller
             return ships.FindAll(ship => ship.ExistShip(selected)).Count > 1;
         }
 
+        public bool SearchShip(Point position)
+        {
+            return ships.Exists(ship => ship.ExistPosition(position));
+        }
+
         public void Select(Point Position)
         {
             selected = ships.FirstOrDefault(ship => ship.ExistPosition(Position));

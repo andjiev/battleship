@@ -58,10 +58,21 @@ namespace BattleShip
 
         private void dgvPlayer_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if(player.selected != null)
+            Point position = new Point { X = e.RowIndex, Y = e.ColumnIndex };
+            
+            if (player.selected != null)
             {
-                player.selected.AddPositions(new Point { X = e.RowIndex, Y = e.ColumnIndex });
+                player.selected.AddPositions(position);
                 ShowPlayerView();
+                if (player.SearchShip())
+                {
+                    Cursor.Current = Cursors.No;
+                    return;
+                }
+            }
+            if (player.SearchShip(position))
+            {
+                Cursor.Current = Cursors.Hand;
             }
         }
 
