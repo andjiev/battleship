@@ -249,7 +249,7 @@ namespace BattleShip
 
         private void Game_Load(object sender, EventArgs e)
         {
-         
+          
             dgvPlayer.BackgroundImage = Properties.Resources.water;
            dgvPlayer.SetCellsTransparent();
         }
