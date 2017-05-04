@@ -15,5 +15,9 @@ namespace BattleShip.Model
             Name = name;
             Hiscore = hiscore;
         }
+        public override string ToString()
+        {
+            return String.Format("{0} : {1} pts", Name, Hiscore);
+        }
     }
 }

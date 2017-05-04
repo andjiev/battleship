@@ -107,6 +107,7 @@
             this.btnHighscores.TabIndex = 4;
             this.btnHighscores.Text = "Highscores";
             this.btnHighscores.UseVisualStyleBackColor = false;
+            this.btnHighscores.Click += new System.EventHandler(this.btnHighscores_Click);
             this.btnHighscores.MouseEnter += new System.EventHandler(this.btnHighscores_MouseEnter);
             // 
             // form1

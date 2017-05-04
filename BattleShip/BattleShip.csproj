@@ -95,6 +95,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="View\Highscores.resx">
+      <DependentUpon>Highscores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\HowToPlay.resx">
       <DependentUpon>HowToPlay.cs</DependentUpon>
     </EmbeddedResource>
