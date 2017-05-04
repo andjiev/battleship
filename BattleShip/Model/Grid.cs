@@ -11,9 +11,11 @@ namespace BattleShip.Model
 {
     class Grid : DataGridView
     {
+       
         protected override void PaintBackground(Graphics graphics, Rectangle clipBounds, Rectangle gridBounds)
         {
-            //base.PaintBackground(graphics, clipBounds, gridBounds);
+         SetCellsTransparent();
+            base.PaintBackground(graphics, clipBounds, gridBounds);
             Rectangle rectSource = new Rectangle(Location.X, Location.Y, Width, Height);
             Rectangle rectDest = new Rectangle(0, 0, rectSource.Width, rectSource.Height);
 
@@ -22,9 +24,10 @@ namespace BattleShip.Model
 
 
             graphics.DrawImage(b, rectDest, rectSource, GraphicsUnit.Pixel);
-            SetCellsTransparent();
+            
+          
         }
-
+        public override Image BackgroundImage { get => base.BackgroundImage; set => base.BackgroundImage = value; }
         public void SetCellsTransparent()
         {
             EnableHeadersVisualStyles = false;
@@ -35,9 +38,10 @@ namespace BattleShip.Model
             foreach (DataGridViewColumn col in Columns)
             {
                 col.DefaultCellStyle.BackColor = Color.Transparent;
-                col.DefaultCellStyle.SelectionBackColor = Color.Transparent;
+            
                
             }
+           
         }
     }
 }
