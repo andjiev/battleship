@@ -30,14 +30,14 @@ namespace BattleShip.Model
         public override Image BackgroundImage { get => base.BackgroundImage; set => base.BackgroundImage = value; }
         public void SetCellsTransparent()
         {
-            EnableHeadersVisualStyles = false;
+            EnableHeadersVisualStyles = true;
             ColumnHeadersDefaultCellStyle.BackColor = Color.Transparent;
             RowHeadersDefaultCellStyle.BackColor = Color.Transparent;
 
 
             foreach (DataGridViewColumn col in Columns)
             {
-                col.DefaultCellStyle.BackColor = Color.Transparent;
+               col.DefaultCellStyle.BackColor = Color.Transparent;
             
                
             }

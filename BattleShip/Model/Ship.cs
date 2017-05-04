@@ -65,9 +65,9 @@ namespace BattleShip.Model
             }
             Cells = Cells.OrderBy(cell => cell.Positon.X).ThenBy(cell => cell.Positon.Y).ToList();
             if (Size > 2)
-            {
+           {
                 AddImages();
-            }
+           }
             
             AddViewPoints();
         }

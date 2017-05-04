@@ -27,6 +27,8 @@ namespace BattleShip.Model
 
         public void Opacity(float opacityValue)
         {
+            //TODO : Fix Opacity for Dots
+
             Bitmap bmp = new Bitmap(Img.Width, Img.Height);
             Graphics graphics = Graphics.FromImage(bmp);
             ColorMatrix colormatrix = new ColorMatrix();
