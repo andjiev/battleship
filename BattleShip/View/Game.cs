@@ -62,17 +62,23 @@ namespace BattleShip
             
             if (player.selected != null)
             {
-                player.selected.AddPositions(position);
-                ShowPlayerView();
+                player.selected.AddPositions(position);                
                 if (player.SearchShip())
                 {
                     Cursor.Current = Cursors.No;
-                    return;
+                    double opacity = 0.6;
+                    player.selected.Cells.ForEach(cell => cell.Opacity((float)opacity));
+                    ShowPlayerView();
+                    return;                    
                 }
+                ShowPlayerView();
             }
             if (player.SearchShip(position))
             {
                 Cursor.Current = Cursors.Hand;
+                if(player.selected != null)
+                player.selected.Cells.ForEach(cell => cell.Opacity(1));
+                ShowPlayerView();
             }
         }
 
