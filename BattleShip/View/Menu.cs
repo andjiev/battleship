@@ -7,14 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using BattleShip.Model;
 
 namespace BattleShip
 {
     public partial class form1 : Form
     {
+        public List<Score> listScores;
         System.Media.SoundPlayer sound = new System.Media.SoundPlayer(Properties.Resources.war);
         public form1()
         {
+            listScores = new List<Score>();
             InitializeComponent();
             sound.PlayLooping();
             
@@ -129,12 +133,35 @@ namespace BattleShip
 
         private void form1_Load(object sender, EventArgs e)
         {
+            if (File.Exists(Application.StartupPath + "\\highscores.csv"))
+            {
+                readFile();
 
+            }
+            else
+            {
+                File.Create(Application.StartupPath + "\\highscores.csv");
+            
+
+            }
         }
 
         private void btnHighscores_MouseEnter(object sender, EventArgs e)
         {
             AddAnimation(btnHighscores);
+        }
+        private void readFile() {
+            var fs = File.OpenRead(Application.StartupPath + "\\highscores.csv");
+            var reader = new StreamReader(fs);
+            while (!reader.EndOfStream)
+            {
+                var line = reader.ReadLine();
+                var values = line.Split(';');
+                int p;
+                int.TryParse(values[1], out p);
+                Score s = new Score(values[0], p);
+               
+            }
         }
     }
 }
