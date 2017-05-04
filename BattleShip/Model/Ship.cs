@@ -139,6 +139,7 @@ namespace BattleShip.Model
                         {
                             DataGridViewImageCell imgCell = new DataGridViewImageCell();
                             imgCell.Value = cell.Img;
+                           
                             grid.Rows[cell.Positon.X].Cells[cell.Positon.Y] = imgCell;
                         } 
                       
@@ -160,9 +161,10 @@ namespace BattleShip.Model
             {
                 foreach(Cell cell in Cells)
                 {                    
-                    DataGridViewImageCell imgCell = new DataGridViewImageCell();
+                    /*DataGridViewImageCell imgCell = new DataGridViewImageCell();
                     imgCell.Value = cell.Img;
-                    grid.Rows[cell.Positon.X].Cells[cell.Positon.Y] = imgCell;
+                   grid.Rows[cell.Positon.X].Cells[cell.Positon.Y] = imgCell;
+                   */
                     grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.Black;
                 }                
             }

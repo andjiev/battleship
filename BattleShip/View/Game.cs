@@ -23,10 +23,12 @@ namespace BattleShip
         
         public Game()
         {
-            DoubleBuffered = true;
+            this.DoubleBuffered = true;
             Turn = true;
             InitializeComponent();
             player = new PlayerController();
+          
+            
             computer = new ComputerController();
             dgvPlayer.DoubleBuffered(true);
             dgvComputer.DoubleBuffered(true);
@@ -120,6 +122,7 @@ namespace BattleShip
             song.Play();
             GameStarted = true;
             Turn = true;
+            dgvComputer.Enabled = true;
             button2.Enabled = false;
             label1.Hide();
         }
@@ -128,7 +131,8 @@ namespace BattleShip
         {
             player.EnableCells(dgvPlayer);
             player.ShowShips(dgvPlayer);
-            GameStarted=false;          
+            GameStarted=false;
+            dgvComputer.Enabled = false;
         }
 
         private void btnShoot_Click(object sender, EventArgs e)
@@ -189,8 +193,11 @@ namespace BattleShip
                 {
                     Turn = false;
                     dgvComputer.Enabled = false;
+
                 }
                 computer.ShowShips(dgvComputer);
+                
+
             }
         }    
 
@@ -233,5 +240,13 @@ namespace BattleShip
             }
             player.UnSelect();
         }
+
+        private void Game_Load(object sender, EventArgs e)
+        {
+         
+            dgvPlayer.BackgroundImage = Properties.Resources.water;
+           dgvPlayer.SetCellsTransparent();
+        }
+        
     }
 }

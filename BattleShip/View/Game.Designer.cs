@@ -212,6 +212,7 @@
             this.Name = "Game";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Game";
+            this.Load += new System.EventHandler(this.Game_Load);
             this.Leave += new System.EventHandler(this.Game_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComputer)).EndInit();
