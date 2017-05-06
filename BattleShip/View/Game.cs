@@ -204,9 +204,7 @@ namespace BattleShip
                     dgvComputer.Enabled = false;
 
                 }
-                computer.ShowShips(dgvComputer);
-                
-
+                computer.ShowShips(dgvComputer);                
             }
         }    
 

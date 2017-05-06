@@ -115,6 +115,14 @@ namespace BattleShip.Controller
             positions.Remove(new Point { X = position.X + 1, Y = position.Y + 1 });
         }
 
+        public void RemoveDeadShip()
+        {
+            foreach(Point point in selected.viewPoints)
+            {
+                positions.Remove(point);
+            }
+        }
+
         public void Shoot(DataGridView grid)
         {
             System.Media.SoundPlayer sound2 = new System.Media.SoundPlayer(Properties.Resources.explosion);
@@ -123,7 +131,7 @@ namespace BattleShip.Controller
                 Point position = new Point();
                 if (selected.Destroyed())
                 {
-                    RemovePositions(selected);
+                    RemoveDeadShip();
                     selected = null;
                     sound2.Play();                    
                     GenerateRandom(grid);

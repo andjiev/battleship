@@ -157,12 +157,18 @@ namespace BattleShip.Model
         {
             if (Destroyed())
             {
-                foreach(Cell cell in Cells)
+                foreach (Point point in viewPoints)
+                {
+                    if (point.X >= 0 && point.X < 10 && point.Y >= 0 && point.Y < 10)
+                    {
+                        if (!Cells.Exists(cell => cell.Positon.Equals(point)))
+                        {
+                            grid.Rows[point.X].Cells[point.Y].Style.BackColor = Color.LightBlue;
+                        }
+                    }
+                }
+                foreach (Cell cell in Cells)
                 {                    
-                    /*DataGridViewImageCell imgCell = new DataGridViewImageCell();
-                    imgCell.Value = cell.Img;
-                   grid.Rows[cell.Positon.X].Cells[cell.Positon.Y] = imgCell;
-                   */
                     grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.Black;
                 }                
             }
@@ -173,6 +179,7 @@ namespace BattleShip.Model
                     if (!cell.Alive)
                     {
                         grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.Red;
+                        ShowDeadCells(grid, cell.Positon);
                     }
                 }
             }

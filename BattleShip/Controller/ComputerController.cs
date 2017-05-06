@@ -47,6 +47,22 @@ namespace BattleShip.Controller
             grid.ClearSelection();
         }
 
+        public void RemoveDeadPoints(Point position)
+        {
+            positions.Remove(new Point { X = position.X - 1, Y = position.Y - 1 });
+            positions.Remove(new Point { X = position.X - 1, Y = position.Y + 1 });
+            positions.Remove(new Point { X = position.X + 1, Y = position.Y - 1 });
+            positions.Remove(new Point { X = position.X + 1, Y = position.Y + 1 });
+        }
+
+        public void RemoveDeadShip(Ship selected)
+        {
+            foreach (Point point in selected.viewPoints)
+            {
+                positions.Remove(point);
+            }
+        }
+
         public bool Shoot(Point position, DataGridView grid)
         {
             grid.Enabled = true;
@@ -58,6 +74,14 @@ namespace BattleShip.Controller
                     if (ship.ExistPosition(position))
                     {
                         ship.ShootPosition(position);
+                        if (ship.Destroyed())
+                        {
+                            RemoveDeadShip(ship);
+                        }
+                        else
+                        {
+                            RemoveDeadPoints(position);
+                        }                       
                         System.Media.SoundPlayer sound2 = new System.Media.SoundPlayer(Properties.Resources.explosion);
                         sound2.Play();
                         grid.Rows[position.X].Cells[position.Y].Style.BackColor = Color.Red;
