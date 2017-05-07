@@ -131,6 +131,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\rsz_circled_dot1600.png" />
+    <None Include="Resources\circled_dot1600.png" />
+    <None Include="Resources\rsz_black-x-clip-art.png" />
+    <None Include="Resources\black-x-clip-art.png" />
+    <None Include="Resources\missImage.bmp" />
     <None Include="Resources\start.wav" />
     <None Include="Resources\44.png" />
     <None Include="Resources\43.png" />

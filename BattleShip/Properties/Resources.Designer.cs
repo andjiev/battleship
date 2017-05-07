@@ -191,6 +191,16 @@ namespace BattleShip.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap dot {
+            get {
+                object obj = ResourceManager.GetObject("dot", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         public static System.IO.UnmanagedMemoryStream explosion {
@@ -215,6 +225,16 @@ namespace BattleShip.Properties {
         public static System.IO.UnmanagedMemoryStream miss {
             get {
                 return ResourceManager.GetStream("miss", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap missImage {
+            get {
+                object obj = ResourceManager.GetObject("missImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

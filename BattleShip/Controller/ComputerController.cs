@@ -90,8 +90,9 @@ namespace BattleShip.Controller
                         return false;
                     }
                 }
-
-                grid.Rows[position.X].Cells[position.Y].Style.BackColor = Color.LightBlue;
+                DataGridViewImageCell imgCell = new DataGridViewImageCell();
+                imgCell.Value = Properties.Resources.missImage;
+                grid.Rows[position.X].Cells[position.Y] = imgCell;
 
                 grid.Enabled = false;
                 System.Media.SoundPlayer sound = new System.Media.SoundPlayer(Properties.Resources.miss);

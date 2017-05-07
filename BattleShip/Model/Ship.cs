@@ -89,20 +89,28 @@ namespace BattleShip.Model
         private void ShowDeadCells(DataGridView grid, Point position)
         {
             if (position.X - 1 >= 0 && position.Y - 1 >= 0)
-            {               
-                grid.Rows[position.X - 1].Cells[position.Y - 1].Style.BackColor = Color.LightBlue;
+            {             
+                DataGridViewImageCell imgCell = new DataGridViewImageCell();
+                imgCell.Value = Properties.Resources.missImage;
+                grid.Rows[position.X - 1].Cells[position.Y - 1] = imgCell;
             }
             if (position.X - 1 >= 0 && position.Y + 1 < 10)
             {
-                grid.Rows[position.X - 1].Cells[position.Y + 1].Style.BackColor = Color.LightBlue;
+                DataGridViewImageCell imgCell = new DataGridViewImageCell();
+                imgCell.Value = Properties.Resources.missImage;
+                grid.Rows[position.X - 1].Cells[position.Y + 1] = imgCell;
             }
             if (position.X + 1 < 10 && position.Y - 1 >= 0)
             {
-                grid.Rows[position.X + 1].Cells[position.Y - 1].Style.BackColor = Color.LightBlue;
+                DataGridViewImageCell imgCell = new DataGridViewImageCell();
+                imgCell.Value = Properties.Resources.missImage;
+                grid.Rows[position.X + 1].Cells[position.Y - 1] = imgCell;
             }
             if (position.X + 1 < 10 && position.Y + 1 < 10)
             {
-                grid.Rows[position.X + 1].Cells[position.Y + 1].Style.BackColor = Color.LightBlue;
+                DataGridViewImageCell imgCell = new DataGridViewImageCell();
+                imgCell.Value = Properties.Resources.missImage;
+                grid.Rows[position.X + 1].Cells[position.Y + 1] = imgCell;
             }
         }
 
@@ -115,8 +123,10 @@ namespace BattleShip.Model
                     if(point.X >= 0 && point.X < 10 && point.Y >= 0 && point.Y < 10)
                     {
                         if(!Cells.Exists(cell => cell.Positon.Equals(point)))
-                        {                            
-                            grid.Rows[point.X].Cells[point.Y].Style.BackColor = Color.LightBlue;
+                        {
+                            DataGridViewImageCell imgCell = new DataGridViewImageCell();
+                            imgCell.Value = Properties.Resources.missImage;
+                            grid.Rows[point.X].Cells[point.Y] = imgCell;
                         }
                     }
                 }
@@ -163,7 +173,9 @@ namespace BattleShip.Model
                     {
                         if (!Cells.Exists(cell => cell.Positon.Equals(point)))
                         {
-                            grid.Rows[point.X].Cells[point.Y].Style.BackColor = Color.LightBlue;
+                            DataGridViewImageCell imgCell = new DataGridViewImageCell();
+                            imgCell.Value = Properties.Resources.missImage;
+                            grid.Rows[point.X].Cells[point.Y] = imgCell;
                         }
                     }
                 }
