@@ -13,7 +13,7 @@ namespace BattleShip.Controller
     {
         private List<Ship> ships;
         private List<int> amounts;
-        private List<Point> positions;
+        public List<Point> positions;
         public ComputerController()
         {
             amounts = new List<int>();

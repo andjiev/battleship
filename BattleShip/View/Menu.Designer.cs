@@ -34,6 +34,7 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnHighscores = new System.Windows.Forms.Button();
+            this.btnContinue = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnNewGame
@@ -42,7 +43,7 @@
             this.btnNewGame.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnNewGame.BackgroundImage")));
             this.btnNewGame.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnNewGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNewGame.Location = new System.Drawing.Point(469, 93);
+            this.btnNewGame.Location = new System.Drawing.Point(464, 142);
             this.btnNewGame.Name = "btnNewGame";
             this.btnNewGame.Size = new System.Drawing.Size(75, 42);
             this.btnNewGame.TabIndex = 0;
@@ -58,7 +59,7 @@
             this.btnControls.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnControls.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnControls.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnControls.Location = new System.Drawing.Point(469, 141);
+            this.btnControls.Location = new System.Drawing.Point(464, 190);
             this.btnControls.Name = "btnControls";
             this.btnControls.Size = new System.Drawing.Size(75, 42);
             this.btnControls.TabIndex = 1;
@@ -73,7 +74,7 @@
             this.btnExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExit.BackgroundImage")));
             this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Location = new System.Drawing.Point(469, 237);
+            this.btnExit.Location = new System.Drawing.Point(464, 286);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 42);
             this.btnExit.TabIndex = 2;
@@ -101,7 +102,7 @@
             this.btnHighscores.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnHighscores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHighscores.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnHighscores.Location = new System.Drawing.Point(469, 189);
+            this.btnHighscores.Location = new System.Drawing.Point(464, 238);
             this.btnHighscores.Name = "btnHighscores";
             this.btnHighscores.Size = new System.Drawing.Size(75, 42);
             this.btnHighscores.TabIndex = 4;
@@ -110,6 +111,19 @@
             this.btnHighscores.Click += new System.EventHandler(this.btnHighscores_Click);
             this.btnHighscores.MouseEnter += new System.EventHandler(this.btnHighscores_MouseEnter);
             // 
+            // btnContinue
+            // 
+            this.btnContinue.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnContinue.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnContinue.BackgroundImage")));
+            this.btnContinue.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnContinue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnContinue.Location = new System.Drawing.Point(464, 94);
+            this.btnContinue.Name = "btnContinue";
+            this.btnContinue.Size = new System.Drawing.Size(75, 42);
+            this.btnContinue.TabIndex = 5;
+            this.btnContinue.Text = "Continue";
+            this.btnContinue.UseVisualStyleBackColor = false;
+            // 
             // form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -117,6 +131,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(654, 486);
+            this.Controls.Add(this.btnContinue);
             this.Controls.Add(this.btnHighscores);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnExit);
@@ -141,6 +156,7 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnHighscores;
+        private System.Windows.Forms.Button btnContinue;
     }
 }
 

@@ -77,7 +77,7 @@ namespace BattleShip
             }
             if (player.SearchShip(position))
             {
-                Cursor.Current = Cursors.Hand;
+                Cursor.Current = Cursors.SizeAll;
                 if(player.selected != null)
                 player.selected.Cells.ForEach(cell => cell.Opacity(1));
                 ShowPlayerView();
@@ -232,7 +232,18 @@ namespace BattleShip
 
         private void dgvComputer_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
-            Cursor.Current = Cursors.Hand;
+            if (!startedPosition.IsEmpty && dgvComputer.Rows[startedPosition.X].Cells[startedPosition.Y].Style.BackColor == Color.DimGray)
+            {
+                dgvComputer[0, 0].Style.BackColor = Color.Transparent;
+                dgvComputer.Rows[startedPosition.X].Cells[startedPosition.Y].Style.BackColor = Color.Transparent;
+            }
+            Point position = new Point { X = e.RowIndex, Y = e.ColumnIndex }; ;
+            if (computer.positions.Exists(point => point.Equals(position))) 
+            {
+                dgvComputer.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.DimGray;
+                startedPosition = position;
+                Cursor.Current = Cursors.Hand;
+            }          
         }
 
         private void dgvPlayer_MouseLeave(object sender, EventArgs e)
@@ -248,12 +259,13 @@ namespace BattleShip
             player.UnSelect();
         }
 
-        private void Game_Load(object sender, EventArgs e)
+        private void dgvComputer_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
-          
-            dgvPlayer.BackgroundImage = Properties.Resources.water;
-           dgvPlayer.SetCellsTransparent();
+            if (!startedPosition.IsEmpty && dgvComputer.Rows[startedPosition.X].Cells[startedPosition.Y].Style.BackColor == Color.DimGray)
+            {
+                dgvComputer[0, 0].Style.BackColor = Color.Transparent;
+                dgvComputer.Rows[startedPosition.X].Cells[startedPosition.Y].Style.BackColor = Color.Transparent;
+            }
         }
-        
     }
 }
