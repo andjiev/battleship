@@ -191,6 +191,7 @@
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvComputer.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvComputer.Enabled = false;
             this.dgvComputer.EnableHeadersVisualStyles = false;
             this.dgvComputer.Location = new System.Drawing.Point(544, 12);
             this.dgvComputer.MultiSelect = false;
@@ -209,6 +210,7 @@
             this.dgvComputer.Size = new System.Drawing.Size(363, 363);
             this.dgvComputer.TabIndex = 1;
             this.dgvComputer.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvComputer_CellMouseDown);
+            this.dgvComputer.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvComputer_CellMouseLeave);
             this.dgvComputer.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvComputer_CellMouseMove);
             // 
             // Game
@@ -230,7 +232,6 @@
             this.Name = "Game";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Game";
-            this.Load += new System.EventHandler(this.Game_Load);
             this.Leave += new System.EventHandler(this.Game_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComputer)).EndInit();
