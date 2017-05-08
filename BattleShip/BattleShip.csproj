@@ -131,6 +131,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\heh.gif" />
+    <None Include="Resources\waterBG.png" />
+    <None Include="Resources\paper.png" />
+    <None Include="Resources\00water-texture.png" />
     <None Include="Resources\rsz_circled_dot1600.png" />
     <None Include="Resources\circled_dot1600.png" />
     <None Include="Resources\rsz_black-x-clip-art.png" />

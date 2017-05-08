@@ -63,6 +63,16 @@ namespace BattleShip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap _00water_texture {
+            get {
+                object obj = ResourceManager.GetObject("00water-texture", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap _31 {
             get {
                 object obj = ResourceManager.GetObject("_31", resourceCulture);
@@ -210,6 +220,16 @@ namespace BattleShip.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap heh {
+            get {
+                object obj = ResourceManager.GetObject("heh", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         public static System.Drawing.Icon Messbook_Outdated_Ship_Wheel {
@@ -234,6 +254,16 @@ namespace BattleShip.Properties {
         public static System.Drawing.Bitmap missImage {
             get {
                 object obj = ResourceManager.GetObject("missImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap paper {
+            get {
+                object obj = ResourceManager.GetObject("paper", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -281,6 +311,16 @@ namespace BattleShip.Properties {
         public static System.Drawing.Bitmap water {
             get {
                 object obj = ResourceManager.GetObject("water", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap waterBG {
+            get {
+                object obj = ResourceManager.GetObject("waterBG", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

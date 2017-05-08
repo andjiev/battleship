@@ -52,7 +52,7 @@
             // 
             // btnStart
             // 
-            this.btnStart.BackgroundImage = global::BattleShip.Properties.Resources.buttonRandom;
+            this.btnStart.BackgroundImage = global::BattleShip.Properties.Resources.heh;
             this.btnStart.Location = new System.Drawing.Point(376, 399);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(162, 23);
@@ -215,7 +215,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::BattleShip.Properties.Resources.water;
+            this.BackgroundImage = global::BattleShip.Properties.Resources.waterBG;
             this.ClientSize = new System.Drawing.Size(919, 456);
             this.Controls.Add(this.dgvComputer);
             this.Controls.Add(this.dgvPlayer);
