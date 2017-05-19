@@ -46,6 +46,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dgvPlayer = new BattleShip.Model.Grid();
             this.dgvComputer = new BattleShip.Model.Grid();
+            this.lblScore = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComputer)).BeginInit();
             this.SuspendLayout();
@@ -213,12 +215,35 @@
             this.dgvComputer.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvComputer_CellMouseLeave);
             this.dgvComputer.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvComputer_CellMouseMove);
             // 
+            // lblScore
+            // 
+            this.lblScore.AutoSize = true;
+            this.lblScore.BackColor = System.Drawing.Color.Transparent;
+            this.lblScore.Location = new System.Drawing.Point(464, 67);
+            this.lblScore.Name = "lblScore";
+            this.lblScore.Size = new System.Drawing.Size(13, 13);
+            this.lblScore.TabIndex = 12;
+            this.lblScore.Text = "0";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Location = new System.Drawing.Point(420, 67);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(38, 13);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Score:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::BattleShip.Properties.Resources.waterBG;
             this.ClientSize = new System.Drawing.Size(919, 456);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblScore);
             this.Controls.Add(this.dgvComputer);
             this.Controls.Add(this.dgvPlayer);
             this.Controls.Add(this.label1);
@@ -232,6 +257,7 @@
             this.Name = "Game";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Game";
+            this.Load += new System.EventHandler(this.Game_Load);
             this.Leave += new System.EventHandler(this.Game_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComputer)).EndInit();
@@ -251,5 +277,7 @@
         private System.Windows.Forms.Label label1;
         private Model.Grid dgvPlayer;
         private Model.Grid dgvComputer;
+        private System.Windows.Forms.Label lblScore;
+        private System.Windows.Forms.Label label3;
     }
 }

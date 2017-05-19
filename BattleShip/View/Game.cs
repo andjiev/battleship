@@ -16,7 +16,7 @@ namespace BattleShip
     {
         bool GameStarted;
         public bool Turn;
-
+      public static  int score;
         PlayerController player;
         ComputerController computer;
         Point startedPosition;
@@ -27,8 +27,8 @@ namespace BattleShip
             Turn = true;
             InitializeComponent();
             player = new PlayerController();
-          
-            
+
+            score = 0;
             computer = new ComputerController();
             dgvPlayer.DoubleBuffered(true);
             dgvComputer.DoubleBuffered(true);
@@ -155,6 +155,12 @@ namespace BattleShip
         private void ComputerTimer_Tick(object sender, EventArgs e)
         {
             label2.Text=Turn? "Your turn":"Bot's turn";
+            lblScore.Text = score.ToString();
+            if (score < 0)
+            {
+                lblScore.ForeColor = Color.Red;
+
+            }
             if (!Turn)
             {
                 dgvComputer.Enabled = false;
@@ -170,12 +176,18 @@ namespace BattleShip
             {
                 ComputerTimer.Interval = 999999999;
                 MessageBox.Show("YOU WON!","VICTORY");
-                
+                ShootTimer.Enabled = false;
                 //ShowPlayerView();
                 //ShowComputerView();
                 ComputerTimer.Enabled = false;
                 dgvComputer.Enabled = false;
+               
+                    if (score>2000) {
+                    saveFile(Microsoft.VisualBasic.Interaction.InputBox("Highscore!", "Save your Highscore", "Name", 150, 150), score);
+                    }
 
+
+                
 
                 ComputerTimer.Dispose();
 
@@ -222,6 +234,12 @@ namespace BattleShip
             player.Shoot(dgvPlayer);
             player.ShowShips(dgvPlayer);
             Turn = !player.found;
+            lblScore.Text = score.ToString();
+            if (score < 0)
+            {
+                lblScore.ForeColor = Color.Red;
+
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -266,6 +284,20 @@ namespace BattleShip
                 dgvComputer[0, 0].Style.BackColor = Color.Transparent;
                 dgvComputer.Rows[startedPosition.X].Cells[startedPosition.Y].Style.BackColor = Color.Transparent;
             }
+        }
+
+        private void Game_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void saveFile(String name, int Score)
+        {
+            System.IO.File.WriteAllText(Application.StartupPath + "\\highscores.txt", name + ";" + Score.ToString());
         }
     }
 }

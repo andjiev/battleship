@@ -133,7 +133,8 @@ namespace BattleShip.Controller
                 {
                     RemoveDeadShip();
                     selected = null;
-                    sound2.Play();                    
+                    sound2.Play();
+                    Game.score -= 100;
                     GenerateRandom(grid);
                     return;
                 }
@@ -150,6 +151,8 @@ namespace BattleShip.Controller
                             RemoveDeadPoints(position);
                             sound2.Play();
                             shot = position;
+                            Game.score -= 100;
+
                             found = true;
                             return;
                         }
@@ -182,6 +185,7 @@ namespace BattleShip.Controller
                             selected.ShootPosition(position);
                             RemoveDeadPoints(position);
                             shot = position;
+                            Game.score -= 100;
                             found = true;
                             return;
                         }
@@ -219,6 +223,8 @@ namespace BattleShip.Controller
                             selected.ShootPosition(position);
                             RemoveDeadPoints(position);
                             shot = position;
+                            Game.score -= 100;
+
                             found = true;
                             return;
                         }
@@ -253,6 +259,8 @@ namespace BattleShip.Controller
                             RemoveDeadPoints(position);
                             shot = position;
                             found = true;
+                            Game.score -= 100;
+
                             return;
                         }
                         else
@@ -292,6 +300,7 @@ namespace BattleShip.Controller
                     System.Media.SoundPlayer sound2 = new System.Media.SoundPlayer(Properties.Resources.explosion);
                     sound2.Play();
                     ship.ShootPosition(position);
+                   // Game.score -= 100;
                     direction = (Direction)new Random().Next(4);
                     shot = position;
                     first = shot;
