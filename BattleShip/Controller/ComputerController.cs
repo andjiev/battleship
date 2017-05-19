@@ -112,6 +112,8 @@ namespace BattleShip.Controller
         public void Random()
         {
             ships = new List<Ship>();
+            //ships.Add(new Ship(1, Color.Black, new Point { X = 0, Y = 0 }, Ship.View.HORIZONTAL));
+            
             bool picked = false;
             for (int i = 4; i >= 0; i--)
             {

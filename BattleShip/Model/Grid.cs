@@ -14,8 +14,8 @@ namespace BattleShip.Model
        
         protected override void PaintBackground(Graphics graphics, Rectangle clipBounds, Rectangle gridBounds)
         {
-         SetCellsTransparent();
-            base.PaintBackground(graphics, clipBounds, gridBounds);
+         
+            //base.PaintBackground(graphics, clipBounds, gridBounds);
             Rectangle rectSource = new Rectangle(Location.X, Location.Y, Width, Height);
             Rectangle rectDest = new Rectangle(0, 0, rectSource.Width, rectSource.Height);
 
@@ -24,8 +24,8 @@ namespace BattleShip.Model
 
 
             graphics.DrawImage(b, rectDest, rectSource, GraphicsUnit.Pixel);
-            
-          
+            SetCellsTransparent();
+
         }
         public void SetCellsTransparent()
         {
@@ -36,12 +36,8 @@ namespace BattleShip.Model
 
             foreach (DataGridViewColumn col in Columns)
             {
-                col.DefaultCellStyle.BackColor = Color.Transparent;
-                
-            
-               
-            }
-           
+                col.DefaultCellStyle.BackColor = Color.Transparent; 
+            }     
         }
     }
 }
