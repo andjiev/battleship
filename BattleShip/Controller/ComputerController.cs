@@ -84,6 +84,7 @@ namespace BattleShip.Controller
                         }                       
                         System.Media.SoundPlayer sound2 = new System.Media.SoundPlayer(Properties.Resources.explosion);
                         sound2.Play();
+                        Game.score += 100;
                         grid.Rows[position.X].Cells[position.Y].Style.BackColor = Color.Red;
                         ShowShips(grid);
                         grid.Enabled = false;

@@ -47,7 +47,7 @@ namespace BattleShip.View
           //  MessageBox.Show("Reading!");
             var reader = new StreamReader(fs);
             int I = 0;
-            while (I<5)
+            while (I<5&&reader.ReadLine()!=null)
             {
                 var line = reader.ReadLine();
                 var values = line.Split(';');
@@ -60,6 +60,7 @@ namespace BattleShip.View
                 lblList.Add(l);
                 I++;
             }
+            reader.Dispose();
 
         }
 

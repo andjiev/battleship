@@ -15,6 +15,7 @@ namespace BattleShip
     public partial class Game : Form
     {
         bool GameStarted;
+       public static bool isFinished;
         public bool Turn;
       public static  int score;
         PlayerController player;
@@ -28,7 +29,7 @@ namespace BattleShip
             Turn = true;
             InitializeComponent();
             player = new PlayerController();
-
+            isFinished = false;
             score = 0;
             computer = new ComputerController();
             dgvPlayer.DoubleBuffered(true);
@@ -162,6 +163,13 @@ namespace BattleShip
                 lblScore.ForeColor = Color.Red;
 
             }
+            else if (score > 0)
+            {
+
+                lblScore.ForeColor = Color.Green;
+
+                
+            }
             if (!Turn)
             {
                 dgvComputer.Enabled = false;
@@ -175,6 +183,8 @@ namespace BattleShip
 
             if (computer.Won())
             {
+                isFinished = true;
+
                 ComputerTimer.Interval = 999999999;
                 MessageBox.Show("YOU WON!","VICTORY");
                 ShootTimer.Enabled = false;
@@ -183,7 +193,7 @@ namespace BattleShip
                 ComputerTimer.Enabled = false;
                 dgvComputer.Enabled = false;
                
-                    if (score>2000) {
+                    if (score>50) {
                     saveFile(Microsoft.VisualBasic.Interaction.InputBox("Highscore!", "Save your Highscore", "Name", 150, 150), score);
                     }
 
@@ -195,6 +205,7 @@ namespace BattleShip
             }
             if (player.Won())
             {
+                isFinished = true;
                 ComputerTimer.Enabled = false;
                 dgvComputer.Enabled = false;
                 MessageBox.Show("YOU LOST!", "LOSE");
@@ -239,6 +250,10 @@ namespace BattleShip
             {
                 lblScore.ForeColor = Color.Red;
 
+            }
+            if (score > 0)
+            {
+                lblScore.ForeColor = Color.Green;
             }
         }
 
@@ -306,7 +321,12 @@ namespace BattleShip
         }
         private void saveFile(String name, int Score)
         {
-            System.IO.File.WriteAllText(Application.StartupPath + "\\highscores.txt", name + ";" + Score.ToString());
+            using (System.IO.StreamWriter file =
+         new System.IO.StreamWriter(Application.StartupPath + "\\highscores.txt", true))
+            {
+                file.WriteLine(name+";"+Score.ToString());
+            }
+            //System.IO.File.WriteAllText(Application.StartupPath + "\\highscores.txt", name + ";" + Score.ToString());
         }
     }
 }

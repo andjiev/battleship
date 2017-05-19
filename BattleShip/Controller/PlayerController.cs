@@ -290,26 +290,29 @@ namespace BattleShip.Controller
 
         private void GenerateRandom(DataGridView grid)
         {
-            int index = new Random().Next(positions.Count);
-            Point position = positions[index];
-            positions.RemoveAt(index);
-            foreach (Ship ship in ships)
-            {
-                if (ship.ExistPosition(position))
+            if (!Game.isFinished) {
+                int index = new Random().Next(positions.Count);
+                Point position = positions[index];
+                positions.RemoveAt(index);
+                foreach (Ship ship in ships)
                 {
-                    System.Media.SoundPlayer sound2 = new System.Media.SoundPlayer(Properties.Resources.explosion);
-                    sound2.Play();
-                    ship.ShootPosition(position);
-                   // Game.score -= 100;
-                    direction = (Direction)new Random().Next(4);
-                    shot = position;
-                    first = shot;
-                    found = true;
-                    Select(position);
-                    return;
+                    if (ship.ExistPosition(position))
+                    {
+                        System.Media.SoundPlayer sound2 = new System.Media.SoundPlayer(Properties.Resources.explosion);
+                        sound2.Play();
+                        ship.ShootPosition(position);
+                        Game.score -= 100;
+                        direction = (Direction)new Random().Next(4);
+                        shot = position;
+                        first = shot;
+                        found = true;
+                        Select(position);
+                        return;
+                    }
                 }
+                UpdateGrid(position, grid);
             }
-            UpdateGrid(position, grid);
+            
         }
 
         private void UpdateGrid(Point position,DataGridView grid)
