@@ -20,10 +20,11 @@ namespace BattleShip
         PlayerController player;
         ComputerController computer;
         Point startedPosition;
+        Point shotPosition;
         
         public Game()
         {
-            this.DoubleBuffered = true;
+            DoubleBuffered = true;
             Turn = true;
             InitializeComponent();
             player = new PlayerController();
@@ -210,11 +211,11 @@ namespace BattleShip
         {
             if (GameStarted)
             {
-                if (computer.Shoot(new Point { X = e.RowIndex, Y = e.ColumnIndex }, dgvComputer))
+                shotPosition = new Point { X = e.RowIndex, Y = e.ColumnIndex };
+                if (computer.Shoot(shotPosition,dgvComputer))
                 {
                     Turn = false;
-                    dgvComputer.Enabled = false;
-
+                    dgvComputer.Enabled = false;                    
                 }
                 computer.ShowShips(dgvComputer);                
             }
@@ -223,8 +224,7 @@ namespace BattleShip
         private void button1_Click(object sender, EventArgs e)
         {    
             Random random = new Random();
-            computer.Shoot(new Point { X = random.Next(0, 12), Y = random.Next(0, 12) }, dgvComputer);
-           
+            computer.Shoot(new Point { X = random.Next(0, 12), Y = random.Next(0, 12) }, dgvComputer);           
         }
 
         private void ShootTimer_Tick(object sender, EventArgs e)
@@ -251,17 +251,26 @@ namespace BattleShip
         private void dgvComputer_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (!startedPosition.IsEmpty && dgvComputer.Rows[startedPosition.X].Cells[startedPosition.Y].Style.BackColor == Color.DimGray)
-            {
-                dgvComputer[0, 0].Style.BackColor = Color.Transparent;
+            {                
                 dgvComputer.Rows[startedPosition.X].Cells[startedPosition.Y].Style.BackColor = Color.Transparent;
             }
-            Point position = new Point { X = e.RowIndex, Y = e.ColumnIndex }; ;
-            if (computer.positions.Exists(point => point.Equals(position))) 
+            Point position = new Point { X = e.RowIndex, Y = e.ColumnIndex };
+           /* if (!shotPosition.Equals(new Point { X = 0, Y = 0 }) || !position.Equals(new Point { X = 0, Y = 0 }))
             {
+                dgvComputer[0, 0].Style.BackColor = Color.Transparent;
+                flag = false;
+            }*/
+            if (computer.positions.Exists(point => point.Equals(position))) 
+            {                
                 dgvComputer.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.DimGray;
                 startedPosition = position;
                 Cursor.Current = Cursors.Hand;
-            }          
+            }
+            else
+            {
+                startedPosition = Point.Empty;
+            }
+            
         }
 
         private void dgvPlayer_MouseLeave(object sender, EventArgs e)
@@ -281,7 +290,7 @@ namespace BattleShip
         {
             if (!startedPosition.IsEmpty && dgvComputer.Rows[startedPosition.X].Cells[startedPosition.Y].Style.BackColor == Color.DimGray)
             {
-                dgvComputer[0, 0].Style.BackColor = Color.Transparent;
+                //dgvComputer[0, 0].Style.BackColor = Color.Transparent;
                 dgvComputer.Rows[startedPosition.X].Cells[startedPosition.Y].Style.BackColor = Color.Transparent;
             }
         }
