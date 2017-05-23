@@ -64,7 +64,7 @@ namespace BattleShip.Model
                 }
             }
             Cells = Cells.OrderBy(cell => cell.Positon.X).ThenBy(cell => cell.Positon.Y).ToList();
-            if (Size > 2)
+            if (Size > 1)
            {
                 AddImages();
            }
@@ -143,7 +143,7 @@ namespace BattleShip.Model
                     }
                     else
                     {
-                        if (Size > 2)
+                        if (Size > 1)
                         {
                             DataGridViewImageCell imgCell = new DataGridViewImageCell();
                             imgCell.Value = cell.Img;
@@ -153,7 +153,7 @@ namespace BattleShip.Model
                       
                         else 
                         {
-                            string name = "Remove_icon";
+                            string name = "_11";
                             DataGridViewImageCell imgCell = new DataGridViewImageCell();
                             imgCell.Value = Properties.Resources.ResourceManager.GetObject(name);
                             grid.Rows[cell.Positon.X].Cells[cell.Positon.Y] = imgCell;

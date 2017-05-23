@@ -63,9 +63,29 @@ namespace BattleShip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap _00water_texture {
+        public static System.Drawing.Bitmap _11 {
             get {
-                object obj = ResourceManager.GetObject("00water-texture", resourceCulture);
+                object obj = ResourceManager.GetObject("_11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap _21 {
+            get {
+                object obj = ResourceManager.GetObject("_21", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap _22 {
+            get {
+                object obj = ResourceManager.GetObject("_22", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -216,16 +236,6 @@ namespace BattleShip.Properties {
         public static System.IO.UnmanagedMemoryStream explosion {
             get {
                 return ResourceManager.GetStream("explosion", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap heh {
-            get {
-                object obj = ResourceManager.GetObject("heh", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

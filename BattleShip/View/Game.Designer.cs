@@ -54,7 +54,7 @@
             // 
             // btnStart
             // 
-            this.btnStart.BackgroundImage = global::BattleShip.Properties.Resources.heh;
+            this.btnStart.BackgroundImage = global::BattleShip.Properties.Resources.buttonRandom;
             this.btnStart.Location = new System.Drawing.Point(376, 399);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(162, 23);
