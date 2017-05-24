@@ -47,7 +47,7 @@ namespace BattleShip.Model
                     {
                         Cells.Add(new Cell(new Point { X = position.X, Y = i - Size }));
                     }
-                }               
+                }
             }
             else
             {
@@ -64,22 +64,19 @@ namespace BattleShip.Model
                 }
             }
             Cells = Cells.OrderBy(cell => cell.Positon.X).ThenBy(cell => cell.Positon.Y).ToList();
-            if (Size > 1)
-           {
-                AddImages();
-           }
-            
+            AddImages();
+
             AddViewPoints();
         }
 
         private void AddImages()
-        {            
+        {
             for (int i = 0; i < Size; i++)
             {
                 string file = string.Format("_{0}{1}", Size, i + 1);
                 Cell cell = Cells.ElementAt(i);
                 cell.Img = (Image)Properties.Resources.ResourceManager.GetObject(file);
-                if(Type == View.HORIZONTAL)
+                if (Type == View.HORIZONTAL)
                 {
                     cell.SwapImage();
                 }
@@ -89,7 +86,7 @@ namespace BattleShip.Model
         private void ShowDeadCells(DataGridView grid, Point position)
         {
             if (position.X - 1 >= 0 && position.Y - 1 >= 0)
-            {             
+            {
                 DataGridViewImageCell imgCell = new DataGridViewImageCell();
                 imgCell.Value = Properties.Resources.missImage;
                 grid.Rows[position.X - 1].Cells[position.Y - 1] = imgCell;
@@ -115,14 +112,14 @@ namespace BattleShip.Model
         }
 
         public void ShowShip(DataGridView grid)
-        {        
+        {
             if (Destroyed())
             {
-                foreach(Point point in viewPoints)
+                foreach (Point point in viewPoints)
                 {
-                    if(point.X >= 0 && point.X < 10 && point.Y >= 0 && point.Y < 10)
+                    if (point.X >= 0 && point.X < 10 && point.Y >= 0 && point.Y < 10)
                     {
-                        if(!Cells.Exists(cell => cell.Positon.Equals(point)))
+                        if (!Cells.Exists(cell => cell.Positon.Equals(point)))
                         {
                             DataGridViewImageCell imgCell = new DataGridViewImageCell();
                             imgCell.Value = Properties.Resources.missImage;
@@ -143,21 +140,9 @@ namespace BattleShip.Model
                     }
                     else
                     {
-                        if (Size > 1)
-                        {
-                            DataGridViewImageCell imgCell = new DataGridViewImageCell();
-                            imgCell.Value = cell.Img;
-                           
-                            grid.Rows[cell.Positon.X].Cells[cell.Positon.Y] = imgCell;
-                        } 
-                      
-                        else 
-                        {
-                            string name = "_11";
-                            DataGridViewImageCell imgCell = new DataGridViewImageCell();
-                            imgCell.Value = Properties.Resources.ResourceManager.GetObject(name);
-                            grid.Rows[cell.Positon.X].Cells[cell.Positon.Y] = imgCell;
-                        }
+                        DataGridViewImageCell imgCell = new DataGridViewImageCell();
+                        imgCell.Value = cell.Img;
+                        grid.Rows[cell.Positon.X].Cells[cell.Positon.Y] = imgCell;
                     }
                 }
             }
@@ -180,9 +165,16 @@ namespace BattleShip.Model
                     }
                 }
                 foreach (Cell cell in Cells)
-                {                    
+                {
+                    if (Size > 2)
+                    {
+                        DataGridViewImageCell imgCell = new DataGridViewImageCell();
+                        imgCell.Value = cell.Img;
+
+                        grid.Rows[cell.Positon.X].Cells[cell.Positon.Y] = imgCell;
+                    }
                     grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.Black;
-                }                
+                }
             }
             else
             {
@@ -206,7 +198,7 @@ namespace BattleShip.Model
         {
             foreach (Point point in selected.viewPoints)
             {
-                if (Cells.Exists(cell => cell.Positon.Equals(point)))                   
+                if (Cells.Exists(cell => cell.Positon.Equals(point)))
                     return true;
             }
             return false;
@@ -247,7 +239,7 @@ namespace BattleShip.Model
         }
 
         public void AddViewPoints()
-        {           
+        {
             viewPoints = new List<Point>();
             Point position = Cells[0].Positon;
 
