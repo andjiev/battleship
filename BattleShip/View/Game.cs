@@ -335,6 +335,18 @@ namespace BattleShip
             //System.IO.File.WriteAllText(Application.StartupPath + "\\highscores.txt", name + ";" + Score.ToString());
         }
 
+        private void Game_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            state = new State();
+            state.Computer = computer;
+            state.Player = player;
+            state.Score = score;
+            state.Turn = Turn;
+            ComputerTimer.Stop();
+            ShootTimer.Stop();
+            DialogResult = DialogResult.Cancel;
+        }
+
         private void label4_Click(object sender, EventArgs e)
         {
             MuteClicked = true;
@@ -350,17 +362,5 @@ namespace BattleShip
             label4.Show();
         }
 
-
-        private void Game_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            state = new State();
-            state.Computer = computer;
-            state.Player = player;
-            state.Score = score;
-            state.Turn = Turn;
-            ComputerTimer.Stop();
-            ShootTimer.Stop();
-            DialogResult = DialogResult.Cancel;
-        }
     }
 }
