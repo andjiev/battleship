@@ -44,6 +44,7 @@ namespace BattleShip
             MuteClicked = false;
             ShowPlayerView();
             ShowComputerView();
+  
         }
 
         public void UpdateState()
@@ -58,6 +59,7 @@ namespace BattleShip
             Turn = state.Turn;
             btnRandomize.Visible = false;
             btnStart.Text = "Resume";
+            dgvPlayer.Enabled = false;
         }
 
         public void ShowPlayerView()

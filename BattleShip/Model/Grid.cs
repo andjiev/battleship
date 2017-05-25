@@ -16,8 +16,8 @@ namespace BattleShip.Model
         {
          
             //base.PaintBackground(graphics, clipBounds, gridBounds);
-            Rectangle rectSource = new Rectangle(Location.X, Location.Y, Width, Height);
-            Rectangle rectDest = new Rectangle(0, 0, rectSource.Width, rectSource.Height);
+            Rectangle rectSource = new Rectangle(Location.X, Location.Y, Width, Height / 2);
+            Rectangle rectDest = new Rectangle(0, 0, rectSource.Width, rectSource.Width);
 
             Bitmap b = new Bitmap(Parent.ClientRectangle.Width, Parent.ClientRectangle.Height);
             Graphics.FromImage(b).DrawImage(Parent.BackgroundImage, Parent.ClientRectangle);
