@@ -123,6 +123,7 @@
             this.btnContinue.TabIndex = 5;
             this.btnContinue.Text = "Continue";
             this.btnContinue.UseVisualStyleBackColor = false;
+            this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);
             // 
             // form1
             // 

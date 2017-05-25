@@ -10,11 +10,13 @@ using System.Windows.Forms;
 
 namespace BattleShip.Controller
 {
+    [Serializable]
     class PlayerController
     {
         private List<Ship> ships;
         private List<Point> positions;
         private List<int> amounts;
+        private List<Point> missedPositions;
         public Ship selected;
         private Point shot;
         private Point first;
@@ -32,6 +34,7 @@ namespace BattleShip.Controller
         {
             ships = new List<Ship>();
             positions = new List<Point>();
+            missedPositions = new List<Point>();
             for(int i = 0; i < 10; i++)
             {
                 for (int j = 0; j < 10; j++)
@@ -355,6 +358,7 @@ namespace BattleShip.Controller
             DataGridViewImageCell imgCell = new DataGridViewImageCell();
             imgCell.Value = Properties.Resources.dotImage;
             grid.Rows[position.X].Cells[position.Y] = imgCell;
+            missedPositions.Add(position);
             System.Media.SoundPlayer sound = new System.Media.SoundPlayer(Properties.Resources.miss);
             if (Game.MuteClicked)
             {
@@ -365,6 +369,16 @@ namespace BattleShip.Controller
                 sound.Play();
             }
             found = false;
+        }
+
+        public void UpdateMissed(DataGridView grid)
+        {
+            foreach(Point position in missedPositions)
+            {
+                DataGridViewImageCell imgCell = new DataGridViewImageCell();
+                imgCell.Value = Properties.Resources.dotImage;
+                grid.Rows[position.X].Cells[position.Y] = imgCell;
+            }
         }
 
         public bool Won()

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace BattleShip.Model
 {
+    [Serializable]
     class Score
     {
        String Name { get; set; }

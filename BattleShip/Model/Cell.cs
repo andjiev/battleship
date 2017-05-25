@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace BattleShip.Model
 {
+    [Serializable]
     class Cell
     {
         public Point Positon { get; set; }

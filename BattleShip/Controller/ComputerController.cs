@@ -9,15 +9,18 @@ using System.Windows.Forms;
 
 namespace BattleShip.Controller
 {
+    [Serializable]
     class ComputerController
     {
         private List<Ship> ships;
         private List<int> amounts;
         public List<Point> positions;
+        public List<Point> missedPositions;
         public ComputerController()
         {
             amounts = new List<int>();
             positions = new List<Point>();
+            missedPositions = new List<Point>();
             for (int i = 0; i < 10; i++)
             {
                 for (int j = 0; j < 10; j++)
@@ -97,6 +100,7 @@ namespace BattleShip.Controller
                 }
                 DataGridViewImageCell imgCell = new DataGridViewImageCell();
                 imgCell.Value = Properties.Resources.dotImage;
+                missedPositions.Add(position);
                 grid.Rows[position.X].Cells[position.Y] = imgCell;
 
                 grid.Enabled = false;
@@ -111,14 +115,27 @@ namespace BattleShip.Controller
             }
             return false;
         }
+
+        public void UpdateMissed(DataGridView grid)
+        {
+            foreach (Point position in missedPositions)
+            {
+                DataGridViewImageCell imgCell = new DataGridViewImageCell();
+                imgCell.Value = Properties.Resources.dotImage;
+                grid.Rows[position.X].Cells[position.Y] = imgCell;
+            }
+        }
+
         public void ShowShips(DataGridView grid)
         {
             ships.ForEach(ship => ship.enemyShipsDraw(grid));
         }
+
         public bool Won() {
 
             return ships.All(ship => ship.Destroyed());
         }
+
         public void Random()
         {
             ships = new List<Ship>();

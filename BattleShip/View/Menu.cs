@@ -10,17 +10,22 @@ using System.Windows.Forms;
 using System.IO;
 using BattleShip.Model;
 using BattleShip.View;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using BattleShip.Controller;
 
 namespace BattleShip
 {
     public partial class form1 : Form
     {
-    
+
         System.Media.SoundPlayer sound = new System.Media.SoundPlayer(Properties.Resources.war);
+
         public form1()
-        {
-          
+        {          
             InitializeComponent();
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            btnContinue.Enabled = File.Exists(path + "/game.bs");
             sound.PlayLooping();
             
         }
@@ -30,6 +35,14 @@ namespace BattleShip
             Game game = new Game();
             this.Hide();
             if (game.ShowDialog() == DialogResult.Cancel) {
+                string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                string fileName = path + "/game.bs";
+                using (FileStream fileStream = new FileStream(fileName, FileMode.OpenOrCreate))
+                {
+                    IFormatter formatter = new BinaryFormatter();
+                    formatter.Serialize(fileStream, game.state);
+                    btnContinue.Enabled = true;
+                }
                 this.Show();
                 sound.PlayLooping();
             }
@@ -156,6 +169,32 @@ namespace BattleShip
             {
                 this.Show();
                 sound.Play();
+            }
+        }
+
+        private void btnContinue_Click(object sender, EventArgs e)
+        {
+            sound.Stop();
+            
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string fileName = path + "/game.bs";
+            Game game = new Game();
+            using (FileStream fileStream = new FileStream(fileName, FileMode.Open))
+            {
+                IFormatter formatter = new BinaryFormatter();
+                game.state = formatter.Deserialize(fileStream) as State;
+            }
+            game.UpdateState();
+            this.Hide();
+            if (game.ShowDialog() == DialogResult.Cancel)
+            {
+                using (FileStream fileStream = new FileStream(fileName, FileMode.Open))
+                {
+                    IFormatter formatter = new BinaryFormatter();
+                    formatter.Serialize(fileStream, game.state);
+                }
+                this.Show();
+                sound.PlayLooping();
             }
         }
     }

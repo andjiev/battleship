@@ -41,7 +41,7 @@
             this.ComputerTimer = new System.Windows.Forms.Timer(this.components);
             this.ShootTimer = new System.Windows.Forms.Timer(this.components);
             this.label2 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnRandomize = new System.Windows.Forms.Button();
             this.btnShoot = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvPlayer = new BattleShip.Model.Grid();
@@ -96,16 +96,16 @@
             this.label2.Size = new System.Drawing.Size(0, 25);
             this.label2.TabIndex = 7;
             // 
-            // button2
+            // btnRandomize
             // 
-            this.button2.BackgroundImage = global::BattleShip.Properties.Resources.buttonRandom;
-            this.button2.Location = new System.Drawing.Point(12, 399);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(169, 23);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Randomize";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnRandomize.BackgroundImage = global::BattleShip.Properties.Resources.buttonRandom;
+            this.btnRandomize.Location = new System.Drawing.Point(12, 399);
+            this.btnRandomize.Name = "btnRandomize";
+            this.btnRandomize.Size = new System.Drawing.Size(169, 23);
+            this.btnRandomize.TabIndex = 8;
+            this.btnRandomize.Text = "Randomize";
+            this.btnRandomize.UseVisualStyleBackColor = true;
+            this.btnRandomize.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnShoot
             // 
@@ -237,7 +237,6 @@
             this.label3.Size = new System.Drawing.Size(38, 13);
             this.label3.TabIndex = 13;
             this.label3.Text = "Score:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -294,7 +293,7 @@
             this.Controls.Add(this.dgvPlayer);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnShoot);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnRandomize);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnEnd);
             this.Controls.Add(this.btnStart);
@@ -303,8 +302,7 @@
             this.Name = "Game";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Game";
-            this.Load += new System.EventHandler(this.Game_Load);
-            this.Leave += new System.EventHandler(this.Game_Leave);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Game_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComputer)).EndInit();
             this.ResumeLayout(false);
@@ -318,7 +316,7 @@
         private System.Windows.Forms.Timer ComputerTimer;
         private System.Windows.Forms.Timer ShootTimer;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnRandomize;
         private System.Windows.Forms.Button btnShoot;
         private System.Windows.Forms.Label label1;
         private Model.Grid dgvPlayer;

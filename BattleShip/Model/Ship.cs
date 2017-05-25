@@ -8,6 +8,7 @@ using System.Windows.Forms;
 
 namespace BattleShip.Model
 {
+    [Serializable]
     class Ship
     {
         public enum View
@@ -134,27 +135,25 @@ namespace BattleShip.Model
                         double opacity = 0.6;
                         cell.Opacity((float)opacity);
                         cell.ChangedOpacity = true;
-                        DataGridViewImageCell imgCell = new DataGridViewImageCell();
-                        imgCell.Value = cell.Img;
-                        grid.Rows[cell.Positon.X].Cells[cell.Positon.Y] = imgCell;
-                        grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.Black;
-                    } 
+                        
+                    }
+                    DataGridViewImageCell imgCell = new DataGridViewImageCell();
+                    imgCell.Value = cell.Img;
+                    grid.Rows[cell.Positon.X].Cells[cell.Positon.Y] = imgCell;
+                    grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.Black;
                 }
             }
             else
             {
                 foreach (Cell cell in Cells)
                 {
+                    DataGridViewImageCell imgCell = new DataGridViewImageCell();
+                    imgCell.Value = cell.Img;
+                    grid.Rows[cell.Positon.X].Cells[cell.Positon.Y] = imgCell;
                     if (!cell.Alive)
                     {
                         grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.Red;
                         ShowDeadCells(grid, cell.Positon);
-                    }
-                    else
-                    {
-                        DataGridViewImageCell imgCell = new DataGridViewImageCell();
-                        imgCell.Value = cell.Img;
-                        grid.Rows[cell.Positon.X].Cells[cell.Positon.Y] = imgCell;
                     }
                 }
             }
