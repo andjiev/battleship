@@ -133,7 +133,12 @@ namespace BattleShip.Controller
                 {
                     RemoveDeadShip();
                     selected = null;
-                    sound2.Play();
+                    if (Game.MuteClicked)
+                    {
+                        sound2.Stop();
+                    }else { 
+                        sound2.Play();
+                    }
                     Game.score -= 100;
                     GenerateRandom(grid);
                     return;
@@ -149,7 +154,12 @@ namespace BattleShip.Controller
                         {
                             selected.ShootPosition(position);
                             RemoveDeadPoints(position);
-                            sound2.Play();
+                            if(Game.MuteClicked)
+                            {
+                                sound2.Stop();
+                            }else { 
+                                sound2.Play();
+                            }
                             shot = position;
                             Game.score -= 100;
 
@@ -181,6 +191,10 @@ namespace BattleShip.Controller
                         positions.Remove(position);
                         if (selected.ExistPosition(position))
                         {
+                            if (Game.MuteClicked)
+                            {
+                                sound2.Stop();
+                            }
                             sound2.Play();
                             selected.ShootPosition(position);
                             RemoveDeadPoints(position);
@@ -219,7 +233,14 @@ namespace BattleShip.Controller
                         positions.Remove(position);
                         if (selected.ExistPosition(position))
                         {
-                            sound2.Play();
+                            if (Game.MuteClicked)
+                            {
+                                sound2.Stop();
+                            }
+                            else
+                            {
+                                sound2.Play();
+                            }
                             selected.ShootPosition(position);
                             RemoveDeadPoints(position);
                             shot = position;
@@ -254,7 +275,14 @@ namespace BattleShip.Controller
                         positions.Remove(position);
                         if (selected.ExistPosition(position))
                         {
-                            sound2.Play();
+                            if (Game.MuteClicked)
+                            {
+                                sound2.Stop();
+                            }
+                            else
+                            {
+                                sound2.Play();
+                            }
                             selected.ShootPosition(position);
                             RemoveDeadPoints(position);
                             shot = position;
@@ -299,7 +327,14 @@ namespace BattleShip.Controller
                     if (ship.ExistPosition(position))
                     {
                         System.Media.SoundPlayer sound2 = new System.Media.SoundPlayer(Properties.Resources.explosion);
-                        sound2.Play();
+                        if (Game.MuteClicked)
+                        {
+                            sound2.Stop();
+                        }
+                        else
+                        {
+                            sound2.Play();
+                        }
                         ship.ShootPosition(position);
                         Game.score -= 100;
                         direction = (Direction)new Random().Next(4);
@@ -321,7 +356,14 @@ namespace BattleShip.Controller
             imgCell.Value = Properties.Resources.dotImage;
             grid.Rows[position.X].Cells[position.Y] = imgCell;
             System.Media.SoundPlayer sound = new System.Media.SoundPlayer(Properties.Resources.miss);
-            sound.Play();
+            if (Game.MuteClicked)
+            {
+                sound.Stop();
+            }
+            else
+            {
+                sound.Play();
+            }
             found = false;
         }
 

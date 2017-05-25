@@ -22,6 +22,7 @@ namespace BattleShip
         ComputerController computer;
         Point startedPosition;
         Point shotPosition;
+        public static bool MuteClicked { get; set; }
         
         public Game()
         {
@@ -35,6 +36,7 @@ namespace BattleShip
             dgvPlayer.DoubleBuffered(true);
             dgvComputer.DoubleBuffered(true);
             GameStarted = false;
+            MuteClicked = false;
             ShowPlayerView();
             ShowComputerView();
         }
@@ -128,10 +130,17 @@ namespace BattleShip
             ComputerTimer.Start();
             System.Media.SoundPlayer song = new System.Media.SoundPlayer(Properties.Resources.start);
             song.Play();
+            if (MuteClicked)
+                song.Stop();
+            else
+            {
+                song.Play();
+            }
             GameStarted = true;
             Turn = true;
             dgvComputer.Enabled = true;
             button2.Enabled = false;
+            btnStart.Enabled = false;
             label1.Hide();
         }
 
@@ -329,5 +338,21 @@ namespace BattleShip
             }
             //System.IO.File.WriteAllText(Application.StartupPath + "\\highscores.txt", name + ";" + Score.ToString());
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            MuteClicked = true;
+            label4.Hide();
+            label6.Show();
+            
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            MuteClicked = false;
+            label6.Hide();
+            label4.Show();
+        }
+
     }
 }

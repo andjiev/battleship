@@ -281,6 +281,16 @@ namespace BattleShip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap mute {
+            get {
+                object obj = ResourceManager.GetObject("mute", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap paper {
             get {
                 object obj = ResourceManager.GetObject("paper", resourceCulture);
@@ -304,6 +314,16 @@ namespace BattleShip.Properties {
         public static System.IO.UnmanagedMemoryStream start {
             get {
                 return ResourceManager.GetStream("start", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap unmute {
+            get {
+                object obj = ResourceManager.GetObject("unmute", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

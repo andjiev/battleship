@@ -84,6 +84,10 @@ namespace BattleShip.Controller
                         }                       
                         System.Media.SoundPlayer sound2 = new System.Media.SoundPlayer(Properties.Resources.explosion);
                         sound2.Play();
+                        if (Game.MuteClicked)
+                        {
+                            sound2.Stop();
+                        }
                         Game.score += 100;
                         grid.Rows[position.X].Cells[position.Y].Style.BackColor = Color.Red;
                         ShowShips(grid);
@@ -97,7 +101,12 @@ namespace BattleShip.Controller
 
                 grid.Enabled = false;
                 System.Media.SoundPlayer sound = new System.Media.SoundPlayer(Properties.Resources.miss);
+                if (Game.MuteClicked)
+                {
+                    sound.Stop();
+                }else {
                 sound.Play();
+                }
                 return true;
             }
             return false;

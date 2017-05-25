@@ -132,6 +132,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\unmute.png" />
+    <None Include="Resources\mute.png" />
     <None Include="Resources\18718281_1342273699160863_1172642038_n.png" />
     <None Include="Resources\dotImage.png" />
     <None Include="Resources\11.png" />
