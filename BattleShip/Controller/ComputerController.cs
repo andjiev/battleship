@@ -92,7 +92,7 @@ namespace BattleShip.Controller
                     }
                 }
                 DataGridViewImageCell imgCell = new DataGridViewImageCell();
-                imgCell.Value = Properties.Resources.missImage;
+                imgCell.Value = Properties.Resources.dotImage;
                 grid.Rows[position.X].Cells[position.Y] = imgCell;
 
                 grid.Enabled = false;

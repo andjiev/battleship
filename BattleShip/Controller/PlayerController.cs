@@ -318,7 +318,7 @@ namespace BattleShip.Controller
         private void UpdateGrid(Point position,DataGridView grid)
         {
             DataGridViewImageCell imgCell = new DataGridViewImageCell();
-            imgCell.Value = Properties.Resources.missImage;
+            imgCell.Value = Properties.Resources.dotImage;
             grid.Rows[position.X].Cells[position.Y] = imgCell;
             System.Media.SoundPlayer sound = new System.Media.SoundPlayer(Properties.Resources.miss);
             sound.Play();

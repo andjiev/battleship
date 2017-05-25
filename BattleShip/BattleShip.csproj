@@ -132,6 +132,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\18718281_1342273699160863_1172642038_n.png" />
+    <None Include="Resources\dotImage.png" />
     <None Include="Resources\11.png" />
     <None Include="Resources\11.jpg" />
     <None Include="Resources\33.png" />

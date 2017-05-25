@@ -152,6 +152,7 @@ namespace BattleShip
         private void Game_Leave(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
+            //Properties.Settings.Default.savedGame
         }
 
         private void ComputerTimer_Tick(object sender, EventArgs e)

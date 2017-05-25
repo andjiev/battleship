@@ -13,11 +13,13 @@ namespace BattleShip.Model
         public Point Positon { get; set; }
         public bool Alive { get; set; }
         public Image Img { get; set; }
+        public bool ChangedOpacity { get; set; }
 
         public Cell(Point position)
         {
             Positon = position;
             Alive = true;
+            ChangedOpacity = false;
         }
 
         public void SwapImage()

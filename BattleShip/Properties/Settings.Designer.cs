@@ -26,5 +26,17 @@ namespace BattleShip.Properties
                 return defaultInstance;
             }
         }
+
+        public string savedGame
+        {
+            get
+            {
+                return ((string)this["savedGame"]);
+            }
+            set
+            {
+                this["savedGame"] = value;
+            }
+        }
     }
 }

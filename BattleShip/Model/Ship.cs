@@ -88,25 +88,25 @@ namespace BattleShip.Model
             if (position.X - 1 >= 0 && position.Y - 1 >= 0)
             {
                 DataGridViewImageCell imgCell = new DataGridViewImageCell();
-                imgCell.Value = Properties.Resources.missImage;
+                imgCell.Value = Properties.Resources.dotImage;
                 grid.Rows[position.X - 1].Cells[position.Y - 1] = imgCell;
             }
             if (position.X - 1 >= 0 && position.Y + 1 < 10)
             {
                 DataGridViewImageCell imgCell = new DataGridViewImageCell();
-                imgCell.Value = Properties.Resources.missImage;
+                imgCell.Value = Properties.Resources.dotImage;
                 grid.Rows[position.X - 1].Cells[position.Y + 1] = imgCell;
             }
             if (position.X + 1 < 10 && position.Y - 1 >= 0)
             {
                 DataGridViewImageCell imgCell = new DataGridViewImageCell();
-                imgCell.Value = Properties.Resources.missImage;
+                imgCell.Value = Properties.Resources.dotImage;
                 grid.Rows[position.X + 1].Cells[position.Y - 1] = imgCell;
             }
             if (position.X + 1 < 10 && position.Y + 1 < 10)
             {
                 DataGridViewImageCell imgCell = new DataGridViewImageCell();
-                imgCell.Value = Properties.Resources.missImage;
+                imgCell.Value = Properties.Resources.dotImage;
                 grid.Rows[position.X + 1].Cells[position.Y + 1] = imgCell;
             }
         }
@@ -122,12 +122,24 @@ namespace BattleShip.Model
                         if (!Cells.Exists(cell => cell.Positon.Equals(point)))
                         {
                             DataGridViewImageCell imgCell = new DataGridViewImageCell();
-                            imgCell.Value = Properties.Resources.missImage;
+                            imgCell.Value = Properties.Resources.dotImage;
                             grid.Rows[point.X].Cells[point.Y] = imgCell;
                         }
                     }
                 }
-                Cells.ForEach(cell => grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.Black);
+                foreach(Cell cell in Cells)
+                {
+                    if (!cell.ChangedOpacity)
+                    {
+                        double opacity = 0.6;
+                        cell.Opacity((float)opacity);
+                        cell.ChangedOpacity = true;
+                        DataGridViewImageCell imgCell = new DataGridViewImageCell();
+                        imgCell.Value = cell.Img;
+                        grid.Rows[cell.Positon.X].Cells[cell.Positon.Y] = imgCell;
+                        grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.Black;
+                    } 
+                }
             }
             else
             {
@@ -159,20 +171,24 @@ namespace BattleShip.Model
                         if (!Cells.Exists(cell => cell.Positon.Equals(point)))
                         {
                             DataGridViewImageCell imgCell = new DataGridViewImageCell();
-                            imgCell.Value = Properties.Resources.missImage;
+                            imgCell.Value = Properties.Resources.dotImage;
                             grid.Rows[point.X].Cells[point.Y] = imgCell;
                         }
                     }
                 }
                 foreach (Cell cell in Cells)
                 {
-                    if (Size > 2)
-                    {
-                        DataGridViewImageCell imgCell = new DataGridViewImageCell();
-                        imgCell.Value = cell.Img;
 
-                        grid.Rows[cell.Positon.X].Cells[cell.Positon.Y] = imgCell;
-                    }
+                    DataGridViewImageCell imgCell = new DataGridViewImageCell();
+                    if(!cell.ChangedOpacity)
+                    {                       
+                        double opacity = 0.6;
+                        cell.Opacity((float)opacity);
+                        cell.ChangedOpacity = true;
+                    }                    
+                    imgCell.Value = cell.Img;
+
+                    grid.Rows[cell.Positon.X].Cells[cell.Positon.Y] = imgCell;
                     grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.Black;
                 }
             }
