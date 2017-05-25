@@ -9,7 +9,6 @@ using System.Windows.Forms;
 
 namespace BattleShip.Model
 {
-    [Serializable]
     class Grid : DataGridView
     {
        

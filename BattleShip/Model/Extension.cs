@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BattleShip.Model
-{
-    [Serializable]
+{ 
     static class Extension
     {
         public static void DoubleBuffered(this DataGridView dgv, bool setting)
