@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 namespace BattleShip.Model
 {
     [Serializable]
-    class Score
+    class Score 
     {
        String Name { get; set; }
-       int Hiscore { get; set; }
+      public int Hiscore { get; set; }
         public Score(String name, int hiscore)
         {
             Name = name;
@@ -18,7 +18,10 @@ namespace BattleShip.Model
         }
         public override string ToString()
         {
-            return String.Format("{0} : {1} pts", Name, Hiscore);
+            return String.Format("{0}:{1} pts", Name, Hiscore);
         }
+
+
+
     }
 }

@@ -80,6 +80,7 @@ namespace BattleShip.Controller
                         if (ship.Destroyed())
                         {
                             RemoveDeadShip(ship);
+                            Game.score += 500;
                         }
                         else
                         {
@@ -92,6 +93,7 @@ namespace BattleShip.Controller
                             sound2.Stop();
                         }
                         Game.score += 100;
+                        
                         grid.Rows[position.X].Cells[position.Y].Style.BackColor = Color.Red;
                         ShowShips(grid);
                         grid.Enabled = false;
@@ -135,6 +137,7 @@ namespace BattleShip.Controller
 
             return ships.All(ship => ship.Destroyed());
         }
+       
 
         public void Random()
         {

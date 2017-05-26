@@ -216,9 +216,9 @@ namespace BattleShip
                 ComputerTimer.Enabled = false;
                 dgvComputer.Enabled = false;
 
-                if (score > 50)
+                if (score > 5000)
                 {
-                    saveFile(Microsoft.VisualBasic.Interaction.InputBox("Highscore!", "Save your Highscore", "Name", 150, 150), score);
+                    saveFile(Microsoft.VisualBasic.Interaction.InputBox("Highscore!", "Save your Highscore", "Name", 150, 250), score);
                 }
                 
                 ComputerTimer.Dispose();
@@ -332,7 +332,7 @@ namespace BattleShip
             using (System.IO.StreamWriter file =
          new System.IO.StreamWriter(Application.StartupPath + "\\highscores.txt", true))
             {
-                file.WriteLine(name + ";" + Score.ToString());
+                file.WriteLine(name + ";" + Score.ToString()+"\n");
             }
             //System.IO.File.WriteAllText(Application.StartupPath + "\\highscores.txt", name + ";" + Score.ToString());
         }
@@ -364,5 +364,9 @@ namespace BattleShip
             label4.Show();
         }
 
+        private void Game_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

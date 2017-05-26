@@ -15,12 +15,14 @@ namespace BattleShip.View
     public partial class Highscores : Form
     {
         List<Label> lblList;
+        List<Score> hiScores;
         Point p;
         public Highscores()
         {
             p = new Point { X = 0, Y = 15 };
             lblList = new List<Label>();
             InitializeComponent();
+            hiScores = new List<Score>();
             readFile();
             
           //  MessageBox.Show(lblList.Count.ToString());
@@ -33,10 +35,10 @@ namespace BattleShip.View
             {
             //    MessageBox.Show(l.ToString());
                 l.Location = p;
-                l.Font = new Font("Arial", 10);
+                l.Font = new Font("Arial", 9);
                
                 this.Controls.Add(l);
-                p = new Point { X = p.X, Y = p.Y+30 };
+                p = new Point { X = p.X, Y = p.Y+25 };
                 
              }
 
@@ -46,21 +48,50 @@ namespace BattleShip.View
             var fs = File.OpenRead(Application.StartupPath + "\\highscores.txt");
           //  MessageBox.Show("Reading!");
             var reader = new StreamReader(fs);
-            int I = 0;
-            while (I<5&&reader.ReadLine()!=null)
+            
+            while ((reader.ReadLine()!=null))
             {
+               
                 var line = reader.ReadLine();
+              //  MessageBox.Show(line);
+                if (line == "")
+                {
+                    break;
+                }
                 var values = line.Split(';');
                 int p;
                 int.TryParse(values[1], out p);
                 //MessageBox.Show(values[0]);
                 Score s = new Score(values[0], p);
-                Label l = new Label();
-                l.Text = (I+1)+"."+s.ToString();
-                lblList.Add(l);
-                I++;
+               // Label l = new Label();
+                hiScores.Add(s);
+                //l.Text = (I+1)+"."+s.ToString();
+                //lblList.Add(l);
+
+               // I++;
             }
+            sort();
             reader.Dispose();
+
+        }
+        private void sort() {
+            for(int i = 0; i < hiScores.Count; i++)
+            {
+                for(int j = 0; j < hiScores.Count - 1; j++)
+                {
+                    if (hiScores[j].Hiscore > hiScores[j + 1].Hiscore) {
+                        Score tmp = hiScores[j];
+                        hiScores[j] = hiScores[j + 1];
+                        hiScores[j + 1] = tmp;
+                            }
+                }
+            }
+            for(int i = 0; i < hiScores.Count; i++) 
+            {
+                Label l = new Label();
+                l.Text = (i + 1) + "." + hiScores[i].ToString();
+                lblList.Add(l);
+            }
 
         }
 
