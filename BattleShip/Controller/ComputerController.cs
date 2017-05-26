@@ -87,13 +87,13 @@ namespace BattleShip.Controller
                             RemoveDeadPoints(position);
                         }                       
                         System.Media.SoundPlayer sound2 = new System.Media.SoundPlayer(Properties.Resources.explosion);
-                        if (Game.MuteClicked)
+                        if (!Game.MuteClicked)
                         {
-                            sound2.Stop();
+                            sound2.Play();
                         }
                         else
                         {
-                            sound2.Play();
+                            sound2.Stop();
                         }
                         
                         Game.score += 100;
@@ -111,11 +111,12 @@ namespace BattleShip.Controller
 
                 grid.Enabled = false;
                 System.Media.SoundPlayer sound = new System.Media.SoundPlayer(Properties.Resources.miss);
-                if (Game.MuteClicked)
+                if (!Game.MuteClicked)
+                {
+                    sound.Play();
+                }else
                 {
                     sound.Stop();
-                }else {
-                sound.Play();
                 }
                 return true;
             }

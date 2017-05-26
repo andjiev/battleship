@@ -81,7 +81,7 @@ namespace BattleShip
 
             DateTime animationStarted = DateTime.Now;
 
-            //TODO update as appropriate or make it a parameter
+            
             TimeSpan animationDuration = TimeSpan.FromMilliseconds(250);
             int initialWidth = 75;
             int endWidth = 130;
@@ -175,7 +175,7 @@ namespace BattleShip
         private void btnContinue_Click(object sender, EventArgs e)
         {
             sound.Stop();
-            
+            AddAnimation(btnContinue);
             string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             string fileName = path + "/game.bs";
             Game game = new Game();
