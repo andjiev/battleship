@@ -70,11 +70,11 @@ namespace BattleShip.View
 
                // I++;
             }
-            sort();
+            Sort();
             reader.Dispose();
 
         }
-        private void sort() {
+        private void Sort() {
             for(int i = 0; i < hiScores.Count; i++)
             {
                 for(int j = 0; j < hiScores.Count - 1; j++)
@@ -86,7 +86,7 @@ namespace BattleShip.View
                             }
                 }
             }
-            for(int i = 0; i < hiScores.Count; i++) 
+            for(int i = 0; i < 5; i++) 
             {
                 Label l = new Label();
                 l.Text = (i + 1) + "." + hiScores[i].ToString();
