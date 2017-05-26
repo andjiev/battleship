@@ -87,11 +87,15 @@ namespace BattleShip.Controller
                             RemoveDeadPoints(position);
                         }                       
                         System.Media.SoundPlayer sound2 = new System.Media.SoundPlayer(Properties.Resources.explosion);
-                        sound2.Play();
                         if (Game.MuteClicked)
                         {
                             sound2.Stop();
                         }
+                        else
+                        {
+                            sound2.Play();
+                        }
+                        
                         Game.score += 100;
                         
                         grid.Rows[position.X].Cells[position.Y].Style.BackColor = Color.Red;
