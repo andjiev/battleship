@@ -273,9 +273,29 @@ namespace BattleShip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap btnCont6 {
+            get {
+                object obj = ResourceManager.GetObject("btnCont6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap buttonRandom {
             get {
                 object obj = ResourceManager.GetObject("buttonRandom", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap buttonRandom1 {
+            get {
+                object obj = ResourceManager.GetObject("buttonRandom1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -132,7 +132,7 @@
             // btnContinue
             // 
             this.btnContinue.BackColor = System.Drawing.Color.Transparent;
-            this.btnContinue.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnContinue.BackgroundImage")));
+            this.btnContinue.BackgroundImage = global::BattleShip.Properties.Resources.btnCont6;
             this.btnContinue.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
             this.btnContinue.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.btnContinue.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
