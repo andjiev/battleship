@@ -48,11 +48,11 @@ namespace BattleShip.View
             var fs = File.OpenRead(Application.StartupPath + "\\highscores.txt");
           //  MessageBox.Show("Reading!");
             var reader = new StreamReader(fs);
-            
-            while ((reader.ReadLine()!=null))
+            var line="";
+            while (( line=reader.ReadLine())!=null)
             {
                
-                var line = reader.ReadLine();
+
               //  MessageBox.Show(line);
                 if (line == "")
                 {
