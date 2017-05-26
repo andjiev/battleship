@@ -83,7 +83,7 @@ namespace BattleShip
 
             
             TimeSpan animationDuration = TimeSpan.FromMilliseconds(250);
-            int initialWidth = 75;
+            int initialWidth = 87;
             int endWidth = 130;
 
             button.MouseHover += (_, args) =>
@@ -99,7 +99,7 @@ namespace BattleShip
                 expandTimer.Stop();
                 contractTimer.Start();
                 animationStarted = DateTime.Now;
-                button.BackColor = Color.LightSkyBlue;
+                
             };
 
             expandTimer.Tick += (_, args) =>
@@ -174,8 +174,9 @@ namespace BattleShip
 
         private void btnContinue_Click(object sender, EventArgs e)
         {
+
             sound.Stop();
-            AddAnimation(btnContinue);
+            
             string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             string fileName = path + "/game.bs";
             Game game = new Game();
@@ -196,6 +197,11 @@ namespace BattleShip
                 this.Show();
                 sound.PlayLooping();
             }
+        }
+
+        private void btnContinue_MouseEnter(object sender, EventArgs e)
+        {
+            AddAnimation(btnContinue);
         }
     }
 }

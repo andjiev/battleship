@@ -39,13 +39,18 @@
             // 
             // btnNewGame
             // 
-            this.btnNewGame.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnNewGame.BackColor = System.Drawing.Color.Transparent;
             this.btnNewGame.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnNewGame.BackgroundImage")));
-            this.btnNewGame.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnNewGame.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this.btnNewGame.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnNewGame.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnNewGame.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnNewGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewGame.Font = new System.Drawing.Font("Agency FB", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewGame.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnNewGame.Location = new System.Drawing.Point(464, 142);
             this.btnNewGame.Name = "btnNewGame";
-            this.btnNewGame.Size = new System.Drawing.Size(75, 42);
+            this.btnNewGame.Size = new System.Drawing.Size(87, 42);
             this.btnNewGame.TabIndex = 0;
             this.btnNewGame.Text = "New Game";
             this.btnNewGame.UseVisualStyleBackColor = false;
@@ -54,14 +59,18 @@
             // 
             // btnControls
             // 
-            this.btnControls.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnControls.BackColor = System.Drawing.Color.Transparent;
             this.btnControls.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnControls.BackgroundImage")));
-            this.btnControls.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnControls.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this.btnControls.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnControls.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnControls.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnControls.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnControls.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnControls.Font = new System.Drawing.Font("Agency FB", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnControls.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnControls.Location = new System.Drawing.Point(464, 190);
             this.btnControls.Name = "btnControls";
-            this.btnControls.Size = new System.Drawing.Size(75, 42);
+            this.btnControls.Size = new System.Drawing.Size(87, 42);
             this.btnControls.TabIndex = 1;
             this.btnControls.Text = "Controls";
             this.btnControls.UseVisualStyleBackColor = false;
@@ -70,13 +79,18 @@
             // 
             // btnExit
             // 
-            this.btnExit.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnExit.BackColor = System.Drawing.Color.Transparent;
             this.btnExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExit.BackgroundImage")));
-            this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this.btnExit.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Agency FB", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnExit.Location = new System.Drawing.Point(464, 286);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 42);
+            this.btnExit.Size = new System.Drawing.Size(87, 42);
             this.btnExit.TabIndex = 2;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = false;
@@ -97,14 +111,18 @@
             // 
             // btnHighscores
             // 
-            this.btnHighscores.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnHighscores.BackColor = System.Drawing.Color.Transparent;
             this.btnHighscores.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnHighscores.BackgroundImage")));
-            this.btnHighscores.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnHighscores.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this.btnHighscores.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnHighscores.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnHighscores.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnHighscores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHighscores.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnHighscores.Font = new System.Drawing.Font("Agency FB", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHighscores.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnHighscores.Location = new System.Drawing.Point(464, 238);
             this.btnHighscores.Name = "btnHighscores";
-            this.btnHighscores.Size = new System.Drawing.Size(75, 42);
+            this.btnHighscores.Size = new System.Drawing.Size(87, 42);
             this.btnHighscores.TabIndex = 4;
             this.btnHighscores.Text = "Highscores";
             this.btnHighscores.UseVisualStyleBackColor = false;
@@ -113,17 +131,23 @@
             // 
             // btnContinue
             // 
-            this.btnContinue.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnContinue.BackColor = System.Drawing.Color.Transparent;
             this.btnContinue.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnContinue.BackgroundImage")));
-            this.btnContinue.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnContinue.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this.btnContinue.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnContinue.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnContinue.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnContinue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnContinue.Font = new System.Drawing.Font("Agency FB", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnContinue.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnContinue.Location = new System.Drawing.Point(464, 94);
             this.btnContinue.Name = "btnContinue";
-            this.btnContinue.Size = new System.Drawing.Size(75, 42);
+            this.btnContinue.Size = new System.Drawing.Size(87, 42);
             this.btnContinue.TabIndex = 5;
             this.btnContinue.Text = "Continue";
             this.btnContinue.UseVisualStyleBackColor = false;
             this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);
+            this.btnContinue.MouseEnter += new System.EventHandler(this.btnContinue_MouseEnter);
             // 
             // form1
             // 

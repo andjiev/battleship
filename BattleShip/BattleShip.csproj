@@ -133,6 +133,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\btnCont5.png" />
+    <None Include="Resources\btnCont4.png" />
+    <None Include="Resources\btnCont3.png" />
+    <None Include="Resources\btnCont2.png" />
+    <None Include="Resources\btnCont1.png" />
+    <None Include="Resources\btnCont.png" />
     <None Include="Resources\howTO1.png" />
     <None Include="Resources\howTO.png" />
     <None Include="Resources\unmute.png" />
