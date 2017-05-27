@@ -19,7 +19,7 @@ namespace BattleShip.View
         Point p;
         public Highscores()
         {
-            p = new Point { X = 0, Y = 15 };
+            p = new Point { X = 15, Y = 15 };
             lblList = new List<Label>();
             InitializeComponent();
             hiScores = new List<Score>();
@@ -96,30 +96,31 @@ namespace BattleShip.View
                 z = hiScores.Count;
             }
            // MessageBox.Show(hiScores.Count.ToString());
-            if(hiScores.Count >0)
+            if(hiScores.Count > 0)
             for(int i = 0; i < z; i++) 
             {
                 Label l = new Label();
-                
-                l.Text = (i + 1) + " . " + hiScores[i].ToString();
-                    l.BackColor = Color.Transparent;
-                   
                     if (i == 0)
                     {
                         PictureBox pb = new PictureBox()
                         {
                             Size = new Size(25, 25),
-                            Location = new Point(l.Width, l.Location.Y + 12),
+                            Location = new Point(l.Width + 15, l.Location.Y + 12),
                             Image = Properties.Resources._5929ca2696f6a272985558
                         };
                         this.Controls.Add(pb);
                     }
+                    l.Text = (i + 1) + " . " + hiScores[i].ToString();
+                    l.BackColor = Color.Transparent;
+                   
+                    
                     lblList.Add(l);
             }
             else
             {
                 Label l = new Label();
                 l.Text = "No Highscores!";
+                l.BackColor = Color.Transparent;
                 lblList.Add(l);
 
                 PictureBox pb = new PictureBox()
