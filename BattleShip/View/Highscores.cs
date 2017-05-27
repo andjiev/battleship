@@ -23,7 +23,7 @@ namespace BattleShip.View
             lblList = new List<Label>();
             InitializeComponent();
             hiScores = new List<Score>();
-            readFile();
+              readFile();
             
           //  MessageBox.Show(lblList.Count.ToString());
 
@@ -51,9 +51,9 @@ namespace BattleShip.View
             var line="";
             while (( line=reader.ReadLine())!=null)
             {
-               
 
-              //  MessageBox.Show(line);
+
+                //  MessageBox.Show(line);
                 if (line == "")
                 {
                     break;
@@ -95,6 +95,7 @@ namespace BattleShip.View
             else{
                 z = hiScores.Count;
             }
+           // MessageBox.Show(hiScores.Count.ToString());
             if(hiScores.Count >0)
             for(int i = 0; i < z; i++) 
             {
@@ -118,7 +119,8 @@ namespace BattleShip.View
 
         private void Highscores_Shown(object sender, EventArgs e)
         {
-            readFile();
+           // readFile();
+           
         }
     }
 }
