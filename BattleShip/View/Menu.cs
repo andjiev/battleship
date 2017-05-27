@@ -147,9 +147,9 @@ namespace BattleShip
 
         private void form1_Load(object sender, EventArgs e)
         {
-            if (!File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\highscores.txt"))
+            if (!File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\highscores.csv"))
             {
-                File.Create(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)+"\\highscores.txt");
+                File.Create(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)+"\\highscores.csv");
 
             }
            

@@ -35,7 +35,7 @@ namespace BattleShip.View
             {
             //    MessageBox.Show(l.ToString());
                 l.Location = p;
-                l.Font = new Font("Arial", 9);
+                l.Font = new Font("Comic Sans", 9);
                
                 this.Controls.Add(l);
                 p = new Point { X = p.X, Y = p.Y+25 };
@@ -45,7 +45,7 @@ namespace BattleShip.View
         }
         public void readFile()
         {
-            var fs = File.OpenRead(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)+"\\highscores.txt");
+            var fs = File.OpenRead(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)+"\\highscores.csv");
           //  MessageBox.Show("Reading!");
             var reader = new StreamReader(fs);
             var line="";
@@ -121,7 +121,15 @@ namespace BattleShip.View
                 Label l = new Label();
                 l.Text = "No Highscores!";
                 lblList.Add(l);
-               
+
+                PictureBox pb = new PictureBox()
+                {
+                    Size = new Size(25, 25),
+                    Location = new Point(l.Width, l.Location.Y + 12),
+                    Image = Properties.Resources._5929ca2696f6a272985558
+                };
+                this.Controls.Add(pb);
+
             }
         }
 
@@ -134,6 +142,12 @@ namespace BattleShip.View
         {
            // readFile();
            
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+
         }
     }
 }

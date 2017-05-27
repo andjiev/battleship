@@ -334,9 +334,9 @@ namespace BattleShip
         private void saveFile(String name, int Score)
         {
             using (System.IO.StreamWriter file =
-         new System.IO.StreamWriter(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\highscores.txt", true))
+         new System.IO.StreamWriter(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\highscores.csv", true))
             {
-                file.WriteLine(name + ";" + Score.ToString()+"\n");
+                file.WriteLine(name + ";" + Score.ToString()+"\\n");
             }
             //System.IO.File.WriteAllText(Application.StartupPath + "\\highscores.txt", name + ";" + Score.ToString());
         }
