@@ -87,8 +87,16 @@ namespace BattleShip.View
                             }
                 }
             }
+            int z = 0;
+            if (hiScores.Count >= 5)
+            {
+                z = 5;
+            }
+            else{
+                z = hiScores.Count;
+            }
             if(hiScores.Count >0)
-            for(int i = 0; i < 5; i++) 
+            for(int i = 0; i < z; i++) 
             {
                 Label l = new Label();
                 l.Text = (i + 1) + "." + hiScores[i].ToString();

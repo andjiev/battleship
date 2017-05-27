@@ -142,7 +142,7 @@ namespace BattleShip.Controller
                     }else { 
                         sound2.Stop();
                     }
-                    Game.score -= 100;
+                    Game.score -= 50;
                     GenerateRandom(grid);
                     return;
                 }
@@ -164,7 +164,7 @@ namespace BattleShip.Controller
                                 sound2.Stop();
                             }
                             shot = position;
-                            Game.score -= 100;
+                            Game.score -= 50;
 
                             found = true;
                             return;
@@ -205,7 +205,7 @@ namespace BattleShip.Controller
                             selected.ShootPosition(position);
                             RemoveDeadPoints(position);
                             shot = position;
-                            Game.score -= 100;
+                            Game.score -= 50;
                             found = true;
                             return;
                         }
@@ -250,7 +250,7 @@ namespace BattleShip.Controller
                             selected.ShootPosition(position);
                             RemoveDeadPoints(position);
                             shot = position;
-                            Game.score -= 100;
+                            Game.score -= 50;
 
                             found = true;
                             return;
@@ -293,7 +293,7 @@ namespace BattleShip.Controller
                             RemoveDeadPoints(position);
                             shot = position;
                             found = true;
-                            Game.score -= 100;
+                            Game.score -= 50;
 
                             return;
                         }
@@ -342,7 +342,7 @@ namespace BattleShip.Controller
                             sound2.Stop();
                         }
                         ship.ShootPosition(position);
-                        Game.score -= 100;
+                        Game.score -= 50;
                         direction = (Direction)new Random().Next(4);
                         shot = position;
                         first = shot;

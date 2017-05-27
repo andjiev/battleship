@@ -175,6 +175,7 @@ namespace BattleShip
         {
             player.Shoot(dgvPlayer);
             player.ShowShips(dgvPlayer);
+          
         }
 
         private void ComputerTimer_Tick(object sender, EventArgs e)
@@ -216,9 +217,9 @@ namespace BattleShip
                 ComputerTimer.Enabled = false;
                 dgvComputer.Enabled = false;
 
-                if (score > 5000)
+                if (score > 0)
                 {
-                    saveFile(Microsoft.VisualBasic.Interaction.InputBox("Highscore!", "Save your Highscore", "Name", 150, 250), score);
+                    saveFile(Microsoft.VisualBasic.Interaction.InputBox("Highscore!", "Save your Highscore", "Name", 500, 250), score);
                 }
                 
                 ComputerTimer.Dispose();
@@ -269,7 +270,7 @@ namespace BattleShip
             lblScore.Text = score.ToString();
             if (score < 0)
             {
-                lblScore.ForeColor = Color.Red;
+                score = 0;  
 
             }
             if (score > 0)
