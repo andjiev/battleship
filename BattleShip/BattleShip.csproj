@@ -7,7 +7,7 @@
     <ProjectGuid>{2018B819-ECAC-40CD-98C1-1DBBA7FEEDA9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>BattleShip</RootNamespace>
-    <AssemblyName>BattleShip</AssemblyName>
+    <AssemblyName>Battleships</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

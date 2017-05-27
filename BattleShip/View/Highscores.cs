@@ -70,6 +70,7 @@ namespace BattleShip.View
 
                // I++;
             }
+           
             Sort();
             reader.Dispose();
 
@@ -79,17 +80,24 @@ namespace BattleShip.View
             {
                 for(int j = 0; j < hiScores.Count - 1; j++)
                 {
-                    if (hiScores[j].Hiscore > hiScores[j + 1].Hiscore) {
+                    if (hiScores[j].Hiscore < hiScores[j + 1].Hiscore) {
                         Score tmp = hiScores[j];
                         hiScores[j] = hiScores[j + 1];
                         hiScores[j + 1] = tmp;
                             }
                 }
             }
+            if(hiScores.Count >0)
             for(int i = 0; i < 5; i++) 
             {
                 Label l = new Label();
                 l.Text = (i + 1) + "." + hiScores[i].ToString();
+                lblList.Add(l);
+            }
+            else
+            {
+                Label l = new Label();
+                l.Text = "No Highscores!";
                 lblList.Add(l);
             }
 
