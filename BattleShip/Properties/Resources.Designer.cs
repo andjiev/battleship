@@ -213,6 +213,16 @@ namespace BattleShip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap _5929ca2696f6a272985558 {
+            get {
+                object obj = ResourceManager.GetObject("_5929ca2696f6a272985558", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap btnCont {
             get {
                 object obj = ResourceManager.GetObject("btnCont", resourceCulture);
@@ -345,6 +355,16 @@ namespace BattleShip.Properties {
         public static System.Drawing.Bitmap howTO1 {
             get {
                 object obj = ResourceManager.GetObject("howTO1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap jollyrogers {
+            get {
+                object obj = ResourceManager.GetObject("jollyrogers", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

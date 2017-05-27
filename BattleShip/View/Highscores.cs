@@ -100,16 +100,27 @@ namespace BattleShip.View
             for(int i = 0; i < z; i++) 
             {
                 Label l = new Label();
+                
                 l.Text = (i + 1) + "." + hiScores[i].ToString();
-                lblList.Add(l);
+                    if (i == 1)
+                    {
+                        PictureBox pb = new PictureBox()
+                        {
+                            Size = new Size(25, 25),
+                            Location = new Point(l.Width, l.Location.Y + 10),
+                            Image = Properties.Resources._5929ca2696f6a272985558
+                        };
+                        this.Controls.Add(pb);
+                    }
+                    lblList.Add(l);
             }
             else
             {
                 Label l = new Label();
                 l.Text = "No Highscores!";
                 lblList.Add(l);
+               
             }
-
         }
 
         private void label1_Click(object sender, EventArgs e)
