@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Highscores));
             this.btnExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(148, 100);
+            this.btnExit.Location = new System.Drawing.Point(175, 248);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 0;
@@ -46,8 +47,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::BattleShip.Properties.Resources.Untitled_1;
-            this.ClientSize = new System.Drawing.Size(235, 135);
+            this.ClientSize = new System.Drawing.Size(262, 283);
             this.Controls.Add(this.btnExit);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Highscores";
             this.Text = "Highscores";
             this.Load += new System.EventHandler(this.Highscores_Load);
