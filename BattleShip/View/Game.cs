@@ -301,7 +301,9 @@ namespace BattleShip
             else
             {
                 startedPosition = Point.Empty;
+             
             }
+            
 
         }
 

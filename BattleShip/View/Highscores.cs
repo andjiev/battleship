@@ -45,7 +45,7 @@ namespace BattleShip.View
         }
         public void readFile()
         {
-            var fs = File.OpenRead(Application.StartupPath + "\\highscores.txt");
+            var fs = File.OpenRead(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)+"\\highscores.txt");
           //  MessageBox.Show("Reading!");
             var reader = new StreamReader(fs);
             var line="";
