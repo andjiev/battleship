@@ -45,7 +45,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::BattleShip.Properties.Resources.howTO1;
+            this.pictureBox1.BackgroundImage = global::BattleShip.Properties.Resources.howTO2;
             this.pictureBox1.Location = new System.Drawing.Point(12, 11);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(649, 458);

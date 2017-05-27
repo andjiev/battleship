@@ -362,6 +362,16 @@ namespace BattleShip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap howTO2 {
+            get {
+                object obj = ResourceManager.GetObject("howTO2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap hsBG {
             get {
                 object obj = ResourceManager.GetObject("hsBG", resourceCulture);
