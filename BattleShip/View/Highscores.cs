@@ -101,13 +101,15 @@ namespace BattleShip.View
             {
                 Label l = new Label();
                 
-                l.Text = (i + 1) + "." + hiScores[i].ToString();
-                    if (i == 1)
+                l.Text = (i + 1) + " . " + hiScores[i].ToString();
+                    l.BackColor = Color.Transparent;
+                   
+                    if (i == 0)
                     {
                         PictureBox pb = new PictureBox()
                         {
                             Size = new Size(25, 25),
-                            Location = new Point(l.Width, l.Location.Y + 10),
+                            Location = new Point(l.Width, l.Location.Y + 12),
                             Image = Properties.Resources._5929ca2696f6a272985558
                         };
                         this.Controls.Add(pb);

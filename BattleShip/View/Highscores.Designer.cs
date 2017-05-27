@@ -34,7 +34,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(301, 262);
+            this.BackgroundImage = global::BattleShip.Properties.Resources.Untitled_1;
+            this.ClientSize = new System.Drawing.Size(315, 302);
             this.Name = "Highscores";
             this.Text = "Highscores";
             this.Load += new System.EventHandler(this.Highscores_Load);

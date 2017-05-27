@@ -133,6 +133,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Untitled-1.png" />
+    <None Include="Resources\hss.png" />
+    <None Include="Resources\hsBG.png" />
     <None Include="Resources\5929ca2696f6a272985558.gif" />
     <None Include="Resources\jollyrogers.gif" />
     <None Include="Resources\btnCont6.png" />
