@@ -112,7 +112,7 @@ namespace BattleShip.View
                         this.Controls.Add(pb);
                     }
                     
-                    l.Text = (i + 1) + " . " + hiScores[i].ToString();
+                    l.Text = (i + 1) + ". " + hiScores[i].ToString();
                     l.BackColor = Color.Transparent;
                                    
                         
@@ -124,15 +124,6 @@ namespace BattleShip.View
                 l.Text = "No Highscores!";
                 l.BackColor = Color.Transparent;
                 lblList.Add(l);
-
-                PictureBox pb = new PictureBox()
-                {
-                    Size = new Size(25, 25),
-                    Location = new Point(l.Location.X + l.Width + 10, l.Location.Y + 12),
-                    Image = Properties.Resources._5929ca2696f6a272985558
-                };
-                this.Controls.Add(pb);
-
             }
         }
 

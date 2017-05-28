@@ -64,7 +64,9 @@
             this.Controls.Add(this.btnExit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Highscores";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Highscores";
             this.Load += new System.EventHandler(this.Highscores_Load);
             this.Shown += new System.EventHandler(this.Highscores_Shown);

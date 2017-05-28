@@ -58,6 +58,7 @@
             this.btnNewGame.UseVisualStyleBackColor = false;
             this.btnNewGame.Click += new System.EventHandler(this.btnNewGame_Click);
             this.btnNewGame.MouseEnter += new System.EventHandler(this.btnNewGame_MouseEnter);
+            this.btnNewGame.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnContinue_MouseMove);
             // 
             // btnControls
             // 
@@ -74,10 +75,11 @@
             this.btnControls.Name = "btnControls";
             this.btnControls.Size = new System.Drawing.Size(87, 42);
             this.btnControls.TabIndex = 1;
-            this.btnControls.Text = "Controls";
+            this.btnControls.Text = "How To Play";
             this.btnControls.UseVisualStyleBackColor = false;
             this.btnControls.Click += new System.EventHandler(this.btnControls_Click);
             this.btnControls.MouseEnter += new System.EventHandler(this.btnControls_MouseEnter);
+            this.btnControls.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnContinue_MouseMove);
             // 
             // btnExit
             // 
@@ -98,6 +100,7 @@
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             this.btnExit.MouseEnter += new System.EventHandler(this.btnExit_MouseEnter);
+            this.btnExit.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnContinue_MouseMove);
             // 
             // label1
             // 
@@ -130,6 +133,7 @@
             this.btnHighscores.UseVisualStyleBackColor = false;
             this.btnHighscores.Click += new System.EventHandler(this.btnHighscores_Click);
             this.btnHighscores.MouseEnter += new System.EventHandler(this.btnHighscores_MouseEnter);
+            this.btnHighscores.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnContinue_MouseMove);
             // 
             // btnContinue
             // 
@@ -150,6 +154,7 @@
             this.btnContinue.UseVisualStyleBackColor = false;
             this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);
             this.btnContinue.MouseEnter += new System.EventHandler(this.btnContinue_MouseEnter);
+            this.btnContinue.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnContinue_MouseMove);
             // 
             // label6
             // 
@@ -164,6 +169,7 @@
             this.label6.Text = "          ";
             this.label6.Visible = false;
             this.label6.Click += new System.EventHandler(this.Label6_Click);
+            this.label6.MouseMove += new System.Windows.Forms.MouseEventHandler(this.label6_MouseMove);
             // 
             // label4
             // 
@@ -177,6 +183,7 @@
             this.label4.TabIndex = 18;
             this.label4.Text = "          ";
             this.label4.Click += new System.EventHandler(this.Label4_Click);
+            this.label4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.label4_MouseMove);
             // 
             // form1
             // 
@@ -196,6 +203,7 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BattleShip";
