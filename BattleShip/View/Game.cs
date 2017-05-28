@@ -211,12 +211,14 @@ namespace BattleShip
                 isFinished = true;
 
                 ComputerTimer.Interval = 999999999;
+                ShootTimer.Interval = 999999999;
                 MessageBox.Show("YOU WON!", "VICTORY");
                 ShootTimer.Enabled = false;
                 //ShowPlayerView();
                 //ShowComputerView();
                 ComputerTimer.Enabled = false;
                 dgvComputer.Enabled = false;
+                ShootTimer.Enabled = false;
 
                 if (score > 0)
                 {
@@ -233,10 +235,11 @@ namespace BattleShip
                 dgvComputer.Enabled = false;
                 MessageBox.Show("YOU LOST!", "LOSE");
                 ComputerTimer.Interval = 999999999;
-
+                ShootTimer.Interval = 999999999;
                 // ShowPlayerView();
                 //ShowComputerView();
                 dgvComputer.Enabled = false;
+                ShootTimer.Enabled = false;
                 ComputerTimer.Dispose();
             }
         }
