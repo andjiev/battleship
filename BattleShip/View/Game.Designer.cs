@@ -116,6 +116,7 @@
             this.btnShoot.TabIndex = 9;
             this.btnShoot.Text = "Shoot";
             this.btnShoot.UseVisualStyleBackColor = true;
+            this.btnShoot.Visible = false;
             this.btnShoot.Click += new System.EventHandler(this.btnShoot_Click);
             // 
             // label1
