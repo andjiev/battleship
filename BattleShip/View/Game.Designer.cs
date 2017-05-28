@@ -204,6 +204,7 @@
             this.label4.TabIndex = 14;
             this.label4.Text = "          ";
             this.label4.Click += new System.EventHandler(this.label4_Click);
+            this.label4.MouseHover += new System.EventHandler(this.label4_MouseHover);
             // 
             // label5
             // 

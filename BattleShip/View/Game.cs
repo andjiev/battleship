@@ -397,5 +397,10 @@ namespace BattleShip
             }
 
         }
+
+        private void label4_MouseHover(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
