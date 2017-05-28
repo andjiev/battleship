@@ -19,7 +19,7 @@ namespace BattleShip.View
         Point p;
         public Highscores()
         {
-            p = new Point { X = 15, Y = 15 };
+            p = new Point { X = 120, Y = 100 };
             lblList = new List<Label>();
             InitializeComponent();
             hiScores = new List<Score>();
@@ -104,8 +104,8 @@ namespace BattleShip.View
                     {
                         PictureBox pb = new PictureBox()
                         {
-                            Size = new Size(25, 25),
-                            Location = new Point(l.Width + 15, l.Location.Y + 12),
+                            Size = new Size(25, 20),
+                            Location = new Point(l.Location.X + 2*l.Width + 50, 98),
                             Image = Properties.Resources._5929ca2696f6a272985558
                         };
                         this.Controls.Add(pb);

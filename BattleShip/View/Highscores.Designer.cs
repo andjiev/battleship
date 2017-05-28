@@ -34,7 +34,7 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(154, 169);
+            this.btnExit.Location = new System.Drawing.Point(257, 308);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 0;
@@ -47,8 +47,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::BattleShip.Properties.Resources.Untitled_1;
-            this.ClientSize = new System.Drawing.Size(239, 201);
+            this.ClientSize = new System.Drawing.Size(344, 343);
             this.Controls.Add(this.btnExit);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Highscores";
             this.Text = "Highscores";
