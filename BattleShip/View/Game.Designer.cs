@@ -36,13 +36,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game));
-            this.btnStart = new System.Windows.Forms.Button();
-            this.btnEnd = new System.Windows.Forms.Button();
             this.ComputerTimer = new System.Windows.Forms.Timer(this.components);
             this.ShootTimer = new System.Windows.Forms.Timer(this.components);
             this.label2 = new System.Windows.Forms.Label();
-            this.btnRandomize = new System.Windows.Forms.Button();
-            this.btnShoot = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvPlayer = new BattleShip.Model.Grid();
             this.dgvComputer = new BattleShip.Model.Grid();
@@ -51,31 +47,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnStart = new System.Windows.Forms.Button();
+            this.btnEnd = new System.Windows.Forms.Button();
+            this.btnRandomize = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComputer)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnStart
-            // 
-            this.btnStart.BackgroundImage = global::BattleShip.Properties.Resources.buttonRandom;
-            this.btnStart.Location = new System.Drawing.Point(376, 399);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(162, 23);
-            this.btnStart.TabIndex = 2;
-            this.btnStart.Text = "Start";
-            this.btnStart.UseVisualStyleBackColor = true;
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
-            // 
-            // btnEnd
-            // 
-            this.btnEnd.BackgroundImage = global::BattleShip.Properties.Resources.buttonRandom;
-            this.btnEnd.Location = new System.Drawing.Point(376, 428);
-            this.btnEnd.Name = "btnEnd";
-            this.btnEnd.Size = new System.Drawing.Size(162, 23);
-            this.btnEnd.TabIndex = 3;
-            this.btnEnd.Text = "Pause";
-            this.btnEnd.UseVisualStyleBackColor = true;
-            this.btnEnd.Click += new System.EventHandler(this.btnEnd_Click);
             // 
             // ComputerTimer
             // 
@@ -95,29 +72,6 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(0, 25);
             this.label2.TabIndex = 7;
-            // 
-            // btnRandomize
-            // 
-            this.btnRandomize.BackgroundImage = global::BattleShip.Properties.Resources.buttonRandom;
-            this.btnRandomize.Location = new System.Drawing.Point(12, 399);
-            this.btnRandomize.Name = "btnRandomize";
-            this.btnRandomize.Size = new System.Drawing.Size(169, 23);
-            this.btnRandomize.TabIndex = 8;
-            this.btnRandomize.Text = "Randomize";
-            this.btnRandomize.UseVisualStyleBackColor = true;
-            this.btnRandomize.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // btnShoot
-            // 
-            this.btnShoot.BackgroundImage = global::BattleShip.Properties.Resources.buttonRandom;
-            this.btnShoot.Location = new System.Drawing.Point(644, 398);
-            this.btnShoot.Name = "btnShoot";
-            this.btnShoot.Size = new System.Drawing.Size(165, 23);
-            this.btnShoot.TabIndex = 9;
-            this.btnShoot.Text = "Shoot";
-            this.btnShoot.UseVisualStyleBackColor = true;
-            this.btnShoot.Visible = false;
-            this.btnShoot.Click += new System.EventHandler(this.btnShoot_Click);
             // 
             // label1
             // 
@@ -279,12 +233,72 @@
             this.label6.Visible = false;
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
+            // btnStart
+            // 
+            this.btnStart.BackColor = System.Drawing.Color.Transparent;
+            this.btnStart.BackgroundImage = global::BattleShip.Properties.Resources.btnPir;
+            this.btnStart.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this.btnStart.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnStart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStart.Font = new System.Drawing.Font("Algerian", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStart.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnStart.Location = new System.Drawing.Point(376, 395);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(162, 24);
+            this.btnStart.TabIndex = 17;
+            this.btnStart.Text = "Start";
+            this.btnStart.UseVisualStyleBackColor = false;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            // 
+            // btnEnd
+            // 
+            this.btnEnd.BackColor = System.Drawing.Color.Transparent;
+            this.btnEnd.BackgroundImage = global::BattleShip.Properties.Resources.btnPir;
+            this.btnEnd.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this.btnEnd.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnEnd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnEnd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnEnd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEnd.Font = new System.Drawing.Font("Algerian", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnd.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnEnd.Location = new System.Drawing.Point(376, 428);
+            this.btnEnd.Name = "btnEnd";
+            this.btnEnd.Size = new System.Drawing.Size(162, 24);
+            this.btnEnd.TabIndex = 18;
+            this.btnEnd.Text = "End";
+            this.btnEnd.UseVisualStyleBackColor = false;
+            this.btnEnd.Click += new System.EventHandler(this.btnEnd_Click);
+            // 
+            // btnRandomize
+            // 
+            this.btnRandomize.BackColor = System.Drawing.Color.Transparent;
+            this.btnRandomize.BackgroundImage = global::BattleShip.Properties.Resources.btnPir;
+            this.btnRandomize.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this.btnRandomize.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnRandomize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnRandomize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnRandomize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRandomize.Font = new System.Drawing.Font("Algerian", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRandomize.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnRandomize.Location = new System.Drawing.Point(12, 395);
+            this.btnRandomize.Name = "btnRandomize";
+            this.btnRandomize.Size = new System.Drawing.Size(162, 24);
+            this.btnRandomize.TabIndex = 19;
+            this.btnRandomize.Text = "Randomize";
+            this.btnRandomize.UseVisualStyleBackColor = false;
+            this.btnRandomize.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::BattleShip.Properties.Resources.waterBG;
             this.ClientSize = new System.Drawing.Size(919, 456);
+            this.Controls.Add(this.btnRandomize);
+            this.Controls.Add(this.btnEnd);
+            this.Controls.Add(this.btnStart);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -293,11 +307,7 @@
             this.Controls.Add(this.dgvComputer);
             this.Controls.Add(this.dgvPlayer);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnShoot);
-            this.Controls.Add(this.btnRandomize);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnEnd);
-            this.Controls.Add(this.btnStart);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Game";
@@ -313,13 +323,9 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnStart;
-        private System.Windows.Forms.Button btnEnd;
         private System.Windows.Forms.Timer ComputerTimer;
         private System.Windows.Forms.Timer ShootTimer;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnRandomize;
-        private System.Windows.Forms.Button btnShoot;
         private System.Windows.Forms.Label label1;
         private Model.Grid dgvPlayer;
         private Model.Grid dgvComputer;
@@ -328,5 +334,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.Button btnEnd;
+        private System.Windows.Forms.Button btnRandomize;
     }
 }
