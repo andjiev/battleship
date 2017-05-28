@@ -19,14 +19,14 @@ namespace BattleShip.View
         Point p;
         public Highscores()
         {
-            p = new Point { X = 120, Y = 100 };
+            p = new Point { X = 70, Y = 100 };
             lblList = new List<Label>();
             InitializeComponent();
             hiScores = new List<Score>();
               readFile();
-            
-          //  MessageBox.Show(lblList.Count.ToString());
 
+            //  MessageBox.Show(lblList.Count.ToString());
+            
         }
 
         private void Highscores_Load(object sender, EventArgs e)
@@ -35,8 +35,9 @@ namespace BattleShip.View
             {
             //    MessageBox.Show(l.ToString());
                 l.Location = p;
-                l.Font = new Font("Comic Sans", 9);
-               
+                l.Font = new Font("Comic Sans", 10, FontStyle.Regular);
+                l.Width = 150;
+
                 this.Controls.Add(l);
                 p = new Point { X = p.X, Y = p.Y+25 };
                 
@@ -105,15 +106,16 @@ namespace BattleShip.View
                         PictureBox pb = new PictureBox()
                         {
                             Size = new Size(25, 20),
-                            Location = new Point(l.Location.X + 2*l.Width + 50, 98),
+                            Location = new Point(l.Location.X + 2*l.Width + 30, 98),
                             Image = Properties.Resources._5929ca2696f6a272985558
                         };
                         this.Controls.Add(pb);
                     }
+                    
                     l.Text = (i + 1) + " . " + hiScores[i].ToString();
                     l.BackColor = Color.Transparent;
-                   
-                    
+                                   
+                        
                     lblList.Add(l);
             }
             else
@@ -126,7 +128,7 @@ namespace BattleShip.View
                 PictureBox pb = new PictureBox()
                 {
                     Size = new Size(25, 25),
-                    Location = new Point(l.Width, l.Location.Y + 12),
+                    Location = new Point(l.Location.X + l.Width + 10, l.Location.Y + 12),
                     Image = Properties.Resources._5929ca2696f6a272985558
                 };
                 this.Controls.Add(pb);

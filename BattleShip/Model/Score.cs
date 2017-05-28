@@ -18,7 +18,7 @@ namespace BattleShip.Model
         }
         public override string ToString()
         {
-            return String.Format("{0}:{1} pts", Name, Hiscore);
+            return String.Format("{0} - {1} pts", Name, Hiscore);
         }
 
 
