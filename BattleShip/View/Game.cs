@@ -173,9 +173,10 @@ namespace BattleShip
 
         private void btnShoot_Click(object sender, EventArgs e)
         {
-            player.Shoot(dgvPlayer);
-            player.ShowShips(dgvPlayer);
-            saveFile(Microsoft.VisualBasic.Interaction.InputBox("Highscore!", "Save your Highscore", "Name", 500, 250), 1200);
+            newGame();
+            //player.Shoot(dgvPlayer);
+            //player.ShowShips(dgvPlayer);
+           // saveFile(Microsoft.VisualBasic.Interaction.InputBox("Highscore!", "Save your Highscore", "Name", 500, 250), 1200);
 
         }
 
@@ -213,7 +214,7 @@ namespace BattleShip
                 ComputerTimer.Interval = 999999999;
                 ShootTimer.Interval = 999999999;
                 ShootTimer.Stop();
-                MessageBox.Show("YOU WON!", "VICTORY");
+               
                 ShootTimer.Enabled = false;
                 //ShowPlayerView();
                 //ShowComputerView();
@@ -227,14 +228,16 @@ namespace BattleShip
                 }
                 
                 ComputerTimer.Dispose();
-
+                if (MessageBox.Show("YOU WON! Do you want to play a new game?", "VICTORY",MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    newGame();
+                }
             }
             if (player.Won())
             {
                 isFinished = true;
                 ComputerTimer.Enabled = false;
                 dgvComputer.Enabled = false;
-                MessageBox.Show("YOU LOST!", "LOSE");
                 ComputerTimer.Interval = 999999999;
                 ShootTimer.Interval = 999999999;
                 ShootTimer.Stop();
@@ -243,6 +246,10 @@ namespace BattleShip
                 dgvComputer.Enabled = false;
                 ShootTimer.Dispose();
                 ComputerTimer.Dispose();
+                if (MessageBox.Show("YOU WON! Do you want to play a new game?", "VICTORY", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    newGame();
+                }
             }
         }
 
@@ -375,6 +382,17 @@ namespace BattleShip
 
         private void Game_Load(object sender, EventArgs e)
         {
+
+        }
+        private void newGame()
+        {
+            Game form = new Game();
+            this.Hide();
+            if (form.ShowDialog() == DialogResult.Cancel)
+            {
+                this.Close();
+                form.Close();
+            }
 
         }
     }

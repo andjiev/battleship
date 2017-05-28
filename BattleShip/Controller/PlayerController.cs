@@ -437,5 +437,12 @@ namespace BattleShip.Controller
                 positions.Remove(point);
             }            
         }
+        public void removeMissed(DataGridView dgv)
+        {
+            foreach(Point p in missedPositions)
+            {
+                dgv.Rows[p.X].Cells[p.Y] = null;
+            }
+        }
     }
 }
