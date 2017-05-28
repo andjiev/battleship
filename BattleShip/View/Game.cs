@@ -317,6 +317,10 @@ namespace BattleShip
                 startedPosition = Point.Empty;
              
             }
+            if(!startedPosition.IsEmpty && (e.ColumnIndex!=0|| e.RowIndex != 0))
+            {
+                dgvComputer.Rows[0].Cells[0].Style.BackColor = Color.Transparent;
+            }
             
 
         }
