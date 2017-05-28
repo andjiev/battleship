@@ -169,15 +169,9 @@ namespace BattleShip
             player.ShowShips(dgvPlayer);
             GameStarted = false;
             dgvComputer.Enabled = false;
+           
         }
 
-        private void btnShoot_Click(object sender, EventArgs e)
-        {
-            player.Shoot(dgvPlayer);
-            player.ShowShips(dgvPlayer);
-            saveFile(Microsoft.VisualBasic.Interaction.InputBox("Highscore!", "Save your Highscore", "Name", 500, 250), 1200);
-
-        }
 
         private void ComputerTimer_Tick(object sender, EventArgs e)
         {
