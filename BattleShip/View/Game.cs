@@ -369,19 +369,21 @@ namespace BattleShip
         {
             MuteClicked = true;
             label4.Hide();
-            label6.Show();
+            label5.Show();
+            label4.BringToFront();
             
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-            MuteClicked = false;
-            label6.Hide();
-            label4.Show();
         }
 
         private void Game_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            MuteClicked = false;
+            label5.Hide();
+            label4.Show();
 
         }
         private void newGame()

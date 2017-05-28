@@ -20,14 +20,16 @@ namespace BattleShip
     {
 
         System.Media.SoundPlayer sound = new System.Media.SoundPlayer(Properties.Resources.war);
+   
+        public bool MuteClicked { get; set; }
 
         public form1()
         {          
             InitializeComponent();
             string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             btnContinue.Enabled = File.Exists(path + "/game.bs");
+            MuteClicked = false;
             sound.PlayLooping();
-            
         }
         private void btnNewGame_Click(object sender, EventArgs e)
         {
@@ -76,7 +78,7 @@ namespace BattleShip
             var expandTimer = new System.Windows.Forms.Timer();
             var contractTimer = new System.Windows.Forms.Timer();
 
-            expandTimer.Interval = 10;//can adjust to determine the refresh rate
+            expandTimer.Interval = 5;//can adjust to determine the refresh rate
             contractTimer.Interval = 10;
 
             DateTime animationStarted = DateTime.Now;
@@ -152,7 +154,6 @@ namespace BattleShip
                 File.Create(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)+"\\highscores.csv");
 
             }
-           
         }
 
         private void btnHighscores_MouseEnter(object sender, EventArgs e)
@@ -202,6 +203,22 @@ namespace BattleShip
         private void btnContinue_MouseEnter(object sender, EventArgs e)
         {
             AddAnimation(btnContinue);
+        }
+
+        private void Label4_Click(object sender, EventArgs e)
+        {
+            MuteClicked = true;
+            sound.Stop();
+            label4.Hide();
+            label6.Show();
+        }
+
+        private void Label6_Click(object sender, EventArgs e)
+        {
+            MuteClicked = false;
+            sound.PlayLooping();
+            label6.Hide();
+            label4.Show();
         }
     }
 }
