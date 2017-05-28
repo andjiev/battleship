@@ -50,11 +50,16 @@ namespace BattleShip
         private static extern IntPtr LoadCursorFromFile(string path);
 
         private void btnNewGame_Click(object sender, EventArgs e)
+
+
+        public void newGame()
         {
             sound.Stop();
             Game game = new Game();
             this.Hide();
-            if (game.ShowDialog() == DialogResult.Cancel) {
+            DialogResult result = game.ShowDialog();
+            if (result == DialogResult.Cancel)
+            {
                 string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
                 string fileName = path + "/game.bs";
                 using (FileStream fileStream = new FileStream(fileName, FileMode.OpenOrCreate))
@@ -66,7 +71,15 @@ namespace BattleShip
                 this.Show();
                 sound.PlayLooping();
             }
-            
+            if(result == DialogResult.Abort)
+            {
+                newGame();
+            }
+        }
+
+        private void btnNewGame_Click(object sender, EventArgs e)
+        {
+            newGame();            
         }
 
         private void btnControls_Click(object sender, EventArgs e)

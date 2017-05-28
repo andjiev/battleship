@@ -162,7 +162,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Image = global::BattleShip.Properties.Resources.mute;
-            this.label6.Location = new System.Drawing.Point(594, 9);
+            this.label6.Location = new System.Drawing.Point(556, 26);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(48, 17);
             this.label6.TabIndex = 17;
@@ -177,7 +177,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Image = global::BattleShip.Properties.Resources.unmute;
-            this.label4.Location = new System.Drawing.Point(594, 9);
+            this.label4.Location = new System.Drawing.Point(556, 26);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(48, 17);
             this.label4.TabIndex = 18;

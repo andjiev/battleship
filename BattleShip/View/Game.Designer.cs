@@ -47,8 +47,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnStart = new System.Windows.Forms.Button();
-            this.btnEnd = new System.Windows.Forms.Button();
+            this.btnLeave = new System.Windows.Forms.Button();
             this.btnRandomize = new System.Windows.Forms.Button();
+            this.btnNewGame = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComputer)).BeginInit();
             this.SuspendLayout();
@@ -198,13 +199,13 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Image = global::BattleShip.Properties.Resources.unmute;
-            this.label4.Location = new System.Drawing.Point(858, 432);
+            this.label4.Location = new System.Drawing.Point(858, 395);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(48, 17);
             this.label4.TabIndex = 14;
             this.label4.Text = "          ";
             this.label4.Click += new System.EventHandler(this.label4_Click);
-            this.label4.MouseHover += new System.EventHandler(this.label4_MouseHover);
+            this.label4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnRandomize_MouseMove);
             // 
             // label5
             // 
@@ -212,12 +213,13 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Image = global::BattleShip.Properties.Resources.mute;
-            this.label5.Location = new System.Drawing.Point(859, 432);
+            this.label5.Location = new System.Drawing.Point(858, 395);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(48, 17);
             this.label5.TabIndex = 15;
             this.label5.Text = "          ";
             this.label5.Click += new System.EventHandler(this.label5_Click);
+            this.label5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnRandomize_MouseMove);
             // 
             // btnStart
             // 
@@ -230,32 +232,34 @@
             this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStart.Font = new System.Drawing.Font("Berlin Sans FB", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStart.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnStart.Location = new System.Drawing.Point(376, 395);
+            this.btnStart.Location = new System.Drawing.Point(379, 398);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(162, 24);
             this.btnStart.TabIndex = 17;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = false;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            this.btnStart.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnRandomize_MouseMove);
             // 
-            // btnEnd
+            // btnLeave
             // 
-            this.btnEnd.BackColor = System.Drawing.Color.Transparent;
-            this.btnEnd.BackgroundImage = global::BattleShip.Properties.Resources.btnPir;
-            this.btnEnd.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this.btnEnd.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnEnd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnEnd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnEnd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEnd.Font = new System.Drawing.Font("Berlin Sans FB", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEnd.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnEnd.Location = new System.Drawing.Point(376, 428);
-            this.btnEnd.Name = "btnEnd";
-            this.btnEnd.Size = new System.Drawing.Size(162, 24);
-            this.btnEnd.TabIndex = 18;
-            this.btnEnd.Text = "End";
-            this.btnEnd.UseVisualStyleBackColor = false;
-            this.btnEnd.Click += new System.EventHandler(this.btnEnd_Click);
+            this.btnLeave.BackColor = System.Drawing.Color.Transparent;
+            this.btnLeave.BackgroundImage = global::BattleShip.Properties.Resources.btnPir;
+            this.btnLeave.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this.btnLeave.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnLeave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnLeave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnLeave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLeave.Font = new System.Drawing.Font("Berlin Sans FB", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLeave.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnLeave.Location = new System.Drawing.Point(379, 428);
+            this.btnLeave.Name = "btnLeave";
+            this.btnLeave.Size = new System.Drawing.Size(162, 24);
+            this.btnLeave.TabIndex = 18;
+            this.btnLeave.Text = "Leave";
+            this.btnLeave.UseVisualStyleBackColor = false;
+            this.btnLeave.Click += new System.EventHandler(this.btnEnd_Click);
+            this.btnLeave.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnRandomize_MouseMove);
             // 
             // btnRandomize
             // 
@@ -275,6 +279,28 @@
             this.btnRandomize.Text = "Randomize";
             this.btnRandomize.UseVisualStyleBackColor = false;
             this.btnRandomize.Click += new System.EventHandler(this.button2_Click);
+            this.btnRandomize.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnRandomize_MouseMove);
+            // 
+            // btnNewGame
+            // 
+            this.btnNewGame.BackColor = System.Drawing.Color.Transparent;
+            this.btnNewGame.BackgroundImage = global::BattleShip.Properties.Resources.btnPir;
+            this.btnNewGame.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this.btnNewGame.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnNewGame.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnNewGame.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnNewGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewGame.Font = new System.Drawing.Font("Berlin Sans FB", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewGame.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnNewGame.Location = new System.Drawing.Point(379, 398);
+            this.btnNewGame.Name = "btnNewGame";
+            this.btnNewGame.Size = new System.Drawing.Size(162, 24);
+            this.btnNewGame.TabIndex = 20;
+            this.btnNewGame.Text = "New Game";
+            this.btnNewGame.UseVisualStyleBackColor = false;
+            this.btnNewGame.Visible = false;
+            this.btnNewGame.Click += new System.EventHandler(this.btnNewGame_Click);
+            this.btnNewGame.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnRandomize_MouseMove);
             // 
             // Game
             // 
@@ -282,10 +308,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackgroundImage = global::BattleShip.Properties.Resources.waterBG;
-            this.ClientSize = new System.Drawing.Size(918, 457);
+            this.ClientSize = new System.Drawing.Size(918, 460);
+            this.Controls.Add(this.btnNewGame);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnRandomize);
-            this.Controls.Add(this.btnEnd);
+            this.Controls.Add(this.btnLeave);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
@@ -295,13 +322,13 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Game";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Game";
+            this.Text = "BattleShip";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Game_FormClosing);
-            this.Load += new System.EventHandler(this.Game_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComputer)).EndInit();
             this.ResumeLayout(false);
@@ -321,7 +348,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnStart;
-        private System.Windows.Forms.Button btnEnd;
+        private System.Windows.Forms.Button btnLeave;
         private System.Windows.Forms.Button btnRandomize;
+        private System.Windows.Forms.Button btnNewGame;
     }
 }
