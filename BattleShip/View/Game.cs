@@ -12,6 +12,8 @@ using BattleShip.Model;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.InteropServices;
+using System.Reflection;
 
 namespace BattleShip
 {
@@ -44,7 +46,9 @@ namespace BattleShip
             MuteClicked = false;
             ShowPlayerView();
             ShowComputerView();
-  
+            string pathh = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+            this.Cursor = LoadCustomCursor(pathh + @"\Resources\AOM-Titans Cursor.cur");
+
         }
 
         public void UpdateState()
@@ -310,7 +314,7 @@ namespace BattleShip
             {
                 dgvComputer.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.DimGray;
                 startedPosition = position;
-                Cursor.Current = Cursors.Hand;
+                
             }
             else
             {
@@ -406,5 +410,19 @@ namespace BattleShip
         {
             
         }
+
+        public static Cursor LoadCustomCursor(string path)
+        {
+            IntPtr hCurs = LoadCursorFromFile(path);
+            if (hCurs == IntPtr.Zero) throw new Win32Exception();
+            var curs = new Cursor(hCurs);
+            // Note: force the cursor to own the handle so it gets released properly
+            var fi = typeof(Cursor).GetField("ownHandle", BindingFlags.NonPublic | BindingFlags.Instance);
+            fi.SetValue(curs, true);
+            return curs;
+        }
+        [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+        private static extern IntPtr LoadCursorFromFile(string path);
+
     }
 }

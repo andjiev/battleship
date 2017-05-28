@@ -13,6 +13,8 @@ using BattleShip.View;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using BattleShip.Controller;
+using System.Reflection;
+using System.Runtime.InteropServices;
 
 namespace BattleShip
 {
@@ -30,7 +32,23 @@ namespace BattleShip
             btnContinue.Enabled = File.Exists(path + "/game.bs");
             MuteClicked = false;
             sound.PlayLooping();
+            string pathh = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+            this.Cursor = LoadCustomCursor(pathh + @"\Resources\AOM-Titans Cursor.cur");
         }
+
+        public static Cursor LoadCustomCursor(string path)
+        {
+            IntPtr hCurs = LoadCursorFromFile(path);
+            if (hCurs == IntPtr.Zero) throw new Win32Exception();
+            var curs = new Cursor(hCurs);
+            // Note: force the cursor to own the handle so it gets released properly
+            var fi = typeof(Cursor).GetField("ownHandle", BindingFlags.NonPublic | BindingFlags.Instance);
+            fi.SetValue(curs, true);
+            return curs;
+        }
+        [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+        private static extern IntPtr LoadCursorFromFile(string path);
+
         private void btnNewGame_Click(object sender, EventArgs e)
         {
             sound.Stop();
@@ -221,17 +239,17 @@ namespace BattleShip
             label4.Show();
         }
 
-        private void label4_MouseMove(object sender, MouseEventArgs e)
+        private void btnContinue_MouseHover(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.Hand;
         }
 
-        private void label6_MouseMove(object sender, MouseEventArgs e)
+        private void label6_MouseHover(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.Hand;
         }
 
-        private void btnContinue_MouseMove(object sender, MouseEventArgs e)
+        private void label4_MouseHover(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.Hand;
         }

@@ -133,6 +133,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\AOM-Titans Cursor.cur" />
     <None Include="Resources\lb2.png" />
     <None Include="Resources\btnPir.png" />
     <None Include="Resources\howTO2.png" />
