@@ -228,7 +228,7 @@
             this.btnStart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStart.Font = new System.Drawing.Font("Berlin Sans FB", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStart.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnStart.Location = new System.Drawing.Point(376, 395);
             this.btnStart.Name = "btnStart";
@@ -247,7 +247,7 @@
             this.btnEnd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnEnd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnEnd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnd.Font = new System.Drawing.Font("Berlin Sans FB", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEnd.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnEnd.Location = new System.Drawing.Point(376, 428);
             this.btnEnd.Name = "btnEnd";
@@ -266,7 +266,7 @@
             this.btnRandomize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnRandomize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnRandomize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRandomize.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRandomize.Font = new System.Drawing.Font("Berlin Sans FB", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRandomize.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnRandomize.Location = new System.Drawing.Point(12, 395);
             this.btnRandomize.Name = "btnRandomize";
