@@ -376,7 +376,8 @@ namespace BattleShip
                 if (MessageBox.Show("Do you want to leave the game?", "Leave Game",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
                 {
-                    DialogResult = DialogResult.OK;             
+                    e.Cancel = true;
+                    return;
                 }
             }
             state = new State();
@@ -386,6 +387,7 @@ namespace BattleShip
             state.Turn = Turn;
             ComputerTimer.Stop();
             ShootTimer.Stop();
+
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -430,6 +432,7 @@ namespace BattleShip
             var fi = typeof(Cursor).GetField("ownHandle", BindingFlags.NonPublic | BindingFlags.Instance);
             fi.SetValue(curs, true);
             return curs;
+        }
         private void btnNewGame_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Do you want start new game?", "Start New Game",

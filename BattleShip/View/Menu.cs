@@ -49,9 +49,6 @@ namespace BattleShip
         [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
         private static extern IntPtr LoadCursorFromFile(string path);
 
-        private void btnNewGame_Click(object sender, EventArgs e)
-
-
         public void newGame()
         {
             sound.Stop();
@@ -204,11 +201,10 @@ namespace BattleShip
             }
         }
 
-        private void btnContinue_Click(object sender, EventArgs e)
+        private void UpdateContinue()
         {
-
             sound.Stop();
-            
+
             string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             string fileName = path + "/game.bs";
             Game game = new Game();
@@ -219,7 +215,8 @@ namespace BattleShip
             }
             game.UpdateState();
             this.Hide();
-            if (game.ShowDialog() == DialogResult.Cancel)
+            DialogResult result = game.ShowDialog();
+            if (result == DialogResult.Cancel)
             {
                 using (FileStream fileStream = new FileStream(fileName, FileMode.Open))
                 {
@@ -229,6 +226,16 @@ namespace BattleShip
                 this.Show();
                 sound.PlayLooping();
             }
+            if(result == DialogResult.Abort)
+            {
+                newGame();
+            }
+        }
+
+        private void btnContinue_Click(object sender, EventArgs e)
+        {
+
+            UpdateContinue();
         }
 
         private void btnContinue_MouseEnter(object sender, EventArgs e)

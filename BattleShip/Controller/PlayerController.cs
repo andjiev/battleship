@@ -100,8 +100,6 @@ namespace BattleShip.Controller
         {
             grid.Enabled = false;
             ships.ForEach(ship => ship.Color = Color.Gray);
-            /*grid.DefaultCellStyle.BackColor = Color.LightGray;
-            grid.DefaultCellStyle.ForeColor = Color.DarkGray;*/
         }
 
         public void EnableCells(DataGridView grid)
