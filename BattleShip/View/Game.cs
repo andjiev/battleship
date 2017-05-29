@@ -408,9 +408,8 @@ namespace BattleShip
         }
         private void newGame()
         {
-            this.Hide();
-
-
+            DialogResult = DialogResult.Abort;
+            saved = true;
         }
 
         private void btnRandomize_MouseMove(object sender, MouseEventArgs e)
