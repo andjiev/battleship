@@ -117,4 +117,57 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="errorProvider1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAGRkAAAEAIABQCgAAFgAAACgAAAAZAAAAMgAAAAEAIAAAAAAAxAkAAMMOAADDDgAAAAAAAAAA
+        AAD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AAICAgACAgIAAgICIgICAgACAgIAAgICZgICAqoCAgJVAgICAAICAgACAgIAAgICAAIC
+        AgACAgJEAgICiAICAogCAgIAAgICAAICAjMCAgIAAgICAP///wD///8A////AP///wACAgIAAgICqgIC
+        ArsCAgJ3AgICVQICAt0CAgJ3AgICVQICAgACAgIAAgICAAICAgACAgIAAgICMwICAncCAgLdAgICVQIC
+        AncCAgKIAgICmQICAgD///8A////AP///wD///8AAgICAAICAmYCAgJ3AgICdwICArsCAgLMAgICdwIC
+        Au4CAgKqAgICuwICAmYCAgKqAgICqgICAt0CAgJ3AgICuwICAqoCAgJ3AgICdwICAncCAgIA////AP//
+        /wD///8A////AAICAgACAgIAAgICAAICAncCAgKZAgICAAICAgACAgJVAgICzAICAswCAgLdAgICqgIC
+        At0CAgJVAgICAAICAgACAgKqAgICdwICAgACAgIAAgICAP///wD///8A////AP///wACAgIAAgICAAIC
+        AgACAgJEAgICIgICAgACAgJmAgICzAICArsCAgKqAgICZgICApkCAgKZAgICzAICAlUCAgIAAgICMwIC
+        AkQCAgIAAgICAAICAgD///8A////AP///wD///8AAgICAAICAgACAgIAAgICAAICAhECAgK7AgIC/wIC
+        ArsCAgJEAgICAAICAgACAgIAAgICVQICApkCAgLuAgICqgICAgACAgIAAgICAAICAgACAgIA////AP//
+        /wD///8A////AAICAgACAgIAAgICAAICAjMCAgLdAgIC/wICAmYCAgIAAgICVQICAncCAgJ3AgICdwIC
+        AjMCAgIAAgICmQICAv8CAgLMAgICEQICAgACAgIAAgICAP///wD///8A////AP///wACAgIAAgICAAIC
+        AjMCAgLuAgIC3QICAjMCAgIAAgICEQICArsCAgLMAgICuwICAu4CAgJ3AgICAAICAgACAgJVAgIC/wIC
+        AswCAgIRAgICAAICAgD///8A////AP///wD///8AAgICAAICAiICAgLuAgICuwICAhECAgIAAgICAAIC
+        AgACAgLdAgIC/wICAv8CAgL/AgICdwICAgACAgIzAgICAAICAjMCAgLuAgICzAICAgACAgIA////AP//
+        /wD///8A////AAICAgACAgLMAgICuwICAgACAgIAAgICVQICAv8CAgL/AgIC/wICApkCAgJmAgICqgIC
+        Av8CAgL/AgIC/wICAlUCAgIAAgICIgICAt0CAgJ3AgICAP///wD///8A////AP///wACAgJmAgICzAIC
+        AgACAgIAAgICAAICApkCAgL/AgICmQICAswCAgLMAgICMwICAt0CAgKIAgICiAICAv8CAgKZAgICAAIC
+        AgACAgIzAgIC7gICAiL///8A////AP///wD///8AAgICuwICAhECAgIAAgICAAICAgACAgIiAgICdwIC
+        AgACAgIAAgICuwICAswCAgLMAgICAAICAgACAgJ3AgICAAICAgACAgIAAgICAAICAkQCAgKI////AP//
+        /wD///8A////AAICAkQCAgIAAgICAAICAgACAgIAAgICIgICAncCAgIAAgICAAICAqoCAgL/AgICdwIC
+        AgACAgIAAgICdwICAgACAgIAAgICAAICAgACAgIAAgICZv///wD///8A////AP///wACAgIAAgICAAIC
+        AgACAgIAAgICAAICAncCAgLMAgIC/wICAv8CAgL/AgIC/wICAv8CAgL/AgIC7gICApkCAgIzAgICAAIC
+        AgACAgIAAgICAAICAgD///8A////AP///wD///8AAgICAAICAgACAgIAAgICAAICAgACAgJmAgIC/wIC
+        Av8CAgL/AgIC/wICAv8CAgL/AgIC/wICAv8CAgLuAgICIgICAgACAgIAAgICAAICAgACAgIA////AP//
+        /wD///8A////AAICAgACAgIAAgICAAICAgACAgIAAgICVQICAv8CAgL/AgIC/wICAv8CAgL/AgIC/wIC
+        Av8CAgL/AgIC/wICAiICAgIAAgICAAICAgACAgIAAgICAP///wD///8A////AP///wACAgIAAgICAAIC
+        AgACAgIAAgICAAICAgACAgKqAgIC/wICAv8CAgL/AgIC/wICAv8CAgL/AgIC/wICArsCAgIAAgICAAIC
+        AgACAgIAAgICAAICAgD///8A////AP///wD///8AAgICAAICAgACAgIAAgICAAICAgACAgIAAgICEQIC
+        AswCAgL/AgIC/wICAv8CAgL/AgIC/wICAt0CAgIiAgICAAICAgACAgIAAgICAAICAgACAgIA////AP//
+        /wD///8A////AAICAgACAgIAAgICAAICAgACAgIAAgICAAICAgACAgIAAgICdwICApkCAgL/AgICdwIC
+        AncCAgIAAgICAAICAgACAgIAAgICAAICAgACAgIAAgICAP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////gP///4D///+A9j43gOA+
+        A4DgAAOA+YDPgPkAT4D8HD+A+EEPgPCBh4DhwUeA5gAjgM4AMYDOY3mA3mN9gP4AP4D+AD+A/gA/gP8A
+        f4D/AH+A/8H/gP///4D///+A////gA==
+</value>
+  </data>
 </root>

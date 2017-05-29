@@ -29,6 +29,7 @@ namespace BattleShip
         ComputerController computer;
         Point startedPosition;
         Point shotPosition;
+       
         public static bool MuteClicked { get; set; }
         private bool saved = false;
 
@@ -237,6 +238,7 @@ namespace BattleShip
 
                 if (score > 0)
                 {
+                    this.Controls.Add(I)
                     saveFile(Microsoft.VisualBasic.Interaction.InputBox("Highscore!", "Save your Highscore", "Name", 500, 250), score);
                 }
 

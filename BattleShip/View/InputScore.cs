@@ -16,5 +16,17 @@ namespace BattleShip.View
         {
             InitializeComponent();
         }
+
+        private void textBox1_Validating(object sender, CancelEventArgs e)
+        {
+            if(textBox1.Text == "")
+            {
+                errorProvider1.SetError(textBox1, "Please enter your name."); 
+            }
+            else
+            {
+                errorProvider1.SetError(textBox1, "");
+            }
+        }
     }
 }
