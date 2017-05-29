@@ -69,6 +69,11 @@ namespace BattleShip
                     formatter.Serialize(fileStream, game.state);
                     btnContinue.Enabled = true;
                 }
+                if(Game.isFinished)
+                {
+                    File.Delete(fileName);
+                    btnContinue.Enabled = false;
+                }
                 this.Show();
                 sound.PlayLooping();
             }
@@ -226,6 +231,11 @@ namespace BattleShip
                 {
                     IFormatter formatter = new BinaryFormatter();
                     formatter.Serialize(fileStream, game.state);
+                }
+                if (Game.isFinished)
+                {
+                    File.Delete(fileName);
+                    btnContinue.Enabled = false;
                 }
                 this.Show();
                 sound.PlayLooping();

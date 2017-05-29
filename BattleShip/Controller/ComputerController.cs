@@ -138,6 +138,11 @@ namespace BattleShip.Controller
             ships.ForEach(ship => ship.enemyShipsDraw(grid));
         }
 
+        public void ShowEndShips(DataGridView grid)
+        {
+            ships.ForEach(ship => ship.ShowShip(grid));
+        }
+
         public bool Won() {
 
             return ships.All(ship => ship.Destroyed());

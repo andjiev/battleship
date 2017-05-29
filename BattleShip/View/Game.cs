@@ -233,6 +233,7 @@ namespace BattleShip
                 ComputerTimer.Enabled = false;
                 dgvComputer.Enabled = false;
                 ShootTimer.Enabled = false;
+                
 
                 if (score > 0)
                 {
@@ -240,10 +241,6 @@ namespace BattleShip
                 }
 
                 ComputerTimer.Dispose();
-                if (MessageBox.Show("YOU WON! Do you want to play a new game?", "VICTORY", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    newGame();
-                }
             }
             if (player.Won())
             {
@@ -258,11 +255,14 @@ namespace BattleShip
                 dgvComputer.Enabled = false;
                 ShootTimer.Dispose();
                 ComputerTimer.Dispose();
-                if (MessageBox.Show("YOU WON! Do you want to play a new game?", "VICTORY", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                computer.ShowEndShips(dgvComputer);
+
+                if (MessageBox.Show("YOU LOST! Do you want to play a new game?", "LOST", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     newGame();
                 }
             }
+            computer.ShowEndShips(dgvComputer);
         }
 
         private void dgvComputer_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
