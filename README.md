@@ -29,7 +29,7 @@
 
 Оваа класа ја претставува основата од која е составен еден брод. Чуваме позиција за секој дел од бродот, слика која треба да биде прикажана на таа позиција и дали таа позиција е жива (дали противникот ја погодил/уништил).
 ```csharp
-public Point Positon { get; set; }
+public Point Position { get; set; }
 public bool Alive { get; set; }
 public Image Img { get; set; }
 public bool ChangedOpacity { get; set; }
@@ -60,3 +60,16 @@ public void Opacity(float opacityValue)
 е доста корисен при прикажување на брод кој е уништен и при разместување на бродот на невалидна позиција (позиција на која веќе постои брод). Комбинирано, со повик на овој метод, се променува вредноста на **ChangedOpacity**.
 
 ## Приказ на играта
+
+Мени
+![Menu](https://github.com/andjiev/BattleShip/tree/master/BattleShip/Images/menu.PNG)
+
+Контроли
+![Controls](https://github.com/andjiev/BattleShip/tree/master/BattleShip/Images/howTo.PNG)
+
+Состојби на играта
+![NewGame](https://github.com/andjiev/BattleShip/tree/master/BattleShip/Images/newGame.PNG)
+![InAction](https://github.com/andjiev/BattleShip/tree/master/BattleShip/Images/InAction.PNG)
+
+Бодовна скала
+![HighScores](https://github.com/andjiev/BattleShip/tree/master/BattleShip/Images/Highscores.PNG)
