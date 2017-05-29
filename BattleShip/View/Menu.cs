@@ -34,24 +34,22 @@ namespace BattleShip
             MuteClicked = false;
             sound.PlayLooping();
             hovered = false;
-            string pathh = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
-            if(!hovered)
-                this.Cursor = LoadCustomCursor(pathh + @"\Resources\AOM-Titans Cursor.cur");
+            if (!hovered)
+                this.Cursor = LoadCursorFromResource();
 
         }
 
-        public static Cursor LoadCustomCursor(string path)
+        public static Cursor LoadCursorFromResource()
         {
-            IntPtr hCurs = LoadCursorFromFile(path);
-            if (hCurs == IntPtr.Zero) throw new Win32Exception();
-            var curs = new Cursor(hCurs);
-            // Note: force the cursor to own the handle so it gets released properly
-            var fi = typeof(Cursor).GetField("ownHandle", BindingFlags.NonPublic | BindingFlags.Instance);
-            fi.SetValue(curs, true);
-            return curs;
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/curs.cur";
+            File.WriteAllBytes(path, Properties.Resources.AOM_Titans_Cursor);
+            Cursor result = new Cursor(LoadCursorFromFile(path));
+            File.Delete(path);
+
+            return result;
         }
-        [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
-        private static extern IntPtr LoadCursorFromFile(string path);
+        [DllImport("User32.dll", CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
+        private static extern IntPtr LoadCursorFromFile(String str);
 
         public void newGame()
         {

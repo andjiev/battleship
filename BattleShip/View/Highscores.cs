@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using BattleShip.Model;
+using System.Runtime.InteropServices;
+
 namespace BattleShip.View
 {
 
@@ -24,7 +26,7 @@ namespace BattleShip.View
             InitializeComponent();
             hiScores = new List<Score>();
               readFile();
-
+            this.Cursor = LoadCursorFromResource();
             //  MessageBox.Show(lblList.Count.ToString());
             
         }
@@ -143,5 +145,17 @@ namespace BattleShip.View
             DialogResult = DialogResult.Cancel;
 
         }
+
+        public static Cursor LoadCursorFromResource()
+        {
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/curs.cur";
+            File.WriteAllBytes(path, Properties.Resources.AOM_Titans_Cursor);
+            Cursor result = new Cursor(LoadCursorFromFile(path));
+            File.Delete(path);
+
+            return result;
+        }
+        [DllImport("User32.dll", CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
+        private static extern IntPtr LoadCursorFromFile(String str);
     }
 }

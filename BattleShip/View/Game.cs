@@ -48,10 +48,21 @@ namespace BattleShip
             MuteClicked = false;
             ShowPlayerView();
             ShowComputerView();
-            string pathh = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
-            this.Cursor = LoadCustomCursor(pathh + @"\Resources\AOM-Titans Cursor.cur");
+            this.Cursor = LoadCursorFromResource();
 
         }
+
+        public static Cursor LoadCursorFromResource()
+        {
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/curs.cur";
+            File.WriteAllBytes(path, Properties.Resources.AOM_Titans_Cursor);
+            Cursor result = new Cursor(LoadCursorFromFile(path));
+            File.Delete(path);
+
+            return result;
+        }
+        [DllImport("User32.dll", CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
+        private static extern IntPtr LoadCursorFromFile(String str);
 
         public void UpdateState()
         {
@@ -426,16 +437,6 @@ namespace BattleShip
             
         }
 
-        public static Cursor LoadCustomCursor(string path)
-        {
-            IntPtr hCurs = LoadCursorFromFile(path);
-            if (hCurs == IntPtr.Zero) throw new Win32Exception();
-            var curs = new Cursor(hCurs);
-            // Note: force the cursor to own the handle so it gets released properly
-            var fi = typeof(Cursor).GetField("ownHandle", BindingFlags.NonPublic | BindingFlags.Instance);
-            fi.SetValue(curs, true);
-            return curs;
-        }
         private void btnNewGame_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Do you want start new game?", "Start New Game",
@@ -445,8 +446,6 @@ namespace BattleShip
                 saved = true;
             }
         }
-        [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
-        private static extern IntPtr LoadCursorFromFile(string path);
 
     }
 }
