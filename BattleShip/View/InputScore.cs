@@ -12,20 +12,19 @@ namespace BattleShip.View
 {
     public partial class InputScore : Form
     {
+        public string winnerName;
+
         public InputScore()
         {
             InitializeComponent();
         }
 
-        private void textBox1_Validating(object sender, CancelEventArgs e)
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
-            if(textBox1.Text == "")
+            if(e.KeyValue == (int)Keys.Enter && textBox1.Text.Count() > 0)
             {
-                errorProvider1.SetError(textBox1, "Please enter your name."); 
-            }
-            else
-            {
-                errorProvider1.SetError(textBox1, "");
+                winnerName = textBox1.Text;
+                DialogResult = DialogResult.OK;
             }
         }
     }

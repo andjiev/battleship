@@ -43,7 +43,7 @@
             this.textBox1.Size = new System.Drawing.Size(341, 20);
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "Name";
-            this.textBox1.Validating += new System.ComponentModel.CancelEventHandler(this.textBox1_Validating);
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // label1
             // 

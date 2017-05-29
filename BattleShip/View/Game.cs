@@ -238,8 +238,11 @@ namespace BattleShip
 
                 if (score > 0)
                 {
-                    this.Controls.Add(I)
-                    saveFile(Microsoft.VisualBasic.Interaction.InputBox("Highscore!", "Save your Highscore", "Name", 500, 250), score);
+                    View.InputScore form = new View.InputScore();
+                    if(form.ShowDialog() == DialogResult.OK)
+                    {
+                        saveFile(form.winnerName, score);
+                    }                    
                 }
 
                 ComputerTimer.Dispose();
