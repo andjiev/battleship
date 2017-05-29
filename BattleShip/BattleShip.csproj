@@ -197,8 +197,11 @@
     <None Include="Resources\buttonRandom.png" />
     <None Include="Resources\Messbook-Outdated-Ship-Wheel.ico" />
     <None Include="Resources\shipWheel.ico" />
-    <None Include="Images\house_2.bmp" />
-    <Content Include="Images\Remove-icon.png" />
+    <Content Include="Images\Highscores.PNG" />
+    <Content Include="Images\howTo.PNG" />
+    <Content Include="Images\InAction.PNG" />
+    <Content Include="Images\menu.PNG" />
+    <Content Include="Images\newGame.PNG" />
     <Content Include="Music\explosion.wav" />
     <Content Include="Music\miss.wav" />
     <Content Include="Music\war.wav" />
