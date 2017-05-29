@@ -262,7 +262,6 @@ namespace BattleShip
                     newGame();
                 }
             }
-            computer.ShowEndShips(dgvComputer);
         }
 
         private void dgvComputer_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
