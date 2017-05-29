@@ -89,6 +89,12 @@
     <Compile Include="View\Game.Designer.cs">
       <DependentUpon>Game.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\InputScore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\InputScore.Designer.cs">
+      <DependentUpon>InputScore.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +111,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Game.resx">
       <DependentUpon>Game.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\InputScore.resx">
+      <DependentUpon>InputScore.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
