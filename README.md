@@ -61,19 +61,15 @@ public void Opacity(float opacityValue)
 
 ## Приказ на играта
 
-#### Мени
+Мени
+![Menu](https://github.com/andjiev/BattleShip/tree/master/BattleShip/Images/menu.PNG)
 
-![Menu](https://raw.githubusercontent.com/andjiev/BattleShip/master/BattleShip/Images/menu.PNG)
+Контроли
+![Controls](https://github.com/andjiev/BattleShip/tree/master/BattleShip/Images/howTo.PNG)
 
-#### Контроли
+Состојби на играта
+![NewGame](https://github.com/andjiev/BattleShip/tree/master/BattleShip/Images/newGame.PNG)
+![InAction](https://github.com/andjiev/BattleShip/tree/master/BattleShip/Images/InAction.PNG)
 
-![Controls](https://raw.githubusercontent.com/andjiev/BattleShip/master/BattleShip/Images/howTo.PNG)
-
-#### Состојби на играта
-
-![NewGame](https://raw.githubusercontent.com/andjiev/BattleShip/master/BattleShip/Images/newGame.PNG)
-![InAction](https://raw.githubusercontent.com/andjiev/BattleShip/master/BattleShip/Images/InAction.PNG)
-
-#### Бодовна скала
-
-![HighScores](https://raw.githubusercontent.com/andjiev/BattleShip/master/BattleShip/Images/Highscores.PNG)
+Бодовна скала
+![HighScores](https://github.com/andjiev/BattleShip/tree/master/BattleShip/Images/Highscores.PNG)
