@@ -173,7 +173,7 @@ namespace BattleShip
 
         private void btnEnd_Click(object sender, EventArgs e)
         {
-            if (!saved)
+            if (!saved && !isFinished)
             {
                 if (MessageBox.Show("Do you want to leave the game?", "Leave Game",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
@@ -257,7 +257,7 @@ namespace BattleShip
                 ComputerTimer.Dispose();
                 computer.ShowEndShips(dgvComputer);
 
-                if (MessageBox.Show("YOU LOST! Do you want to play a new game?", "LOST", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("YOU LOST! Do you want to play a new game?", "LOST", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     newGame();
                 }
@@ -370,7 +370,7 @@ namespace BattleShip
 
         private void Game_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(!saved)
+            if(!saved && !isFinished)
             {
                 if (MessageBox.Show("Do you want to leave the game?", "Leave Game",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
