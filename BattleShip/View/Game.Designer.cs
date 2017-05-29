@@ -78,6 +78,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
             this.label1.Location = new System.Drawing.Point(376, 116);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(168, 15);
@@ -177,9 +178,11 @@
             // 
             this.lblScore.AutoSize = true;
             this.lblScore.BackColor = System.Drawing.Color.Transparent;
-            this.lblScore.Location = new System.Drawing.Point(464, 67);
+            this.lblScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblScore.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblScore.Location = new System.Drawing.Point(469, 65);
             this.lblScore.Name = "lblScore";
-            this.lblScore.Size = new System.Drawing.Size(13, 13);
+            this.lblScore.Size = new System.Drawing.Size(16, 18);
             this.lblScore.TabIndex = 12;
             this.lblScore.Text = "0";
             // 
@@ -187,9 +190,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(420, 67);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.Control;
+            this.label3.Location = new System.Drawing.Point(416, 67);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 13);
+            this.label3.Size = new System.Drawing.Size(47, 16);
             this.label3.TabIndex = 13;
             this.label3.Text = "Score:";
             // 
@@ -205,7 +210,6 @@
             this.label4.TabIndex = 14;
             this.label4.Text = "          ";
             this.label4.Click += new System.EventHandler(this.label4_Click);
-            this.label4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnRandomize_MouseMove);
             // 
             // label5
             // 
@@ -219,7 +223,6 @@
             this.label5.TabIndex = 15;
             this.label5.Text = "          ";
             this.label5.Click += new System.EventHandler(this.label5_Click);
-            this.label5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnRandomize_MouseMove);
             // 
             // btnStart
             // 
@@ -239,7 +242,6 @@
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = false;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
-            this.btnStart.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnRandomize_MouseMove);
             // 
             // btnLeave
             // 
@@ -259,7 +261,6 @@
             this.btnLeave.Text = "Leave";
             this.btnLeave.UseVisualStyleBackColor = false;
             this.btnLeave.Click += new System.EventHandler(this.btnEnd_Click);
-            this.btnLeave.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnRandomize_MouseMove);
             // 
             // btnRandomize
             // 
@@ -279,7 +280,6 @@
             this.btnRandomize.Text = "Randomize";
             this.btnRandomize.UseVisualStyleBackColor = false;
             this.btnRandomize.Click += new System.EventHandler(this.button2_Click);
-            this.btnRandomize.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnRandomize_MouseMove);
             // 
             // btnNewGame
             // 
@@ -300,7 +300,6 @@
             this.btnNewGame.UseVisualStyleBackColor = false;
             this.btnNewGame.Visible = false;
             this.btnNewGame.Click += new System.EventHandler(this.btnNewGame_Click);
-            this.btnNewGame.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnRandomize_MouseMove);
             // 
             // Game
             // 

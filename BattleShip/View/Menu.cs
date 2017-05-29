@@ -24,6 +24,7 @@ namespace BattleShip
         System.Media.SoundPlayer sound = new System.Media.SoundPlayer(Properties.Resources.war);
    
         public bool MuteClicked { get; set; }
+        public bool hovered;
 
         public form1()
         {          
@@ -32,8 +33,11 @@ namespace BattleShip
             btnContinue.Enabled = File.Exists(path + "/game.bs");
             MuteClicked = false;
             sound.PlayLooping();
+            hovered = false;
             string pathh = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
-            this.Cursor = LoadCustomCursor(pathh + @"\Resources\AOM-Titans Cursor.cur");
+            if(!hovered)
+                this.Cursor = LoadCustomCursor(pathh + @"\Resources\AOM-Titans Cursor.cur");
+
         }
 
         public static Cursor LoadCustomCursor(string path)
@@ -259,19 +263,8 @@ namespace BattleShip
             label4.Show();
         }
 
-        private void btnContinue_MouseHover(object sender, EventArgs e)
-        {
-            Cursor.Current = Cursors.Hand;
-        }
+       
 
-        private void label6_MouseHover(object sender, EventArgs e)
-        {
-            Cursor.Current = Cursors.Hand;
-        }
-
-        private void label4_MouseHover(object sender, EventArgs e)
-        {
-            Cursor.Current = Cursors.Hand;
-        }
+        
     }
 }
