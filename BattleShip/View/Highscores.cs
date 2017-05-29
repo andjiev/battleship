@@ -31,6 +31,18 @@ namespace BattleShip.View
             
         }
 
+        public static Cursor LoadCursorFromResource()
+        {
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/curs.cur";
+            File.WriteAllBytes(path, Properties.Resources.AOM_Titans_Cursor);
+            Cursor result = new Cursor(LoadCursorFromFile(path));
+            File.Delete(path);
+
+            return result;
+        }
+        [DllImport("User32.dll", CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
+        private static extern IntPtr LoadCursorFromFile(String str);
+
         private void Highscores_Load(object sender, EventArgs e)
         {
             foreach (Label l in lblList)
@@ -146,16 +158,5 @@ namespace BattleShip.View
 
         }
 
-        public static Cursor LoadCursorFromResource()
-        {
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/curs.cur";
-            File.WriteAllBytes(path, Properties.Resources.AOM_Titans_Cursor);
-            Cursor result = new Cursor(LoadCursorFromFile(path));
-            File.Delete(path);
-
-            return result;
-        }
-        [DllImport("User32.dll", CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
-        private static extern IntPtr LoadCursorFromFile(String str);
     }
 }
