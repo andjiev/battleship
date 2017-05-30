@@ -17,7 +17,6 @@ using System.Reflection;
 
 namespace BattleShip
 {
-    [Serializable]
     partial class Game : Form
     {
         bool GameStarted;
@@ -29,7 +28,7 @@ namespace BattleShip
         ComputerController computer;
         Point startedPosition;
         Point shotPosition;
-       
+
         public static bool MuteClicked { get; set; }
         private bool saved = false;
 
@@ -77,7 +76,9 @@ namespace BattleShip
             btnRandomize.Visible = false;
             btnStart.Text = "Resume";
             dgvPlayer.Enabled = false;
-        }
+            MuteClicked = state.Mute;
+            CheckIcon();
+        }      
 
         public void ShowPlayerView()
         {
@@ -198,6 +199,7 @@ namespace BattleShip
             state.Player = player;
             state.Score = score;
             state.Turn = Turn;
+            state.Mute = MuteClicked;
             ComputerTimer.Stop();
             ShootTimer.Stop();
             DialogResult = DialogResult.Cancel;
@@ -240,20 +242,18 @@ namespace BattleShip
                 ShootTimer.Stop();
 
                 ShootTimer.Enabled = false;
-                //ShowPlayerView();
-                //ShowComputerView();
                 ComputerTimer.Enabled = false;
                 dgvComputer.Enabled = false;
                 ShootTimer.Enabled = false;
-                
+
 
                 if (score > 0)
                 {
                     View.InputScore form = new View.InputScore();
-                    if(form.ShowDialog() == DialogResult.OK)
+                    if (form.ShowDialog() == DialogResult.OK)
                     {
                         saveFile(form.winnerName, score);
-                    }                    
+                    }
                 }
 
                 ComputerTimer.Dispose();
@@ -266,8 +266,6 @@ namespace BattleShip
                 ComputerTimer.Interval = 999999999;
                 ShootTimer.Interval = 999999999;
                 ShootTimer.Stop();
-                // ShowPlayerView();
-                //ShowComputerView();
                 dgvComputer.Enabled = false;
                 ShootTimer.Dispose();
                 ComputerTimer.Dispose();
@@ -337,7 +335,7 @@ namespace BattleShip
             {
                 dgvComputer.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.DimGray;
                 startedPosition = position;
-                
+
             }
             else
             {
@@ -348,7 +346,6 @@ namespace BattleShip
             {
                 dgvComputer.Rows[0].Cells[0].Style.BackColor = Color.Transparent;
             }
-
 
         }
 
@@ -369,7 +366,6 @@ namespace BattleShip
         {
             if (!startedPosition.IsEmpty && dgvComputer.Rows[startedPosition.X].Cells[startedPosition.Y].Style.BackColor == Color.DimGray)
             {
-                //dgvComputer[0, 0].Style.BackColor = Color.Transparent;
                 dgvComputer.Rows[startedPosition.X].Cells[startedPosition.Y].Style.BackColor = Color.Transparent;
             }
         }
@@ -377,16 +373,15 @@ namespace BattleShip
         private void saveFile(String name, int Score)
         {
             using (System.IO.StreamWriter file =
-         new System.IO.StreamWriter(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\highscores.csv", true))
+                new System.IO.StreamWriter(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\highscores.csv", true))
             {
                 file.WriteLine(name + ";" + Score.ToString());
             }
-            //System.IO.File.WriteAllText(Application.StartupPath + "\\highscores.txt", name + ";" + Score.ToString());
         }
 
         private void Game_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(!saved && !isFinished)
+            if (!saved && !isFinished)
             {
                 if (MessageBox.Show("Do you want to leave the game?", "Leave Game",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
@@ -400,6 +395,7 @@ namespace BattleShip
             state.Player = player;
             state.Score = score;
             state.Turn = Turn;
+            state.Mute = MuteClicked;
             ComputerTimer.Stop();
             ShootTimer.Stop();
 
@@ -432,11 +428,6 @@ namespace BattleShip
             Cursor.Current = Cursors.Hand;
         }
 
-        private void label4_MouseHover(object sender, EventArgs e)
-        {
-            
-        }
-
         private void btnNewGame_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Do you want start new game?", "Start New Game",
@@ -444,6 +435,16 @@ namespace BattleShip
             {
                 DialogResult = DialogResult.Abort;
                 saved = true;
+            }
+        }
+
+        public void CheckIcon()
+        {
+            if (MuteClicked)
+            {
+                label4.Hide();
+                label5.Show();
+                label4.BringToFront();
             }
         }
 

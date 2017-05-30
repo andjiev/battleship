@@ -73,7 +73,8 @@ namespace BattleShip
                     btnContinue.Enabled = false;
                 }
                 this.Show();
-                sound.PlayLooping();
+                if(!MuteClicked)
+                    sound.PlayLooping();
             }
             if(result == DialogResult.Abort)
             {
@@ -93,7 +94,8 @@ namespace BattleShip
             this.Hide();
             if (controls.ShowDialog() == DialogResult.Cancel) {
                 this.Show();
-                sound.Play();
+                if (!MuteClicked)
+                    sound.PlayLooping();
             }
             
         }
@@ -204,7 +206,8 @@ namespace BattleShip
             if (Highscores.ShowDialog() == DialogResult.Cancel)
             {
                 this.Show();
-                sound.Play();
+                if (!MuteClicked)
+                    sound.PlayLooping();
             }
         }
 
@@ -236,7 +239,8 @@ namespace BattleShip
                     btnContinue.Enabled = false;
                 }
                 this.Show();
-                sound.PlayLooping();
+                if (!MuteClicked)
+                    sound.PlayLooping();
             }
             if(result == DialogResult.Abort)
             {

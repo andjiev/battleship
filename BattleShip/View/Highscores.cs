@@ -61,14 +61,10 @@ namespace BattleShip.View
         public void readFile()
         {
             var fs = File.OpenRead(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)+"\\highscores.csv");
-          //  MessageBox.Show("Reading!");
             var reader = new StreamReader(fs);
             var line="";
             while (( line=reader.ReadLine())!=null)
-            {
-
-
-                //  MessageBox.Show(line);
+            { 
                 if (line == "")
                 {
                     break;
@@ -76,14 +72,8 @@ namespace BattleShip.View
                 var values = line.Split(';');
                 int p;
                 int.TryParse(values[1], out p);
-                //MessageBox.Show(values[0]);
                 Score s = new Score(values[0], p);
-               // Label l = new Label();
                 hiScores.Add(s);
-                //l.Text = (I+1)+"."+s.ToString();
-                //lblList.Add(l);
-
-               // I++;
             }
            
             Sort();
@@ -110,46 +100,40 @@ namespace BattleShip.View
             else{
                 z = hiScores.Count;
             }
-           // MessageBox.Show(hiScores.Count.ToString());
+
             if(hiScores.Count > 0)
-            for(int i = 0; i < z; i++) 
             {
-                Label l = new Label();
+                btnReset.Enabled = true;
+                for (int i = 0; i < z; i++)
+                {
+                    Label l = new Label();
                     if (i == 0)
                     {
                         PictureBox pb = new PictureBox()
                         {
                             Size = new Size(25, 20),
-                            Location = new Point(l.Location.X + 2*l.Width + 30, 98),
+                            Location = new Point(l.Location.X + 2 * l.Width + 30, 98),
                             Image = Properties.Resources._5929ca2696f6a272985558
                         };
                         this.Controls.Add(pb);
                     }
-                    
+
                     l.Text = (i + 1) + ". " + hiScores[i].ToString();
                     l.BackColor = Color.Transparent;
-                                   
-                        
+
+
                     lblList.Add(l);
+                }
             }
+            
             else
             {
                 Label l = new Label();
                 l.Text = "No Highscores!";
                 l.BackColor = Color.Transparent;
+                btnReset.Enabled = false;
                 lblList.Add(l);
             }
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-           // readFile();
-        }
-
-        private void Highscores_Shown(object sender, EventArgs e)
-        {
-           // readFile();
-           
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -158,5 +142,39 @@ namespace BattleShip.View
 
         }
 
+        private void removeControls()
+        {
+            foreach(Label l in lblList)
+            {
+                Controls.Remove(l);
+            }
+            foreach(Control control in Controls)
+            {
+                if(control is PictureBox)
+                {
+                    Controls.Remove(control);
+                }
+            }
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("Do you want to reset scores? You can't undo this", 
+                "Reset Score", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+            {
+                string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\highscores.csv";
+                using (File.Create(path)) { }
+                Label l = new Label();
+                l.Text = "No Highscores!";
+                l.BackColor = Color.Transparent;
+
+                removeControls();
+                l.Location = new Point { X = 70, Y = 100 };
+                l.Font = new Font("Comic Sans", 10, FontStyle.Regular);
+                l.Width = 150;
+                Controls.Add(l);
+                btnReset.Enabled = false;
+            }            
+        }
     }
 }

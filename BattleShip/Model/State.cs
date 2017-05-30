@@ -14,5 +14,6 @@ namespace BattleShip.Model
         public ComputerController Computer { get; set; }
         public int Score { get; set; }
         public bool Turn { get; set; }
+        public bool Mute { get; set; }
     }
 }

@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Highscores));
             this.btnExit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnReset = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnExit
@@ -54,12 +55,22 @@
             this.label1.Text = "                                                                         ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(12, 308);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(96, 23);
+            this.btnReset.TabIndex = 2;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
             // Highscores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-
             this.ClientSize = new System.Drawing.Size(344, 343);
+            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnExit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -69,7 +80,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Highscores";
             this.Load += new System.EventHandler(this.Highscores_Load);
-            this.Shown += new System.EventHandler(this.Highscores_Shown);
             this.ResumeLayout(false);
 
         }
@@ -78,5 +88,6 @@
 
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnReset;
     }
 }
