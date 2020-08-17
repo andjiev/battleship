@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\ComputerController.cs" />
+    <Compile Include="Model\Player.cs" />
     <Compile Include="Controller\PlayerController.cs" />
     <Compile Include="Model\Cell.cs" />
     <Compile Include="Model\Extension.cs" />
