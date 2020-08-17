@@ -54,17 +54,17 @@ namespace BattleShip
         public void newGame()
         {
             sound.Stop();
-            Game game = new Game();
+            GameModeForm gameModeForm = new GameModeForm();
             this.Hide();
-            DialogResult result = game.ShowDialog();
-            if (result == DialogResult.Cancel)
+            DialogResult result = gameModeForm.ShowDialog();
+            /*if (result == DialogResult.Cancel)
             {
                 string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
                 string fileName = path + "/game.bs";
                 using (FileStream fileStream = new FileStream(fileName, FileMode.OpenOrCreate))
                 {
                     IFormatter formatter = new BinaryFormatter();
-                    formatter.Serialize(fileStream, game.state);
+                    formatter.Serialize(fileStream, GameModeForm.state);
                     btnContinue.Enabled = true;
                 }
                 if(Game.isFinished)
@@ -75,7 +75,7 @@ namespace BattleShip
                 this.Show();
                 if(!MuteClicked)
                     sound.PlayLooping();
-            }
+            }*/
             if(result == DialogResult.Abort)
             {
                 newGame();
