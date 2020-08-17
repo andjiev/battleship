@@ -16,14 +16,16 @@ namespace BattleShip.Controller
         private List<int> amounts;
         public List<Point> positions;
         public List<Point> missedPositions;
+        public int gridSize;
         public ComputerController()
         {
+            gridSize = 10;
             amounts = new List<int>();
             positions = new List<Point>();
             missedPositions = new List<Point>();
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < gridSize; i++)
             {
-                for (int j = 0; j < 10; j++)
+                for (int j = 0; j < gridSize; j++)
                 {
                     positions.Add(new Point { X = i, Y = j });
                 }
@@ -39,9 +41,9 @@ namespace BattleShip.Controller
         public void SetGridView(DataGridView grid)
         {
             grid.Rows.Clear();
-            grid.RowCount = 10;
-            grid.ColumnCount = 10; ;
-            for (int i = 0; i < 10; i++)
+            grid.RowCount = gridSize;
+            grid.ColumnCount = gridSize; ;
+            for (int i = 0; i < gridSize; i++)
             {
                 grid.Rows[i].Height = 36;
                 grid.Columns[i].Width = 36;
@@ -177,9 +179,9 @@ namespace BattleShip.Controller
                 }
             }
             positions = new List<Point>();
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < gridSize; i++)
             {
-                for (int j = 0; j < 10; j++)
+                for (int j = 0; j < gridSize; j++)
                 {
                     positions.Add(new Point { X = i, Y = j });
                 }

@@ -21,6 +21,7 @@ namespace BattleShip.Controller
         private Point shot;
         private Point first;
         public bool found;
+        public int gridSize;
         private enum Direction 
         {
             DOWN,
@@ -32,12 +33,13 @@ namespace BattleShip.Controller
        
         public PlayerController()
         {
+            gridSize = 10;
             ships = new List<Ship>();
             positions = new List<Point>();
             missedPositions = new List<Point>();
-            for(int i = 0; i < 10; i++)
+            for(int i = 0; i < gridSize; i++)
             {
-                for (int j = 0; j < 10; j++)
+                for (int j = 0; j < gridSize; j++)
                 {
                     positions.Add(new Point { X = i, Y = j });
                 }
@@ -45,10 +47,15 @@ namespace BattleShip.Controller
             selected = null;
             shot = new Point();
             amounts = new List<int>();
+            // 1 size
             amounts.Add(3);
+            // 2 size
             amounts.Add(2);
+            // 3 size
             amounts.Add(2);
+            // 4 size
             amounts.Add(1);
+            // 5 size
             amounts.Add(1);
             Random();
         }          
@@ -56,12 +63,13 @@ namespace BattleShip.Controller
         public void SetGridView(DataGridView grid)
         {
             grid.Rows.Clear();
-            grid.RowCount = 10;
-            grid.ColumnCount = 10;;
-            for (int i = 0; i < 10; i++)
+            grid.RowCount = gridSize;
+            grid.ColumnCount = gridSize;
+            for (int i = 0; i < gridSize; i++)
             {
-                grid.Rows[i].Height = 36;
-                grid.Columns[i].Width = 36;
+                // but for 9 40
+                grid.Rows[i].Height = 360 / gridSize;
+                grid.Columns[i].Width = 360 / gridSize;
             }
         }
 
@@ -419,9 +427,9 @@ namespace BattleShip.Controller
                 }                
             }
             positions = new List<Point>();
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < gridSize; i++)
             {
-                for (int j = 0; j < 10; j++)
+                for (int j = 0; j < gridSize; j++)
                 {
                     positions.Add(new Point { X = i, Y = j });
                 }
