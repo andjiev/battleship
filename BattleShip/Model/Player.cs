@@ -52,10 +52,10 @@ namespace BattleShip.Controller
                 grid.Columns[i].Width = 36;
             }
 
-            if (!isPlayer)
-            {
-                grid.ClearSelection();
-            }
+            //if (!isPlayer)
+            //{
+            //    grid.ClearSelection();
+            //}
         }
 
         public void RemoveDeadPoints(Point position)
@@ -89,12 +89,12 @@ namespace BattleShip.Controller
                         Ship.View type = (Ship.View)new Random().Next(2);
                         Point position = positions[index];
 
-                        if(!isPlayer && position == new Point(0,0)){
-                            continue;
-                        }
+                        //if(!isPlayer && position == new Point(0,0)){
+                        //    continue;
+                        //}
 
                         Ship primary = new Ship(i + 1, Color.Blue, position, type);
-                        if (isPlayer && ships.Exists(ship => ship.ExistShip(primary)))
+                        if (/*isPlayer && */ships.Exists(ship => ship.ExistShip(primary)))
                         {
                             primary.ChangePosition(position);
                         }
@@ -138,17 +138,7 @@ namespace BattleShip.Controller
             }
         }
 
-        public void ShowShips(DataGridView grid)
-        {
-            if (isPlayer)
-            {
-                ships.ForEach(ship => ship.ShowShip(grid));
-            }
-            else
-            {
-                ships.ForEach(ship => ship.enemyShipsDraw(grid));
-            }
-        }
+
 
         public bool Won()
         {

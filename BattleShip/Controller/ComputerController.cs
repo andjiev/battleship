@@ -137,10 +137,10 @@ namespace BattleShip.Controller
         //    }
         //}
 
-        //public void ShowShips(DataGridView grid)
-        //{
-        //    ships.ForEach(ship => ship.enemyShipsDraw(grid));
-        //}
+        public void ShowShips(DataGridView grid)
+        {
+            ships.ForEach(ship => ship.enemyShipsDraw(grid));
+        }
 
         public void ShowEndShips(DataGridView grid)
         {
