@@ -21,6 +21,7 @@ namespace BattleShip.Controller
         private Point shot;
         private Point first;
         public bool found;
+        public int gridSize;
         private enum Direction 
         {
             DOWN,
@@ -64,6 +65,7 @@ namespace BattleShip.Controller
         //        grid.Columns[i].Width = 36;
         //    }
         //}
+
 
 
         public void ShowShips(DataGridView grid)
@@ -415,6 +417,7 @@ namespace BattleShip.Controller
         //                    }
         //            }                        
                     
+
         //            picked = false;
         //        }                
         //    }
