@@ -15,12 +15,14 @@ namespace BattleShip.Model
         public bool Alive { get; set; }
         public Image Img { get; set; }
         public bool ChangedOpacity { get; set; }
+        public int GridSize { get; set; }
 
-        public Cell(Point position)
+        public Cell(Point position, int gridSize)
         {
             Positon = position;
             Alive = true;
             ChangedOpacity = false;
+            GridSize = gridSize;
         }
 
         public void SwapImage()
@@ -30,7 +32,7 @@ namespace BattleShip.Model
 
         public void Opacity(float opacityValue)
         {
-            Bitmap bmp = new Bitmap(Img.Width, Img.Height);
+            Bitmap bmp = new Bitmap(360 / GridSize, 360 / GridSize);
             Graphics graphics = Graphics.FromImage(bmp);
             ColorMatrix colormatrix = new ColorMatrix();
             colormatrix.Matrix33 = opacityValue;
