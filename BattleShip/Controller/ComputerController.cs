@@ -12,42 +12,16 @@ namespace BattleShip.Controller
     [Serializable]
     class ComputerController : Player
     {
-        //private List<Ship> ships;
-        //private List<int> amounts;
-        //public List<Point> positions;
-        //public List<Point> missedPositions;
+
+
+
         public ComputerController() : base()
         {
-            
-            //amounts = new List<int>();
-            //positions = new List<Point>();
-            //missedPositions = new List<Point>();
-            //for (int i = 0; i < 10; i++)
-            //{
-            //    for (int j = 0; j < 10; j++)
-            //    {
-            //        positions.Add(new Point { X = i, Y = j });
-            //    }
-            //}
-            //amounts.Add(3);
-            //amounts.Add(2);
-            //amounts.Add(2);
-            //amounts.Add(1);
-            //amounts.Add(1);
+            gridSize = 10;
             isPlayer = false;
             Random();
         }
 
-        //public void SetGridView(DataGridView grid)
-        //{
-        //    grid.Rows.Clear();
-        //    grid.RowCount = 10;
-        //    grid.ColumnCount = 10; ;
-        //    for (int i = 0; i < 10; i++)
-        //    {
-        //        grid.Rows[i].Height = 36;
-        //        grid.Columns[i].Width = 36;
-        //    }
             
         //    grid.ClearSelection();
         //}
@@ -156,7 +130,7 @@ namespace BattleShip.Controller
         //public void Random()
         //{
         //    ships = new List<Ship>();           
-            
+ 
         //    bool picked = false;
         //    for (int i = 4; i >= 0; i--)
         //    {
@@ -191,6 +165,7 @@ namespace BattleShip.Controller
         //        }
         //    }
         //}
+
 
         //private void RemovePositions(Ship primary)
         //{

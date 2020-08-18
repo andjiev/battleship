@@ -22,9 +22,11 @@ namespace BattleShip.Model
         public View Type { get; set; }
         public List<Point> viewPoints { get; set; }
         private Point shotPosition;
+        public int gridSize;
 
         public Ship(int size, Color color, Point position, View type)
         {
+            gridSize = 10;
             Size = size;
             Color = color;
             Type = type;
@@ -39,14 +41,14 @@ namespace BattleShip.Model
             {
                 for (int i = position.Y; i < position.Y + Size; i++)
                 {
-                    if (i < 10)
+                    if (i < gridSize)
                     {
-                        Cells.Add(new Cell(new Point { X = position.X, Y = i }));
+                        Cells.Add(new Cell(new Point { X = position.X, Y = i }, gridSize));
 
                     }
                     else
                     {
-                        Cells.Add(new Cell(new Point { X = position.X, Y = i - Size }));
+                        Cells.Add(new Cell(new Point { X = position.X, Y = i - Size }, gridSize));
                     }
                 }
             }
@@ -54,13 +56,13 @@ namespace BattleShip.Model
             {
                 for (int i = position.X; i < position.X + Size; i++)
                 {
-                    if (i < 10)
+                    if (i < gridSize)
                     {
-                        Cells.Add(new Cell(new Point { X = i, Y = position.Y }));
+                        Cells.Add(new Cell(new Point { X = i, Y = position.Y }, gridSize));
                     }
                     else
                     {
-                        Cells.Add(new Cell(new Point { X = i - Size, Y = position.Y }));
+                        Cells.Add(new Cell(new Point { X = i - Size, Y = position.Y }, gridSize));
                     }
                 }
             }
@@ -77,6 +79,7 @@ namespace BattleShip.Model
                 string file = string.Format("_{0}{1}", Size, i + 1);
                 Cell cell = Cells.ElementAt(i);
                 cell.Img = (Image)Properties.Resources.ResourceManager.GetObject(file);
+                cell.Opacity(1);
                 if (Type == View.HORIZONTAL)
                 {
                     cell.SwapImage();
@@ -92,19 +95,19 @@ namespace BattleShip.Model
                 imgCell.Value = Properties.Resources.dotImage;
                 grid.Rows[position.X - 1].Cells[position.Y - 1] = imgCell;
             }
-            if (position.X - 1 >= 0 && position.Y + 1 < 10)
+            if (position.X - 1 >= 0 && position.Y + 1 < gridSize)
             {
                 DataGridViewImageCell imgCell = new DataGridViewImageCell();
                 imgCell.Value = Properties.Resources.dotImage;
                 grid.Rows[position.X - 1].Cells[position.Y + 1] = imgCell;
             }
-            if (position.X + 1 < 10 && position.Y - 1 >= 0)
+            if (position.X + 1 < gridSize && position.Y - 1 >= 0)
             {
                 DataGridViewImageCell imgCell = new DataGridViewImageCell();
                 imgCell.Value = Properties.Resources.dotImage;
                 grid.Rows[position.X + 1].Cells[position.Y - 1] = imgCell;
             }
-            if (position.X + 1 < 10 && position.Y + 1 < 10)
+            if (position.X + 1 < gridSize && position.Y + 1 < gridSize)
             {
                 DataGridViewImageCell imgCell = new DataGridViewImageCell();
                 imgCell.Value = Properties.Resources.dotImage;
@@ -118,7 +121,7 @@ namespace BattleShip.Model
             {
                 foreach (Point point in viewPoints)
                 {
-                    if (point.X >= 0 && point.X < 10 && point.Y >= 0 && point.Y < 10)
+                    if (point.X >= 0 && point.X < gridSize && point.Y >= 0 && point.Y < gridSize)
                     {
                         if (!Cells.Exists(cell => cell.Positon.Equals(point)))
                         {
@@ -165,7 +168,7 @@ namespace BattleShip.Model
             {
                 foreach (Point point in viewPoints)
                 {
-                    if (point.X >= 0 && point.X < 10 && point.Y >= 0 && point.Y < 10)
+                    if (point.X >= 0 && point.X < gridSize && point.Y >= 0 && point.Y < gridSize)
                     {
                         if (!Cells.Exists(cell => cell.Positon.Equals(point)))
                         {
