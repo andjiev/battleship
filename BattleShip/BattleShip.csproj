@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\ComputerController.cs" />
+    <Compile Include="Model\Player.cs" />
     <Compile Include="Controller\PlayerController.cs" />
     <Compile Include="Model\Cell.cs" />
     <Compile Include="Model\Extension.cs" />
@@ -71,6 +72,12 @@
     <Compile Include="Model\Score.cs" />
     <Compile Include="Model\Ship.cs" />
     <Compile Include="Model\State.cs" />
+    <Compile Include="View\GameModeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\GameModeForm.Designer.cs">
+      <DependentUpon>GameModeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Highscores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +110,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="View\GameModeForm.resx">
+      <DependentUpon>GameModeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Highscores.resx">
       <DependentUpon>Highscores.cs</DependentUpon>
     </EmbeddedResource>
