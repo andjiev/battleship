@@ -21,7 +21,6 @@ namespace BattleShip.Controller
         private Point shot;
         private Point first;
         public bool found;
-        public int gridSize;
         private enum Direction 
         {
             DOWN,
@@ -48,6 +47,7 @@ namespace BattleShip.Controller
             //amounts.Add(2);
             //amounts.Add(1);
             //amounts.Add(1);
+            gridSize = 10;
             isPlayer = true;
             selected = null;
             shot = new Point();
