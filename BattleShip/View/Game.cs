@@ -17,6 +17,16 @@ using System.Reflection;
 
 namespace BattleShip
 {
+    public enum GameMode
+    {
+        SUNKINSILENCE,
+        MOVABLESHIPS,
+        SPEEDYRULES,
+        SALVO,
+        FOGOVERFISHERBANK,
+        BIGBOARD
+    }
+
     partial class Game : Form
     {
         bool GameStarted;
@@ -30,22 +40,24 @@ namespace BattleShip
         Point shotPosition;
         public int gridSize;
 
+
         public static bool MuteClicked { get; set; }
         private bool saved = false;
 
         public Game()
         {
+            List<GameMode> gameModes = new List<GameMode>();
+            gameModes.Add(GameMode.BIGBOARD);
+
             //Grid stuff
             gridSize = 10;
-            
-            
             DoubleBuffered = true;
             Turn = true;
             InitializeComponent();
-            player = new PlayerController();
+            player = new PlayerController(gameModes);
             isFinished = false;
             score = 0;
-            computer = new ComputerController();
+            computer = new ComputerController(gameModes);
             dgvPlayer.DoubleBuffered(true);
             dgvComputer.DoubleBuffered(true);
             GameStarted = false;
@@ -83,7 +95,7 @@ namespace BattleShip
             dgvPlayer.Enabled = false;
             MuteClicked = state.Mute;
             CheckIcon();
-        }      
+        }
 
         public void ShowPlayerView()
         {
