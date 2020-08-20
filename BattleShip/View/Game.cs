@@ -28,6 +28,7 @@ namespace BattleShip
         ComputerController computer;
         Point startedPosition;
         Point shotPosition;
+        private static int i = 0;
 
         public static bool MuteClicked { get; set; }
         private bool saved = false;
@@ -50,6 +51,8 @@ namespace BattleShip
             this.Cursor = LoadCursorFromResource();
 
         }
+
+        
 
         public static Cursor LoadCursorFromResource()
         {
@@ -282,13 +285,20 @@ namespace BattleShip
         {
             if (GameStarted)
             {
-                shotPosition = new Point { X = e.RowIndex, Y = e.ColumnIndex };
-                if (computer.Shoot(shotPosition, dgvComputer))
+                     shotPosition = new Point { X = e.RowIndex, Y = e.ColumnIndex };
+                     if (i >= 3)
+                     {
+                        computer.Shoot(shotPosition, dgvComputer);
+                         Turn = false;
+                         dgvComputer.Enabled = false;
+                         i = 0;
+                     }
+                else
                 {
-                    Turn = false;
-                    dgvComputer.Enabled = false;
+                        computer.Shoot(shotPosition, dgvComputer);
+                    i++;
                 }
-                computer.ShowShips(dgvComputer);
+                      computer.ShowShips(dgvComputer);
             }
         }
 
@@ -300,21 +310,30 @@ namespace BattleShip
 
         private void ShootTimer_Tick(object sender, EventArgs e)
         {
-            Random random = new Random();
-            ShootTimer.Interval = random.Next(1000, 2000);
-            player.Shoot(dgvPlayer);
-            player.ShowShips(dgvPlayer);
-            Turn = !player.found;
-            lblScore.Text = score.ToString();
-            if (score < 0)
+            
+                Random random = new Random();
+                ShootTimer.Interval = random.Next(1000, 2000);
+                player.Shoot(dgvPlayer);
+            if(i >= 3)
             {
-                score = 0;
+                Turn = !player.found;
+                i = 0;
+            }
+            else
+            {
+                i++;
+            }
+                player.ShowShips(dgvPlayer);
+                lblScore.Text = score.ToString();
+                if (score < 0)
+                {
+                    score = 0;
 
-            }
-            if (score > 0)
-            {
-                lblScore.ForeColor = Color.Green;
-            }
+                }
+                if (score > 0)
+                {
+                    lblScore.ForeColor = Color.Green;
+                }
         }
 
         private void button2_Click(object sender, EventArgs e)
