@@ -16,6 +16,7 @@ namespace BattleShip.Controller
         private Point shot;
         private Point first;
         public bool found;
+        public DataGridView dgvPlayer;
         private enum Direction
         {
             DOWN,
@@ -71,6 +72,7 @@ namespace BattleShip.Controller
         public void EnableCells(DataGridView grid)
         {
             grid.Enabled = true;
+
             ships.ForEach(ship => ship.Color = Color.Blue);
         }
 
@@ -272,8 +274,23 @@ namespace BattleShip.Controller
                     return;
                 }
             }
+            //computer turn
             GenerateRandom(grid);
+            //this is where we can move a ship
+            if (activeGameModes.Contains(GameMode.MOVABLESHIPS))
+            {
+                turn++;
+                if (turn % 5 == 0)
+                {
+                    EnableCells(dgvPlayer);
+                }
+                else
+                {
+                    DisableCells(dgvPlayer);
+                }
+            }
         }
+
         private void GenerateRandom(DataGridView grid)
         {
             if (!Game.isFinished)

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,7 @@ namespace BattleShip.Controller
 
         protected bool isPlayer;
         
+
         public Player(List<GameMode> gameModes)
         {
             this.turn = 0;
@@ -58,8 +60,8 @@ namespace BattleShip.Controller
             grid.ColumnCount = gridSize; ;
             for (int i = 0; i < gridSize; i++)
             {
-                grid.Rows[i].Height = 36;
-                grid.Columns[i].Width = 36;
+                grid.Rows[i].Height = 360/gridSize;
+                grid.Columns[i].Width = 360/gridSize;
             }
         }
 
@@ -119,7 +121,6 @@ namespace BattleShip.Controller
                 }
             }
         }
-
 
         private void RemovePositions(Ship primary)
         {

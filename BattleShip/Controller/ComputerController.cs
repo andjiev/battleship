@@ -14,7 +14,6 @@ namespace BattleShip.Controller
     {
         public ComputerController(List<GameMode> gameModes) : base(gameModes)
         {
-            gridSize = 10;
             isPlayer = false;
             Random();
         }

@@ -46,8 +46,10 @@ namespace BattleShip
 
         public Game()
         {
-            List<GameMode> gameModes = new List<GameMode>();
-            gameModes.Add(GameMode.BIGBOARD);
+            List<GameMode> gameModes = new List<GameMode>
+            {
+                GameMode.MOVABLESHIPS
+            };
 
             //Grid stuff
             gridSize = 10;
@@ -55,6 +57,7 @@ namespace BattleShip
             Turn = true;
             InitializeComponent();
             player = new PlayerController(gameModes);
+            player.dgvPlayer = dgvPlayer;
             isFinished = false;
             score = 0;
             computer = new ComputerController(gameModes);
@@ -181,6 +184,7 @@ namespace BattleShip
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+            //this is where the board locks up
             player.DisableCells(dgvPlayer);
             player.ShowShips(dgvPlayer);
             ComputerTimer.Start();
