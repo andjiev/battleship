@@ -16,6 +16,7 @@ namespace BattleShip.Controller
         private Point shot;
         private Point first;
         public bool found;
+        public int shots;
         public DataGridView dgvPlayer;
         private enum Direction
         {
@@ -25,7 +26,6 @@ namespace BattleShip.Controller
             LEFT
         }
         private Direction direction;
-
         public PlayerController(List<GameMode> gameModes) : base(gameModes)
         {
             isPlayer = true;
@@ -274,8 +274,17 @@ namespace BattleShip.Controller
                     return;
                 }
             }
+
+            if(shots < 4)
+            {
+                shots++;
+            }
+            else
+            {
+                GenerateRandom(grid);
+
+            }
             //computer turn
-            GenerateRandom(grid);
             //this is where we can move a ship
             if (activeGameModes.Contains(GameMode.MOVABLESHIPS))
             {
