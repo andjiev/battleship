@@ -35,11 +35,11 @@ namespace BattleShip.Controller
                     positions.Add(new Point { X = i, Y = j });
                 }
             }
-            this.amounts.Add(4);
-            this.amounts.Add(0);
-            this.amounts.Add(0);
-            this.amounts.Add(0);
-            this.amounts.Add(0);
+            this.amounts.Add(3);
+            this.amounts.Add(2);
+            this.amounts.Add(2);
+            this.amounts.Add(1);
+            this.amounts.Add(1);
         }
 
         public void SetGridView(DataGridView grid)
