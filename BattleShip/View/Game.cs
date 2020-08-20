@@ -36,7 +36,7 @@ namespace BattleShip
         public Game()
         {
             //Grid stuff
-            gridSize = 8;
+            gridSize = 10;
             
             
             DoubleBuffered = true;
@@ -307,10 +307,7 @@ namespace BattleShip
         {
             Random random = new Random();
             ShootTimer.Interval = random.Next(1000, 2000);
-            for(int i = 0; i< 4; i++)
-            {
-                player.Shoot(dgvPlayer);
-            }
+            player.Shoot(dgvPlayer);
             player.ShowShips(dgvPlayer);
             Turn = !player.found;
             lblScore.Text = score.ToString();
