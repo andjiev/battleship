@@ -18,12 +18,13 @@ namespace BattleShip.Controller
         public List<Point> positions;
         public List<Point> missedPositions;
         public Ship selected;
-        public static int gridSize = 10;
+        public static int gridSize;
 
         protected bool isPlayer;
         
-        public Player()
+        public Player(int size)
         {
+            gridSize = size;
             this.amounts = new List<int>();
             this.positions = new List<Point>();
             this.missedPositions = new List<Point>();
@@ -34,11 +35,11 @@ namespace BattleShip.Controller
                     positions.Add(new Point { X = i, Y = j });
                 }
             }
-            this.amounts.Add(3);
-            this.amounts.Add(2);
-            this.amounts.Add(2);
-            this.amounts.Add(1);
-            this.amounts.Add(1);
+            this.amounts.Add(4);
+            this.amounts.Add(0);
+            this.amounts.Add(0);
+            this.amounts.Add(0);
+            this.amounts.Add(0);
         }
 
         public void SetGridView(DataGridView grid)
@@ -48,8 +49,8 @@ namespace BattleShip.Controller
             grid.ColumnCount = gridSize; ;
             for (int i = 0; i < gridSize; i++)
             {
-                grid.Rows[i].Height = 36;
-                grid.Columns[i].Width = 36;
+                grid.Rows[i].Height = 360 / gridSize;
+                grid.Columns[i].Width = 360 / gridSize;
             }
 
             //if (!isPlayer)
@@ -93,7 +94,7 @@ namespace BattleShip.Controller
                         //    continue;
                         //}
 
-                        Ship primary = new Ship(i + 1, Color.Blue, position, type);
+                        Ship primary = new Ship(i + 1, Color.Blue, position, type, gridSize);
                         if (/*isPlayer && */ships.Exists(ship => ship.ExistShip(primary)))
                         {
                             primary.ChangePosition(position);

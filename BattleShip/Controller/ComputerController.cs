@@ -12,12 +12,9 @@ namespace BattleShip.Controller
     [Serializable]
     class ComputerController : Player
     {
-
-
-
-        public ComputerController() : base()
+        public ComputerController(int gridSize) : base(gridSize)
         {
-            gridSize = 10;
+            //gridSize = 10;
             isPlayer = false;
             Random();
         }
@@ -84,6 +81,11 @@ namespace BattleShip.Controller
                 }
                 DataGridViewImageCell imgCell = new DataGridViewImageCell();
                 imgCell.Value = Properties.Resources.dotImage;
+
+                // if FOFB do this instead of line above
+                //string file = string.Format("_{0}", GetShipCount(position));
+                //imgCell.Value = Properties.Resources.ResourceManager.GetObject(file);
+
                 missedPositions.Add(position);
                 grid.Rows[position.X].Cells[position.Y] = imgCell;
 
@@ -101,6 +103,18 @@ namespace BattleShip.Controller
             return false;
         }
 
+        public int GetShipCount(Point position)
+        {
+            int count = 0;
+            foreach(Ship ship in ships)
+            {
+                if(ship.Cells[0].Positon.X == position.X || ship.Cells[0].Positon.Y == position.Y)
+                    count++;
+            }
+
+            return count;
+        }
+
         //public void UpdateMissed(DataGridView grid)
         //{
         //    foreach (Point position in missedPositions)
@@ -113,7 +127,8 @@ namespace BattleShip.Controller
 
         public void ShowShips(DataGridView grid)
         {
-            ships.ForEach(ship => ship.enemyShipsDraw(grid));
+            //ships.ForEach(ship => ship.enemyShipsDraw(grid));
+            ships.ForEach(ship => ship.enemyShipsDrawFOFB(grid, ships));
         }
 
         public void ShowEndShips(DataGridView grid)

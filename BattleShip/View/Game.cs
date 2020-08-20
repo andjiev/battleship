@@ -36,16 +36,16 @@ namespace BattleShip
         public Game()
         {
             //Grid stuff
-            gridSize = 10;
+            gridSize = 8;
             
             
             DoubleBuffered = true;
             Turn = true;
             InitializeComponent();
-            player = new PlayerController();
+            player = new PlayerController(gridSize);
             isFinished = false;
             score = 0;
-            computer = new ComputerController();
+            computer = new ComputerController(gridSize);
             dgvPlayer.DoubleBuffered(true);
             dgvComputer.DoubleBuffered(true);
             GameStarted = false;
@@ -307,7 +307,10 @@ namespace BattleShip
         {
             Random random = new Random();
             ShootTimer.Interval = random.Next(1000, 2000);
-            player.Shoot(dgvPlayer);
+            for(int i = 0; i< 4; i++)
+            {
+                player.Shoot(dgvPlayer);
+            }
             player.ShowShips(dgvPlayer);
             Turn = !player.found;
             lblScore.Text = score.ToString();

@@ -152,6 +152,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\18718281_1342273699160863_1172642038_n21.png" />
+    <None Include="Resources\18718281_1342273699160863_1172642038_n5.png" />
+    <None Include="Resources\18718281_1342273699160863_1172642038_n4.png" />
+    <None Include="Resources\18718281_1342273699160863_1172642038_n3.png" />
+    <None Include="Resources\18718281_1342273699160863_1172642038_n2.png" />
+    <None Include="Resources\18718281_1342273699160863_1172642038_n1.png" />
+    <None Include="Resources\unmute1.png" />
+    <None Include="Resources\one.bmp" />
     <None Include="Resources\AOM-Titans Cursor.cur" />
     <None Include="Resources\lb2.png" />
     <None Include="Resources\btnPir.png" />

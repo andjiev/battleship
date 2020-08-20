@@ -24,9 +24,9 @@ namespace BattleShip.Model
         private Point shotPosition;
         public int gridSize;
 
-        public Ship(int size, Color color, Point position, View type)
+        public Ship(int size, Color color, Point position, View type, int boardSize)
         {
-            gridSize = 10;
+            gridSize = boardSize;
             Size = size;
             Color = color;
             Type = type;
@@ -162,6 +162,54 @@ namespace BattleShip.Model
             }
         }
 
+        public void ShowShipFOFB(DataGridView grid, List<Ship> ships)
+        {
+            if (Destroyed())
+            {
+                foreach (Point point in viewPoints)
+                {
+                    if (point.X >= 0 && point.X < gridSize && point.Y >= 0 && point.Y < gridSize)
+                    {
+                        if (!Cells.Exists(cell => cell.Positon.Equals(point)))
+                        {
+                            DataGridViewImageCell imgCell = new DataGridViewImageCell();
+                            string file = string.Format("_{0}", GetShipCount(point.X, point.Y, ships));
+                            imgCell.Value = Properties.Resources.ResourceManager.GetObject(file);
+                            grid.Rows[point.X].Cells[point.Y] = imgCell;
+                        }
+                    }
+                }
+                foreach (Cell cell in Cells)
+                {
+                    if (!cell.ChangedOpacity)
+                    {
+                        double opacity = 0.6;
+                        cell.Opacity((float)opacity);
+                        cell.ChangedOpacity = true;
+
+                    }
+                    DataGridViewImageCell imgCell = new DataGridViewImageCell();
+                    imgCell.Value = cell.Img;
+                    grid.Rows[cell.Positon.X].Cells[cell.Positon.Y] = imgCell;
+                    grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.Black;
+                }
+            }
+            else
+            {
+                foreach (Cell cell in Cells)
+                {
+                    DataGridViewImageCell imgCell = new DataGridViewImageCell();
+                    imgCell.Value = cell.Img;
+                    grid.Rows[cell.Positon.X].Cells[cell.Positon.Y] = imgCell;
+                    if (!cell.Alive)
+                    {
+                        grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.Red;
+                        ShowDeadCells(grid, cell.Positon);
+                    }
+                }
+            }
+        }
+
         public void enemyShipsDraw(DataGridView grid)
         {
             if (Destroyed())
@@ -205,6 +253,63 @@ namespace BattleShip.Model
                     }
                 }
             }
+        }
+
+        public void enemyShipsDrawFOFB(DataGridView grid, List<Ship> ships)
+        {
+            if (Destroyed())
+            {
+                foreach (Point point in viewPoints)
+                {
+                    if (point.X >= 0 && point.X < gridSize && point.Y >= 0 && point.Y < gridSize)
+                    {
+                        if (!Cells.Exists(cell => cell.Positon.Equals(point)))
+                        {
+                            DataGridViewImageCell imgCell = new DataGridViewImageCell();
+                            string file = string.Format("_{0}", GetShipCount(point.X, point.Y, ships));
+                            imgCell.Value = Properties.Resources.ResourceManager.GetObject(file);
+                            grid.Rows[point.X].Cells[point.Y] = imgCell;
+                        }
+                    }
+                }
+                foreach (Cell cell in Cells)
+                {
+
+                    DataGridViewImageCell imgCell = new DataGridViewImageCell();
+                    if (!cell.ChangedOpacity)
+                    {
+                        double opacity = 0.6;
+                        cell.Opacity((float)opacity);
+                        cell.ChangedOpacity = true;
+                    }
+                    imgCell.Value = cell.Img;
+
+                    grid.Rows[cell.Positon.X].Cells[cell.Positon.Y] = imgCell;
+                    grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.Black;
+                }
+            }
+            else
+            {
+                foreach (Cell cell in Cells)
+                {
+                    if (!cell.Alive)
+                    {
+                        grid.Rows[cell.Positon.X].Cells[cell.Positon.Y].Style.BackColor = Color.Red;
+                        ShowDeadCells(grid, cell.Positon);
+                    }
+                }
+            }
+        }
+        public int GetShipCount(int x, int y, List<Ship> ships)
+        {
+            int count = 0;
+            foreach (Ship ship in ships)
+            {
+                if (ship.Cells[0].Positon.X == x || ship.Cells[0].Positon.Y == y)
+                    count++;
+            }
+
+            return count;
         }
 
         public bool ExistPosition(Point position)
