@@ -28,13 +28,17 @@ namespace BattleShip
         ComputerController computer;
         Point startedPosition;
         Point shotPosition;
-        private static int i = 0;
+        public int gridSize;
 
         public static bool MuteClicked { get; set; }
         private bool saved = false;
 
         public Game()
         {
+            //Grid stuff
+            gridSize = 10;
+            
+            
             DoubleBuffered = true;
             Turn = true;
             InitializeComponent();
