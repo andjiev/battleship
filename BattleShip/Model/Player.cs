@@ -21,7 +21,6 @@ namespace BattleShip.Controller
         public List<Point> positions;
         public List<Point> missedPositions;
         public Ship selected;
-        public int gridSize;
 
         public int turn;
         public List<GameMode> activeGameModes;
@@ -60,8 +59,8 @@ namespace BattleShip.Controller
             grid.ColumnCount = gridSize; ;
             for (int i = 0; i < gridSize; i++)
             {
-                grid.Rows[i].Height = 360/gridSize;
-                grid.Columns[i].Width = 360/gridSize;
+                grid.Rows[i].Height = 360 / gridSize;
+                grid.Columns[i].Width = 360 / gridSize;
             }
         }
 
@@ -96,8 +95,14 @@ namespace BattleShip.Controller
                         Ship.View type = (Ship.View)new Random().Next(2);
                         Point position = positions[index];
 
-                        Ship primary = new Ship(i + 1, Color.Blue, position, type);
-                        if (ships.Exists(ship => ship.ExistShip(primary)))
+
+
+                        Ship primary = new Ship(i + 1, Color.Blue, position, type, gridSize);
+                        if (/*isPlayer && */ships.Exists(ship => ship.ExistShip(primary)))
+
+                        //Ship primary = new Ship(i + 1, Color.Blue, position, type);
+                        //if (ships.Exists(ship => ship.ExistShip(primary)))
+
                         {
                             primary.ChangePosition(position);
                         }

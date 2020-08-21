@@ -26,6 +26,7 @@ namespace BattleShip.Controller
             LEFT
         }
         private Direction direction;
+
         public PlayerController(List<GameMode> gameModes) : base(gameModes)
         {
             isPlayer = true;
@@ -36,6 +37,8 @@ namespace BattleShip.Controller
         public void ShowShips(DataGridView grid)
         {
             ships.ForEach(ship => ship.ShowShip(grid));
+            // if FOFB do instead of line above
+            // ships.ForEach(ship => ship.ShowShipFOFB(grid, ships));
         }
 
         public void ShowSelectedShip(DataGridView grid)
@@ -338,6 +341,11 @@ namespace BattleShip.Controller
         {
             DataGridViewImageCell imgCell = new DataGridViewImageCell();
             imgCell.Value = Properties.Resources.dotImage;
+
+            // if FOFB do this instead of line above
+            //string file = string.Format("_{0}", GetShipCount(position));
+            //imgCell.Value = Properties.Resources.ResourceManager.GetObject(file);
+
             grid.Rows[position.X].Cells[position.Y] = imgCell;
             missedPositions.Add(position);
             System.Media.SoundPlayer sound = new System.Media.SoundPlayer(Properties.Resources.miss);
@@ -351,6 +359,19 @@ namespace BattleShip.Controller
             }
             found = false;
         }
+
+        public int GetShipCount(Point position)
+        {
+            int count = 0;
+            foreach (Ship ship in ships)
+            {
+                if (ship.Cells[0].Positon.X == position.X || ship.Cells[0].Positon.Y == position.Y)
+                    count++;
+            }
+
+            return count;
+        }
+
         public void removeMissed(DataGridView dgv)
         {
             foreach (Point p in missedPositions)
