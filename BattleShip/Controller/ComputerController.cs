@@ -12,32 +12,11 @@ namespace BattleShip.Controller
     [Serializable]
     class ComputerController : Player
     {
-        public ComputerController(int gridSize) : base(gridSize)
+        public ComputerController(List<GameMode> gameModes) : base(gameModes)
         {
-            //gridSize = 10;
             isPlayer = false;
             Random();
         }
-
-            
-        //    grid.ClearSelection();
-        //}
-
-        //public void RemoveDeadPoints(Point position)
-        //{
-        //    positions.Remove(new Point { X = position.X - 1, Y = position.Y - 1 });
-        //    positions.Remove(new Point { X = position.X - 1, Y = position.Y + 1 });
-        //    positions.Remove(new Point { X = position.X + 1, Y = position.Y - 1 });
-        //    positions.Remove(new Point { X = position.X + 1, Y = position.Y + 1 });
-        //}
-
-        //public void RemoveDeadShip(/*Ship selected*/)
-        //{
-        //    foreach (Point point in selected.viewPoints)
-        //    {
-        //        positions.Remove(point);
-        //    }
-        //}
 
         public bool Shoot(Point position, DataGridView grid)
         {
@@ -115,15 +94,6 @@ namespace BattleShip.Controller
             return count;
         }
 
-        //public void UpdateMissed(DataGridView grid)
-        //{
-        //    foreach (Point position in missedPositions)
-        //    {
-        //        DataGridViewImageCell imgCell = new DataGridViewImageCell();
-        //        imgCell.Value = Properties.Resources.dotImage;
-        //        grid.Rows[position.X].Cells[position.Y] = imgCell;
-        //    }
-        //}
 
         public void ShowShips(DataGridView grid)
         {
@@ -136,58 +106,5 @@ namespace BattleShip.Controller
             ships.ForEach(ship => ship.ShowShip(grid));
         }
 
-        //public bool Won() {
-
-        //    return ships.All(ship => ship.Destroyed());
-        //}
-       
-
-        //public void Random()
-        //{
-        //    ships = new List<Ship>();           
- 
-        //    bool picked = false;
-        //    for (int i = 4; i >= 0; i--)
-        //    {
-        //        for (int j = 0; j < amounts[i]; j++)
-        //        {
-        //            while (!picked)
-        //            {
-        //                int index = new Random().Next(positions.Count);
-        //                Ship.View type = (Ship.View)new Random().Next(2);
-        //                Point position = positions[index];
-        //                
-        //                if (position == new Point(0, 0))
-        //                    continue;
-        //
-        //                Ship primary = new Ship(i + 1, Color.Blue, position, type);
-        //                if (!ships.Exists(ship => ship.ExistShip(primary)))
-        //                {
-        //                        ships.Add(primary);
-        //                        picked = true;
-        //                        RemovePositions(primary);
-        //                }                        
-        //            }
-        //            picked = false;
-        //        }
-        //    }
-        //    positions = new List<Point>();
-        //    for (int i = 0; i < 10; i++)
-        //    {
-        //        for (int j = 0; j < 10; j++)
-        //        {
-        //            positions.Add(new Point { X = i, Y = j });
-        //        }
-        //    }
-        //}
-
-
-        //private void RemovePositions(Ship primary)
-        //{
-        //    foreach (Point point in primary.viewPoints)
-        //    {
-        //        positions.Remove(point);
-        //    }
-        //}
     }
 }
