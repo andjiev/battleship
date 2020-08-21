@@ -1,12 +1,15 @@
 ﻿using BattleShip.Model;
+using BattleShip.View;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static BattleShip.Game;
 
 namespace BattleShip.Controller
 {
@@ -18,12 +21,21 @@ namespace BattleShip.Controller
         public List<Point> positions;
         public List<Point> missedPositions;
         public Ship selected;
-        public static int gridSize = 10;
+        public int gridSize;
+
+        public int turn;
+        public List<GameMode> activeGameModes;
 
         protected bool isPlayer;
         
-        public Player()
+
+        public Player(List<GameMode> gameModes)
         {
+            this.turn = 0;
+            this.activeGameModes = gameModes;
+
+            this.gridSize = activeGameModes.Contains(GameMode.BIGBOARD) ? 20 : 10;
+
             this.amounts = new List<int>();
             this.positions = new List<Point>();
             this.missedPositions = new List<Point>();
@@ -48,14 +60,9 @@ namespace BattleShip.Controller
             grid.ColumnCount = gridSize; ;
             for (int i = 0; i < gridSize; i++)
             {
-                grid.Rows[i].Height = 36;
-                grid.Columns[i].Width = 36;
+                grid.Rows[i].Height = 360/gridSize;
+                grid.Columns[i].Width = 360/gridSize;
             }
-
-            //if (!isPlayer)
-            //{
-            //    grid.ClearSelection();
-            //}
         }
 
         public void RemoveDeadPoints(Point position)
@@ -89,12 +96,8 @@ namespace BattleShip.Controller
                         Ship.View type = (Ship.View)new Random().Next(2);
                         Point position = positions[index];
 
-                        //if(!isPlayer && position == new Point(0,0)){
-                        //    continue;
-                        //}
-
                         Ship primary = new Ship(i + 1, Color.Blue, position, type);
-                        if (/*isPlayer && */ships.Exists(ship => ship.ExistShip(primary)))
+                        if (ships.Exists(ship => ship.ExistShip(primary)))
                         {
                             primary.ChangePosition(position);
                         }
@@ -119,7 +122,6 @@ namespace BattleShip.Controller
             }
         }
 
-
         private void RemovePositions(Ship primary)
         {
             foreach (Point point in primary.viewPoints)
@@ -137,8 +139,6 @@ namespace BattleShip.Controller
                 grid.Rows[position.X].Cells[position.Y] = imgCell;
             }
         }
-
-
 
         public bool Won()
         {
