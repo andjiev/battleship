@@ -28,6 +28,7 @@ namespace BattleShip
         ComputerController computer;
         Point startedPosition;
         Point shotPosition;
+        private static int i = 0;
         public int gridSize;
 
         public static bool MuteClicked { get; set; }
