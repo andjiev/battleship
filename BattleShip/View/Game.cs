@@ -18,6 +18,16 @@ using BattleShip.View;
 
 namespace BattleShip
 {
+    public enum GameMode
+    {
+        SUNKINSILENCE,
+        MOVABLESHIPS,
+        SPEEDYRULES,
+        SALVO,
+        FOGOVERFISHERBANK,
+        BIGBOARD
+    }
+
     partial class Game : Form
     {
         bool GameStarted;
@@ -32,22 +42,27 @@ namespace BattleShip
         private static int i = 0;
         public int gridSize;
 
+
         public static bool MuteClicked { get; set; }
         private bool saved = false;
 
         public Game()
         {
+            List<GameMode> gameModes = new List<GameMode>
+            {
+                GameMode.MOVABLESHIPS
+            };
+
             //Grid stuff
             gridSize = 10;
-            
-            
             DoubleBuffered = true;
             Turn = true;
             InitializeComponent();
-            player = new PlayerController();
+            player = new PlayerController(gameModes);
+            player.dgvPlayer = dgvPlayer;
             isFinished = false;
             score = 0;
-            computer = new ComputerController();
+            computer = new ComputerController(gameModes);
             dgvPlayer.DoubleBuffered(true);
             dgvComputer.DoubleBuffered(true);
             GameStarted = false;
@@ -87,7 +102,7 @@ namespace BattleShip
             dgvPlayer.Enabled = false;
             MuteClicked = state.Mute;
             CheckIcon();
-        }      
+        }
 
         public void ShowPlayerView()
         {
@@ -173,6 +188,7 @@ namespace BattleShip
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+            //this is where the board locks up
             player.DisableCells(dgvPlayer);
             player.ShowShips(dgvPlayer);
             ComputerTimer.Start();
