@@ -14,6 +14,7 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.InteropServices;
 using System.Reflection;
+using BattleShip.View;
 
 namespace BattleShip
 {
@@ -288,10 +289,11 @@ namespace BattleShip
 
         private void dgvComputer_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
+            GameModeForm gameModeForm = new GameModeForm();
             if (GameStarted)
             {
                      shotPosition = new Point { X = e.RowIndex, Y = e.ColumnIndex };
-                     if (i >= 3)
+                     if (i >= 3 && GameModeForm.items.Contains(""))
                      {
                         computer.Shoot(shotPosition, dgvComputer);
                          Turn = false;
